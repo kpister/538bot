@@ -1,0 +1,6 @@
+openai==0.27.0
+openai-whisper
+click
+black
+langchain
+chromadb
