@@ -1,0 +1,2252 @@
+WEBVTT
+
+01:30.960 --> 01:38.640
+That's gonna be really unfortunate for the rest of this class. Alright guys, so
+
+01:38.640 --> 01:45.680
+as hopefully all of you know, midterm is postponed to not this Wednesday but next
+
+01:45.680 --> 01:53.960
+Monday. That means you get an extra four days to study, I think. That is entirely
+
+01:53.960 --> 01:59.880
+my fault for over, like, over planning the semester. Things are going a little bit
+
+01:59.880 --> 02:04.400
+slower. That's fine. I don't want to test you on type inference when we haven't
+
+02:04.400 --> 02:10.640
+talked enough about type inference. That's just not fair. So what we're gonna
+
+02:10.640 --> 02:17.880
+do today is talk about types and type inference. Homeworks and PA... Homework 4,
+
+02:17.880 --> 02:23.120
+PA 4, both were delayed to this upcoming Sunday as well, in case you didn't see
+
+02:23.120 --> 02:30.240
+that. Those are the notes. Anybody have questions about that stuff? Any logistics
+
+02:30.240 --> 02:34.000
+questions? Yeah?
+
+02:34.000 --> 02:37.920
+Is there going to be any PA 5 this week?
+
+02:37.920 --> 02:46.400
+No PA 5 this week. No PA 5 next week either. Yeah. So we're... I'm swapping things
+
+02:46.400 --> 02:50.840
+around a little bit. Everything will be in your favor. You guys as students will
+
+02:50.840 --> 02:57.040
+enjoy the fact that you won't have as much work altogether. Maybe. Or you'll be
+
+02:57.040 --> 03:02.120
+sad that we miss out on a few extra fun lectures at the end. Everything's a give
+
+03:02.120 --> 03:03.120
+and take. Yeah?
+
+03:03.120 --> 03:07.880
+So if PA 5 is delayed another week, is it due during spring break?
+
+03:07.880 --> 03:13.840
+No, no, no. Spring break. No work. Nothing. So next week is Monday's midterm. Wednesday
+
+03:13.840 --> 03:20.280
+is going to be a lecture about PL in research and, like, why are we talking
+
+03:20.280 --> 03:25.280
+about all of this stuff? And how does this actually play into what, like, real
+
+03:25.280 --> 03:30.960
+world looks like? And then spring break, no homework, no projects, nothing. We
+
+03:30.960 --> 03:35.400
+come back from spring break, we're going to start talking about generics. And
+
+03:35.400 --> 03:42.560
+how type classes work. How C++ does things. Things of that nature. Yeah.
+
+03:42.560 --> 03:48.000
+That's the roadmap.
+
+03:48.000 --> 03:58.600
+Any other logistics? All right. Cool. So Wednesday is review. We're going to be
+
+03:58.600 --> 04:02.880
+doing entirely review for the midterm. We will be doing lambda calculus, we'll be
+
+04:02.880 --> 04:07.400
+doing closures, we'll be doing types. All of that good stuff. For now, we're just
+
+04:07.400 --> 04:10.440
+talking about types.
+
+04:10.440 --> 04:13.440
+What is the type of this expression?
+
+04:13.440 --> 04:15.440
+Yeah?
+
+04:15.880 --> 04:17.880
+Yeah.
+
+04:17.880 --> 04:27.600
+What's the type of the result of this expression? Yeah. No, I think I was ambiguous
+
+04:27.600 --> 04:34.280
+there. It's an int. This expression will evaluate to be an integer. That seems
+
+04:34.280 --> 04:38.880
+reasonable. At least within our micro Haskell. Maybe you could argue it's like
+
+04:38.880 --> 04:42.840
+number. It's of type number. We could be adding floats or something. But not in
+
+04:42.840 --> 04:45.800
+micro Haskell.
+
+04:45.800 --> 04:49.320
+How do we know that this is of type integer? That the result is going to be of
+
+04:49.320 --> 04:50.320
+type integer?
+
+04:50.320 --> 04:51.320
+Yeah.
+
+04:51.320 --> 05:16.520
+Yeah, so we know that the plus operator takes two numbers and it returns a
+
+05:16.520 --> 05:20.640
+number. And if one of the numbers is an integer, then all of the numbers will
+
+05:20.640 --> 05:25.800
+be integers. In micro Haskell, we know plus operates on integers. We only have
+
+05:25.800 --> 05:28.680
+integers.
+
+05:28.680 --> 05:35.760
+So what we can do to make it a little bit more explicit, we can say let y equal
+
+05:35.760 --> 05:40.560
+2 plus x. And then we would say, like, this is just JavaScript, right? I'm not
+
+05:40.560 --> 05:47.360
+really talking about Haskell here. Let y equal 2 plus x. What is the type of y?
+
+05:47.360 --> 05:58.480
+We've said it's an integer.
+
+05:58.480 --> 06:01.920
+This is a very simple expression. There's not a lot of complicated stuff going
+
+06:01.920 --> 06:06.440
+on there. So it should be relatively straightforward to look at this and say
+
+06:06.440 --> 06:11.880
+what's the type of it? But not all expressions are simple. Functions can be
+
+06:11.880 --> 06:16.840
+very complicated. But they still want to have a type signature. They still take
+
+06:16.840 --> 06:21.240
+input and return output. And you want to be able to figure out how does input
+
+06:21.240 --> 06:24.160
+correspond to output?
+
+06:24.160 --> 06:27.560
+So we're starting with a simple example. But everything that we're going to talk
+
+06:27.560 --> 06:34.040
+about applies to more complicated functions.
+
+06:34.040 --> 06:38.960
+And this process that we have done here, mentally, the compiler somehow has to
+
+06:38.960 --> 06:45.880
+do. We have to get our interpreter or compiler to understand our expressions so
+
+06:45.880 --> 06:52.920
+that we can figure out their types and verify your code as being error free.
+
+06:52.920 --> 06:57.920
+The process for doing that I described last time as the Hindley-Milner type
+
+06:57.920 --> 07:03.000
+inference algorithm. And the algorithm breaks down into five steps.
+
+07:03.000 --> 07:08.400
+Step one is parse the program. Where you break apart the literal text to find
+
+07:08.400 --> 07:13.280
+out what is going on in this program. Step two, we assign arbitrary type
+
+07:13.280 --> 07:18.640
+variables to all of our nodes. Step three, we look at the constraints from
+
+07:18.640 --> 07:25.760
+our program. Step four, solve. And step five, look at your final type.
+
+07:25.760 --> 07:30.600
+We're gonna take this approach on a couple of programs today and see where it
+
+07:30.600 --> 07:40.560
+gets us. So let's start with the first example. We had... I think it's fx equals
+
+07:40.560 --> 07:48.080
+2 plus x. Now we're in Haskell. We have a function that we have called f.
+
+07:48.080 --> 07:55.800
+It takes a parameter called x, and it returns the result 2 plus x.
+
+07:55.800 --> 07:58.520
+What do we expect the type to be?
+
+08:11.320 --> 08:15.000
+How many of you are just being quiet and know the answer, but you just don't
+
+08:15.000 --> 08:22.280
+want to answer? Okay. A decent number of you.
+
+08:22.280 --> 08:28.640
+This... Being able to look at this function and intuit the type and just say,
+
+08:28.640 --> 08:34.240
+like, this is the type, not really for any specific reason, is an important,
+
+08:34.240 --> 08:40.400
+like, skill to have. So you... I do, to some extent, expect you to be able
+
+08:40.400 --> 08:47.040
+to look at a function and say, this is a type of this. So if that feels
+
+08:47.040 --> 08:51.120
+uncomfortable, that's okay. But get some more practice with it,
+
+08:51.120 --> 08:54.280
+and hopefully this will help. So someone who is comfortable,
+
+08:54.280 --> 08:58.240
+what type is this function? Yeah?
+
+08:58.240 --> 09:05.160
+It's a function that takes an integer, and it returns an integer.
+
+09:05.160 --> 09:11.920
+So we have int to int. What we're saying here is the arrow denotes
+
+09:11.920 --> 09:19.560
+that it's a function. It has an input of an integer and an output of an integer.
+
+09:19.560 --> 09:23.520
+So we are going to go through this whole step, 1, 2, 3, 4, 5.
+
+09:23.520 --> 09:29.040
+If we don't get this result at the end, we've probably done something wrong.
+
+09:29.040 --> 09:32.960
+I want to emphasize, when I, like, give you a test and say,
+
+09:32.960 --> 09:36.640
+solve for the type of this thing, you are allowed to look at it and say,
+
+09:36.640 --> 09:41.960
+as a human, I know the type should be this to this. That's not cheating.
+
+09:41.960 --> 09:46.560
+That's just, like, using common sense. Then do the algorithm and prove that it
+
+09:46.560 --> 09:50.640
+is that to that. That's the important, like,
+
+09:50.640 --> 09:57.840
+understanding connection piece. Okay. So we have the type that we think it is.
+
+09:57.840 --> 10:04.800
+And now we want to prove it. Our first step is to parse the program.
+
+10:04.800 --> 10:14.120
+How do we parse the program? What does that even mean? Yeah?
+
+10:14.120 --> 10:28.960
+Yes, we're going to split up the literal text of our code into nodes.
+
+10:28.960 --> 10:34.840
+What are we going to do then? So let's talk about what a parser is.
+
+10:34.840 --> 10:42.840
+The parser reads this string of text from a text file, from a Haskell file,
+
+10:42.840 --> 10:48.440
+and it breaks it into tokens. It says I have an F token, I have an X token,
+
+10:48.440 --> 11:02.280
+I have an equals, I have a 2, I have a plus, and I have an X.
+
+11:02.280 --> 11:08.640
+This is the first step of the compiler. We're breaking apart.
+
+11:08.640 --> 11:14.400
+We're reading in the file and breaking it apart.
+
+11:14.400 --> 11:29.280
+What do we do then? Yeah, so we're going to use our grammar
+
+11:29.280 --> 11:35.840
+to build a tree that represents our program. The abstract syntax tree.
+
+11:35.840 --> 11:39.480
+We're going to look at each line of our program.
+
+11:39.480 --> 11:43.160
+This is one line. And we're going to say how can I match this
+
+11:43.160 --> 11:51.040
+against our grammar? And in doing so, the syntax tree just falls
+
+11:51.040 --> 11:54.720
+out. By matching it against the grammar, we know
+
+11:54.720 --> 12:01.760
+explicitly how all the nodes are connected. So, for example, we have a rule in our grammar
+
+12:01.760 --> 12:08.520
+that we can do an E plus an E. This is one of our rules from our grammar.
+
+12:08.520 --> 12:15.480
+You can add two expressions. We had another rule in our grammar that we
+
+12:15.480 --> 12:24.280
+could have a function name, a parameter, and then equals an expression.
+
+12:24.280 --> 12:34.520
+That was another one of the rules of our grammar.
+
+12:34.520 --> 12:40.320
+What's one more rule that we had in our grammar that we need to use to parse our program?
+
+12:40.320 --> 12:45.640
+Yeah? E is equal to E plus E.
+
+12:45.640 --> 12:52.120
+E is equal to E plus E. Yeah, so an expression can be equal to or
+
+12:52.120 --> 13:03.160
+is replaceable by an expression plus an expression.
+
+13:03.160 --> 13:09.480
+What else do we need? Yeah, terminal for E.
+
+13:09.480 --> 13:15.240
+So we can say that an expression can also be an integer.
+
+13:15.240 --> 13:31.040
+It could also be a variable. What other rule from our grammar do we need?
+
+13:31.040 --> 13:52.120
+What's kind of a subtle one that's remaining? I think this is actually a typo.
+
+13:52.120 --> 14:01.720
+I think it's an identifier is what I call it.
+
+14:01.720 --> 14:18.440
+What's the last thing we're missing? What can P be?
+
+14:18.440 --> 14:33.840
+What are we using it? How are we using it?
+
+14:33.840 --> 14:38.840
+It's not that it's an expression, actually. It's that it's an identifier.
+
+14:38.840 --> 14:48.240
+So it would be an invalid program to say 2 plus 3 equals X or something plus 2.
+
+14:48.240 --> 14:52.080
+Something of this sort. We can't have an arbitrary expression in
+
+14:52.080 --> 14:58.080
+our parameter side. But we can have identifiers.
+
+14:58.080 --> 15:04.240
+Okay. So we have some rules for our language.
+
+15:04.240 --> 15:09.160
+These are language level rules that say how can you write code?
+
+15:09.160 --> 15:15.360
+And if you use anything else outside of these rules, you're gonna get a syntax error.
+
+15:15.360 --> 15:20.240
+Your compiler will get mad at you, because it doesn't know how to parse your program.
+
+15:20.240 --> 15:28.520
+Okay. So let's use these rules and build a tree.
+
+15:28.520 --> 15:36.320
+At the top level, what's our first rule that we want to use?
+
+15:36.320 --> 15:40.920
+Generally you want to greedily match as much of the program as you can with your rule.
+
+15:40.920 --> 15:58.200
+So what should we use as our first rule? Yeah.
+
+15:58.200 --> 16:02.380
+We have this function with a parameter P is equal to an expression.
+
+16:02.380 --> 16:05.960
+This almost directly matches our entire code.
+
+16:05.960 --> 16:13.520
+So we can start drawing by saying we have our root node, which I've called function
+
+16:13.520 --> 16:19.480
+here. And it takes a name, the function name, which
+
+16:19.480 --> 16:25.000
+we have as F. It takes a parameter, which we don't know
+
+16:25.000 --> 16:30.200
+yet. And it takes an expression.
+
+16:30.200 --> 16:35.320
+Which we don't know yet. We've now started the process of building
+
+16:35.320 --> 16:46.360
+our abstract syntax tree. Going just from the left side arbitrarily,
+
+16:46.360 --> 16:53.360
+what can we replace our P with? Yeah.
+
+16:53.360 --> 17:03.320
+We can replace it with X. And this is valid to do, because X is an identifier.
+
+17:03.320 --> 17:08.760
+So we're using our P can be replaced with identifier rule.
+
+17:08.760 --> 17:15.960
+All right. This will get us into a little bit of trouble.
+
+17:15.960 --> 17:22.680
+But it's not too much of a big deal. We now have another hole in our tree.
+
+17:22.680 --> 17:28.760
+We have a generic expression. What can we do with that?
+
+17:28.760 --> 17:43.560
+Yeah. So we can turn it into the result of the
+
+17:43.560 --> 17:54.080
+plus operation on two expressions. And this is where I use the at sign to say
+
+17:54.160 --> 18:01.520
+it's the result of. The result of what expression?
+
+18:01.520 --> 18:10.000
+The result of the expression of... How do we want to do this?
+
+18:10.000 --> 18:19.000
+We can break our plus down into our prefix notation of plus EE with parentheses over
+
+18:19.200 --> 18:24.200
+here. And we're saying it's the result of the result
+
+18:24.200 --> 18:31.440
+of adding... What's our left-hand side?
+
+18:31.440 --> 18:38.360
+This is still an expression. And an expression.
+
+18:38.360 --> 18:43.600
+So because plus is a little bit complicated in that it takes two parameters, we need to
+
+18:43.720 --> 18:48.560
+denote that in some way. What we do here is we say it's the result
+
+18:48.560 --> 18:55.560
+of the result of adding expression... Adding an E to that expression.
+
+18:55.560 --> 19:02.560
+Okay. Now, what can we do with these two Es?
+
+19:13.840 --> 19:18.720
+Yeah. Substitute in two and X.
+
+19:18.720 --> 19:23.920
+Excellent. We have our last remaining tokens that we
+
+19:23.920 --> 19:30.600
+still need to use. They fit in with our E and E.
+
+19:30.600 --> 19:36.000
+And the result that we get out of this is a parse tree that tells us what is happening
+
+19:36.000 --> 19:41.080
+in this expression. We have a function with the name F and the
+
+19:41.080 --> 19:48.080
+input X. The result of it is the result of adding 2 to X.
+
+19:54.040 --> 19:59.040
+We have now accomplished step 1. We have parsed our program.
+
+19:59.040 --> 20:01.040
+Yeah?
+
+20:02.040 --> 20:16.120
+Yeah, so if we had a different function, FX equals X, the identity function, you take
+
+20:16.120 --> 20:22.840
+in something, you return something. Let's start parsing it using our rules.
+
+20:22.840 --> 20:29.440
+What's the first rule that we want to apply? Yeah.
+
+20:29.440 --> 20:32.500
+The function rule. All right? So we have a function node.
+
+20:32.500 --> 20:35.420
+That's our root node. And we have F.
+
+20:35.420 --> 20:39.800
+We have a P. And we have an E.
+
+20:39.800 --> 20:44.800
+What's P? Yeah.
+
+20:44.800 --> 20:48.920
+X. It's the identifier X.
+
+20:48.920 --> 20:53.880
+Just like before. Now we have E.
+
+20:53.880 --> 20:58.880
+What's E? Yeah.
+
+20:58.880 --> 21:03.280
+X. First of all, is this valid?
+
+21:03.280 --> 21:08.720
+Well, if we check our rules, we are allowed to replace an expression with an identifier.
+
+21:08.720 --> 21:11.600
+So it is valid. And then what does it mean?
+
+21:11.600 --> 21:15.560
+Well, it means we have a function that takes� that has the name F.
+
+21:15.560 --> 21:21.040
+It takes a parameter X. And it returns the value X.
+
+21:21.040 --> 21:28.980
+So the idea of this third node here is to say this is the return value of the function.
+
+21:28.980 --> 21:43.960
+The return value of this function is the result of adding to and X.
+
+21:43.960 --> 21:48.040
+We can do a type analysis on this one after we do that.
+
+21:49.040 --> 21:51.720
+Okay. So we finished step 1.
+
+21:51.720 --> 21:56.860
+Any more questions on step 1? It's a big step.
+
+21:56.860 --> 22:09.320
+It's often a hard step.
+
+22:09.320 --> 22:12.320
+You first, then you. Yeah.
+
+22:12.320 --> 22:16.880
+Oh, yeah, yeah. That's what's next.
+
+22:16.880 --> 22:19.880
+Any other questions first, though? Yeah.
+
+22:19.880 --> 22:28.880
+In Haskell, do all infix operators� are they all internally represented like that?
+
+22:28.880 --> 22:32.960
+Yeah. So can we always do this kind of, like, infix
+
+22:32.960 --> 22:36.180
+notation? No.
+
+22:36.180 --> 22:39.880
+But you can sometimes. And it's kind of just a special case.
+
+22:39.880 --> 22:46.320
+Yeah. But the step of rewriting it to prefix notation
+
+22:46.320 --> 22:52.440
+is an important first step for just for, like, visibility.
+
+22:52.440 --> 23:02.520
+All right. This is the first step of every compiler
+
+23:02.520 --> 23:06.480
+everywhere that's ever been written, that ever will be written.
+
+23:06.480 --> 23:14.440
+You need to figure out what does the code actually look like?
+
+23:14.440 --> 23:17.720
+Then what we are doing specifically is a type analysis.
+
+23:17.720 --> 23:24.840
+So let's assign type variables. And what that means is that we just give everything
+
+23:24.840 --> 23:33.360
+an arbitrary variable name. So we can call this one T0, T1, or tau1,
+
+23:33.360 --> 23:52.120
+tau2, tau3, tau1, because it's the same X. Or we could say it's tau4, tau5, and tau6.
+
+23:52.120 --> 23:57.180
+There's no, like, magic stuff happening here. This is just� we need to give everything
+
+23:57.180 --> 24:02.240
+a name so that we can talk about it. So we can reference it later.
+
+24:02.240 --> 24:06.880
+It's just like using normal variables in programming.
+
+24:06.880 --> 24:24.760
+All right. So we've done step 2. Oh, question.
+
+24:24.760 --> 24:27.580
+Do it however you want. We don't even have to call it tau.
+
+24:27.580 --> 24:30.840
+We don't have to start with 0. We do whatever we want.
+
+24:30.840 --> 24:36.720
+In fact, we will use a different letter in a minute.
+
+24:36.720 --> 24:40.040
+Yep. Okay.
+
+24:40.040 --> 24:48.040
+We're 40% of the way done. We have step 3, 4, and 5.
+
+24:48.040 --> 24:53.200
+Step 3. This is kind of the biggest� yeah, the biggest
+
+24:53.200 --> 24:57.340
+part of the algorithm. Add constraints.
+
+24:57.340 --> 25:02.740
+So we're going to look at our tree, and we're going to say, what constraints are there on
+
+25:02.740 --> 25:07.360
+the variables that we're using? On the type variables that we're using?
+
+25:07.360 --> 25:13.920
+What can we infer about the types? To start, we can do a pretty simple one.
+
+25:13.920 --> 25:21.060
+What do we know about tau1 and tau4? Yeah.
+
+25:21.060 --> 25:27.940
+Tau1 equals tau4. Nothing crazy there.
+
+25:27.940 --> 25:30.560
+It's the same identifier. X is equal to X.
+
+25:30.560 --> 25:39.020
+So the type of X is equal to the type of X. It seems obvious, but remember, you're a computer.
+
+25:39.020 --> 25:45.580
+You need to explicitly state everything so that you can do the final math.
+
+25:45.580 --> 25:53.980
+What do we know about tau0? Yeah.
+
+25:53.980 --> 26:01.500
+Tau0 is tau1 to tau2. And what that means is that it's a function
+
+26:01.500 --> 26:12.020
+that takes in tau1, and it returns tau2. Okay.
+
+26:12.020 --> 26:27.980
+What do we know about tau6? You guys are great.
+
+26:27.980 --> 26:31.300
+Someone who hasn't answered. What do we know about tau6?
+
+26:31.300 --> 26:40.540
+Yeah. It equals 2, but what's the type of it?
+
+26:40.540 --> 26:49.060
+It's an int. It has the value 2 and the type of int.
+
+26:49.060 --> 27:02.300
+How do we know that? Yeah.
+
+27:02.300 --> 27:05.620
+The plus operator. Yes and no.
+
+27:05.620 --> 27:07.860
+I mean, that kind of gets us back to the same question.
+
+27:07.860 --> 27:10.780
+How do we know that the plus operator works with ints?
+
+27:10.780 --> 27:18.180
+Yeah. Is int just our best guess?
+
+27:18.180 --> 27:20.180
+Is it the best guess? No.
+
+27:20.180 --> 27:27.620
+It's actually what we're told by our grammar. Plus works with ints in our grammar.
+
+27:27.620 --> 27:34.040
+2 is an integer in our grammar. MicroHaskell doesn't have floats.
+
+27:34.040 --> 27:38.640
+So it doesn't let you type check anything as a float.
+
+27:38.640 --> 27:44.200
+In Haskell, in real Haskell, you would look at this 2, and you would say, I don't know.
+
+27:44.200 --> 27:47.520
+That might be an integer. It might be a float.
+
+27:47.520 --> 27:54.320
+I'll tell you that it's a generic number, where it could be one of those two.
+
+27:54.320 --> 28:02.360
+Yeah. So here we know that 2 is an integer because we've been told, but it's not necessarily
+
+28:02.520 --> 28:04.680
+in another language.
+
+28:04.680 --> 28:13.280
+What else do we know? What's something else we can get from our tree? Yeah.
+
+28:13.280 --> 28:22.200
+So is tau3 an int? This kind of gets to the main question of how do we look at this chunk
+
+28:22.200 --> 28:27.480
+of the tree in general?
+
+28:27.480 --> 28:44.440
+What does that chunk represent? Yeah.
+
+28:44.440 --> 28:49.360
+The T5 takes in an int and outputs an int.
+
+28:49.360 --> 29:02.160
+How does that reckon with this part of the tree?
+
+29:02.160 --> 29:10.120
+I think the root of most misunderstanding is what is T3?
+
+29:10.120 --> 29:13.760
+What does that node mean? What does it represent?
+
+29:13.760 --> 29:21.040
+And once that piece makes sense, the other parts kind of fall into place.
+
+29:21.040 --> 29:28.280
+So if you're confused about what T3 is, that's fine. That's kind of the hard piece.
+
+29:28.280 --> 29:34.280
+But think about it this way. We have plus here.
+
+29:34.280 --> 29:40.000
+Plus is taking in an input of 2.
+
+29:40.000 --> 29:44.960
+If we know nothing else about the structure of this graph, plus is a function that's taking
+
+29:44.960 --> 29:49.400
+in input 2.
+
+29:49.400 --> 29:53.320
+Think about the same structure one level up.
+
+29:53.320 --> 30:00.280
+This node is a function that's taking in an input x.
+
+30:00.280 --> 30:02.800
+That's how we've read this structure.
+
+30:02.800 --> 30:08.360
+The left child is a node that takes in the right child as input.
+
+30:08.360 --> 30:09.400
+Same thing happening here.
+
+30:09.400 --> 30:11.320
+The left child is a node.
+
+30:11.320 --> 30:18.640
+It's a function that's taking in the input x.
+
+30:18.640 --> 30:24.800
+So if T3 were an int, can we pass it a value?
+
+30:24.800 --> 30:27.720
+Can we pass it an input parameter?
+
+30:27.720 --> 30:30.100
+No. Right?
+
+30:30.100 --> 30:36.760
+We can't call the number 3 with the value 7 or something like that.
+
+30:36.760 --> 30:42.160
+So our result here, T3, must be a function itself.
+
+30:42.160 --> 30:46.840
+Because it's taking a parameter.
+
+30:46.840 --> 30:56.720
+What do we know about the type of T5 from our grammar?
+
+30:56.720 --> 30:57.720
+You momentarily had your hand up, yeah.
+
+30:57.720 --> 31:09.880
+It does result in an int.
+
+31:09.880 --> 31:18.000
+When we, like, fully realize the potential of plus, what we get back is an integer.
+
+31:18.000 --> 31:20.920
+But how do we get that integer in the first place?
+
+31:20.920 --> 31:21.920
+Yeah?
+
+31:21.920 --> 31:24.120
+Right.
+
+31:24.120 --> 31:29.160
+We need two integers to be fed into plus in order to get one out.
+
+31:29.160 --> 31:32.760
+And that needs to be written as part of the type.
+
+31:32.760 --> 31:34.760
+So it takes one integer.
+
+31:34.760 --> 31:37.000
+It takes a second integer.
+
+31:37.000 --> 31:40.480
+And then it outputs an integer.
+
+31:40.480 --> 31:44.200
+It has two parameters, int, int.
+
+31:44.200 --> 31:47.800
+And it outputs an int.
+
+31:47.800 --> 31:50.840
+Okay.
+
+31:50.840 --> 31:54.400
+So that's what we know about T5.
+
+31:54.400 --> 31:57.160
+What else do we know about T5?
+
+31:57.160 --> 32:01.680
+Looking at the tree.
+
+32:01.680 --> 32:09.160
+Yeah?
+
+32:09.160 --> 32:11.880
+It takes in T6 and T4.
+
+32:11.880 --> 32:15.060
+So it definitely takes in T6.
+
+32:15.060 --> 32:19.560
+But I would say it doesn't directly take in T4.
+
+32:19.560 --> 32:24.020
+What it gives us back will take in T4.
+
+32:24.020 --> 32:29.560
+The result of taking in T6 takes in T4.
+
+32:29.560 --> 32:34.200
+Which is a little weird to, like, say.
+
+32:34.200 --> 32:39.240
+But what it means is that T5 is equal to int...
+
+32:39.240 --> 32:40.240
+Oh, wait.
+
+32:40.240 --> 32:41.240
+Sorry.
+
+32:41.240 --> 32:43.480
+We were talking about the Ts.
+
+32:43.480 --> 32:47.960
+Is equal to T6 to T3.
+
+32:48.400 --> 32:51.240
+T5 takes in T6.
+
+32:51.240 --> 32:58.520
+And it results in a node which takes in T4.
+
+32:58.520 --> 33:03.560
+And what does that node that it results in, that takes in T4, what does that one return?
+
+33:03.560 --> 33:12.240
+What does T3 give back to us?
+
+33:12.240 --> 33:13.960
+T2.
+
+33:13.960 --> 33:23.960
+So T3 takes in T4, and it outputs T2.
+
+33:23.960 --> 33:31.240
+The general rule that you can use here is that whenever you see a function application,
+
+33:31.240 --> 33:39.400
+the left-hand child is the, like, before the equals, that is a function from the right-hand
+
+33:39.400 --> 33:42.680
+child to the top node.
+
+33:42.680 --> 33:43.680
+From the input to the result.
+
+33:43.680 --> 33:44.680
+Yeah?
+
+33:44.680 --> 33:45.680
+What does application or the app represent in, like, for example, representing T2 and
+
+33:45.680 --> 33:46.680
+T3 in a little function?
+
+33:46.680 --> 33:47.680
+Like, T5 equals T6 to T3.
+
+33:47.680 --> 34:02.280
+What is, like, that application representing?
+
+34:02.280 --> 34:12.680
+It's the� so the application node represents the result of applying the input to the output.
+
+34:12.680 --> 34:22.040
+So this piece here, if we called F of 6, for example, this piece here would have the value
+
+34:22.040 --> 34:24.420
+8.
+
+34:24.420 --> 34:26.240
+The value is 8.
+
+34:26.240 --> 34:31.680
+The type will be T2, which will figure out to be an integer.
+
+34:31.680 --> 34:34.040
+Yeah.
+
+34:34.040 --> 34:35.040
+You first.
+
+34:35.040 --> 34:36.040
+Yeah.
+
+34:36.040 --> 34:37.040
+Yeah.
+
+34:37.040 --> 34:48.600
+So that sounds right.
+
+34:48.600 --> 34:51.320
+So top node is result.
+
+34:51.320 --> 34:54.000
+Left node is operation.
+
+34:54.000 --> 34:56.440
+Right node is parameter.
+
+34:56.440 --> 34:57.440
+Here as well.
+
+34:57.440 --> 34:59.680
+Top node is result.
+
+34:59.680 --> 35:01.760
+Left node is operation.
+
+35:01.760 --> 35:03.440
+Right node is parameter.
+
+35:03.440 --> 35:10.880
+So how does that apply to the first one, the function?
+
+35:10.880 --> 35:13.800
+So the function is the result.
+
+35:13.800 --> 35:17.680
+The thing that we are defining is the result.
+
+35:17.680 --> 35:23.960
+And it has these pieces to it.
+
+35:23.960 --> 35:30.440
+Where� so it's important to note, these are different parts of our grammar.
+
+35:30.440 --> 35:34.080
+This is a function declaration piece of our grammar.
+
+35:34.080 --> 35:38.600
+This is an expression, like, evaluation piece of our grammar.
+
+35:38.600 --> 35:39.600
+And they mean different things.
+
+35:39.600 --> 35:53.400
+We could.
+
+35:53.400 --> 36:02.200
+We could structure this slightly differently and get rid of this and call this T0.
+
+36:02.200 --> 36:10.640
+But it's not the case that T1 is a function from T2 to T0 or something like that.
+
+36:10.640 --> 36:18.440
+So we structure it differently because they represent different constructs in our language.
+
+36:18.440 --> 36:25.040
+And so we can have different types of nodes to represent different things.
+
+36:25.040 --> 36:31.300
+It's very common to treat� like, to have a function node in your compiler and to have
+
+36:31.300 --> 36:36.300
+an expression node in your compiler that you have different optimizations for, they're
+
+36:36.300 --> 36:38.860
+used in different ways.
+
+36:38.860 --> 36:39.860
+Very common.
+
+36:39.860 --> 36:40.860
+Yeah.
+
+36:40.860 --> 36:41.860
+There was another question.
+
+36:41.860 --> 36:53.420
+Yeah, so when you're splitting the tree, like, you start to pick up the top of the output
+
+36:53.420 --> 37:04.420
+and just put it to, like, parameters and whatever, but what if you had, like� I guess, what
+
+37:04.420 --> 37:16.260
+type of list of X or whatever, would you split that also into, like, a list of X or parameters?
+
+37:16.260 --> 37:19.100
+Hopefully we will have time to do this problem.
+
+37:19.100 --> 37:23.180
+And I think that might address some� this is also potentially on the homework.
+
+37:23.180 --> 37:24.500
+I'm not sure if it is.
+
+37:24.500 --> 37:25.660
+If it is, great.
+
+37:25.660 --> 37:29.900
+That's free points for anyone watching the lecture or showing up to class.
+
+37:29.900 --> 37:30.900
+You guys are great.
+
+37:30.900 --> 37:31.900
+Okay.
+
+37:31.900 --> 37:32.900
+But where were we?
+
+37:32.980 --> 37:33.980
+Where were we?
+
+37:33.980 --> 37:34.980
+Actually, any other questions?
+
+37:34.980 --> 37:35.980
+Before we keep going?
+
+37:35.980 --> 37:36.980
+Yeah?
+
+37:36.980 --> 37:45.980
+So, now, when you just wrote out tau5 equals int to int to int, is that something that
+
+37:45.980 --> 37:52.980
+you inferred from, like�
+
+37:52.980 --> 38:00.940
+Yeah, so we get T5� or tau5 and tau6, both of these are from our grammar.
+
+38:00.940 --> 38:05.380
+We know that plus is int to int to int because of the grammar specifically.
+
+38:05.380 --> 38:10.980
+If we didn't know that, we wouldn't be able to solve the rest of this problem.
+
+38:10.980 --> 38:12.860
+Yeah.
+
+38:12.860 --> 38:15.780
+Or we would, but we'd get a different answer.
+
+38:15.780 --> 38:16.780
+Okay.
+
+38:16.780 --> 38:21.500
+So we've done number three now.
+
+38:21.500 --> 38:22.500
+Unless I'm missing something.
+
+38:22.500 --> 38:25.500
+Are there any other constraints that we can generate?
+
+38:25.500 --> 38:33.180
+Yeah, we do know� so we know tau5 is int to int to int.
+
+38:33.180 --> 38:37.740
+We also know tau5 is tau6 to tau3.
+
+38:37.740 --> 38:43.180
+We know tau5 is tau6 to tau3 because of this triangle here.
+
+38:43.180 --> 38:44.180
+This subtree.
+
+38:44.180 --> 38:47.860
+And we know that it's int to int to int because of our grammar.
+
+38:47.860 --> 38:48.860
+Yeah.
+
+38:48.860 --> 38:49.860
+So there are two.
+
+38:49.860 --> 38:50.860
+Yeah?
+
+38:50.860 --> 39:05.420
+Would it matter?
+
+39:05.420 --> 39:12.860
+Yeah, so the order that we generate these in is kind of arbitrary.
+
+39:12.860 --> 39:17.420
+So long as you visit all of your nodes in your tree, you're gonna come up with the same
+
+39:17.420 --> 39:18.980
+set.
+
+39:19.700 --> 39:23.820
+And if you want to go top down or keep track of all your leaves and go bottom up, either
+
+39:23.820 --> 39:25.460
+one's fine.
+
+39:25.460 --> 39:31.140
+One might be more efficient for some types of trees.
+
+39:31.140 --> 39:36.260
+Okay.
+
+39:36.260 --> 39:38.020
+We're on to number four.
+
+39:38.020 --> 39:41.500
+Which is solving the constraints.
+
+39:41.500 --> 39:43.940
+Now this is just math class.
+
+39:43.940 --> 39:48.460
+It's doing the transitive property repeatedly.
+
+39:48.460 --> 39:53.580
+We have a bunch of equations.
+
+39:53.580 --> 39:58.540
+And we can just replace one with the other wherever we say that they're equal.
+
+39:58.540 --> 40:07.500
+So we know, for example, that tau6 is an int.
+
+40:07.500 --> 40:12.540
+How can we use that information in our other constraints?
+
+40:20.540 --> 40:21.540
+Yeah?
+
+40:21.540 --> 40:24.140
+Wherever tau6 appears, replace it with int.
+
+40:24.140 --> 40:26.220
+Wherever tau6 appears, replace it with int.
+
+40:26.220 --> 40:27.220
+Great.
+
+40:27.220 --> 40:29.180
+Where does it appear?
+
+40:29.180 --> 40:32.220
+In tau5.
+
+40:32.220 --> 40:37.780
+So what this means is that we can add another constraint to our list of constraints.
+
+40:37.780 --> 40:45.260
+Which is that tau5 is equal to int to tau3.
+
+40:45.260 --> 40:52.820
+Now we have another constraint.
+
+40:52.820 --> 40:58.580
+What else can we say about our program?
+
+40:58.580 --> 41:00.740
+Tau3 is int to int.
+
+41:00.860 --> 41:02.860
+How do we know that?
+
+41:10.860 --> 41:11.860
+Great.
+
+41:11.860 --> 41:14.820
+So if we look at tau5 is int to int to int.
+
+41:14.820 --> 41:18.660
+And tau5 is also int to tau3.
+
+41:18.660 --> 41:23.420
+Then we know that tau3 is int to int.
+
+41:23.420 --> 41:25.100
+Great.
+
+41:25.100 --> 41:32.180
+So we can add that one.
+
+41:32.180 --> 41:35.380
+What else do we know?
+
+41:47.380 --> 41:50.380
+Go for it.
+
+41:50.380 --> 41:51.700
+Tau1 is an int.
+
+41:51.700 --> 41:54.380
+How do we know that tau1 is an int?
+
+41:54.660 --> 42:01.660
+Tau3 is equal to tau4 to tau2.
+
+42:01.660 --> 42:03.980
+And tau3 is also int to int.
+
+42:03.980 --> 42:09.100
+Therefore, we know tau4 is int.
+
+42:09.100 --> 42:13.500
+Which is also tau1, because of this rule.
+
+42:13.500 --> 42:16.140
+And we also know tau2 is an int.
+
+42:16.140 --> 42:17.660
+By the same logic.
+
+42:17.660 --> 42:18.660
+Great.
+
+42:18.660 --> 42:23.860
+Tau2 is an int.
+
+42:23.860 --> 42:27.340
+We've got so many constraints now.
+
+42:27.340 --> 42:33.260
+Can we figure out our function definition type?
+
+42:33.260 --> 42:36.820
+What is our function definition type?
+
+42:36.820 --> 42:38.020
+Tau0.
+
+42:38.020 --> 42:40.340
+And what's tau0 equal to?
+
+42:40.340 --> 42:42.380
+Yeah.
+
+42:42.380 --> 42:43.380
+Int to int.
+
+42:43.380 --> 42:46.260
+We know that tau0 is tau1 to tau2.
+
+42:46.260 --> 42:48.300
+Tau1, we've just said, is an int.
+
+42:48.300 --> 42:50.460
+Tau2, we've just said, is an int.
+
+42:50.460 --> 42:59.220
+So our final type, tau0, is of type int to int.
+
+42:59.220 --> 43:00.580
+Done.
+
+43:00.580 --> 43:01.380
+Step five.
+
+43:01.380 --> 43:01.880
+Relax.
+
+43:04.740 --> 43:07.780
+When we compare against our initial intuition, great.
+
+43:07.780 --> 43:08.540
+We got it correct.
+
+43:13.740 --> 43:19.060
+So 1 through 5, we've done it on one program.
+
+43:20.540 --> 43:23.580
+With 7 characters.
+
+43:23.580 --> 43:24.380
+6 characters.
+
+43:29.380 --> 43:32.180
+Your compiler does this for every line of code
+
+43:32.180 --> 43:33.940
+that you have in Haskell.
+
+43:33.940 --> 43:36.620
+It's figuring out what are the types of the variables
+
+43:36.620 --> 43:38.260
+and the functions you're using.
+
+43:38.260 --> 43:39.460
+How are you using them?
+
+43:39.460 --> 43:41.700
+Are you using them properly?
+
+43:41.700 --> 43:43.260
+So it's got to be efficient.
+
+43:43.260 --> 43:47.140
+But importantly, it's very mechanical.
+
+43:47.140 --> 43:48.620
+And because it's math, it's something
+
+43:48.620 --> 43:52.420
+that they can optimize, which is great.
+
+43:52.420 --> 43:54.660
+Questions on 2 plus x?
+
+44:05.700 --> 44:07.700
+Let's do our other one, then.
+
+44:07.700 --> 44:09.180
+f of x equals x.
+
+44:09.180 --> 44:17.960
+I'm going to erase this, unless anyone
+
+44:17.960 --> 44:21.300
+says they have a question.
+
+44:21.300 --> 44:21.800
+OK.
+
+44:33.580 --> 44:34.820
+We've done step one.
+
+44:34.820 --> 44:36.060
+We've parsed our program.
+
+44:36.060 --> 44:37.300
+What do we do next?
+
+44:40.180 --> 44:41.180
+Yeah?
+
+44:41.180 --> 44:42.500
+Assign the type variables.
+
+44:42.500 --> 44:43.540
+Give them type variables.
+
+44:43.540 --> 44:44.460
+What do we want to do?
+
+44:47.860 --> 44:50.740
+Tau 0, tau 1, tau 2.
+
+44:50.740 --> 44:52.340
+Awesome.
+
+44:52.340 --> 44:53.540
+Done with step 2.
+
+44:53.540 --> 44:54.700
+40% of the way there.
+
+44:58.500 --> 45:01.060
+I don't think I give you any points for the type variables,
+
+45:01.060 --> 45:02.300
+unfortunately.
+
+45:02.300 --> 45:05.740
+I think I do those for you already.
+
+45:05.780 --> 45:10.940
+So let's do the add constraints.
+
+45:10.940 --> 45:12.020
+What are our constraints?
+
+45:16.980 --> 45:20.260
+We know that tau 1 is going to be equal to tau 2.
+
+45:20.260 --> 45:21.780
+Technically, part of step 4.
+
+45:21.780 --> 45:23.140
+But yes.
+
+45:23.140 --> 45:26.500
+Tau 1 equals tau 2.
+
+45:26.500 --> 45:28.980
+Same identifier, same type value.
+
+45:28.980 --> 45:29.640
+Great.
+
+45:29.640 --> 45:31.180
+What else do we know?
+
+45:31.180 --> 45:33.900
+Yeah?
+
+45:33.900 --> 45:41.580
+Tau 0 is a function from tau 1 to tau 2.
+
+45:41.580 --> 45:42.080
+Awesome.
+
+45:46.220 --> 45:47.780
+Any other constraints?
+
+45:51.660 --> 45:52.160
+Yeah?
+
+45:52.160 --> 45:53.140
+I have a question.
+
+45:53.140 --> 45:53.640
+Yeah?
+
+45:53.640 --> 45:58.140
+Why wouldn't the second item also be tau 1?
+
+45:58.140 --> 45:59.140
+It is.
+
+45:59.140 --> 46:01.620
+Why isn't it labeled as tau 1?
+
+46:02.220 --> 46:06.380
+Normally, when we have the tree labeled both as tau 1?
+
+46:06.380 --> 46:07.980
+We could do it either way.
+
+46:07.980 --> 46:08.660
+Yeah.
+
+46:08.660 --> 46:10.100
+We could give them different names
+
+46:10.100 --> 46:13.380
+and then say that they're equal.
+
+46:13.380 --> 46:17.060
+Or we could just call them both tau 1 and be done with it.
+
+46:17.060 --> 46:17.820
+Either way is fine.
+
+46:21.300 --> 46:22.020
+OK.
+
+46:22.020 --> 46:23.340
+We're done with our constraints.
+
+46:23.340 --> 46:26.580
+There's nothing else we can say about our graph.
+
+46:26.580 --> 46:27.940
+Let's move on to step 4.
+
+46:31.700 --> 46:33.380
+Solve the constraints.
+
+46:38.620 --> 46:39.180
+What can we do?
+
+46:45.460 --> 46:45.960
+Yeah?
+
+46:53.340 --> 46:55.100
+Tau 0 is equal to tau 1 to tau 1.
+
+46:58.820 --> 47:01.580
+Is there anything else we can do?
+
+47:01.580 --> 47:05.380
+Is there a reason you chose tau 1 instead of tau 2?
+
+47:05.380 --> 47:08.660
+Just like number one more?
+
+47:08.660 --> 47:10.260
+There's nothing else we can do.
+
+47:10.260 --> 47:14.540
+This is as solved as it gets.
+
+47:14.540 --> 47:16.260
+So what's our final type for the function?
+
+47:24.820 --> 47:25.320
+Yeah?
+
+47:25.320 --> 47:26.700
+Tau 1 to tau 1.
+
+47:26.700 --> 47:30.220
+Our final type for the function is tau 1 to tau 1.
+
+47:30.220 --> 47:30.720
+Exactly.
+
+47:33.780 --> 47:35.700
+What does that mean?
+
+47:35.700 --> 47:36.200
+Yeah?
+
+47:36.200 --> 47:39.660
+That virtually any type can be put into the function
+
+47:39.660 --> 47:41.180
+and still be the same.
+
+47:41.180 --> 47:41.940
+Exactly.
+
+47:41.940 --> 47:44.940
+Any type could go into this function.
+
+47:44.940 --> 47:48.740
+And what we will get out is the same type of function.
+
+47:48.740 --> 47:49.240
+Yeah?
+
+47:49.240 --> 47:51.820
+Could you write A to A, then?
+
+47:51.820 --> 47:56.980
+So could we write tau 0 equals A to A?
+
+47:56.980 --> 47:58.620
+Are these two equivalent?
+
+48:00.820 --> 48:02.900
+How many people say yes?
+
+48:02.900 --> 48:04.660
+How many people say no?
+
+48:04.660 --> 48:06.380
+How many people say it's sleep time?
+
+48:09.420 --> 48:10.580
+Yeah, this is totally fine.
+
+48:10.580 --> 48:14.100
+We arbitrarily chose naming these tau 1.
+
+48:14.100 --> 48:17.980
+And we could have called them A instead.
+
+48:17.980 --> 48:21.060
+What we're saying is it takes in a generic A,
+
+48:21.060 --> 48:24.340
+and it will return something that is also of that same type.
+
+48:24.860 --> 48:27.020
+Yeah?
+
+48:27.020 --> 48:31.300
+Also relevant for the homework, in case you're still on that,
+
+48:31.300 --> 48:33.100
+on 1.2 or whatever it is.
+
+48:35.580 --> 48:36.060
+Cool.
+
+48:36.060 --> 48:37.180
+We're done with this one.
+
+48:37.180 --> 48:38.260
+How about you guys do one?
+
+48:49.580 --> 48:51.500
+I'll give you, oh, yeah.
+
+48:51.500 --> 48:53.340
+Question, yeah.
+
+48:53.340 --> 48:53.840
+Yeah?
+
+48:58.640 --> 49:00.740
+For the identity function?
+
+49:00.740 --> 49:01.240
+Yeah.
+
+49:01.240 --> 49:04.140
+So the final statement would be, you would say,
+
+49:04.140 --> 49:09.260
+it is of type A to A. Or you would say tau 1 to tau 1.
+
+49:12.500 --> 49:14.500
+Yeah?
+
+49:14.500 --> 49:18.580
+Is the objective to find the type of tau 0, or only tau 0?
+
+49:18.580 --> 49:21.740
+The objective is to find tau 0.
+
+49:21.740 --> 49:28.060
+But so for us, I will be asking you the type of tau 0.
+
+49:28.060 --> 49:30.660
+The compiler has to check all of the types
+
+49:30.660 --> 49:32.180
+to make sure there aren't any errors
+
+49:32.180 --> 49:33.900
+anywhere else in the program.
+
+49:33.900 --> 49:35.500
+For you guys, I'm only giving you
+
+49:35.500 --> 49:39.260
+valid programs, which means all that you really need
+
+49:39.260 --> 49:40.700
+is tau 0.
+
+49:40.700 --> 49:41.200
+Yeah.
+
+49:43.940 --> 49:45.900
+OK.
+
+49:45.900 --> 49:47.780
+Draw a parse tree.
+
+49:47.780 --> 49:50.100
+Add some type variables.
+
+49:50.100 --> 49:52.420
+Write some constraints.
+
+49:52.420 --> 49:53.960
+I'll give you guys like five minutes.
+
+49:57.940 --> 50:00.060
+Chat with someone next to you if you want.
+
+50:00.060 --> 50:01.820
+It's a community activity.
+
+50:15.900 --> 50:16.400
+OK.
+
+50:45.900 --> 50:46.400
+OK.
+
+51:15.900 --> 51:16.400
+OK.
+
+51:45.900 --> 51:46.400
+Yeah.
+
+52:45.900 --> 52:46.400
+Yeah.
+
+53:15.900 --> 53:16.400
+Yeah.
+
+53:46.520 --> 53:47.020
+Yeah.
+
+53:56.580 --> 53:58.180
+How many people need more time?
+
+53:58.180 --> 54:00.420
+Like another minute or so.
+
+54:00.420 --> 54:01.220
+OK.
+
+54:01.220 --> 54:02.340
+We'll do another minute.
+
+54:16.900 --> 54:17.400
+Yeah.
+
+54:20.900 --> 54:23.380
+It's already been like this for like a minute or so.
+
+54:23.380 --> 54:24.380
+It's been like a minute.
+
+54:24.380 --> 54:24.880
+Yeah.
+
+54:24.880 --> 54:25.380
+Yeah.
+
+54:25.380 --> 54:25.880
+All right.
+
+54:45.900 --> 54:46.400
+Yeah.
+
+55:05.820 --> 55:08.860
+All right.
+
+55:08.860 --> 55:11.580
+Let's perform our type inference.
+
+55:11.580 --> 55:12.660
+Who wants to start us off?
+
+55:13.380 --> 55:16.380
+What do we do first?
+
+55:24.380 --> 55:24.880
+Sure.
+
+55:42.700 --> 55:43.540
+I like it.
+
+55:43.540 --> 55:45.580
+We can start there.
+
+55:45.580 --> 55:48.260
+So to start, we parse our program.
+
+55:48.260 --> 55:50.220
+The first rule that we're going to apply
+
+55:50.220 --> 55:53.140
+is our function definition rule, where
+
+55:53.140 --> 55:57.260
+we say we have a P for an argument, which is G.
+
+55:57.260 --> 55:59.100
+It's an identifier.
+
+55:59.100 --> 56:02.180
+And then our result is some expression.
+
+56:02.180 --> 56:04.380
+How do we then parse our expression?
+
+56:10.460 --> 56:10.960
+Yeah.
+
+56:10.960 --> 56:14.640
+It's an application of the function G with parameter 2.
+
+56:14.640 --> 56:19.680
+It's an application of the parameter G and the number 2.
+
+56:24.360 --> 56:27.120
+Now, we don't actually have a rule for this written
+
+56:27.120 --> 56:30.000
+over here, but there was one in our original grammar.
+
+56:30.000 --> 56:31.920
+We said that an expression could also
+
+56:31.920 --> 56:36.920
+be an expression application, EE.
+
+56:36.920 --> 56:37.760
+So that's fine.
+
+56:37.760 --> 56:38.240
+Yeah.
+
+56:38.240 --> 56:41.440
+So it's an application of the function G
+
+56:41.440 --> 56:45.560
+with the parameter 2.
+
+56:45.560 --> 56:48.680
+Done with step 1.
+
+56:48.680 --> 56:49.680
+What do we do for step 2?
+
+56:56.040 --> 56:57.960
+Give them type variables.
+
+56:57.960 --> 57:06.240
+Tau 0, tau 1, tau 2, tau 3, and tau 4.
+
+57:06.240 --> 57:06.740
+Great.
+
+57:09.080 --> 57:12.160
+Done with step 2.
+
+57:17.160 --> 57:17.660
+What next?
+
+57:26.280 --> 57:27.080
+Go for it.
+
+57:27.080 --> 57:29.440
+You can add constraints.
+
+57:29.440 --> 57:31.360
+Add constraints.
+
+57:31.360 --> 57:32.600
+Yeah.
+
+57:32.600 --> 57:38.480
+For example, tau 0 being equal to tau 1 goes to tau 2.
+
+57:38.480 --> 57:42.880
+Tau 0 is tau 1 to tau 2.
+
+57:42.880 --> 57:45.960
+We know that because that's what our function definition says.
+
+57:45.960 --> 57:46.840
+It takes tau 1.
+
+57:46.840 --> 57:48.680
+It returns tau 2.
+
+57:48.680 --> 57:49.800
+Great.
+
+57:49.800 --> 57:50.720
+What else do we know?
+
+57:53.600 --> 57:54.100
+Yeah.
+
+57:54.940 --> 58:02.300
+Tau 3 to tau 4 to tau 2.
+
+58:02.300 --> 58:06.620
+Tau 3 is equal to tau 4 to tau 2.
+
+58:06.620 --> 58:10.540
+Tau 3 is a function that takes in tau 4 as a parameter,
+
+58:10.540 --> 58:12.500
+and it returns tau 2.
+
+58:12.500 --> 58:14.780
+Great.
+
+58:14.780 --> 58:17.860
+Did you have one as well?
+
+58:17.860 --> 58:18.900
+Tau 4 is an int.
+
+58:22.420 --> 58:22.980
+Great.
+
+58:22.980 --> 58:23.900
+It's the number 2.
+
+58:23.900 --> 58:27.580
+We know that 2 is int.
+
+58:27.580 --> 58:29.940
+What else do we know?
+
+58:29.940 --> 58:32.780
+Yeah.
+
+58:32.780 --> 58:34.460
+Tau 3 equals tau 1.
+
+58:37.860 --> 58:40.380
+They're both g.
+
+58:40.380 --> 58:43.620
+What else do we know?
+
+58:43.620 --> 58:44.120
+Yeah.
+
+58:45.120 --> 58:57.240
+T1 is a function that takes an int and returns T2.
+
+58:57.240 --> 58:57.720
+All right.
+
+58:57.720 --> 58:59.760
+So we're getting to step 4 here.
+
+58:59.760 --> 59:07.600
+T1 is a function that takes an int, and it returns T2, tau 2.
+
+59:07.600 --> 59:10.840
+We know this by applying two rules at once,
+
+59:10.840 --> 59:13.800
+where we say T3 is T1.
+
+59:13.960 --> 59:16.000
+And T4 is an int.
+
+59:16.000 --> 59:18.960
+So T1 is equal to T4 to T2.
+
+59:18.960 --> 59:20.000
+And T4 is an int.
+
+59:20.000 --> 59:22.200
+So T1 is equal to int to T2.
+
+59:26.640 --> 59:27.200
+OK.
+
+59:27.200 --> 59:28.080
+What else do we know?
+
+59:28.080 --> 59:28.580
+Yeah.
+
+59:42.720 --> 59:43.360
+Yeah, go for it.
+
+59:47.000 --> 59:52.800
+T0 is int to T2 to T2.
+
+59:58.580 --> 59:59.080
+Yeah.
+
+01:00:05.800 --> 01:00:07.240
+How many people agree?
+
+01:00:07.240 --> 01:00:08.320
+We have the final answer.
+
+01:00:13.120 --> 01:00:14.360
+Is there one thing missing?
+
+01:00:16.960 --> 01:00:19.320
+How many people can spot the one thing that's missing?
+
+01:00:19.320 --> 01:00:19.820
+OK.
+
+01:00:25.200 --> 01:00:28.800
+We said that T1 is int to T2, and then we
+
+01:00:28.800 --> 01:00:31.400
+substituted T1 as int to T2.
+
+01:00:34.320 --> 01:00:40.920
+However, if you read this function type line,
+
+01:00:40.920 --> 01:00:44.200
+what does this read as?
+
+01:00:44.200 --> 01:00:45.200
+Yeah.
+
+01:00:45.200 --> 01:00:57.160
+It's a function that takes an integer and a T2,
+
+01:00:57.160 --> 01:01:00.000
+and then it returns a T2.
+
+01:01:00.000 --> 01:01:04.840
+But we know that T1, which was its only parameter,
+
+01:01:04.840 --> 01:01:07.840
+should be itself a function.
+
+01:01:07.840 --> 01:01:15.200
+So what we want is T0 takes a function, and it returns a T2.
+
+01:01:15.200 --> 01:01:20.240
+The way that we denote that is putting some parentheses in.
+
+01:01:20.240 --> 01:01:25.800
+So we say T0 takes a function from int to T2,
+
+01:01:25.800 --> 01:01:29.360
+and then it returns a T2.
+
+01:01:29.360 --> 01:01:33.640
+Is there anything else we can do to simplify this expression?
+
+01:01:37.840 --> 01:01:42.080
+No.
+
+01:01:42.080 --> 01:01:42.720
+No.
+
+01:01:42.720 --> 01:01:44.720
+We're done.
+
+01:01:44.720 --> 01:01:46.960
+We've reached the end of our type inference.
+
+01:01:50.280 --> 01:01:50.780
+Yeah.
+
+01:01:50.780 --> 01:01:51.760
+So what?
+
+01:01:51.760 --> 01:01:54.240
+So the function g that is getting lost,
+
+01:01:54.240 --> 01:01:58.240
+this could be any function that takes an int,
+
+01:01:58.240 --> 01:02:01.480
+and returns any other int type?
+
+01:02:01.480 --> 01:02:02.000
+Right.
+
+01:02:02.000 --> 01:02:05.760
+So this function g that we're being given
+
+01:02:05.760 --> 01:02:08.720
+has an interesting type.
+
+01:02:08.720 --> 01:02:11.960
+It's of type int to T2, which means
+
+01:02:11.960 --> 01:02:16.280
+so long as it has the type of taking an integer
+
+01:02:16.280 --> 01:02:20.160
+and giving you something back, you can use it.
+
+01:02:20.160 --> 01:02:25.360
+You can pass a g that takes an integer and returns a string,
+
+01:02:25.360 --> 01:02:26.520
+and that'll work.
+
+01:02:26.520 --> 01:02:28.360
+You could pass a g that takes an integer
+
+01:02:28.360 --> 01:02:29.760
+and returns a character.
+
+01:02:29.760 --> 01:02:30.840
+That'll work.
+
+01:02:30.840 --> 01:02:34.040
+You can pass a g that takes an integer and returns a list.
+
+01:02:34.040 --> 01:02:34.920
+That'll work.
+
+01:02:34.920 --> 01:02:38.720
+All of those functions can be passed into T0,
+
+01:02:38.720 --> 01:02:42.320
+and the result of that function application
+
+01:02:42.320 --> 01:02:44.280
+will depend on what g you give it.
+
+01:02:49.560 --> 01:02:50.720
+OK.
+
+01:02:50.720 --> 01:02:56.520
+We're going to do one more, and then I'll let you guys go.
+
+01:03:04.920 --> 01:03:05.420
+OK.
+
+01:03:35.920 --> 01:03:36.420
+OK.
+
+01:03:44.720 --> 01:03:46.960
+You can chat amongst yourselves as well if you want.
+
+01:03:46.960 --> 01:03:48.200
+Don't be shy.
+
+01:04:04.920 --> 01:04:06.480
+Thank you.
+
+01:04:34.920 --> 01:04:36.480
+Thank you.
+
+01:05:04.920 --> 01:05:06.480
+Thank you.
+
+01:05:34.920 --> 01:05:36.480
+Thank you.
+
+01:06:04.920 --> 01:06:06.480
+Thank you.
+
+01:06:34.920 --> 01:06:36.480
+Thank you.
+
+01:07:04.920 --> 01:07:06.480
+Thank you.
+
+01:07:34.920 --> 01:07:36.480
+Thank you.
+
+01:08:04.920 --> 01:08:06.480
+Thank you.
+
+01:08:34.920 --> 01:08:36.480
+Thank you.
+
+01:09:04.920 --> 01:09:06.480
+Thank you.
+
+01:09:34.920 --> 01:09:36.480
+Thank you.
+
+01:10:04.920 --> 01:10:06.480
+Thank you.
+
+01:10:34.920 --> 01:10:36.480
+Thank you.
+
+01:11:04.920 --> 01:11:06.480
+Thank you.
+
+01:11:34.920 --> 01:11:36.480
+Thank you.
+
+01:12:04.920 --> 01:12:06.480
+Thank you.
+
+01:12:34.920 --> 01:12:36.480
+Thank you.
+
+01:13:04.920 --> 01:13:06.480
+Thank you.
+
+01:13:34.920 --> 01:13:36.480
+Thank you.
+
+01:14:04.920 --> 01:14:06.480
+Thank you.
+
+01:14:34.920 --> 01:14:36.480
+Thank you.
+
+01:15:04.920 --> 01:15:06.480
+Thank you.
+
+01:15:34.920 --> 01:15:36.480
+Thank you.
+
+01:16:04.920 --> 01:16:06.480
+Thank you.
+
+01:16:34.920 --> 01:16:36.480
+Thank you.
+
+01:17:04.920 --> 01:17:06.480
+Thank you.
+
+01:17:34.920 --> 01:17:36.480
+Thank you.
+
+01:18:04.920 --> 01:18:06.480
+Thank you.
+
+01:18:34.920 --> 01:18:36.480
+Thank you.
+
+01:19:04.920 --> 01:19:06.480
+Thank you.
+
+01:19:34.920 --> 01:19:36.480
+Thank you.
+

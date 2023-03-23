@@ -1,0 +1,1107 @@
+start	end	text
+0	27000	Hopefully that doesn't keep happening.
+27000	51000	Thank you.
+51000	79000	Thank you.
+79000	85280	All right, guys.
+85280	87600	Let's go ahead and get started.
+87600	90400	So to start off, we got some notes.
+90400	95520	The early deadline for the first homework and programming assignment are tomorrow.
+95520	100520	So that is if you want 10% bonus points, submit by tomorrow night.
+100520	106640	Otherwise, the normal deadline is this Sunday night at 11.59 p.m.
+106640	108840	So get working on those.
+108840	111120	I have office hours after class today.
+111120	115520	If you're having any trouble setting things up or have questions, feel free to stop by.
+115520	119160	I also have a chess board in there if you want to just sit and play chess for a little
+119160	120160	bit.
+120160	121160	Recordings.
+121160	124760	I missed on Monday, I forgot to set up Zoom.
+124760	127720	But hopefully I've contacted the department.
+127720	129540	That thing looks like it's on.
+129540	132660	I see myself in the camera over here.
+132660	138000	So hopefully everything will be official and through Canvas going forward.
+138160	140320	So use those for what you will.
+140320	145680	If it turns out that you guys prefer watching recordings online, that's fine.
+145680	147800	We'll have a little bit more of a sparse classroom.
+147800	152520	For the people who do show up, just come sit closer to the front and we'll have more fun.
+152520	153920	Okay.
+153920	154920	Those are my notes.
+154920	156920	Are there any notes from you guys?
+156920	158880	Anything that's not working?
+158880	161840	Any questions before we dive into lecture?
+161840	162840	Yeah?
+162840	174400	Is the early deadline just literally however many days beforehand and it's still midnight?
+174400	175400	Yes, it's still midnight.
+175400	176400	Yeah.
+176400	177400	Yep.
+177400	180640	The early deadline is at midnight or 11.59 p.m.
+180640	181640	Yeah?
+181640	187200	What's the name of the written assignment?
+187200	188200	Yeah.
+188200	189800	So grade scope is a little tricky.
+189800	194160	So the question was, if we are submitting the written assignment as a group, which you
+194160	199520	should definitely be submitting as a group, you need at least one group member.
+199520	201360	What's the process for that?
+201360	207560	After you submit as one person from the group, you can go to the submission and add your
+207560	210200	teammates to that submission.
+210200	215600	So one submission per group for the entire group, one submission.
+215600	217480	Add your teammates.
+217480	221320	Also select where the problem is in your submission.
+221320	222960	So it will say, like, where is problem one?
+222960	225720	And you highlight the area that is problem one.
+225720	226720	Yeah.
+226720	227720	That's all on grade scope.
+227720	228720	Yeah?
+228720	241800	Can we submit just the PA early or just the homework early?
+241800	243160	And do you still get the extra credit?
+243160	244160	Yes.
+244160	247080	The extra credit is tied to the individual assignment.
+247080	251080	So if you submit the PA early, you get 10% bonus points on the PA.
+251080	255840	If you submit the homework early, you get 10% bonus points on the homework.
+255840	258680	They're separate pieces.
+258680	260600	Yep.
+260600	265340	Anything else?
+265340	269100	As we get into a rhythm with it, these will be very comfortable.
+269100	271760	It's the same thing every time.
+271760	275080	All right.
+275080	282240	In that case, let's get back into JavaScript.
+282240	283680	First class functions.
+283680	284680	What are they?
+284680	290080	Who can give me the three points of what makes a first class function all at once somebody
+290080	293460	who didn't answer the same question yesterday?
+293460	295280	What is first class functions?
+295280	296280	What does it mean?
+296280	297280	Yeah.
+297280	298280	Go for it.
+298280	308920	Yeah.
+308920	315440	So is it using functions to create scopes for the variables inside of it?
+315440	319560	That's one of the things that first class functions allows us to do.
+319560	324920	So it's a capability of first class functions, but it's not necessarily what they are.
+324920	325920	Yeah?
+325920	340880	So it's the three things of the function can be defined in any scope, they can be passed
+340880	347360	to other functions as values, and they can be returned from functions as values.
+347360	353160	To say it in one tagline, first class functions means functions are values.
+353160	355360	They're just normal values.
+355360	361440	Just like you say let X equal 3, you can say let X equal a function.
+361440	363280	All right.
+363280	370240	So then that leads to a little bit of a pretty natural question coming after that.
+370240	374600	Are these functions that we're working with the same thing as function pointers that you
+374600	377600	might have seen in other languages like C?
+377600	383880	Where you can, for example, call sort with a comparison function.
+383880	389760	Where you tell the sort function how to sort the things in your list.
+389760	391540	That's using a function pointer.
+391540	396920	So are the functions that we're working with, these first class functions in JavaScript,
+396920	398920	are they just function pointers?
+398920	404600	This is one that I do want you to take a minute, chat with your peers, whoever's next to you,
+404600	406800	yes or no, and why.
+406800	407840	What makes it the same?
+407840	410000	What makes it different?
+410000	412920	So take a minute or two to chat.
+472920	483880	All right.
+483880	487320	Sounds like conversation is settling down.
+487320	489600	Let's get a quick class poll.
+489600	492680	How many people are in the yes camp?
+492680	498420	These are just like the function pointers that you would see in, for example, C.
+498420	501300	What about how many people are in the no camp?
+501300	503900	Saying these are not just function pointers.
+503900	504900	Something else is going on here.
+504900	505900	Okay.
+505900	509260	So large majority of the class is saying no.
+509260	511060	Someone explain why.
+511060	513180	What else is happening here?
+513180	514180	Yeah.
+514180	517180	Go for it.
+517180	536580	Yeah, so C definitely does not let you� or at least most implementations of C do not
+536580	541140	let you define your functions in any scope.
+541140	544200	That's our first requirement for a first class function.
+544200	548160	So it's true C doesn't have first class functions.
+548160	553440	But C does let you still pass around these functions.
+553440	558640	And some implementations of C actually do let you define them in any scope.
+558640	564420	There still might be something different between a function pointer by itself being able to
+564420	570280	define the function anywhere and pass it around and what we're doing in JavaScript.
+570280	573360	There's another little piece that's happening in here.
+573520	579360	And we saw it yesterday with the expressive code a little bit.
+579360	580360	What else is going on?
+580360	581360	Yeah.
+581360	582360	Yeah.
+582360	583360	Yeah.
+583360	596600	So the function has access to variables that were around when it was defined.
+596600	602840	That's kind of like the English way to describe the idea of a closure.
+602840	607480	These functions in JavaScript are not just pointers.
+607480	613680	They are function code, which is what you have in C, for example, with a function pointer.
+613680	615840	And they also have environment.
+615840	622640	That is the variables that are around when the function is being defined.
+622640	627960	And these closures are things that we are going to deep dive into in a few lectures
+627960	633760	when we kind of come back to JavaScript later in, I think, late February.
+633760	639880	But for now, the important idea is that functions in JavaScript capture environment.
+639880	641600	Traditional function pointers don't.
+641600	651400	So you could have first class functions in some other languages and not have closures.
+651400	657920	JavaScript has a specific form of first class function called a closure, where we have code
+658120	662040	and we have environment going along with it.
+662040	665400	All right.
+665400	670920	Since it's one thing to see the slides and another thing to see code, let's dive into
+670920	683840	what that might actually look like.
+683840	690200	And you guys will have to let me know when it's the right size to read.
+690200	693800	How's that?
+693800	695800	Readable?
+695800	696800	All the way in the back?
+696800	697800	You guys can read it?
+697800	698800	Yep.
+698800	700800	Anybody want it larger?
+700800	701800	No.
+701800	702800	Okay.
+702800	709480	So, last time we had a function called add 42, which what it did was it took an element
+709480	713720	as a parameter and it returned the element plus 42.
+713720	715280	Nothing too special.
+715280	721960	But maybe we want to make a function that generically creates other add functions for
+721960	722960	us.
+722960	726360	What if we wanted an add 43 and an add 44?
+726360	732720	It's kind of arbitrary, definitely contrived for this example, but this type of idea exists
+732720	734580	all over the place.
+734580	740120	So what we might have is a function called make add function, and the purpose of this
+740120	743900	function is to return another function.
+743900	749600	That's one of our primary features of first class functions, is that they can be returned.
+749600	755820	So we're creating a function that returns another function, and importantly, we're going
+755820	763200	to reference a variable that does not exist inside of our scope of this function, but
+763200	768160	exists from the outer scope of the function that created it.
+768160	774240	This offset variable comes from the make add function, not the inner function that
+774240	776840	we're returning.
+776840	783240	So let's use it and see what happens.
+783240	788840	We can create an add 42, where we say this is equal to make add function with the value
+788840	794760	42, and a sub 42, where we are make add function with negative 42.
+794760	799800	Now when we call add 42 of 1, what are we going to get?
+799800	803480	Do I have copilot on?
+803480	804480	I do.
+804480	805480	That's okay.
+805480	806480	Turn that back off.
+806480	809880	I was coding earlier.
+809880	811440	What are we going to get here?
+811440	812440	43.
+812440	813440	Yeah.
+813440	817160	I think that's a fair...
+817160	822320	Like a reasonable assumption that we're adding 1 to add 42.
+822320	830360	Add 42 is this inner function here, where this x will have the value 1, and then when
+830360	836960	we try and look up offset, we will see that offset was 42, which was the value we were
+836960	837960	given.
+837960	842200	If we add 42 to 42, what do we get?
+842200	843200	84.
+843200	844200	Definitely.
+844200	850360	Same thing happens, where we're looking up the value of offset each time.
+850360	851800	It hasn't changed.
+851800	853680	We haven't updated anything.
+853680	857640	It's still the same value of 42.
+857640	866360	Just to kind of finish this, what's sub 42, 1?
+866360	867360	Negative 41.
+867360	868480	Yeah, definitely.
+868480	875800	This time, when we look up the value of offset, offset within the context of sub 42 is negative
+875800	876840	42.
+876840	880440	We have two different offset values.
+880440	885360	There's an offset that's just for this value, and there's an offset that's just for that
+885360	887880	value.
+887880	894200	And we're going to go into the mechanics of that in a future lecture.
+894200	901480	This one, all on the same page, that that would be 0.
+901480	906760	Any questions on what we've done here?
+906760	922520	All right, then let's make it a bit more complicated.
+922520	927440	See if I can get some questions out of you guys.
+927440	930200	These programs, once again, are all on Canvas.
+930200	932120	I think they weren't last time I said that.
+932120	933400	This time, I've double checked.
+933400	936880	They really should be on Canvas now.
+936880	942040	If they aren't, let me know, and I will try again to upload them.
+942040	945720	Now we're going to create a new function called f.
+945720	947440	Takes a parameter x.
+947440	949600	Then we're gonna say let y equal x.
+949600	950600	Okay?
+950600	954960	And then we're going to return a new function that's not named.
+954960	955960	That's fine.
+955960	965820	It takes a parameter z, and it assigns y equals y plus z, and then returns y.
+965820	971280	We call h equals f of 5.
+971280	977400	And then we console.log h of 3.
+977400	979280	Take a second.
+979280	980960	Think to yourself.
+980960	986880	First of all, what is the value of h?
+986880	990760	And then what will this first line print?
+990760	994400	So think it over to yourself for a second here.
+994400	1020920	Try and come up with an answer.
+1020920	1024400	Who feels like they have an idea of what h is?
+1024400	1027720	Okay.
+1027720	1028720	Not too many of you.
+1028720	1030440	So I'm gonna give you a little bit more time.
+1030440	1032480	Chat with somebody next to you.
+1032480	1053920	See if you guys can come to a consensus on what h is.
+1083920	1092480	All right.
+1092480	1095640	How many people now feel like they know what h is?
+1095640	1097960	Feel a little bit more comfortable with it?
+1097960	1099240	A decent number more.
+1099240	1100240	Still not everyone, though.
+1100240	1102760	So let's figure it out.
+1102760	1103760	What is h?
+1103760	1105400	Who's got an answer?
+1105400	1106400	Yeah?
+1106400	1108000	Is it 8?
+1108000	1109000	Is it 8?
+1109000	1111320	Is h equal to 8?
+1111760	1113920	Ah.
+1113920	1115640	This one, I'm on board.
+1115640	1118500	I think this next one is 8.
+1118500	1119680	Someone else.
+1119680	1121680	What is h here?
+1121680	1123560	Yeah.
+1123560	1125040	h is a function.
+1125040	1126040	Which function is it?
+1126040	1128040	We have two functions here.
+1128040	1129040	Yeah.
+1129040	1140960	Yeah, it's this inner function, and very specifically, it's this inner function
+1140960	1147320	code in addition to the environment that says y is 5.
+1147320	1149120	Yeah.
+1149120	1152040	So that's h itself.
+1152040	1153120	The value of h.
+1153120	1158280	Then when we call h of 3, h is a function with environment.
+1158280	1159280	It's a closure.
+1159280	1160760	It's this function.
+1160760	1165560	So when we call h of 3, we say z is equal to 3.
+1165560	1167600	We will get the value 8 back out.
+1167600	1168600	Cool.
+1169240	1171040	We're good to go here.
+1171040	1172520	h is a function.
+1172520	1174640	The value here is 3.
+1174640	1177120	Now what's the value of the second line?
+1177120	1178120	Yeah.
+1178120	1180120	All the way in the back.
+1180120	1181120	12.
+1181120	1184120	Why is it 12?
+1184120	1188400	Yeah, definitely.
+1188400	1192480	So y has been updated by the previous line of code.
+1192480	1195440	y is saved in this line.
+1195440	1201080	When we say y plus equals z, we've actually updated the context.
+1201080	1206120	We've updated the environment so that now y is equal to 8.
+1206120	1210160	When we call it a second time with the value 4, we're adding 4 to 8.
+1210160	1211160	We get 12.
+1211160	1214160	That's what's returned.
+1214160	1216200	Okay.
+1216200	1219360	Let's do it one more time.
+1219360	1233200	With j equals f of 5, what is j?
+1233200	1234200	It's a function.
+1234200	1235200	Yep.
+1235200	1236200	Just like before.
+1236200	1237200	j is a function.
+1237200	1239160	And it's got y equals 5.
+1239160	1241400	The context y equals 5.
+1241400	1246520	When we call j of 3, what do we get?
+1246520	1252720	Do we get 8 or do we get 15?
+1252720	1254880	How many people vote 8?
+1254880	1256240	How many people vote 15?
+1256240	1257240	All right.
+1257240	1258880	We hardly even have to ask.
+1258880	1259880	Yeah.
+1259880	1261640	Everyone there that I saw said 8.
+1261640	1264200	We've created new context, new environment.
+1264200	1265400	That's what we're updating.
+1265400	1271300	So similarly, when we call j of 4, we're gonna end up with 12.
+1271300	1272720	Now the question is...
+1272720	1275640	What happens with this print?
+1275640	1287360	Is h equal to j?
+1287360	1290840	How many people are gonna vote yes?
+1290840	1293680	How many people are gonna vote no?
+1293680	1296640	How many people are gonna vote it depends?
+1296640	1301240	That was a trick.
+1301240	1302240	No.
+1302240	1304920	The answer here is no.
+1304920	1308220	So these two are not equivalent.
+1308220	1312560	And under no circumstance are they actually equivalent.
+1312560	1318920	Except to us as high-level reasoning beings observing the code, we can say they look very
+1318920	1320100	similar.
+1320100	1323440	They have the same code representing them.
+1323440	1325720	They currently have the same state.
+1325720	1327040	But they are not equivalent.
+1327040	1329320	They point to two different spaces in memory.
+1329320	1331760	They have two different representations.
+1331760	1332760	They are not equal.
+1332760	1333760	Yeah?
+1333760	1341320	Will we check if they have the same representation in JavaScript?
+1341320	1342320	Yeah.
+1342320	1345440	So could we make it so that these...
+1345440	1348800	This would be true.
+1348800	1349800	Yes and no.
+1349800	1356080	We could turn h and j into kind of objects that we could then write our own equals method
+1356080	1361920	for, where we would be checking to say, is the current state of these things equivalent?
+1361920	1365360	And do they then also have the same code?
+1365360	1370320	But as it stands with just them being functions, no, we can't, I don't think.
+1370320	1371320	Yeah?
+1371320	1375760	What is being compared?
+1375760	1376760	What is being compared?
+1376760	1377760	Or...
+1377760	1378760	What does it look at?
+1378760	1382260	That's a good question.
+1382260	1383260	I don't know.
+1383260	1386860	My hunch here is that it's looking at its location in memory.
+1386860	1390300	But I don't actually have a perfect answer for that.
+1390300	1391300	Yeah.
+1391300	1392300	Yeah?
+1392300	1393300	Presumably.
+1393300	1394300	Yeah.
+1394300	1400420	Like, where are these things pointing to in memory?
+1400420	1406220	I don't want to say that with 100% certainty, but that's the common approach here.
+1406220	1408980	It could also be runtime dependent.
+1408980	1410460	So node might do one thing.
+1410460	1412780	V8 might do a different thing.
+1412780	1416660	Something of the sort.
+1416660	1417660	Other questions here?
+1417660	1418660	We've discussed before that JavaScript functions don't return pointers.
+1418660	1429980	So will it really be comparing pointers?
+1429980	1432180	We've discussed before they don't return pointers?
+1432180	1433180	What do you mean?
+1433180	1436180	There was a question about pointers and functions.
+1436180	1437180	Yeah, yeah.
+1438140	1447540	So there's a difference between a pointer being a function pointer and being a pointer.
+1447540	1455900	So H and J effectively are pointers to memory, where they have code and environment information
+1455900	1457380	stored.
+1457380	1459260	That's what makes a closure.
+1459260	1463540	It's a pointer to a tuple of code and environment.
+1463540	1466660	It's not a pointer to just function code.
+1466660	1468140	That's kind of the difference there.
+1468140	1469140	Yeah.
+1469140	1475140	Would it still be a closure if it didn't update the state of Y, but it just, like,
+1475140	1477140	captured it when you passed in the value?
+1477140	1479140	So, like, it would have its own state, maybe?
+1479140	1480140	Yeah.
+1480140	1486140	So would this still be a closure if we kind of weren't doing any of this fancy Y and X
+1486140	1487140	stuff?
+1487140	1488140	Yeah.
+1488140	1489140	It definitely still is.
+1489140	1496140	Well, I meant, like, if JavaScript worked differently, where instead of it updating
+1496620	1500620	something in the scope above it, like, it just, it didn't, like, actually update it.
+1500620	1505620	So, like, if you called the first time with H or 3 and give 8, and then the second call
+1505620	1507620	would give 9, would that still be a closure?
+1507620	1508620	Yeah.
+1508620	1509620	Yeah.
+1509620	1513620	So that is still a closure, even if we aren't, even if we don't have an updatable environment.
+1513620	1515120	We still store it in environment.
+1515120	1520620	We still have that Y offset, or offset, or whatever.
+1520620	1521620	Yeah.
+1522100	1528100	Are we updating X when...
+1528100	1529100	Yeah.
+1529100	1533380	So, like, does X here change?
+1533380	1535200	My hunch is no.
+1535200	1539500	If X were an object, then potentially, yeah.
+1539500	1542540	Where these two would actually be pointing to the same object.
+1542540	1548940	But because X in this case is just, like, an integer of 5, it shouldn't be updated.
+1548940	1554860	We could test that just by putting a console log X, but I'll leave that to you guys to
+1554860	1557700	test yourself.
+1557700	1560060	I believe it is no, though.
+1560060	1564740	It is not changing.
+1564740	1571500	Any other questions?
+1571500	1575380	We'll spend a lot of time on this and, like, draw a lot of diagrams.
+1575380	1580660	So even if it's not crystal clear right now, hopefully within a few weeks, it will be.
+1580660	1581660	Yeah?
+1581660	1582660	Yeah.
+1582660	1586420	An example of how to do this before it goes away?
+1586420	1587420	Yeah.
+1587420	1590060	So why would you ever want to do this?
+1590060	1591060	That's fair.
+1591060	1592780	I do this all the time.
+1592780	1597940	Let me show you an example at the end of class of, like, actual code where I do this.
+1597940	1608820	Because it is extremely helpful to be able to, like, generate functions algorithmically.
+1608820	1614540	Or as part of your code and not have to write all of your functions yourself.
+1614540	1620380	So this idea that we want over in the first one...
+1620380	1625580	We're creating new functions every time we call make add function.
+1625580	1633100	So that I don't have to write a new add 42 function and then an add 43 function, et cetera.
+1633100	1637380	You'll often find it's the case that when you write a function, you've wanted to write
+1637380	1639420	the same thing other times.
+1639420	1642220	Or a similar thing with different state.
+1642220	1644860	And so that is exactly what this does.
+1644860	1650460	So I will search briefly at the end of class for some Python code that does something very
+1650460	1651700	similar.
+1651700	1654380	If I don't find something, I'll post on Piazza.
+1654420	1656700	Because you'll definitely want to use this.
+1656700	1659420	It'll come in handy a lot.
+1659420	1664460	All right.
+1664460	1675380	Let's get back to those slides.
+1675380	1679180	So another thing that we can use functions for is...
+1679180	1685180	We talked about scoping, where we wanted to hide our variables inside of a scope and
+1685180	1688960	not allow them to leak out to the outside scope.
+1688960	1694020	More broadly, we can use them to create modules inside of our code.
+1694020	1700980	We can represent whole chunks of our code as wrapped inside of functions that we then
+1700980	1703480	allow things to be exported from.
+1703480	1707620	So that other people can import them and use them.
+1707620	1713860	This is good for hiding information if you want to have, like, secret values inside of
+1713860	1720100	your module that you don't want other libraries to be able to access.
+1720100	1726320	It's also really useful for, like, this idea of exporting only a few functions.
+1726320	1732880	You can have a very simple exterior API, even though your interior is quite complicated
+1732880	1737320	by only exporting a few functions.
+1737320	1741940	So modules were not a part of JavaScript originally.
+1741940	1745940	But people could pretend to use them.
+1745940	1751600	I don't think this example is particularly illuminating, so I'm actually gonna skip it.
+1751600	1756380	But the module code is online, if you want to take a look.
+1756380	1758620	All right.
+1758620	1761400	So that's first class functions in JavaScript.
+1761400	1765220	There were three core ideas that JavaScript...
+1765220	1767500	We were gonna use JavaScript to show.
+1767500	1769300	One of them was these first class functions.
+1769300	1774820	Now we'll dive into objects, and then we'll cover flexibility at the very end.
+1774820	1776420	Okay.
+1776420	1781060	What are JavaScript objects?
+1781060	1788940	Simply, they are maps of names to values.
+1788940	1795440	All that an object is is a collection of property names and the value that those property
+1795440	1797400	names point to.
+1797400	1804520	So if you've used dictionaries in Python, exact same thing.
+1804520	1812600	We create them with what's called literal notation, where we can use these curly braces
+1812700	1813700	to say...
+1813700	1815420	Like, create an object.
+1815420	1820860	X is the name of the value that points to 3.
+1820860	1824060	Y points to root.
+1824060	1828380	And then you can access them by just doing .x.
+1828380	1835700	Or if you like dictionary style, you can do closing brackets with the property that you
+1835700	1839740	want.
+1839740	1844160	So that's objects in a nutshell.
+1844160	1847680	They're just maps from key to value.
+1847680	1853720	And because functions are just like values, we can have functions on our objects just
+1853720	1856160	as any other value would be.
+1856160	1859520	We could have a function...
+1859520	1872700	Object.f is a function that references the object itself.
+1872700	1882500	Any questions on objects at a first pass?
+1882500	1887740	I did want to clarify one thing I mentioned in class on Monday.
+1887740	1890080	I had talked about how...
+1890080	1900860	Actually, it might just be easier to show in code.
+1900860	1909380	So we mentioned that we could have our arrow syntax...
+1909380	1913920	This is a function that returns the value 3.
+1913920	1917460	And then I said...
+1917460	1920880	This is a function that returns an object.
+1920880	1925680	That was a slight mistake on my part.
+1925680	1934040	This is a function that returns an object with the property x pointing to 3.
+1934040	1941400	And just to clarify, this here, without the named parameter, this is a function that will
+1941400	1943560	execute the value 3.
+1943560	1945160	So it's not actually returning an object.
+1945160	1946680	It's not returning anything.
+1946680	1949240	It's just executing the value 3.
+1949240	1950800	Whatever that means.
+1950800	1956840	So we could put a console.log 3, for example, and it will execute that inner chunk of code.
+1956840	1963640	But without object syntax, we will not create the object to be returned.
+1963640	1968040	So it was a mistake fixing that for clarity.
+1968040	1970320	Okay.
+1970320	1976200	Back to the slides.
+1976200	1979560	All right.
+1979560	1982780	So we're doing something kind of neat here, though.
+1982780	1984640	We're using this.
+1984640	1992200	And you have probably used this in your other languages in Java or self in Python.
+1992200	1996280	C++ as well.
+1996280	1998920	What this actually is...
+1998920	2001760	It's coming from another language called self.
+2001760	2007200	Which is kind of funny that they have self now in Python instead of this.
+2007200	2008200	Which...
+2008200	2009200	Anyway.
+2009200	2013780	Self is from the early 90s or late 80s.
+2013780	2016480	Coming from Smalltalk, which is from the 70s.
+2016480	2019840	So from far away back there.
+2019840	2024040	We'll talk more about that when we get to object oriented programming.
+2024040	2030240	But intuitively, this is representing the object that we are currently talking about.
+2030240	2041320	So when we do this.x inside of the function assigned to the object obj, this represents
+2041320	2042640	that obj.
+2042640	2044720	The O-B-J.
+2044720	2047600	So we can reference our self.
+2047600	2050200	All right.
+2050200	2064800	We can take a quick look into receivers.
+2064800	2067880	So not too crazy.
+2067880	2073700	We can create an object using object syntax of these curly braces.
+2073700	2077380	We have three keys.
+2077380	2080580	The x, x root, f.
+2080580	2085460	They're all just initialized the same way, with comma in between any given value.
+2085460	2093540	And inside of our function f, we can reference the object that we have created.
+2093540	2100100	So if we ask what the value of x is here, it is what?
+2100100	2101100	1337.
+2101100	2102100	Right.
+2102100	2107980	Because we've defined it to be 1337 up above.
+2107980	2121780	If we call f of 3, what does this print out?
+2121780	2125860	Does it print out a function?
+2125860	2128900	So we're executing f, right?
+2128900	2130420	With the value 3.
+2130420	2134220	F itself is a function.
+2134220	2142100	But when we execute f, we will get the returned value of whatever this statement is.
+2142100	2144100	1341.
+2144100	2146100	Oops.
+2146100	2148100	1341.
+2148100	2152520	And why is that?
+2152520	2157640	Because we are incrementing the value of x.
+2157640	2160660	And then we're requesting what is the value of x.
+2160660	2163160	And then we add whatever was passed to it.
+2163160	2165960	The value of x was initially 1337.
+2165960	2171360	We increment it, making it 1330 what?
+2171360	2172840	8.
+2172840	2178540	And then we add 3 to 1338 for 1341.
+2178540	2181560	So finally, what is the last value here?
+2181600	2182600	10.
+2182600	2183600	Definitely.
+2183600	2184600	We didn't change that.
+2184600	2189320	It's the same as it's been from the start.
+2189320	2191240	So this is pretty powerful.
+2191240	2198720	But by which I mean the concept of this is pretty powerful.
+2198720	2213260	Being able to be self-referential is important for objects.
+2213260	2232940	Any questions with the receiver?
+2232940	2233940	I'm sorry.
+2233940	2236220	This started right as the drilling started.
+2236220	2237220	What was that?
+2237220	2238220	A little bit louder?
+2238220	2239220	Yeah.
+2239220	2240220	Yeah.
+2240220	2245540	So it helps update object state.
+2245540	2249620	The keyword this helps update object state.
+2249620	2253500	It also just helps reference object state.
+2253500	2256620	Maybe we just need to know what the value of x is.
+2256620	2262380	And without this, we don't really know.
+2262380	2271180	We could try and get around it by always having a second parameter to our functions.
+2271180	2279340	And then we could call obj of f of obj comma 3, for example.
+2279340	2290780	And then we'd be passing ourself to our function so that we could reference ourself's value.
+2290780	2294900	And if you're familiar with Python, you will say, hey, that looks like Python, because
+2294900	2297420	that's exactly what you're doing.
+2297420	2303220	But because you do it every time you make a function call, Python says we can just get
+2303220	2306020	rid of that object being passed in.
+2306020	2309500	Since you're doing it anyway, we'll do it under the hood for you.
+2309500	2312460	But this is exactly what you do in Python.
+2312460	2322500	And similar thing happening in JavaScript.
+2322500	2339860	Any other questions, confusions, notes?
+2339860	2345060	So we could create a function called obj.
+2345060	2347980	And it would not take any parameters.
+2347980	2355140	And it would return a function that takes a y.
+2355140	2364740	And inside of here, we could say this is equal to 10 and x equals 1337.
+2364740	2370940	And then we return x plus y.
+2370940	2371940	And we say x++.
+2371940	2375780	Is that what you're thinking?
+2375780	2376780	Yeah.
+2376780	2380780	How different are these two snippets of code?
+2380780	2390460	Yeah, so precisely.
+2390460	2393500	So we can no longer reference...
+2393540	2404420	So if we create O1 equals obj, and we can call this fun obj, maybe.
+2404420	2409900	We've actually obfuscated or hidden our values.
+2409900	2418300	If we wanted to reference x on our fun version of this object, we can't.
+2418300	2421980	We've made it secret.
+2421980	2425500	This is actually precisely where the idea of modules comes in.
+2425500	2432980	Where we've created a function to export, and it's hidden some state for us.
+2432980	2435820	So yeah.
+2435820	2438000	But similar.
+2438000	2440100	Definitely similar concepts.
+2440100	2446300	That we're returning some value that we want to work with that captures state.
+2446300	2449300	Definitely similar concepts.
+2449460	2450460	Yeah?
+2450460	2457900	Do they work similar to classes, then?
+2457900	2463540	What an excellent question.
+2463540	2467140	Where did that go?
+2467140	2469140	Keynote decided it had had enough.
+2469140	2471380	Give me a second here.
+2471380	2475620	There we go.
+2475620	2480100	So I thought JavaScript had classes.
+2480100	2481100	It does.
+2481100	2482100	Currently.
+2482100	2483980	It didn't before.
+2483980	2486300	So classes are something that are pretty convenient.
+2486300	2492580	You've seen them in so many other languages, where we have these templates for our objects.
+2492580	2493580	That we say...
+2493580	2496900	Here's a class of objects that will all look the same.
+2496900	2498980	They will all have the function f.
+2498980	2502300	They will all have the property x.
+2502300	2506940	So I want some way to easily create more of these objects.
+2506940	2514100	Before what you would have to do is instead use functions to create a constructor.
+2514100	2518340	But the key thing is that they're functionally equivalent.
+2518340	2525460	We could either use functions or we could use fancier notation with classes.
+2525460	2527940	So what is a function constructor?
+2527940	2529620	All it is is a function.
+2529620	2536300	But now any time you call that constructor, it is returning an object back to you.
+2536300	2538660	There's no fancy magic here.
+2538660	2544020	That's one of the reasons I actually really like JavaScript, especially in this context.
+2544020	2547920	There is so little magic going on behind the scenes.
+2547920	2549960	Everything is just covered by functions.
+2549960	2556980	We don't need these keywords like class or this unless we want it.
+2556980	2561560	So the one key kind of...
+2561560	2565940	One of the pieces of magic that I don't really like, though, or it's a preference thing,
+2565940	2568420	is this idea of proto.
+2568420	2574980	And proto is something that's going to bind multiple objects together to have similar
+2574980	2576380	properties.
+2576380	2578940	So that we can achieve things like classes.
+2578940	2583220	Where we can say all of the objects created here will have a color.
+2583220	2589180	All of the objects here will have the function f, for example.
+2589180	2593700	It's automatically set for us, so we can play around with it.
+2593700	2595540	And I think let's do exactly that.
+2595540	2609040	Let's play around with classes.
+2609040	2616040	So if all that we had were functions, what we might want to do is we could have a function
+2616040	2617760	car.
+2617760	2622000	And this is a constructor for a car.
+2622000	2623920	It's going to take a make and a model.
+2623920	2630560	It uses the this keyword that we were just looking at to generate an object for us of
+2630560	2631800	type car.
+2631800	2635060	This is the constructor function.
+2635060	2643620	And then we can set for all cars, my suite property is 42.
+2643620	2647180	Then we can create a new car.
+2647180	2654780	And we can execute or look at properties on that car.
+2654780	2657620	So this probably looks somewhat familiar.
+2657620	2662140	Like if you squint at it, it looks like normal object oriented stuff.
+2662140	2664180	But we're using just functions.
+2664180	2665180	And this.
+2665180	2669960	We're using the this still.
+2669960	2677060	One of the, like, under the hood things that's going on, though, is this idea of proto.
+2677060	2683620	And proto is something that's connected between all of the functions, all of the objects created
+2683620	2686220	by the same function.
+2686220	2694340	So F, which was created up above as a car, has a proto property that points to the same
+2694340	2698020	place as the car prototype.
+2698020	2706900	And why that happens is so that when we set some property on a car on the car, like, prototype,
+2706900	2712040	it sets it for all of our cars.
+2712040	2717240	So we can say things like car.prototype.color is black.
+2717240	2728000	This means that all of our cars have a black color.
+2728000	2732320	The way that this works is one of the things that we will also dive into more.
+2732320	2736180	So I don't want to kind of go too deep into it.
+2736180	2742820	But one of the neat things is that we can update and override the proto's value.
+2742820	2748340	So up above, we've said the prototype says all cars have the color black.
+2748340	2756580	However, the T car, the Toyota Corolla, is red.
+2756580	2762260	And that will update that object's version of red or that object's version of color,
+2762260	2763260	but none of the other ones.
+2763260	2764260	Yeah?
+2764340	2770340	So updating that object's color, can you do that before you set all the object's color?
+2770340	2776340	Or does it have to be after?
+2776340	2777340	Yeah.
+2777340	2778340	Yeah.
+2778340	2779340	Great question.
+2779340	2787380	So can we have set this T.color before we're setting the prototype version of the color?
+2787380	2791300	What do you guys think?
+2791300	2794740	Even if you don't know JavaScript, it's fine.
+2794740	2795740	What are your thoughts?
+2795740	2797300	Like, should this work?
+2797300	2802300	Should it not work?
+2802300	2810500	Yeah, so maybe no.
+2810500	2814580	Because then all of the other cars don't have color.
+2814580	2817920	And this object is suddenly, like, the wrong shape.
+2817920	2821880	It has a property that none of the other cars have.
+2821880	2824320	I like the sentiment.
+2824320	2828560	JavaScript says shape doesn't matter.
+2828560	2830120	And it will let you do that.
+2830120	2831120	Yeah.
+2831120	2836800	No, it is kind of funky that we can set properties on this object that no other objects would
+2836800	2838900	have.
+2838900	2840680	But JavaScript wants to be flexible.
+2840680	2843240	It wants to say do whatever you want.
+2843240	2845040	So it will let you do it.
+2845040	2857160	The question, though, that I do have for you is what is T.color here?
+2857160	2861960	What's this?
+2861960	2863080	Do we get red?
+2863080	2869080	Do we get black?
+2869080	2878560	How many people vote red?
+2878560	2880080	How many people vote black?
+2880080	2881840	Wow, okay.
+2881840	2882840	It's pretty split.
+2882840	2883840	50-50.
+2883840	2884840	All right.
+2884840	2887040	I'll hear an argument either way.
+2887040	2888560	Somebody who's voting red.
+2888560	2889560	Why is that?
+2889560	2890560	Yeah?
+2890560	2910920	Yeah, so because the T.color is overriding the prototype's color.
+2910920	2912640	That seems reasonable.
+2912640	2913640	Argument for black.
+2913640	2914640	Yeah?
+2914640	2925680	Yeah, so the prototype hasn't set the color yet.
+2925680	2931000	So once we set the color, then now that's the, like, rule of the land.
+2931000	2934800	All cars are now set to be black.
+2934800	2935800	Another thought?
+2935800	2936800	Yeah?
+2936800	2960440	Yeah, so if we create another car down here, call it A, create an accord, this color is
+2960440	2961440	what?
+2961440	2963440	It'll be black.
+2963440	2964440	Yeah.
+2964440	2973160	So here what's happening is when we look for color on the A object, we're going to
+2973160	2979360	see that A does not actually have a color, and go look to the prototype and say, what's
+2979360	2981240	the prototype say?
+2981240	2984400	And the prototype has color set as black.
+2984400	2989200	So it will print out the value black.
+2989200	2993200	If we do a console.log.
+2993200	3004280	But that's also the key idea for what is the color of T here as being red.
+3004280	3011980	Because when we go to the object, the object T has a color of red.
+3011980	3017120	If it didn't have a color set at all, then it would go to the prototype and say, what's
+3017120	3019540	the color on the prototype?
+3019540	3021600	And the color on the prototype is black.
+3021600	3027420	But because we have it set on the object itself, we're good to go.
+3027420	3033960	And this kind of prototype chasing is used for every property that you try and access
+3033960	3036080	on an object in JavaScript.
+3036080	3046680	So if you try to use T.toString, and let's say that this does not exist, if we try and
+3046680	3052380	print out T.toString, we'll check the object first.
+3052380	3054080	That doesn't have toString.
+3054080	3055760	Then we check the prototype.
+3055760	3057520	That doesn't have toString.
+3057520	3060800	But because it's an object, it has...
+3060800	3063540	The prototype itself has a prototype.
+3063540	3067840	And the prototype of the prototype is the object base class.
+3067840	3072440	And the object base class has a default implementation of toString.
+3072440	3074400	So we use that implementation.
+3074400	3080480	So it's this prototype chaining that looks like inheritance in any other language.
+3080480	3081480	Yeah?
+3081480	3086680	How does this differ from myCreate class?
+3086680	3088040	It doesn't, really.
+3088040	3090760	It's just being set on the...
+3090760	3091760	With different notation.
+3091760	3092760	Yeah.
+3092760	3093760	Question?
+3093760	3098760	So the prototype, is that an object of itself?
+3098760	3099760	Yeah.
+3099760	3104360	So char.prototype here is an object.
+3104360	3105720	When this gets to...
+3105720	3110920	I think it's on the next slide, actually.
+3110920	3114040	No.
+3114040	3115040	It's not.
+3115040	3116040	All right.
+3116040	3119120	In JavaScript, almost everything is an object.
+3119120	3124240	There are a few primitives, such as integers, characters.
+3124240	3128120	But almost everything else is treated the same way as an object.
+3128120	3130960	As a complex object.
+3130960	3136000	And that allows these kind of reuse of ideas for everything.
+3136000	3138000	We don't treat prototypes as special.
+3138000	3140000	They're just like anything else.
+3140000	3141000	Yeah?
+3141000	3152480	Yeah, I'm like 90% sure.
+3152480	3154440	Double check for me.
+3154440	3162560	But I'm 90% sure this is setting it on the prototype itself.
+3162560	3171920	All right.
+3171920	3173800	So why are objects good?
+3173800	3179480	I mean, you've been kind of indoctrinated, as we all are, as computer science majors
+3179480	3182840	or minors or just taking the class.
+3182840	3185900	When you learn programming, you start with object-oriented.
+3185900	3187460	And there's a reason for that.
+3187460	3190960	Because it's really convenient to use to organize your programs.
+3190960	3195120	It's really convenient to reuse parts of your program.
+3195120	3199840	So I don't think it's too necessary to push this point.
+3199840	3204840	It's kind of been pushed in every other class.
+3204840	3208040	So that's objects.
+3208040	3213320	The last little bit of JavaScript is about flexibility.
+3213320	3217720	These were features such as not requiring semicolons.
+3217720	3224880	If you come from C, C++, Java, which is what everyone was writing, you needed semicolons.
+3224880	3227040	JavaScript said, no, you don't.
+3227040	3228160	We can just put that in.
+3228160	3230200	The compiler is pretty smart.
+3230200	3233220	Everyone uses new lines.
+3233220	3235900	Another big one is the idea of casting.
+3235900	3243220	When you try and do string 3 plus 3, should it give you 6?
+3243220	3246380	Should it give you 33?
+3246380	3248460	I don't know.
+3248460	3252260	JavaScript will decide for you what you wanted, though.
+3252260	3253340	And maybe that's helpful.
+3253340	3255440	Maybe it's not.
+3255440	3260760	And then there's this idea of hoisting, where you don't need to declare all of your variables
+3260760	3262740	when you start your function.
+3262740	3265100	And that today sounds kind of ridiculous.
+3265100	3266300	Of course you don't.
+3266300	3272660	But some of you have probably written old C code, just because you have an old C compiler,
+3272660	3278940	where you have to put, like, all of your int x, int y at the start of your function before
+3278940	3281020	you can actually initialize them.
+3281020	3285460	You have your declaration at the top of the function, initialization down below.
+3285460	3287780	So JavaScript said, let's not do that.
+3287780	3289580	That's kind of useless.
+3289580	3293780	We can figure it out ourselves.
+3293780	3295620	Some of the other cool features.
+3295620	3298940	You can evaluate code directly in the interpreter.
+3298940	3301440	There's a function exposed to you called eval.
+3301440	3306820	And if you pass a string, a JavaScript string, to eval, it'll run it.
+3306820	3307820	That's kind of neat.
+3307820	3309860	It's kind of scary, too.
+3309860	3310860	You know?
+3310860	3315580	If you're using eval and somebody else gives you code to run, who knows what they're gonna
+3315580	3318180	do with it?
+3318180	3325580	And this idea that we could say T.color equals red before we had said that the car has a
+3325580	3326860	color.
+3326860	3333620	That's called monkey patching, where we can give variables or give properties to objects,
+3333620	3336220	whatever we want.
+3336220	3338020	And we can do it on anything.
+3338020	3345780	We can override any function that previously existed to do something else.
+3345780	3349780	The issue with that is that you can override any function that previously existed to do
+3349780	3351740	anything else.
+3351740	3355780	So when you're running JavaScript code, you can hope that it's doing what you want it
+3355780	3356780	to do.
+3356780	3360820	And nobody has messed up your objects along the way.
+3360820	3363620	But maybe they did.
+3363620	3365860	All right.
+3365860	3370500	That's a brief bit about language flexibility.
+3370500	3378620	Any questions on that side of things?
+3378620	3386660	A lot of the flexibility now feels commonplace, because we have developed more ergonomic languages
+3386660	3388580	in the last 20 years.
+3388580	3392580	But coming from the 90s, that's kind of radical.
+3392580	3397740	Now, hopefully, I would like to show you a quick video.
+3397980	3403980	This is a funny interlude before we get to something fun.
+3403980	3408500	All right.
+3408500	3417500	I don't want to make it too loud.
+3417500	3435500	Let's make sure that it's using the right sound.
+3435500	3443500	Okay.
+3443500	3447260	This is from, like, 2008, so bear with it.
+3447260	3449260	It's worth it.
+3449260	3453260	Let's talk about Ruby.
+3453260	3459260	In Ruby, if you reference an undefined variable, of course, it name errors, as you would expect.
+3459260	3465260	And if you try to assign B to A with them undefined, of course, it name errors, as you
+3465260	3466260	would expect.
+3466260	3470260	And what happens if you try to assign A to A with A undefined?
+3470260	3472260	Correct.
+3472260	3474260	Nil.
+3474260	3480260	What?
+3480260	3484260	Let's talk about Ruby.
+3484260	3488260	Ruby, unlike some other dynamic languages, does not have bare words, so you cannot just
+3488260	3491260	type words in and have strings come out.
+3491260	3496260	Unless you define a particular method missing that does the right thing.
+3496260	3500260	And then, if you type bare words, suddenly, Ruby supports bare words.
+3500260	3504260	And, in fact, it will even support bare words with bangs in them.
+3504260	3506260	And this is not deserving of Watt.
+3506260	3510260	This is actually a result of how awesome Ruby is.
+3510260	3518260	But if you ever actually do this, then, Watt.
+3518260	3524260	Let's talk about JavaScript.
+3524260	3528260	Does anyone know, in JavaScript, what array plus array is?
+3528260	3530260	Well, let me ask you this first.
+3530260	3532260	What should array plus array be?
+3532260	3534260	Empty array?
+3534260	3536260	I would also accept type error.
+3536260	3538260	That is not what array plus array is.
+3538260	3540260	Wrong.
+3540260	3542260	Wrong.
+3542260	3546260	Array plus array is empty string.
+3546260	3548260	Obviously.
+3548260	3550260	I think that's obvious to everyone.
+3550260	3552260	Now, what would array plus object be?
+3552260	3556260	This should obviously be type error, because those are completely disparate types.
+3556260	3558260	Does anyone know what this is?
+3558260	3560260	No. Close.
+3560260	3562260	No. Far away.
+3562260	3564260	It's object.
+3564260	3566260	Nicely done.
+3566260	3570260	Now, of course, because this is plus, so you can flip the operands and the same thing comes out.
+3570260	3572260	So, if we do...
+3572260	3574260	What? No, that's just an object.
+3574260	3584260	If you do object plus array, you should get exactly the same thing, which, as you can see, you do.
+3584260	3588260	And finally, the only one of these that's actually true is...
+3588260	3590260	Because, you know, you add arrays, you get empty string, that doesn't make sense.
+3590260	3596260	But an object plus an object is actually not a number, technically.
+3596260	3600260	So this one's actually right.
+3600260	3602260	Exactly, right?
+3602260	3604260	What is even going on in this lab?
+3604260	3612260	I don't even understand what person with a brain in their head would think that any of this is a good idea.
+3612260	3614260	Okay, okay.
+3614260	3616260	Enough making fun of languages that suck.
+3616260	3618260	Let's talk about JavaScript.
+3618260	3628260	If I say array.new 16, or just array 16, I get an array of 16 things, which it represents as 16 commas, which is obvious.
+3628260	3634260	And if I then join those with a string, then I get this string 16 times.
+3634260	3638260	This is actually the only line in this entire presentation that's reasonable.
+3638260	3642260	Now, if I take that string and then add a 1 to it, it interprets the 1 as...
+3642260	3646260	Or casts the 1 to a string, and then we get WAP 1 a bunch of times.
+3646260	3648260	Fine.
+3648260	3652260	Does anyone know what will happen if I subtract 1 from the string?
+3652260	3654260	I'm assuming no one does.
+3654260	3656260	I'll give you a hint.
+3656260	3658260	Does this help?
+3658260	3660260	Does anyone know?
+3661260	3663260	Does anyone know?
+3679260	3681260	All right.
+3681260	3682260	Good stuff.
+3682260	3684260	JavaScript makes a lot of sense sometimes.
+3684260	3687260	And other times makes absolutely no sense.
+3687260	3691260	But that's kind of the price we are paying with language flexibility.
+3691260	3694260	You know, it's really cool that you can add strings to numbers.
+3694260	3696260	Or subtract strings from numbers.
+3696260	3697260	Until you do it.
+3697260	3698260	And then you're like...
+3698260	3699260	Why can I do that?
+3699260	3702260	But at least your program didn't crash.
+3702260	3703260	Maybe.
+3703260	3706260	Maybe not.
+3706260	3709260	So the takeaways from JavaScript...
+3709260	3711260	That first class functions are very powerful.
+3711260	3715260	We're going to be using them a lot during this class.
+3715260	3717260	Secondly, language flexibility.
+3717260	3719260	Definitely not free.
+3719260	3720260	It's cool.
+3720260	3725260	The ability to do things that you normally can't do in other languages is great.
+3725260	3728260	But there's always a tradeoff.
+3728260	3732260	And sometimes you shouldn't add two objects and get zero.
+3732260	3735260	Who does that make sense to?
+3735260	3739260	So that is JavaScript.
+3739260	3743260	We are going to take a step away from JavaScript now.
+3743260	3750260	And we're going to go towards what PL people tend to think of when they think of PL.
+3750260	3752260	Which is a bit mathier.
+3752260	3757260	So before we step away from the good language of JavaScript,
+3757260	3761260	and familiar interpreters and things of that sort,
+3761260	3765260	are there any last questions on this area?
+3765260	3767260	Yeah?
+3768260	3776260	Yeah, yeah, yeah.
+3776260	3779260	I'll get one of those at the end of class.
+3779260	3784260	Or on Piazza later.
+3784260	3788260	Although the modules was an example of that as well.
+3788260	3792260	But I kind of skipped over that.
+3793260	3801260	Yeah?
+3801260	3805260	For like the JS code section?
+3805260	3806260	Yeah.
+3806260	3808260	I can make that work.
+3808260	3811260	We can do that.
+3811260	3817260	Let me make a note so I don't forget.
+3817260	3824260	Any other notes, questions?
+3824260	3835260	All right.
+3835260	3844260	In that case...
+3844260	3848260	We're going to start talking about what's called the Lambda Calculus.
+3848260	3852260	It's a language that was invented in the 30s.
+3852260	3855260	1930s.
+3855260	3857260	By Church.
+3857260	3860260	Alonzo Church.
+3860260	3862260	We've just seen the JavaScript functions.
+3862260	3866260	Where we were using them as first class.
+3866260	3872260	The syntax that we were kind of using sometimes was this function with, you know, parameters.
+3872260	3873260	Do something.
+3873260	3874260	We call it...
+3874260	3879260	We did a little bit of arrow function syntax that's doing the same thing.
+3879260	3882260	But looks a little bit different.
+3882260	3883260	All right.
+3883260	3886260	What we're going to start with...
+3886260	3890260	So we heat up a little bit of JavaScript.
+3890260	3896260	And what we get out is Lambda Calculus.
+3896260	3901260	Lambda Calculus is the simplest programming language.
+3902260	3904260	It has one feature.
+3904260	3907260	Functions.
+3907260	3908260	Kind of two features.
+3908260	3909260	It also has variables.
+3909260	3911260	You need variables.
+3911260	3915260	You have to have some sort of state.
+3915260	3919260	But the one real feature of it is functions.
+3919260	3925260	Why we are going to be looking at this is because it really captures the idea of first class functions.
+3925260	3928260	If all you have are functions, functions must be first class.
+3928260	3931260	Nothing else could be first class.
+3931260	3936260	So we're going to see how do variables work in almost every language.
+3936260	3938260	It's very historically important.
+3938260	3944260	It's like the genesis language for that whole family of other languages.
+3944260	3947260	Like Lisp, Scheme, ML, Haskell.
+3947260	3952260	And then it's worked its way into languages like C++.
+3952260	3954260	When you have Lambda expressions.
+3954260	3955260	Or Python.
+3955260	3956260	Or Java.
+3956260	3964260	Every language is now, if it wasn't initially built on Lambda Calculus, it's adding it in.
+3964260	3965260	All right.
+3965260	3967260	So why else?
+3967260	3974260	If you go into programming languages research, or if you read any of the papers in this space,
+3974260	3978260	they almost all, without fail, are talking about Lambda Calculus.
+3978260	3980260	It's just what people like.
+3980260	3981260	Because it's simple.
+3981260	3984260	It allows you to add a simple feature to it.
+3984260	3992260	And reason about the language without all the complexity of everything else.
+3992260	3994260	Also because it's very similar to math.
+3994260	3999260	And so people who are getting into the space are coming often from mathematics.
+3999260	4002260	They like that it's very expression focused.
+4002260	4005260	So that's another reason.
+4005260	4014260	We can also use it as a kind of underlying understanding of how various languages might implement an idea.
+4014260	4021260	So evaluation order in a language like JavaScript is very different than in Haskell.
+4021260	4026260	Lambda Calculus will show that to us very clearly.
+4026260	4030260	With the evaluation strategy.
+4030260	4032260	Additionally, we can study different type systems.
+4032260	4035260	I don't go into that in this class.
+4035260	4041260	But it's very common to talk about types in Lambda Calc.
+4041260	4045260	So that you can have different typed versions.
+4045260	4051260	Like I mentioned, almost every PL paper is built on Lambda Calculus.
+4051260	4052260	It's just the way it is.
+4052260	4054260	A necessary evil if you don't like it.
+4054260	4060260	Or once you understand it, it becomes kind of straightforward.
+4060260	4070260	If you want to do any theoretical or kind of, like, formal proof work, you will be doing it with Lambda Calculus.
+4070260	4079260	So you can study things like various types of semantics in different languages with respect to Lambda Calc.
+4079260	4082260	Okay.
+4082260	4087260	There is reading I'm going to post, I think, later today or later this week.
+4087260	4091260	That I recommend before Monday's lecture.
+4091260	4093260	That you read.
+4093260	4096260	This is a little bit of a preview of it.
+4096260	4102260	So we're going to look at the syntax or the grammar of the language.
+4102260	4104260	What is syntax in general?
+4104260	4110260	What does it mean for the syntax of Lambda Calculus to be something?
+4110260	4114260	Like, what are you looking at when you talk about syntax?
+4114260	4121260	Yeah.
+4121260	4122260	Yeah.
+4122260	4124260	How you write the language.
+4124260	4131260	What specifically, like, what symbols are you using when you are writing the language?
+4131260	4135260	For example, in math, you might say X plus Y.
+4135260	4138260	That's, like, syntactically correct.
+4138260	4146260	If you said something like plus XY, that's not syntactically correct.
+4146260	4149260	Unless you're in a reverse Polish notation system.
+4149260	4151260	In which case it would be.
+4151260	4153260	That's a different language style.
+4153260	4155260	That's different syntax.
+4155260	4156260	Okay.
+4156260	4159260	So syntax, it's about, like, the symbols you're using.
+4159260	4161260	The order that they're showing up.
+4161260	4163260	What about the semantics?
+4163260	4166260	What is the semantics of a language?
+4166260	4167260	Yeah.
+4167260	4168260	Yeah.
+4168260	4176260	Like, how to understand, like, precedence and stuff like that?
+4176260	4177260	Yeah.
+4177260	4179260	So, how to understand precedence.
+4179260	4191260	So, for example, when we do X plus Y times 2, do we evaluate X plus Y first?
+4192260	4196260	Or do we evaluate Y times 2 first?
+4196260	4199260	It really decided it was done.
+4199260	4204260	So, the semantics of the language will tell you which one goes first.
+4204260	4207260	How do we evaluate this expression?
+4207260	4210260	What else does it tell you?
+4210260	4211260	What's it about?
+4212260	4225260	When you think about semantics, what does that represent?
+4225260	4227260	Yeah.
+4227260	4228260	The meaning.
+4228260	4229260	Yeah.
+4229260	4233260	The way I associate them is very much semantics is meaning.
+4233260	4235260	Syntax is form.
+4235260	4238260	It's what it looks like versus what it represents.
+4238260	4242260	What it means underneath.
+4242260	4248260	So, semantics tells you how do you, like, what is the end result?
+4248260	4250260	What's the meaning?
+4250260	4255260	How is this thing executed?
+4255260	4260260	And I think that's probably where we're gonna stop with the slides.
+4261260	4262260	So, we...
+4262260	4265260	Because this thing is done.
+4265260	4269260	We'll try and replug it in, see if that works.
+4269260	4272260	With week 2, what we are going to be going into...
+4272260	4273260	Oh, there you go.
+4273260	4274260	It works.
+4274260	4275260	We are finishing up anyway, though.
+4275260	4277260	So, it's not a big deal here.
+4277260	4282260	With week 2, what we will be looking at is what's the syntax of lambda calc?
+4282260	4285260	And then what's the semantics of lambda calc?
+4286260	4293260	The reading that I mentioned is going to be very helpful in understanding what this line means.
+4293260	4299260	So, if this second line on the screen does not currently make perfect sense to you,
+4299260	4303260	I recommend reading the chapter that I'm going to upload.
+4303260	4304260	It'll be like a PDF.
+4304260	4307260	You know, I'm just gonna scan a book.
+4307260	4312260	If you do not have a partner for the homework assignment that's due later this week,
+4312260	4317260	please stick around and find other people who do not have a partner.
+4317260	4323260	If you have any other questions, feel free to come chat or find me in office hours right after class.
+4342260	4344260	All right.
+4372260	4373260	Thank you.
+4402260	4404260	Thank you.
+4432260	4433260	Thank you.
+4433260	4434260	Thank you.
+4463260	4464260	Thank you.
+4464260	4465260	Thank you.
+4523260	4524260	Thank you.
+4524260	4525260	Thank you.
+4552260	4553260	Thank you.
+4553260	4554260	Thank you.
+4554260	4555260	Thank you.
+4555260	4555260	
+4583260	4584260	Thank you.
+4584260	4585260	Thank you.
+4585260	4586260	Thank you.
+4586260	4587260	Thank you.
+4587260	4588260	Thank you.
+4588260	4589260	Thank you.
+4589260	4590260	Thank you.
+4590260	4591260	Thank you.
+4591260	4592260	Thank you.
+4592260	4595260	Thank you.
+4612260	4619260	Thank you.
+4642260	4644260	Thank you.
+4672260	4674260	Thank you.
+4702260	4703260	Thank you.
+4703260	4704260	Thank you.
+4704260	4705260	Thank you.
+4705260	4706260	Thank you.
+4706260	4707260	Thank you.
+4707260	4707260	
+4732260	4733260	Thank you.
+4733260	4734260	Thank you.
+4734260	4735260	Thank you.
+4735260	4735260	
+4762260	4763260	Thank you.
+4763260	4764260	Thank you.
+4764260	4765260	Thank you.
+4765260	4765260	
+4792260	4793260	Thank you.
+4793260	4794260	Thank you.
+4794260	4795260	Thank you.
+4795260	4795260	

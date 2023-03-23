@@ -1,0 +1,3320 @@
+WEBVTT
+
+00:00.000 --> 00:27.000
+Hopefully that doesn't keep happening.
+
+00:27.000 --> 00:51.000
+Thank you.
+
+00:51.000 --> 01:19.000
+Thank you.
+
+01:19.000 --> 01:25.280
+All right, guys.
+
+01:25.280 --> 01:27.600
+Let's go ahead and get started.
+
+01:27.600 --> 01:30.400
+So to start off, we got some notes.
+
+01:30.400 --> 01:35.520
+The early deadline for the first homework and programming assignment are tomorrow.
+
+01:35.520 --> 01:40.520
+So that is if you want 10% bonus points, submit by tomorrow night.
+
+01:40.520 --> 01:46.640
+Otherwise, the normal deadline is this Sunday night at 11.59 p.m.
+
+01:46.640 --> 01:48.840
+So get working on those.
+
+01:48.840 --> 01:51.120
+I have office hours after class today.
+
+01:51.120 --> 01:55.520
+If you're having any trouble setting things up or have questions, feel free to stop by.
+
+01:55.520 --> 01:59.160
+I also have a chess board in there if you want to just sit and play chess for a little
+
+01:59.160 --> 02:00.160
+bit.
+
+02:00.160 --> 02:01.160
+Recordings.
+
+02:01.160 --> 02:04.760
+I missed on Monday, I forgot to set up Zoom.
+
+02:04.760 --> 02:07.720
+But hopefully I've contacted the department.
+
+02:07.720 --> 02:09.540
+That thing looks like it's on.
+
+02:09.540 --> 02:12.660
+I see myself in the camera over here.
+
+02:12.660 --> 02:18.000
+So hopefully everything will be official and through Canvas going forward.
+
+02:18.160 --> 02:20.320
+So use those for what you will.
+
+02:20.320 --> 02:25.680
+If it turns out that you guys prefer watching recordings online, that's fine.
+
+02:25.680 --> 02:27.800
+We'll have a little bit more of a sparse classroom.
+
+02:27.800 --> 02:32.520
+For the people who do show up, just come sit closer to the front and we'll have more fun.
+
+02:32.520 --> 02:33.920
+Okay.
+
+02:33.920 --> 02:34.920
+Those are my notes.
+
+02:34.920 --> 02:36.920
+Are there any notes from you guys?
+
+02:36.920 --> 02:38.880
+Anything that's not working?
+
+02:38.880 --> 02:41.840
+Any questions before we dive into lecture?
+
+02:41.840 --> 02:42.840
+Yeah?
+
+02:42.840 --> 02:54.400
+Is the early deadline just literally however many days beforehand and it's still midnight?
+
+02:54.400 --> 02:55.400
+Yes, it's still midnight.
+
+02:55.400 --> 02:56.400
+Yeah.
+
+02:56.400 --> 02:57.400
+Yep.
+
+02:57.400 --> 03:00.640
+The early deadline is at midnight or 11.59 p.m.
+
+03:00.640 --> 03:01.640
+Yeah?
+
+03:01.640 --> 03:07.200
+What's the name of the written assignment?
+
+03:07.200 --> 03:08.200
+Yeah.
+
+03:08.200 --> 03:09.800
+So grade scope is a little tricky.
+
+03:09.800 --> 03:14.160
+So the question was, if we are submitting the written assignment as a group, which you
+
+03:14.160 --> 03:19.520
+should definitely be submitting as a group, you need at least one group member.
+
+03:19.520 --> 03:21.360
+What's the process for that?
+
+03:21.360 --> 03:27.560
+After you submit as one person from the group, you can go to the submission and add your
+
+03:27.560 --> 03:30.200
+teammates to that submission.
+
+03:30.200 --> 03:35.600
+So one submission per group for the entire group, one submission.
+
+03:35.600 --> 03:37.480
+Add your teammates.
+
+03:37.480 --> 03:41.320
+Also select where the problem is in your submission.
+
+03:41.320 --> 03:42.960
+So it will say, like, where is problem one?
+
+03:42.960 --> 03:45.720
+And you highlight the area that is problem one.
+
+03:45.720 --> 03:46.720
+Yeah.
+
+03:46.720 --> 03:47.720
+That's all on grade scope.
+
+03:47.720 --> 03:48.720
+Yeah?
+
+03:48.720 --> 04:01.800
+Can we submit just the PA early or just the homework early?
+
+04:01.800 --> 04:03.160
+And do you still get the extra credit?
+
+04:03.160 --> 04:04.160
+Yes.
+
+04:04.160 --> 04:07.080
+The extra credit is tied to the individual assignment.
+
+04:07.080 --> 04:11.080
+So if you submit the PA early, you get 10% bonus points on the PA.
+
+04:11.080 --> 04:15.840
+If you submit the homework early, you get 10% bonus points on the homework.
+
+04:15.840 --> 04:18.680
+They're separate pieces.
+
+04:18.680 --> 04:20.600
+Yep.
+
+04:20.600 --> 04:25.340
+Anything else?
+
+04:25.340 --> 04:29.100
+As we get into a rhythm with it, these will be very comfortable.
+
+04:29.100 --> 04:31.760
+It's the same thing every time.
+
+04:31.760 --> 04:35.080
+All right.
+
+04:35.080 --> 04:42.240
+In that case, let's get back into JavaScript.
+
+04:42.240 --> 04:43.680
+First class functions.
+
+04:43.680 --> 04:44.680
+What are they?
+
+04:44.680 --> 04:50.080
+Who can give me the three points of what makes a first class function all at once somebody
+
+04:50.080 --> 04:53.460
+who didn't answer the same question yesterday?
+
+04:53.460 --> 04:55.280
+What is first class functions?
+
+04:55.280 --> 04:56.280
+What does it mean?
+
+04:56.280 --> 04:57.280
+Yeah.
+
+04:57.280 --> 04:58.280
+Go for it.
+
+04:58.280 --> 05:08.920
+Yeah.
+
+05:08.920 --> 05:15.440
+So is it using functions to create scopes for the variables inside of it?
+
+05:15.440 --> 05:19.560
+That's one of the things that first class functions allows us to do.
+
+05:19.560 --> 05:24.920
+So it's a capability of first class functions, but it's not necessarily what they are.
+
+05:24.920 --> 05:25.920
+Yeah?
+
+05:25.920 --> 05:40.880
+So it's the three things of the function can be defined in any scope, they can be passed
+
+05:40.880 --> 05:47.360
+to other functions as values, and they can be returned from functions as values.
+
+05:47.360 --> 05:53.160
+To say it in one tagline, first class functions means functions are values.
+
+05:53.160 --> 05:55.360
+They're just normal values.
+
+05:55.360 --> 06:01.440
+Just like you say let X equal 3, you can say let X equal a function.
+
+06:01.440 --> 06:03.280
+All right.
+
+06:03.280 --> 06:10.240
+So then that leads to a little bit of a pretty natural question coming after that.
+
+06:10.240 --> 06:14.600
+Are these functions that we're working with the same thing as function pointers that you
+
+06:14.600 --> 06:17.600
+might have seen in other languages like C?
+
+06:17.600 --> 06:23.880
+Where you can, for example, call sort with a comparison function.
+
+06:23.880 --> 06:29.760
+Where you tell the sort function how to sort the things in your list.
+
+06:29.760 --> 06:31.540
+That's using a function pointer.
+
+06:31.540 --> 06:36.920
+So are the functions that we're working with, these first class functions in JavaScript,
+
+06:36.920 --> 06:38.920
+are they just function pointers?
+
+06:38.920 --> 06:44.600
+This is one that I do want you to take a minute, chat with your peers, whoever's next to you,
+
+06:44.600 --> 06:46.800
+yes or no, and why.
+
+06:46.800 --> 06:47.840
+What makes it the same?
+
+06:47.840 --> 06:50.000
+What makes it different?
+
+06:50.000 --> 06:52.920
+So take a minute or two to chat.
+
+07:52.920 --> 08:03.880
+All right.
+
+08:03.880 --> 08:07.320
+Sounds like conversation is settling down.
+
+08:07.320 --> 08:09.600
+Let's get a quick class poll.
+
+08:09.600 --> 08:12.680
+How many people are in the yes camp?
+
+08:12.680 --> 08:18.420
+These are just like the function pointers that you would see in, for example, C.
+
+08:18.420 --> 08:21.300
+What about how many people are in the no camp?
+
+08:21.300 --> 08:23.900
+Saying these are not just function pointers.
+
+08:23.900 --> 08:24.900
+Something else is going on here.
+
+08:24.900 --> 08:25.900
+Okay.
+
+08:25.900 --> 08:29.260
+So large majority of the class is saying no.
+
+08:29.260 --> 08:31.060
+Someone explain why.
+
+08:31.060 --> 08:33.180
+What else is happening here?
+
+08:33.180 --> 08:34.180
+Yeah.
+
+08:34.180 --> 08:37.180
+Go for it.
+
+08:37.180 --> 08:56.580
+Yeah, so C definitely does not let you� or at least most implementations of C do not
+
+08:56.580 --> 09:01.140
+let you define your functions in any scope.
+
+09:01.140 --> 09:04.200
+That's our first requirement for a first class function.
+
+09:04.200 --> 09:08.160
+So it's true C doesn't have first class functions.
+
+09:08.160 --> 09:13.440
+But C does let you still pass around these functions.
+
+09:13.440 --> 09:18.640
+And some implementations of C actually do let you define them in any scope.
+
+09:18.640 --> 09:24.420
+There still might be something different between a function pointer by itself being able to
+
+09:24.420 --> 09:30.280
+define the function anywhere and pass it around and what we're doing in JavaScript.
+
+09:30.280 --> 09:33.360
+There's another little piece that's happening in here.
+
+09:33.520 --> 09:39.360
+And we saw it yesterday with the expressive code a little bit.
+
+09:39.360 --> 09:40.360
+What else is going on?
+
+09:40.360 --> 09:41.360
+Yeah.
+
+09:41.360 --> 09:42.360
+Yeah.
+
+09:42.360 --> 09:43.360
+Yeah.
+
+09:43.360 --> 09:56.600
+So the function has access to variables that were around when it was defined.
+
+09:56.600 --> 10:02.840
+That's kind of like the English way to describe the idea of a closure.
+
+10:02.840 --> 10:07.480
+These functions in JavaScript are not just pointers.
+
+10:07.480 --> 10:13.680
+They are function code, which is what you have in C, for example, with a function pointer.
+
+10:13.680 --> 10:15.840
+And they also have environment.
+
+10:15.840 --> 10:22.640
+That is the variables that are around when the function is being defined.
+
+10:22.640 --> 10:27.960
+And these closures are things that we are going to deep dive into in a few lectures
+
+10:27.960 --> 10:33.760
+when we kind of come back to JavaScript later in, I think, late February.
+
+10:33.760 --> 10:39.880
+But for now, the important idea is that functions in JavaScript capture environment.
+
+10:39.880 --> 10:41.600
+Traditional function pointers don't.
+
+10:41.600 --> 10:51.400
+So you could have first class functions in some other languages and not have closures.
+
+10:51.400 --> 10:57.920
+JavaScript has a specific form of first class function called a closure, where we have code
+
+10:58.120 --> 11:02.040
+and we have environment going along with it.
+
+11:02.040 --> 11:05.400
+All right.
+
+11:05.400 --> 11:10.920
+Since it's one thing to see the slides and another thing to see code, let's dive into
+
+11:10.920 --> 11:23.840
+what that might actually look like.
+
+11:23.840 --> 11:30.200
+And you guys will have to let me know when it's the right size to read.
+
+11:30.200 --> 11:33.800
+How's that?
+
+11:33.800 --> 11:35.800
+Readable?
+
+11:35.800 --> 11:36.800
+All the way in the back?
+
+11:36.800 --> 11:37.800
+You guys can read it?
+
+11:37.800 --> 11:38.800
+Yep.
+
+11:38.800 --> 11:40.800
+Anybody want it larger?
+
+11:40.800 --> 11:41.800
+No.
+
+11:41.800 --> 11:42.800
+Okay.
+
+11:42.800 --> 11:49.480
+So, last time we had a function called add 42, which what it did was it took an element
+
+11:49.480 --> 11:53.720
+as a parameter and it returned the element plus 42.
+
+11:53.720 --> 11:55.280
+Nothing too special.
+
+11:55.280 --> 12:01.960
+But maybe we want to make a function that generically creates other add functions for
+
+12:01.960 --> 12:02.960
+us.
+
+12:02.960 --> 12:06.360
+What if we wanted an add 43 and an add 44?
+
+12:06.360 --> 12:12.720
+It's kind of arbitrary, definitely contrived for this example, but this type of idea exists
+
+12:12.720 --> 12:14.580
+all over the place.
+
+12:14.580 --> 12:20.120
+So what we might have is a function called make add function, and the purpose of this
+
+12:20.120 --> 12:23.900
+function is to return another function.
+
+12:23.900 --> 12:29.600
+That's one of our primary features of first class functions, is that they can be returned.
+
+12:29.600 --> 12:35.820
+So we're creating a function that returns another function, and importantly, we're going
+
+12:35.820 --> 12:43.200
+to reference a variable that does not exist inside of our scope of this function, but
+
+12:43.200 --> 12:48.160
+exists from the outer scope of the function that created it.
+
+12:48.160 --> 12:54.240
+This offset variable comes from the make add function, not the inner function that
+
+12:54.240 --> 12:56.840
+we're returning.
+
+12:56.840 --> 13:03.240
+So let's use it and see what happens.
+
+13:03.240 --> 13:08.840
+We can create an add 42, where we say this is equal to make add function with the value
+
+13:08.840 --> 13:14.760
+42, and a sub 42, where we are make add function with negative 42.
+
+13:14.760 --> 13:19.800
+Now when we call add 42 of 1, what are we going to get?
+
+13:19.800 --> 13:23.480
+Do I have copilot on?
+
+13:23.480 --> 13:24.480
+I do.
+
+13:24.480 --> 13:25.480
+That's okay.
+
+13:25.480 --> 13:26.480
+Turn that back off.
+
+13:26.480 --> 13:29.880
+I was coding earlier.
+
+13:29.880 --> 13:31.440
+What are we going to get here?
+
+13:31.440 --> 13:32.440
+43.
+
+13:32.440 --> 13:33.440
+Yeah.
+
+13:33.440 --> 13:37.160
+I think that's a fair...
+
+13:37.160 --> 13:42.320
+Like a reasonable assumption that we're adding 1 to add 42.
+
+13:42.320 --> 13:50.360
+Add 42 is this inner function here, where this x will have the value 1, and then when
+
+13:50.360 --> 13:56.960
+we try and look up offset, we will see that offset was 42, which was the value we were
+
+13:56.960 --> 13:57.960
+given.
+
+13:57.960 --> 14:02.200
+If we add 42 to 42, what do we get?
+
+14:02.200 --> 14:03.200
+84.
+
+14:03.200 --> 14:04.200
+Definitely.
+
+14:04.200 --> 14:10.360
+Same thing happens, where we're looking up the value of offset each time.
+
+14:10.360 --> 14:11.800
+It hasn't changed.
+
+14:11.800 --> 14:13.680
+We haven't updated anything.
+
+14:13.680 --> 14:17.640
+It's still the same value of 42.
+
+14:17.640 --> 14:26.360
+Just to kind of finish this, what's sub 42, 1?
+
+14:26.360 --> 14:27.360
+Negative 41.
+
+14:27.360 --> 14:28.480
+Yeah, definitely.
+
+14:28.480 --> 14:35.800
+This time, when we look up the value of offset, offset within the context of sub 42 is negative
+
+14:35.800 --> 14:36.840
+42.
+
+14:36.840 --> 14:40.440
+We have two different offset values.
+
+14:40.440 --> 14:45.360
+There's an offset that's just for this value, and there's an offset that's just for that
+
+14:45.360 --> 14:47.880
+value.
+
+14:47.880 --> 14:54.200
+And we're going to go into the mechanics of that in a future lecture.
+
+14:54.200 --> 15:01.480
+This one, all on the same page, that that would be 0.
+
+15:01.480 --> 15:06.760
+Any questions on what we've done here?
+
+15:06.760 --> 15:22.520
+All right, then let's make it a bit more complicated.
+
+15:22.520 --> 15:27.440
+See if I can get some questions out of you guys.
+
+15:27.440 --> 15:30.200
+These programs, once again, are all on Canvas.
+
+15:30.200 --> 15:32.120
+I think they weren't last time I said that.
+
+15:32.120 --> 15:33.400
+This time, I've double checked.
+
+15:33.400 --> 15:36.880
+They really should be on Canvas now.
+
+15:36.880 --> 15:42.040
+If they aren't, let me know, and I will try again to upload them.
+
+15:42.040 --> 15:45.720
+Now we're going to create a new function called f.
+
+15:45.720 --> 15:47.440
+Takes a parameter x.
+
+15:47.440 --> 15:49.600
+Then we're gonna say let y equal x.
+
+15:49.600 --> 15:50.600
+Okay?
+
+15:50.600 --> 15:54.960
+And then we're going to return a new function that's not named.
+
+15:54.960 --> 15:55.960
+That's fine.
+
+15:55.960 --> 16:05.820
+It takes a parameter z, and it assigns y equals y plus z, and then returns y.
+
+16:05.820 --> 16:11.280
+We call h equals f of 5.
+
+16:11.280 --> 16:17.400
+And then we console.log h of 3.
+
+16:17.400 --> 16:19.280
+Take a second.
+
+16:19.280 --> 16:20.960
+Think to yourself.
+
+16:20.960 --> 16:26.880
+First of all, what is the value of h?
+
+16:26.880 --> 16:30.760
+And then what will this first line print?
+
+16:30.760 --> 16:34.400
+So think it over to yourself for a second here.
+
+16:34.400 --> 17:00.920
+Try and come up with an answer.
+
+17:00.920 --> 17:04.400
+Who feels like they have an idea of what h is?
+
+17:04.400 --> 17:07.720
+Okay.
+
+17:07.720 --> 17:08.720
+Not too many of you.
+
+17:08.720 --> 17:10.440
+So I'm gonna give you a little bit more time.
+
+17:10.440 --> 17:12.480
+Chat with somebody next to you.
+
+17:12.480 --> 17:33.920
+See if you guys can come to a consensus on what h is.
+
+18:03.920 --> 18:12.480
+All right.
+
+18:12.480 --> 18:15.640
+How many people now feel like they know what h is?
+
+18:15.640 --> 18:17.960
+Feel a little bit more comfortable with it?
+
+18:17.960 --> 18:19.240
+A decent number more.
+
+18:19.240 --> 18:20.240
+Still not everyone, though.
+
+18:20.240 --> 18:22.760
+So let's figure it out.
+
+18:22.760 --> 18:23.760
+What is h?
+
+18:23.760 --> 18:25.400
+Who's got an answer?
+
+18:25.400 --> 18:26.400
+Yeah?
+
+18:26.400 --> 18:28.000
+Is it 8?
+
+18:28.000 --> 18:29.000
+Is it 8?
+
+18:29.000 --> 18:31.320
+Is h equal to 8?
+
+18:31.760 --> 18:33.920
+Ah.
+
+18:33.920 --> 18:35.640
+This one, I'm on board.
+
+18:35.640 --> 18:38.500
+I think this next one is 8.
+
+18:38.500 --> 18:39.680
+Someone else.
+
+18:39.680 --> 18:41.680
+What is h here?
+
+18:41.680 --> 18:43.560
+Yeah.
+
+18:43.560 --> 18:45.040
+h is a function.
+
+18:45.040 --> 18:46.040
+Which function is it?
+
+18:46.040 --> 18:48.040
+We have two functions here.
+
+18:48.040 --> 18:49.040
+Yeah.
+
+18:49.040 --> 19:00.960
+Yeah, it's this inner function, and very specifically, it's this inner function
+
+19:00.960 --> 19:07.320
+code in addition to the environment that says y is 5.
+
+19:07.320 --> 19:09.120
+Yeah.
+
+19:09.120 --> 19:12.040
+So that's h itself.
+
+19:12.040 --> 19:13.120
+The value of h.
+
+19:13.120 --> 19:18.280
+Then when we call h of 3, h is a function with environment.
+
+19:18.280 --> 19:19.280
+It's a closure.
+
+19:19.280 --> 19:20.760
+It's this function.
+
+19:20.760 --> 19:25.560
+So when we call h of 3, we say z is equal to 3.
+
+19:25.560 --> 19:27.600
+We will get the value 8 back out.
+
+19:27.600 --> 19:28.600
+Cool.
+
+19:29.240 --> 19:31.040
+We're good to go here.
+
+19:31.040 --> 19:32.520
+h is a function.
+
+19:32.520 --> 19:34.640
+The value here is 3.
+
+19:34.640 --> 19:37.120
+Now what's the value of the second line?
+
+19:37.120 --> 19:38.120
+Yeah.
+
+19:38.120 --> 19:40.120
+All the way in the back.
+
+19:40.120 --> 19:41.120
+12.
+
+19:41.120 --> 19:44.120
+Why is it 12?
+
+19:44.120 --> 19:48.400
+Yeah, definitely.
+
+19:48.400 --> 19:52.480
+So y has been updated by the previous line of code.
+
+19:52.480 --> 19:55.440
+y is saved in this line.
+
+19:55.440 --> 20:01.080
+When we say y plus equals z, we've actually updated the context.
+
+20:01.080 --> 20:06.120
+We've updated the environment so that now y is equal to 8.
+
+20:06.120 --> 20:10.160
+When we call it a second time with the value 4, we're adding 4 to 8.
+
+20:10.160 --> 20:11.160
+We get 12.
+
+20:11.160 --> 20:14.160
+That's what's returned.
+
+20:14.160 --> 20:16.200
+Okay.
+
+20:16.200 --> 20:19.360
+Let's do it one more time.
+
+20:19.360 --> 20:33.200
+With j equals f of 5, what is j?
+
+20:33.200 --> 20:34.200
+It's a function.
+
+20:34.200 --> 20:35.200
+Yep.
+
+20:35.200 --> 20:36.200
+Just like before.
+
+20:36.200 --> 20:37.200
+j is a function.
+
+20:37.200 --> 20:39.160
+And it's got y equals 5.
+
+20:39.160 --> 20:41.400
+The context y equals 5.
+
+20:41.400 --> 20:46.520
+When we call j of 3, what do we get?
+
+20:46.520 --> 20:52.720
+Do we get 8 or do we get 15?
+
+20:52.720 --> 20:54.880
+How many people vote 8?
+
+20:54.880 --> 20:56.240
+How many people vote 15?
+
+20:56.240 --> 20:57.240
+All right.
+
+20:57.240 --> 20:58.880
+We hardly even have to ask.
+
+20:58.880 --> 20:59.880
+Yeah.
+
+20:59.880 --> 21:01.640
+Everyone there that I saw said 8.
+
+21:01.640 --> 21:04.200
+We've created new context, new environment.
+
+21:04.200 --> 21:05.400
+That's what we're updating.
+
+21:05.400 --> 21:11.300
+So similarly, when we call j of 4, we're gonna end up with 12.
+
+21:11.300 --> 21:12.720
+Now the question is...
+
+21:12.720 --> 21:15.640
+What happens with this print?
+
+21:15.640 --> 21:27.360
+Is h equal to j?
+
+21:27.360 --> 21:30.840
+How many people are gonna vote yes?
+
+21:30.840 --> 21:33.680
+How many people are gonna vote no?
+
+21:33.680 --> 21:36.640
+How many people are gonna vote it depends?
+
+21:36.640 --> 21:41.240
+That was a trick.
+
+21:41.240 --> 21:42.240
+No.
+
+21:42.240 --> 21:44.920
+The answer here is no.
+
+21:44.920 --> 21:48.220
+So these two are not equivalent.
+
+21:48.220 --> 21:52.560
+And under no circumstance are they actually equivalent.
+
+21:52.560 --> 21:58.920
+Except to us as high-level reasoning beings observing the code, we can say they look very
+
+21:58.920 --> 22:00.100
+similar.
+
+22:00.100 --> 22:03.440
+They have the same code representing them.
+
+22:03.440 --> 22:05.720
+They currently have the same state.
+
+22:05.720 --> 22:07.040
+But they are not equivalent.
+
+22:07.040 --> 22:09.320
+They point to two different spaces in memory.
+
+22:09.320 --> 22:11.760
+They have two different representations.
+
+22:11.760 --> 22:12.760
+They are not equal.
+
+22:12.760 --> 22:13.760
+Yeah?
+
+22:13.760 --> 22:21.320
+Will we check if they have the same representation in JavaScript?
+
+22:21.320 --> 22:22.320
+Yeah.
+
+22:22.320 --> 22:25.440
+So could we make it so that these...
+
+22:25.440 --> 22:28.800
+This would be true.
+
+22:28.800 --> 22:29.800
+Yes and no.
+
+22:29.800 --> 22:36.080
+We could turn h and j into kind of objects that we could then write our own equals method
+
+22:36.080 --> 22:41.920
+for, where we would be checking to say, is the current state of these things equivalent?
+
+22:41.920 --> 22:45.360
+And do they then also have the same code?
+
+22:45.360 --> 22:50.320
+But as it stands with just them being functions, no, we can't, I don't think.
+
+22:50.320 --> 22:51.320
+Yeah?
+
+22:51.320 --> 22:55.760
+What is being compared?
+
+22:55.760 --> 22:56.760
+What is being compared?
+
+22:56.760 --> 22:57.760
+Or...
+
+22:57.760 --> 22:58.760
+What does it look at?
+
+22:58.760 --> 23:02.260
+That's a good question.
+
+23:02.260 --> 23:03.260
+I don't know.
+
+23:03.260 --> 23:06.860
+My hunch here is that it's looking at its location in memory.
+
+23:06.860 --> 23:10.300
+But I don't actually have a perfect answer for that.
+
+23:10.300 --> 23:11.300
+Yeah.
+
+23:11.300 --> 23:12.300
+Yeah?
+
+23:12.300 --> 23:13.300
+Presumably.
+
+23:13.300 --> 23:14.300
+Yeah.
+
+23:14.300 --> 23:20.420
+Like, where are these things pointing to in memory?
+
+23:20.420 --> 23:26.220
+I don't want to say that with 100% certainty, but that's the common approach here.
+
+23:26.220 --> 23:28.980
+It could also be runtime dependent.
+
+23:28.980 --> 23:30.460
+So node might do one thing.
+
+23:30.460 --> 23:32.780
+V8 might do a different thing.
+
+23:32.780 --> 23:36.660
+Something of the sort.
+
+23:36.660 --> 23:37.660
+Other questions here?
+
+23:37.660 --> 23:38.660
+We've discussed before that JavaScript functions don't return pointers.
+
+23:38.660 --> 23:49.980
+So will it really be comparing pointers?
+
+23:49.980 --> 23:52.180
+We've discussed before they don't return pointers?
+
+23:52.180 --> 23:53.180
+What do you mean?
+
+23:53.180 --> 23:56.180
+There was a question about pointers and functions.
+
+23:56.180 --> 23:57.180
+Yeah, yeah.
+
+23:58.140 --> 24:07.540
+So there's a difference between a pointer being a function pointer and being a pointer.
+
+24:07.540 --> 24:15.900
+So H and J effectively are pointers to memory, where they have code and environment information
+
+24:15.900 --> 24:17.380
+stored.
+
+24:17.380 --> 24:19.260
+That's what makes a closure.
+
+24:19.260 --> 24:23.540
+It's a pointer to a tuple of code and environment.
+
+24:23.540 --> 24:26.660
+It's not a pointer to just function code.
+
+24:26.660 --> 24:28.140
+That's kind of the difference there.
+
+24:28.140 --> 24:29.140
+Yeah.
+
+24:29.140 --> 24:35.140
+Would it still be a closure if it didn't update the state of Y, but it just, like,
+
+24:35.140 --> 24:37.140
+captured it when you passed in the value?
+
+24:37.140 --> 24:39.140
+So, like, it would have its own state, maybe?
+
+24:39.140 --> 24:40.140
+Yeah.
+
+24:40.140 --> 24:46.140
+So would this still be a closure if we kind of weren't doing any of this fancy Y and X
+
+24:46.140 --> 24:47.140
+stuff?
+
+24:47.140 --> 24:48.140
+Yeah.
+
+24:48.140 --> 24:49.140
+It definitely still is.
+
+24:49.140 --> 24:56.140
+Well, I meant, like, if JavaScript worked differently, where instead of it updating
+
+24:56.620 --> 25:00.620
+something in the scope above it, like, it just, it didn't, like, actually update it.
+
+25:00.620 --> 25:05.620
+So, like, if you called the first time with H or 3 and give 8, and then the second call
+
+25:05.620 --> 25:07.620
+would give 9, would that still be a closure?
+
+25:07.620 --> 25:08.620
+Yeah.
+
+25:08.620 --> 25:09.620
+Yeah.
+
+25:09.620 --> 25:13.620
+So that is still a closure, even if we aren't, even if we don't have an updatable environment.
+
+25:13.620 --> 25:15.120
+We still store it in environment.
+
+25:15.120 --> 25:20.620
+We still have that Y offset, or offset, or whatever.
+
+25:20.620 --> 25:21.620
+Yeah.
+
+25:22.100 --> 25:28.100
+Are we updating X when...
+
+25:28.100 --> 25:29.100
+Yeah.
+
+25:29.100 --> 25:33.380
+So, like, does X here change?
+
+25:33.380 --> 25:35.200
+My hunch is no.
+
+25:35.200 --> 25:39.500
+If X were an object, then potentially, yeah.
+
+25:39.500 --> 25:42.540
+Where these two would actually be pointing to the same object.
+
+25:42.540 --> 25:48.940
+But because X in this case is just, like, an integer of 5, it shouldn't be updated.
+
+25:48.940 --> 25:54.860
+We could test that just by putting a console log X, but I'll leave that to you guys to
+
+25:54.860 --> 25:57.700
+test yourself.
+
+25:57.700 --> 26:00.060
+I believe it is no, though.
+
+26:00.060 --> 26:04.740
+It is not changing.
+
+26:04.740 --> 26:11.500
+Any other questions?
+
+26:11.500 --> 26:15.380
+We'll spend a lot of time on this and, like, draw a lot of diagrams.
+
+26:15.380 --> 26:20.660
+So even if it's not crystal clear right now, hopefully within a few weeks, it will be.
+
+26:20.660 --> 26:21.660
+Yeah?
+
+26:21.660 --> 26:22.660
+Yeah.
+
+26:22.660 --> 26:26.420
+An example of how to do this before it goes away?
+
+26:26.420 --> 26:27.420
+Yeah.
+
+26:27.420 --> 26:30.060
+So why would you ever want to do this?
+
+26:30.060 --> 26:31.060
+That's fair.
+
+26:31.060 --> 26:32.780
+I do this all the time.
+
+26:32.780 --> 26:37.940
+Let me show you an example at the end of class of, like, actual code where I do this.
+
+26:37.940 --> 26:48.820
+Because it is extremely helpful to be able to, like, generate functions algorithmically.
+
+26:48.820 --> 26:54.540
+Or as part of your code and not have to write all of your functions yourself.
+
+26:54.540 --> 27:00.380
+So this idea that we want over in the first one...
+
+27:00.380 --> 27:05.580
+We're creating new functions every time we call make add function.
+
+27:05.580 --> 27:13.100
+So that I don't have to write a new add 42 function and then an add 43 function, et cetera.
+
+27:13.100 --> 27:17.380
+You'll often find it's the case that when you write a function, you've wanted to write
+
+27:17.380 --> 27:19.420
+the same thing other times.
+
+27:19.420 --> 27:22.220
+Or a similar thing with different state.
+
+27:22.220 --> 27:24.860
+And so that is exactly what this does.
+
+27:24.860 --> 27:30.460
+So I will search briefly at the end of class for some Python code that does something very
+
+27:30.460 --> 27:31.700
+similar.
+
+27:31.700 --> 27:34.380
+If I don't find something, I'll post on Piazza.
+
+27:34.420 --> 27:36.700
+Because you'll definitely want to use this.
+
+27:36.700 --> 27:39.420
+It'll come in handy a lot.
+
+27:39.420 --> 27:44.460
+All right.
+
+27:44.460 --> 27:55.380
+Let's get back to those slides.
+
+27:55.380 --> 27:59.180
+So another thing that we can use functions for is...
+
+27:59.180 --> 28:05.180
+We talked about scoping, where we wanted to hide our variables inside of a scope and
+
+28:05.180 --> 28:08.960
+not allow them to leak out to the outside scope.
+
+28:08.960 --> 28:14.020
+More broadly, we can use them to create modules inside of our code.
+
+28:14.020 --> 28:20.980
+We can represent whole chunks of our code as wrapped inside of functions that we then
+
+28:20.980 --> 28:23.480
+allow things to be exported from.
+
+28:23.480 --> 28:27.620
+So that other people can import them and use them.
+
+28:27.620 --> 28:33.860
+This is good for hiding information if you want to have, like, secret values inside of
+
+28:33.860 --> 28:40.100
+your module that you don't want other libraries to be able to access.
+
+28:40.100 --> 28:46.320
+It's also really useful for, like, this idea of exporting only a few functions.
+
+28:46.320 --> 28:52.880
+You can have a very simple exterior API, even though your interior is quite complicated
+
+28:52.880 --> 28:57.320
+by only exporting a few functions.
+
+28:57.320 --> 29:01.940
+So modules were not a part of JavaScript originally.
+
+29:01.940 --> 29:05.940
+But people could pretend to use them.
+
+29:05.940 --> 29:11.600
+I don't think this example is particularly illuminating, so I'm actually gonna skip it.
+
+29:11.600 --> 29:16.380
+But the module code is online, if you want to take a look.
+
+29:16.380 --> 29:18.620
+All right.
+
+29:18.620 --> 29:21.400
+So that's first class functions in JavaScript.
+
+29:21.400 --> 29:25.220
+There were three core ideas that JavaScript...
+
+29:25.220 --> 29:27.500
+We were gonna use JavaScript to show.
+
+29:27.500 --> 29:29.300
+One of them was these first class functions.
+
+29:29.300 --> 29:34.820
+Now we'll dive into objects, and then we'll cover flexibility at the very end.
+
+29:34.820 --> 29:36.420
+Okay.
+
+29:36.420 --> 29:41.060
+What are JavaScript objects?
+
+29:41.060 --> 29:48.940
+Simply, they are maps of names to values.
+
+29:48.940 --> 29:55.440
+All that an object is is a collection of property names and the value that those property
+
+29:55.440 --> 29:57.400
+names point to.
+
+29:57.400 --> 30:04.520
+So if you've used dictionaries in Python, exact same thing.
+
+30:04.520 --> 30:12.600
+We create them with what's called literal notation, where we can use these curly braces
+
+30:12.700 --> 30:13.700
+to say...
+
+30:13.700 --> 30:15.420
+Like, create an object.
+
+30:15.420 --> 30:20.860
+X is the name of the value that points to 3.
+
+30:20.860 --> 30:24.060
+Y points to root.
+
+30:24.060 --> 30:28.380
+And then you can access them by just doing .x.
+
+30:28.380 --> 30:35.700
+Or if you like dictionary style, you can do closing brackets with the property that you
+
+30:35.700 --> 30:39.740
+want.
+
+30:39.740 --> 30:44.160
+So that's objects in a nutshell.
+
+30:44.160 --> 30:47.680
+They're just maps from key to value.
+
+30:47.680 --> 30:53.720
+And because functions are just like values, we can have functions on our objects just
+
+30:53.720 --> 30:56.160
+as any other value would be.
+
+30:56.160 --> 30:59.520
+We could have a function...
+
+30:59.520 --> 31:12.700
+Object.f is a function that references the object itself.
+
+31:12.700 --> 31:22.500
+Any questions on objects at a first pass?
+
+31:22.500 --> 31:27.740
+I did want to clarify one thing I mentioned in class on Monday.
+
+31:27.740 --> 31:30.080
+I had talked about how...
+
+31:30.080 --> 31:40.860
+Actually, it might just be easier to show in code.
+
+31:40.860 --> 31:49.380
+So we mentioned that we could have our arrow syntax...
+
+31:49.380 --> 31:53.920
+This is a function that returns the value 3.
+
+31:53.920 --> 31:57.460
+And then I said...
+
+31:57.460 --> 32:00.880
+This is a function that returns an object.
+
+32:00.880 --> 32:05.680
+That was a slight mistake on my part.
+
+32:05.680 --> 32:14.040
+This is a function that returns an object with the property x pointing to 3.
+
+32:14.040 --> 32:21.400
+And just to clarify, this here, without the named parameter, this is a function that will
+
+32:21.400 --> 32:23.560
+execute the value 3.
+
+32:23.560 --> 32:25.160
+So it's not actually returning an object.
+
+32:25.160 --> 32:26.680
+It's not returning anything.
+
+32:26.680 --> 32:29.240
+It's just executing the value 3.
+
+32:29.240 --> 32:30.800
+Whatever that means.
+
+32:30.800 --> 32:36.840
+So we could put a console.log 3, for example, and it will execute that inner chunk of code.
+
+32:36.840 --> 32:43.640
+But without object syntax, we will not create the object to be returned.
+
+32:43.640 --> 32:48.040
+So it was a mistake fixing that for clarity.
+
+32:48.040 --> 32:50.320
+Okay.
+
+32:50.320 --> 32:56.200
+Back to the slides.
+
+32:56.200 --> 32:59.560
+All right.
+
+32:59.560 --> 33:02.780
+So we're doing something kind of neat here, though.
+
+33:02.780 --> 33:04.640
+We're using this.
+
+33:04.640 --> 33:12.200
+And you have probably used this in your other languages in Java or self in Python.
+
+33:12.200 --> 33:16.280
+C++ as well.
+
+33:16.280 --> 33:18.920
+What this actually is...
+
+33:18.920 --> 33:21.760
+It's coming from another language called self.
+
+33:21.760 --> 33:27.200
+Which is kind of funny that they have self now in Python instead of this.
+
+33:27.200 --> 33:28.200
+Which...
+
+33:28.200 --> 33:29.200
+Anyway.
+
+33:29.200 --> 33:33.780
+Self is from the early 90s or late 80s.
+
+33:33.780 --> 33:36.480
+Coming from Smalltalk, which is from the 70s.
+
+33:36.480 --> 33:39.840
+So from far away back there.
+
+33:39.840 --> 33:44.040
+We'll talk more about that when we get to object oriented programming.
+
+33:44.040 --> 33:50.240
+But intuitively, this is representing the object that we are currently talking about.
+
+33:50.240 --> 34:01.320
+So when we do this.x inside of the function assigned to the object obj, this represents
+
+34:01.320 --> 34:02.640
+that obj.
+
+34:02.640 --> 34:04.720
+The O-B-J.
+
+34:04.720 --> 34:07.600
+So we can reference our self.
+
+34:07.600 --> 34:10.200
+All right.
+
+34:10.200 --> 34:24.800
+We can take a quick look into receivers.
+
+34:24.800 --> 34:27.880
+So not too crazy.
+
+34:27.880 --> 34:33.700
+We can create an object using object syntax of these curly braces.
+
+34:33.700 --> 34:37.380
+We have three keys.
+
+34:37.380 --> 34:40.580
+The x, x root, f.
+
+34:40.580 --> 34:45.460
+They're all just initialized the same way, with comma in between any given value.
+
+34:45.460 --> 34:53.540
+And inside of our function f, we can reference the object that we have created.
+
+34:53.540 --> 35:00.100
+So if we ask what the value of x is here, it is what?
+
+35:00.100 --> 35:01.100
+1337.
+
+35:01.100 --> 35:02.100
+Right.
+
+35:02.100 --> 35:07.980
+Because we've defined it to be 1337 up above.
+
+35:07.980 --> 35:21.780
+If we call f of 3, what does this print out?
+
+35:21.780 --> 35:25.860
+Does it print out a function?
+
+35:25.860 --> 35:28.900
+So we're executing f, right?
+
+35:28.900 --> 35:30.420
+With the value 3.
+
+35:30.420 --> 35:34.220
+F itself is a function.
+
+35:34.220 --> 35:42.100
+But when we execute f, we will get the returned value of whatever this statement is.
+
+35:42.100 --> 35:44.100
+1341.
+
+35:44.100 --> 35:46.100
+Oops.
+
+35:46.100 --> 35:48.100
+1341.
+
+35:48.100 --> 35:52.520
+And why is that?
+
+35:52.520 --> 35:57.640
+Because we are incrementing the value of x.
+
+35:57.640 --> 36:00.660
+And then we're requesting what is the value of x.
+
+36:00.660 --> 36:03.160
+And then we add whatever was passed to it.
+
+36:03.160 --> 36:05.960
+The value of x was initially 1337.
+
+36:05.960 --> 36:11.360
+We increment it, making it 1330 what?
+
+36:11.360 --> 36:12.840
+8.
+
+36:12.840 --> 36:18.540
+And then we add 3 to 1338 for 1341.
+
+36:18.540 --> 36:21.560
+So finally, what is the last value here?
+
+36:21.600 --> 36:22.600
+10.
+
+36:22.600 --> 36:23.600
+Definitely.
+
+36:23.600 --> 36:24.600
+We didn't change that.
+
+36:24.600 --> 36:29.320
+It's the same as it's been from the start.
+
+36:29.320 --> 36:31.240
+So this is pretty powerful.
+
+36:31.240 --> 36:38.720
+But by which I mean the concept of this is pretty powerful.
+
+36:38.720 --> 36:53.260
+Being able to be self-referential is important for objects.
+
+36:53.260 --> 37:12.940
+Any questions with the receiver?
+
+37:12.940 --> 37:13.940
+I'm sorry.
+
+37:13.940 --> 37:16.220
+This started right as the drilling started.
+
+37:16.220 --> 37:17.220
+What was that?
+
+37:17.220 --> 37:18.220
+A little bit louder?
+
+37:18.220 --> 37:19.220
+Yeah.
+
+37:19.220 --> 37:20.220
+Yeah.
+
+37:20.220 --> 37:25.540
+So it helps update object state.
+
+37:25.540 --> 37:29.620
+The keyword this helps update object state.
+
+37:29.620 --> 37:33.500
+It also just helps reference object state.
+
+37:33.500 --> 37:36.620
+Maybe we just need to know what the value of x is.
+
+37:36.620 --> 37:42.380
+And without this, we don't really know.
+
+37:42.380 --> 37:51.180
+We could try and get around it by always having a second parameter to our functions.
+
+37:51.180 --> 37:59.340
+And then we could call obj of f of obj comma 3, for example.
+
+37:59.340 --> 38:10.780
+And then we'd be passing ourself to our function so that we could reference ourself's value.
+
+38:10.780 --> 38:14.900
+And if you're familiar with Python, you will say, hey, that looks like Python, because
+
+38:14.900 --> 38:17.420
+that's exactly what you're doing.
+
+38:17.420 --> 38:23.220
+But because you do it every time you make a function call, Python says we can just get
+
+38:23.220 --> 38:26.020
+rid of that object being passed in.
+
+38:26.020 --> 38:29.500
+Since you're doing it anyway, we'll do it under the hood for you.
+
+38:29.500 --> 38:32.460
+But this is exactly what you do in Python.
+
+38:32.460 --> 38:42.500
+And similar thing happening in JavaScript.
+
+38:42.500 --> 38:59.860
+Any other questions, confusions, notes?
+
+38:59.860 --> 39:05.060
+So we could create a function called obj.
+
+39:05.060 --> 39:07.980
+And it would not take any parameters.
+
+39:07.980 --> 39:15.140
+And it would return a function that takes a y.
+
+39:15.140 --> 39:24.740
+And inside of here, we could say this is equal to 10 and x equals 1337.
+
+39:24.740 --> 39:30.940
+And then we return x plus y.
+
+39:30.940 --> 39:31.940
+And we say x++.
+
+39:31.940 --> 39:35.780
+Is that what you're thinking?
+
+39:35.780 --> 39:36.780
+Yeah.
+
+39:36.780 --> 39:40.780
+How different are these two snippets of code?
+
+39:40.780 --> 39:50.460
+Yeah, so precisely.
+
+39:50.460 --> 39:53.500
+So we can no longer reference...
+
+39:53.540 --> 40:04.420
+So if we create O1 equals obj, and we can call this fun obj, maybe.
+
+40:04.420 --> 40:09.900
+We've actually obfuscated or hidden our values.
+
+40:09.900 --> 40:18.300
+If we wanted to reference x on our fun version of this object, we can't.
+
+40:18.300 --> 40:21.980
+We've made it secret.
+
+40:21.980 --> 40:25.500
+This is actually precisely where the idea of modules comes in.
+
+40:25.500 --> 40:32.980
+Where we've created a function to export, and it's hidden some state for us.
+
+40:32.980 --> 40:35.820
+So yeah.
+
+40:35.820 --> 40:38.000
+But similar.
+
+40:38.000 --> 40:40.100
+Definitely similar concepts.
+
+40:40.100 --> 40:46.300
+That we're returning some value that we want to work with that captures state.
+
+40:46.300 --> 40:49.300
+Definitely similar concepts.
+
+40:49.460 --> 40:50.460
+Yeah?
+
+40:50.460 --> 40:57.900
+Do they work similar to classes, then?
+
+40:57.900 --> 41:03.540
+What an excellent question.
+
+41:03.540 --> 41:07.140
+Where did that go?
+
+41:07.140 --> 41:09.140
+Keynote decided it had had enough.
+
+41:09.140 --> 41:11.380
+Give me a second here.
+
+41:11.380 --> 41:15.620
+There we go.
+
+41:15.620 --> 41:20.100
+So I thought JavaScript had classes.
+
+41:20.100 --> 41:21.100
+It does.
+
+41:21.100 --> 41:22.100
+Currently.
+
+41:22.100 --> 41:23.980
+It didn't before.
+
+41:23.980 --> 41:26.300
+So classes are something that are pretty convenient.
+
+41:26.300 --> 41:32.580
+You've seen them in so many other languages, where we have these templates for our objects.
+
+41:32.580 --> 41:33.580
+That we say...
+
+41:33.580 --> 41:36.900
+Here's a class of objects that will all look the same.
+
+41:36.900 --> 41:38.980
+They will all have the function f.
+
+41:38.980 --> 41:42.300
+They will all have the property x.
+
+41:42.300 --> 41:46.940
+So I want some way to easily create more of these objects.
+
+41:46.940 --> 41:54.100
+Before what you would have to do is instead use functions to create a constructor.
+
+41:54.100 --> 41:58.340
+But the key thing is that they're functionally equivalent.
+
+41:58.340 --> 42:05.460
+We could either use functions or we could use fancier notation with classes.
+
+42:05.460 --> 42:07.940
+So what is a function constructor?
+
+42:07.940 --> 42:09.620
+All it is is a function.
+
+42:09.620 --> 42:16.300
+But now any time you call that constructor, it is returning an object back to you.
+
+42:16.300 --> 42:18.660
+There's no fancy magic here.
+
+42:18.660 --> 42:24.020
+That's one of the reasons I actually really like JavaScript, especially in this context.
+
+42:24.020 --> 42:27.920
+There is so little magic going on behind the scenes.
+
+42:27.920 --> 42:29.960
+Everything is just covered by functions.
+
+42:29.960 --> 42:36.980
+We don't need these keywords like class or this unless we want it.
+
+42:36.980 --> 42:41.560
+So the one key kind of...
+
+42:41.560 --> 42:45.940
+One of the pieces of magic that I don't really like, though, or it's a preference thing,
+
+42:45.940 --> 42:48.420
+is this idea of proto.
+
+42:48.420 --> 42:54.980
+And proto is something that's going to bind multiple objects together to have similar
+
+42:54.980 --> 42:56.380
+properties.
+
+42:56.380 --> 42:58.940
+So that we can achieve things like classes.
+
+42:58.940 --> 43:03.220
+Where we can say all of the objects created here will have a color.
+
+43:03.220 --> 43:09.180
+All of the objects here will have the function f, for example.
+
+43:09.180 --> 43:13.700
+It's automatically set for us, so we can play around with it.
+
+43:13.700 --> 43:15.540
+And I think let's do exactly that.
+
+43:15.540 --> 43:29.040
+Let's play around with classes.
+
+43:29.040 --> 43:36.040
+So if all that we had were functions, what we might want to do is we could have a function
+
+43:36.040 --> 43:37.760
+car.
+
+43:37.760 --> 43:42.000
+And this is a constructor for a car.
+
+43:42.000 --> 43:43.920
+It's going to take a make and a model.
+
+43:43.920 --> 43:50.560
+It uses the this keyword that we were just looking at to generate an object for us of
+
+43:50.560 --> 43:51.800
+type car.
+
+43:51.800 --> 43:55.060
+This is the constructor function.
+
+43:55.060 --> 44:03.620
+And then we can set for all cars, my suite property is 42.
+
+44:03.620 --> 44:07.180
+Then we can create a new car.
+
+44:07.180 --> 44:14.780
+And we can execute or look at properties on that car.
+
+44:14.780 --> 44:17.620
+So this probably looks somewhat familiar.
+
+44:17.620 --> 44:22.140
+Like if you squint at it, it looks like normal object oriented stuff.
+
+44:22.140 --> 44:24.180
+But we're using just functions.
+
+44:24.180 --> 44:25.180
+And this.
+
+44:25.180 --> 44:29.960
+We're using the this still.
+
+44:29.960 --> 44:37.060
+One of the, like, under the hood things that's going on, though, is this idea of proto.
+
+44:37.060 --> 44:43.620
+And proto is something that's connected between all of the functions, all of the objects created
+
+44:43.620 --> 44:46.220
+by the same function.
+
+44:46.220 --> 44:54.340
+So F, which was created up above as a car, has a proto property that points to the same
+
+44:54.340 --> 44:58.020
+place as the car prototype.
+
+44:58.020 --> 45:06.900
+And why that happens is so that when we set some property on a car on the car, like, prototype,
+
+45:06.900 --> 45:12.040
+it sets it for all of our cars.
+
+45:12.040 --> 45:17.240
+So we can say things like car.prototype.color is black.
+
+45:17.240 --> 45:28.000
+This means that all of our cars have a black color.
+
+45:28.000 --> 45:32.320
+The way that this works is one of the things that we will also dive into more.
+
+45:32.320 --> 45:36.180
+So I don't want to kind of go too deep into it.
+
+45:36.180 --> 45:42.820
+But one of the neat things is that we can update and override the proto's value.
+
+45:42.820 --> 45:48.340
+So up above, we've said the prototype says all cars have the color black.
+
+45:48.340 --> 45:56.580
+However, the T car, the Toyota Corolla, is red.
+
+45:56.580 --> 46:02.260
+And that will update that object's version of red or that object's version of color,
+
+46:02.260 --> 46:03.260
+but none of the other ones.
+
+46:03.260 --> 46:04.260
+Yeah?
+
+46:04.340 --> 46:10.340
+So updating that object's color, can you do that before you set all the object's color?
+
+46:10.340 --> 46:16.340
+Or does it have to be after?
+
+46:16.340 --> 46:17.340
+Yeah.
+
+46:17.340 --> 46:18.340
+Yeah.
+
+46:18.340 --> 46:19.340
+Great question.
+
+46:19.340 --> 46:27.380
+So can we have set this T.color before we're setting the prototype version of the color?
+
+46:27.380 --> 46:31.300
+What do you guys think?
+
+46:31.300 --> 46:34.740
+Even if you don't know JavaScript, it's fine.
+
+46:34.740 --> 46:35.740
+What are your thoughts?
+
+46:35.740 --> 46:37.300
+Like, should this work?
+
+46:37.300 --> 46:42.300
+Should it not work?
+
+46:42.300 --> 46:50.500
+Yeah, so maybe no.
+
+46:50.500 --> 46:54.580
+Because then all of the other cars don't have color.
+
+46:54.580 --> 46:57.920
+And this object is suddenly, like, the wrong shape.
+
+46:57.920 --> 47:01.880
+It has a property that none of the other cars have.
+
+47:01.880 --> 47:04.320
+I like the sentiment.
+
+47:04.320 --> 47:08.560
+JavaScript says shape doesn't matter.
+
+47:08.560 --> 47:10.120
+And it will let you do that.
+
+47:10.120 --> 47:11.120
+Yeah.
+
+47:11.120 --> 47:16.800
+No, it is kind of funky that we can set properties on this object that no other objects would
+
+47:16.800 --> 47:18.900
+have.
+
+47:18.900 --> 47:20.680
+But JavaScript wants to be flexible.
+
+47:20.680 --> 47:23.240
+It wants to say do whatever you want.
+
+47:23.240 --> 47:25.040
+So it will let you do it.
+
+47:25.040 --> 47:37.160
+The question, though, that I do have for you is what is T.color here?
+
+47:37.160 --> 47:41.960
+What's this?
+
+47:41.960 --> 47:43.080
+Do we get red?
+
+47:43.080 --> 47:49.080
+Do we get black?
+
+47:49.080 --> 47:58.560
+How many people vote red?
+
+47:58.560 --> 48:00.080
+How many people vote black?
+
+48:00.080 --> 48:01.840
+Wow, okay.
+
+48:01.840 --> 48:02.840
+It's pretty split.
+
+48:02.840 --> 48:03.840
+50-50.
+
+48:03.840 --> 48:04.840
+All right.
+
+48:04.840 --> 48:07.040
+I'll hear an argument either way.
+
+48:07.040 --> 48:08.560
+Somebody who's voting red.
+
+48:08.560 --> 48:09.560
+Why is that?
+
+48:09.560 --> 48:10.560
+Yeah?
+
+48:10.560 --> 48:30.920
+Yeah, so because the T.color is overriding the prototype's color.
+
+48:30.920 --> 48:32.640
+That seems reasonable.
+
+48:32.640 --> 48:33.640
+Argument for black.
+
+48:33.640 --> 48:34.640
+Yeah?
+
+48:34.640 --> 48:45.680
+Yeah, so the prototype hasn't set the color yet.
+
+48:45.680 --> 48:51.000
+So once we set the color, then now that's the, like, rule of the land.
+
+48:51.000 --> 48:54.800
+All cars are now set to be black.
+
+48:54.800 --> 48:55.800
+Another thought?
+
+48:55.800 --> 48:56.800
+Yeah?
+
+48:56.800 --> 49:20.440
+Yeah, so if we create another car down here, call it A, create an accord, this color is
+
+49:20.440 --> 49:21.440
+what?
+
+49:21.440 --> 49:23.440
+It'll be black.
+
+49:23.440 --> 49:24.440
+Yeah.
+
+49:24.440 --> 49:33.160
+So here what's happening is when we look for color on the A object, we're going to
+
+49:33.160 --> 49:39.360
+see that A does not actually have a color, and go look to the prototype and say, what's
+
+49:39.360 --> 49:41.240
+the prototype say?
+
+49:41.240 --> 49:44.400
+And the prototype has color set as black.
+
+49:44.400 --> 49:49.200
+So it will print out the value black.
+
+49:49.200 --> 49:53.200
+If we do a console.log.
+
+49:53.200 --> 50:04.280
+But that's also the key idea for what is the color of T here as being red.
+
+50:04.280 --> 50:11.980
+Because when we go to the object, the object T has a color of red.
+
+50:11.980 --> 50:17.120
+If it didn't have a color set at all, then it would go to the prototype and say, what's
+
+50:17.120 --> 50:19.540
+the color on the prototype?
+
+50:19.540 --> 50:21.600
+And the color on the prototype is black.
+
+50:21.600 --> 50:27.420
+But because we have it set on the object itself, we're good to go.
+
+50:27.420 --> 50:33.960
+And this kind of prototype chasing is used for every property that you try and access
+
+50:33.960 --> 50:36.080
+on an object in JavaScript.
+
+50:36.080 --> 50:46.680
+So if you try to use T.toString, and let's say that this does not exist, if we try and
+
+50:46.680 --> 50:52.380
+print out T.toString, we'll check the object first.
+
+50:52.380 --> 50:54.080
+That doesn't have toString.
+
+50:54.080 --> 50:55.760
+Then we check the prototype.
+
+50:55.760 --> 50:57.520
+That doesn't have toString.
+
+50:57.520 --> 51:00.800
+But because it's an object, it has...
+
+51:00.800 --> 51:03.540
+The prototype itself has a prototype.
+
+51:03.540 --> 51:07.840
+And the prototype of the prototype is the object base class.
+
+51:07.840 --> 51:12.440
+And the object base class has a default implementation of toString.
+
+51:12.440 --> 51:14.400
+So we use that implementation.
+
+51:14.400 --> 51:20.480
+So it's this prototype chaining that looks like inheritance in any other language.
+
+51:20.480 --> 51:21.480
+Yeah?
+
+51:21.480 --> 51:26.680
+How does this differ from myCreate class?
+
+51:26.680 --> 51:28.040
+It doesn't, really.
+
+51:28.040 --> 51:30.760
+It's just being set on the...
+
+51:30.760 --> 51:31.760
+With different notation.
+
+51:31.760 --> 51:32.760
+Yeah.
+
+51:32.760 --> 51:33.760
+Question?
+
+51:33.760 --> 51:38.760
+So the prototype, is that an object of itself?
+
+51:38.760 --> 51:39.760
+Yeah.
+
+51:39.760 --> 51:44.360
+So char.prototype here is an object.
+
+51:44.360 --> 51:45.720
+When this gets to...
+
+51:45.720 --> 51:50.920
+I think it's on the next slide, actually.
+
+51:50.920 --> 51:54.040
+No.
+
+51:54.040 --> 51:55.040
+It's not.
+
+51:55.040 --> 51:56.040
+All right.
+
+51:56.040 --> 51:59.120
+In JavaScript, almost everything is an object.
+
+51:59.120 --> 52:04.240
+There are a few primitives, such as integers, characters.
+
+52:04.240 --> 52:08.120
+But almost everything else is treated the same way as an object.
+
+52:08.120 --> 52:10.960
+As a complex object.
+
+52:10.960 --> 52:16.000
+And that allows these kind of reuse of ideas for everything.
+
+52:16.000 --> 52:18.000
+We don't treat prototypes as special.
+
+52:18.000 --> 52:20.000
+They're just like anything else.
+
+52:20.000 --> 52:21.000
+Yeah?
+
+52:21.000 --> 52:32.480
+Yeah, I'm like 90% sure.
+
+52:32.480 --> 52:34.440
+Double check for me.
+
+52:34.440 --> 52:42.560
+But I'm 90% sure this is setting it on the prototype itself.
+
+52:42.560 --> 52:51.920
+All right.
+
+52:51.920 --> 52:53.800
+So why are objects good?
+
+52:53.800 --> 52:59.480
+I mean, you've been kind of indoctrinated, as we all are, as computer science majors
+
+52:59.480 --> 53:02.840
+or minors or just taking the class.
+
+53:02.840 --> 53:05.900
+When you learn programming, you start with object-oriented.
+
+53:05.900 --> 53:07.460
+And there's a reason for that.
+
+53:07.460 --> 53:10.960
+Because it's really convenient to use to organize your programs.
+
+53:10.960 --> 53:15.120
+It's really convenient to reuse parts of your program.
+
+53:15.120 --> 53:19.840
+So I don't think it's too necessary to push this point.
+
+53:19.840 --> 53:24.840
+It's kind of been pushed in every other class.
+
+53:24.840 --> 53:28.040
+So that's objects.
+
+53:28.040 --> 53:33.320
+The last little bit of JavaScript is about flexibility.
+
+53:33.320 --> 53:37.720
+These were features such as not requiring semicolons.
+
+53:37.720 --> 53:44.880
+If you come from C, C++, Java, which is what everyone was writing, you needed semicolons.
+
+53:44.880 --> 53:47.040
+JavaScript said, no, you don't.
+
+53:47.040 --> 53:48.160
+We can just put that in.
+
+53:48.160 --> 53:50.200
+The compiler is pretty smart.
+
+53:50.200 --> 53:53.220
+Everyone uses new lines.
+
+53:53.220 --> 53:55.900
+Another big one is the idea of casting.
+
+53:55.900 --> 54:03.220
+When you try and do string 3 plus 3, should it give you 6?
+
+54:03.220 --> 54:06.380
+Should it give you 33?
+
+54:06.380 --> 54:08.460
+I don't know.
+
+54:08.460 --> 54:12.260
+JavaScript will decide for you what you wanted, though.
+
+54:12.260 --> 54:13.340
+And maybe that's helpful.
+
+54:13.340 --> 54:15.440
+Maybe it's not.
+
+54:15.440 --> 54:20.760
+And then there's this idea of hoisting, where you don't need to declare all of your variables
+
+54:20.760 --> 54:22.740
+when you start your function.
+
+54:22.740 --> 54:25.100
+And that today sounds kind of ridiculous.
+
+54:25.100 --> 54:26.300
+Of course you don't.
+
+54:26.300 --> 54:32.660
+But some of you have probably written old C code, just because you have an old C compiler,
+
+54:32.660 --> 54:38.940
+where you have to put, like, all of your int x, int y at the start of your function before
+
+54:38.940 --> 54:41.020
+you can actually initialize them.
+
+54:41.020 --> 54:45.460
+You have your declaration at the top of the function, initialization down below.
+
+54:45.460 --> 54:47.780
+So JavaScript said, let's not do that.
+
+54:47.780 --> 54:49.580
+That's kind of useless.
+
+54:49.580 --> 54:53.780
+We can figure it out ourselves.
+
+54:53.780 --> 54:55.620
+Some of the other cool features.
+
+54:55.620 --> 54:58.940
+You can evaluate code directly in the interpreter.
+
+54:58.940 --> 55:01.440
+There's a function exposed to you called eval.
+
+55:01.440 --> 55:06.820
+And if you pass a string, a JavaScript string, to eval, it'll run it.
+
+55:06.820 --> 55:07.820
+That's kind of neat.
+
+55:07.820 --> 55:09.860
+It's kind of scary, too.
+
+55:09.860 --> 55:10.860
+You know?
+
+55:10.860 --> 55:15.580
+If you're using eval and somebody else gives you code to run, who knows what they're gonna
+
+55:15.580 --> 55:18.180
+do with it?
+
+55:18.180 --> 55:25.580
+And this idea that we could say T.color equals red before we had said that the car has a
+
+55:25.580 --> 55:26.860
+color.
+
+55:26.860 --> 55:33.620
+That's called monkey patching, where we can give variables or give properties to objects,
+
+55:33.620 --> 55:36.220
+whatever we want.
+
+55:36.220 --> 55:38.020
+And we can do it on anything.
+
+55:38.020 --> 55:45.780
+We can override any function that previously existed to do something else.
+
+55:45.780 --> 55:49.780
+The issue with that is that you can override any function that previously existed to do
+
+55:49.780 --> 55:51.740
+anything else.
+
+55:51.740 --> 55:55.780
+So when you're running JavaScript code, you can hope that it's doing what you want it
+
+55:55.780 --> 55:56.780
+to do.
+
+55:56.780 --> 56:00.820
+And nobody has messed up your objects along the way.
+
+56:00.820 --> 56:03.620
+But maybe they did.
+
+56:03.620 --> 56:05.860
+All right.
+
+56:05.860 --> 56:10.500
+That's a brief bit about language flexibility.
+
+56:10.500 --> 56:18.620
+Any questions on that side of things?
+
+56:18.620 --> 56:26.660
+A lot of the flexibility now feels commonplace, because we have developed more ergonomic languages
+
+56:26.660 --> 56:28.580
+in the last 20 years.
+
+56:28.580 --> 56:32.580
+But coming from the 90s, that's kind of radical.
+
+56:32.580 --> 56:37.740
+Now, hopefully, I would like to show you a quick video.
+
+56:37.980 --> 56:43.980
+This is a funny interlude before we get to something fun.
+
+56:43.980 --> 56:48.500
+All right.
+
+56:48.500 --> 56:57.500
+I don't want to make it too loud.
+
+56:57.500 --> 57:15.500
+Let's make sure that it's using the right sound.
+
+57:15.500 --> 57:23.500
+Okay.
+
+57:23.500 --> 57:27.260
+This is from, like, 2008, so bear with it.
+
+57:27.260 --> 57:29.260
+It's worth it.
+
+57:29.260 --> 57:33.260
+Let's talk about Ruby.
+
+57:33.260 --> 57:39.260
+In Ruby, if you reference an undefined variable, of course, it name errors, as you would expect.
+
+57:39.260 --> 57:45.260
+And if you try to assign B to A with them undefined, of course, it name errors, as you
+
+57:45.260 --> 57:46.260
+would expect.
+
+57:46.260 --> 57:50.260
+And what happens if you try to assign A to A with A undefined?
+
+57:50.260 --> 57:52.260
+Correct.
+
+57:52.260 --> 57:54.260
+Nil.
+
+57:54.260 --> 58:00.260
+What?
+
+58:00.260 --> 58:04.260
+Let's talk about Ruby.
+
+58:04.260 --> 58:08.260
+Ruby, unlike some other dynamic languages, does not have bare words, so you cannot just
+
+58:08.260 --> 58:11.260
+type words in and have strings come out.
+
+58:11.260 --> 58:16.260
+Unless you define a particular method missing that does the right thing.
+
+58:16.260 --> 58:20.260
+And then, if you type bare words, suddenly, Ruby supports bare words.
+
+58:20.260 --> 58:24.260
+And, in fact, it will even support bare words with bangs in them.
+
+58:24.260 --> 58:26.260
+And this is not deserving of Watt.
+
+58:26.260 --> 58:30.260
+This is actually a result of how awesome Ruby is.
+
+58:30.260 --> 58:38.260
+But if you ever actually do this, then, Watt.
+
+58:38.260 --> 58:44.260
+Let's talk about JavaScript.
+
+58:44.260 --> 58:48.260
+Does anyone know, in JavaScript, what array plus array is?
+
+58:48.260 --> 58:50.260
+Well, let me ask you this first.
+
+58:50.260 --> 58:52.260
+What should array plus array be?
+
+58:52.260 --> 58:54.260
+Empty array?
+
+58:54.260 --> 58:56.260
+I would also accept type error.
+
+58:56.260 --> 58:58.260
+That is not what array plus array is.
+
+58:58.260 --> 59:00.260
+Wrong.
+
+59:00.260 --> 59:02.260
+Wrong.
+
+59:02.260 --> 59:06.260
+Array plus array is empty string.
+
+59:06.260 --> 59:08.260
+Obviously.
+
+59:08.260 --> 59:10.260
+I think that's obvious to everyone.
+
+59:10.260 --> 59:12.260
+Now, what would array plus object be?
+
+59:12.260 --> 59:16.260
+This should obviously be type error, because those are completely disparate types.
+
+59:16.260 --> 59:18.260
+Does anyone know what this is?
+
+59:18.260 --> 59:20.260
+No. Close.
+
+59:20.260 --> 59:22.260
+No. Far away.
+
+59:22.260 --> 59:24.260
+It's object.
+
+59:24.260 --> 59:26.260
+Nicely done.
+
+59:26.260 --> 59:30.260
+Now, of course, because this is plus, so you can flip the operands and the same thing comes out.
+
+59:30.260 --> 59:32.260
+So, if we do...
+
+59:32.260 --> 59:34.260
+What? No, that's just an object.
+
+59:34.260 --> 59:44.260
+If you do object plus array, you should get exactly the same thing, which, as you can see, you do.
+
+59:44.260 --> 59:48.260
+And finally, the only one of these that's actually true is...
+
+59:48.260 --> 59:50.260
+Because, you know, you add arrays, you get empty string, that doesn't make sense.
+
+59:50.260 --> 59:56.260
+But an object plus an object is actually not a number, technically.
+
+59:56.260 --> 01:00:00.260
+So this one's actually right.
+
+01:00:00.260 --> 01:00:02.260
+Exactly, right?
+
+01:00:02.260 --> 01:00:04.260
+What is even going on in this lab?
+
+01:00:04.260 --> 01:00:12.260
+I don't even understand what person with a brain in their head would think that any of this is a good idea.
+
+01:00:12.260 --> 01:00:14.260
+Okay, okay.
+
+01:00:14.260 --> 01:00:16.260
+Enough making fun of languages that suck.
+
+01:00:16.260 --> 01:00:18.260
+Let's talk about JavaScript.
+
+01:00:18.260 --> 01:00:28.260
+If I say array.new 16, or just array 16, I get an array of 16 things, which it represents as 16 commas, which is obvious.
+
+01:00:28.260 --> 01:00:34.260
+And if I then join those with a string, then I get this string 16 times.
+
+01:00:34.260 --> 01:00:38.260
+This is actually the only line in this entire presentation that's reasonable.
+
+01:00:38.260 --> 01:00:42.260
+Now, if I take that string and then add a 1 to it, it interprets the 1 as...
+
+01:00:42.260 --> 01:00:46.260
+Or casts the 1 to a string, and then we get WAP 1 a bunch of times.
+
+01:00:46.260 --> 01:00:48.260
+Fine.
+
+01:00:48.260 --> 01:00:52.260
+Does anyone know what will happen if I subtract 1 from the string?
+
+01:00:52.260 --> 01:00:54.260
+I'm assuming no one does.
+
+01:00:54.260 --> 01:00:56.260
+I'll give you a hint.
+
+01:00:56.260 --> 01:00:58.260
+Does this help?
+
+01:00:58.260 --> 01:01:00.260
+Does anyone know?
+
+01:01:01.260 --> 01:01:03.260
+Does anyone know?
+
+01:01:19.260 --> 01:01:21.260
+All right.
+
+01:01:21.260 --> 01:01:22.260
+Good stuff.
+
+01:01:22.260 --> 01:01:24.260
+JavaScript makes a lot of sense sometimes.
+
+01:01:24.260 --> 01:01:27.260
+And other times makes absolutely no sense.
+
+01:01:27.260 --> 01:01:31.260
+But that's kind of the price we are paying with language flexibility.
+
+01:01:31.260 --> 01:01:34.260
+You know, it's really cool that you can add strings to numbers.
+
+01:01:34.260 --> 01:01:36.260
+Or subtract strings from numbers.
+
+01:01:36.260 --> 01:01:37.260
+Until you do it.
+
+01:01:37.260 --> 01:01:38.260
+And then you're like...
+
+01:01:38.260 --> 01:01:39.260
+Why can I do that?
+
+01:01:39.260 --> 01:01:42.260
+But at least your program didn't crash.
+
+01:01:42.260 --> 01:01:43.260
+Maybe.
+
+01:01:43.260 --> 01:01:46.260
+Maybe not.
+
+01:01:46.260 --> 01:01:49.260
+So the takeaways from JavaScript...
+
+01:01:49.260 --> 01:01:51.260
+That first class functions are very powerful.
+
+01:01:51.260 --> 01:01:55.260
+We're going to be using them a lot during this class.
+
+01:01:55.260 --> 01:01:57.260
+Secondly, language flexibility.
+
+01:01:57.260 --> 01:01:59.260
+Definitely not free.
+
+01:01:59.260 --> 01:02:00.260
+It's cool.
+
+01:02:00.260 --> 01:02:05.260
+The ability to do things that you normally can't do in other languages is great.
+
+01:02:05.260 --> 01:02:08.260
+But there's always a tradeoff.
+
+01:02:08.260 --> 01:02:12.260
+And sometimes you shouldn't add two objects and get zero.
+
+01:02:12.260 --> 01:02:15.260
+Who does that make sense to?
+
+01:02:15.260 --> 01:02:19.260
+So that is JavaScript.
+
+01:02:19.260 --> 01:02:23.260
+We are going to take a step away from JavaScript now.
+
+01:02:23.260 --> 01:02:30.260
+And we're going to go towards what PL people tend to think of when they think of PL.
+
+01:02:30.260 --> 01:02:32.260
+Which is a bit mathier.
+
+01:02:32.260 --> 01:02:37.260
+So before we step away from the good language of JavaScript,
+
+01:02:37.260 --> 01:02:41.260
+and familiar interpreters and things of that sort,
+
+01:02:41.260 --> 01:02:45.260
+are there any last questions on this area?
+
+01:02:45.260 --> 01:02:47.260
+Yeah?
+
+01:02:48.260 --> 01:02:56.260
+Yeah, yeah, yeah.
+
+01:02:56.260 --> 01:02:59.260
+I'll get one of those at the end of class.
+
+01:02:59.260 --> 01:03:04.260
+Or on Piazza later.
+
+01:03:04.260 --> 01:03:08.260
+Although the modules was an example of that as well.
+
+01:03:08.260 --> 01:03:12.260
+But I kind of skipped over that.
+
+01:03:13.260 --> 01:03:21.260
+Yeah?
+
+01:03:21.260 --> 01:03:25.260
+For like the JS code section?
+
+01:03:25.260 --> 01:03:26.260
+Yeah.
+
+01:03:26.260 --> 01:03:28.260
+I can make that work.
+
+01:03:28.260 --> 01:03:31.260
+We can do that.
+
+01:03:31.260 --> 01:03:37.260
+Let me make a note so I don't forget.
+
+01:03:37.260 --> 01:03:44.260
+Any other notes, questions?
+
+01:03:44.260 --> 01:03:55.260
+All right.
+
+01:03:55.260 --> 01:04:04.260
+In that case...
+
+01:04:04.260 --> 01:04:08.260
+We're going to start talking about what's called the Lambda Calculus.
+
+01:04:08.260 --> 01:04:12.260
+It's a language that was invented in the 30s.
+
+01:04:12.260 --> 01:04:15.260
+1930s.
+
+01:04:15.260 --> 01:04:17.260
+By Church.
+
+01:04:17.260 --> 01:04:20.260
+Alonzo Church.
+
+01:04:20.260 --> 01:04:22.260
+We've just seen the JavaScript functions.
+
+01:04:22.260 --> 01:04:26.260
+Where we were using them as first class.
+
+01:04:26.260 --> 01:04:32.260
+The syntax that we were kind of using sometimes was this function with, you know, parameters.
+
+01:04:32.260 --> 01:04:33.260
+Do something.
+
+01:04:33.260 --> 01:04:34.260
+We call it...
+
+01:04:34.260 --> 01:04:39.260
+We did a little bit of arrow function syntax that's doing the same thing.
+
+01:04:39.260 --> 01:04:42.260
+But looks a little bit different.
+
+01:04:42.260 --> 01:04:43.260
+All right.
+
+01:04:43.260 --> 01:04:46.260
+What we're going to start with...
+
+01:04:46.260 --> 01:04:50.260
+So we heat up a little bit of JavaScript.
+
+01:04:50.260 --> 01:04:56.260
+And what we get out is Lambda Calculus.
+
+01:04:56.260 --> 01:05:01.260
+Lambda Calculus is the simplest programming language.
+
+01:05:02.260 --> 01:05:04.260
+It has one feature.
+
+01:05:04.260 --> 01:05:07.260
+Functions.
+
+01:05:07.260 --> 01:05:08.260
+Kind of two features.
+
+01:05:08.260 --> 01:05:09.260
+It also has variables.
+
+01:05:09.260 --> 01:05:11.260
+You need variables.
+
+01:05:11.260 --> 01:05:15.260
+You have to have some sort of state.
+
+01:05:15.260 --> 01:05:19.260
+But the one real feature of it is functions.
+
+01:05:19.260 --> 01:05:25.260
+Why we are going to be looking at this is because it really captures the idea of first class functions.
+
+01:05:25.260 --> 01:05:28.260
+If all you have are functions, functions must be first class.
+
+01:05:28.260 --> 01:05:31.260
+Nothing else could be first class.
+
+01:05:31.260 --> 01:05:36.260
+So we're going to see how do variables work in almost every language.
+
+01:05:36.260 --> 01:05:38.260
+It's very historically important.
+
+01:05:38.260 --> 01:05:44.260
+It's like the genesis language for that whole family of other languages.
+
+01:05:44.260 --> 01:05:47.260
+Like Lisp, Scheme, ML, Haskell.
+
+01:05:47.260 --> 01:05:52.260
+And then it's worked its way into languages like C++.
+
+01:05:52.260 --> 01:05:54.260
+When you have Lambda expressions.
+
+01:05:54.260 --> 01:05:55.260
+Or Python.
+
+01:05:55.260 --> 01:05:56.260
+Or Java.
+
+01:05:56.260 --> 01:06:04.260
+Every language is now, if it wasn't initially built on Lambda Calculus, it's adding it in.
+
+01:06:04.260 --> 01:06:05.260
+All right.
+
+01:06:05.260 --> 01:06:07.260
+So why else?
+
+01:06:07.260 --> 01:06:14.260
+If you go into programming languages research, or if you read any of the papers in this space,
+
+01:06:14.260 --> 01:06:18.260
+they almost all, without fail, are talking about Lambda Calculus.
+
+01:06:18.260 --> 01:06:20.260
+It's just what people like.
+
+01:06:20.260 --> 01:06:21.260
+Because it's simple.
+
+01:06:21.260 --> 01:06:24.260
+It allows you to add a simple feature to it.
+
+01:06:24.260 --> 01:06:32.260
+And reason about the language without all the complexity of everything else.
+
+01:06:32.260 --> 01:06:34.260
+Also because it's very similar to math.
+
+01:06:34.260 --> 01:06:39.260
+And so people who are getting into the space are coming often from mathematics.
+
+01:06:39.260 --> 01:06:42.260
+They like that it's very expression focused.
+
+01:06:42.260 --> 01:06:45.260
+So that's another reason.
+
+01:06:45.260 --> 01:06:54.260
+We can also use it as a kind of underlying understanding of how various languages might implement an idea.
+
+01:06:54.260 --> 01:07:01.260
+So evaluation order in a language like JavaScript is very different than in Haskell.
+
+01:07:01.260 --> 01:07:06.260
+Lambda Calculus will show that to us very clearly.
+
+01:07:06.260 --> 01:07:10.260
+With the evaluation strategy.
+
+01:07:10.260 --> 01:07:12.260
+Additionally, we can study different type systems.
+
+01:07:12.260 --> 01:07:15.260
+I don't go into that in this class.
+
+01:07:15.260 --> 01:07:21.260
+But it's very common to talk about types in Lambda Calc.
+
+01:07:21.260 --> 01:07:25.260
+So that you can have different typed versions.
+
+01:07:25.260 --> 01:07:31.260
+Like I mentioned, almost every PL paper is built on Lambda Calculus.
+
+01:07:31.260 --> 01:07:32.260
+It's just the way it is.
+
+01:07:32.260 --> 01:07:34.260
+A necessary evil if you don't like it.
+
+01:07:34.260 --> 01:07:40.260
+Or once you understand it, it becomes kind of straightforward.
+
+01:07:40.260 --> 01:07:50.260
+If you want to do any theoretical or kind of, like, formal proof work, you will be doing it with Lambda Calculus.
+
+01:07:50.260 --> 01:07:59.260
+So you can study things like various types of semantics in different languages with respect to Lambda Calc.
+
+01:07:59.260 --> 01:08:02.260
+Okay.
+
+01:08:02.260 --> 01:08:07.260
+There is reading I'm going to post, I think, later today or later this week.
+
+01:08:07.260 --> 01:08:11.260
+That I recommend before Monday's lecture.
+
+01:08:11.260 --> 01:08:13.260
+That you read.
+
+01:08:13.260 --> 01:08:16.260
+This is a little bit of a preview of it.
+
+01:08:16.260 --> 01:08:22.260
+So we're going to look at the syntax or the grammar of the language.
+
+01:08:22.260 --> 01:08:24.260
+What is syntax in general?
+
+01:08:24.260 --> 01:08:30.260
+What does it mean for the syntax of Lambda Calculus to be something?
+
+01:08:30.260 --> 01:08:34.260
+Like, what are you looking at when you talk about syntax?
+
+01:08:34.260 --> 01:08:41.260
+Yeah.
+
+01:08:41.260 --> 01:08:42.260
+Yeah.
+
+01:08:42.260 --> 01:08:44.260
+How you write the language.
+
+01:08:44.260 --> 01:08:51.260
+What specifically, like, what symbols are you using when you are writing the language?
+
+01:08:51.260 --> 01:08:55.260
+For example, in math, you might say X plus Y.
+
+01:08:55.260 --> 01:08:58.260
+That's, like, syntactically correct.
+
+01:08:58.260 --> 01:09:06.260
+If you said something like plus XY, that's not syntactically correct.
+
+01:09:06.260 --> 01:09:09.260
+Unless you're in a reverse Polish notation system.
+
+01:09:09.260 --> 01:09:11.260
+In which case it would be.
+
+01:09:11.260 --> 01:09:13.260
+That's a different language style.
+
+01:09:13.260 --> 01:09:15.260
+That's different syntax.
+
+01:09:15.260 --> 01:09:16.260
+Okay.
+
+01:09:16.260 --> 01:09:19.260
+So syntax, it's about, like, the symbols you're using.
+
+01:09:19.260 --> 01:09:21.260
+The order that they're showing up.
+
+01:09:21.260 --> 01:09:23.260
+What about the semantics?
+
+01:09:23.260 --> 01:09:26.260
+What is the semantics of a language?
+
+01:09:26.260 --> 01:09:27.260
+Yeah.
+
+01:09:27.260 --> 01:09:28.260
+Yeah.
+
+01:09:28.260 --> 01:09:36.260
+Like, how to understand, like, precedence and stuff like that?
+
+01:09:36.260 --> 01:09:37.260
+Yeah.
+
+01:09:37.260 --> 01:09:39.260
+So, how to understand precedence.
+
+01:09:39.260 --> 01:09:51.260
+So, for example, when we do X plus Y times 2, do we evaluate X plus Y first?
+
+01:09:52.260 --> 01:09:56.260
+Or do we evaluate Y times 2 first?
+
+01:09:56.260 --> 01:09:59.260
+It really decided it was done.
+
+01:09:59.260 --> 01:10:04.260
+So, the semantics of the language will tell you which one goes first.
+
+01:10:04.260 --> 01:10:07.260
+How do we evaluate this expression?
+
+01:10:07.260 --> 01:10:10.260
+What else does it tell you?
+
+01:10:10.260 --> 01:10:11.260
+What's it about?
+
+01:10:12.260 --> 01:10:25.260
+When you think about semantics, what does that represent?
+
+01:10:25.260 --> 01:10:27.260
+Yeah.
+
+01:10:27.260 --> 01:10:28.260
+The meaning.
+
+01:10:28.260 --> 01:10:29.260
+Yeah.
+
+01:10:29.260 --> 01:10:33.260
+The way I associate them is very much semantics is meaning.
+
+01:10:33.260 --> 01:10:35.260
+Syntax is form.
+
+01:10:35.260 --> 01:10:38.260
+It's what it looks like versus what it represents.
+
+01:10:38.260 --> 01:10:42.260
+What it means underneath.
+
+01:10:42.260 --> 01:10:48.260
+So, semantics tells you how do you, like, what is the end result?
+
+01:10:48.260 --> 01:10:50.260
+What's the meaning?
+
+01:10:50.260 --> 01:10:55.260
+How is this thing executed?
+
+01:10:55.260 --> 01:11:00.260
+And I think that's probably where we're gonna stop with the slides.
+
+01:11:01.260 --> 01:11:02.260
+So, we...
+
+01:11:02.260 --> 01:11:05.260
+Because this thing is done.
+
+01:11:05.260 --> 01:11:09.260
+We'll try and replug it in, see if that works.
+
+01:11:09.260 --> 01:11:12.260
+With week 2, what we are going to be going into...
+
+01:11:12.260 --> 01:11:13.260
+Oh, there you go.
+
+01:11:13.260 --> 01:11:14.260
+It works.
+
+01:11:14.260 --> 01:11:15.260
+We are finishing up anyway, though.
+
+01:11:15.260 --> 01:11:17.260
+So, it's not a big deal here.
+
+01:11:17.260 --> 01:11:22.260
+With week 2, what we will be looking at is what's the syntax of lambda calc?
+
+01:11:22.260 --> 01:11:25.260
+And then what's the semantics of lambda calc?
+
+01:11:26.260 --> 01:11:33.260
+The reading that I mentioned is going to be very helpful in understanding what this line means.
+
+01:11:33.260 --> 01:11:39.260
+So, if this second line on the screen does not currently make perfect sense to you,
+
+01:11:39.260 --> 01:11:43.260
+I recommend reading the chapter that I'm going to upload.
+
+01:11:43.260 --> 01:11:44.260
+It'll be like a PDF.
+
+01:11:44.260 --> 01:11:47.260
+You know, I'm just gonna scan a book.
+
+01:11:47.260 --> 01:11:52.260
+If you do not have a partner for the homework assignment that's due later this week,
+
+01:11:52.260 --> 01:11:57.260
+please stick around and find other people who do not have a partner.
+
+01:11:57.260 --> 01:12:03.260
+If you have any other questions, feel free to come chat or find me in office hours right after class.
+
+01:12:22.260 --> 01:12:24.260
+All right.
+
+01:12:52.260 --> 01:12:53.260
+Thank you.
+
+01:13:22.260 --> 01:13:24.260
+Thank you.
+
+01:13:52.260 --> 01:13:53.260
+Thank you.
+
+01:13:53.260 --> 01:13:54.260
+Thank you.
+
+01:14:23.260 --> 01:14:24.260
+Thank you.
+
+01:14:24.260 --> 01:14:25.260
+Thank you.
+
+01:15:23.260 --> 01:15:24.260
+Thank you.
+
+01:15:24.260 --> 01:15:25.260
+Thank you.
+
+01:15:52.260 --> 01:15:53.260
+Thank you.
+
+01:15:53.260 --> 01:15:54.260
+Thank you.
+
+01:15:54.260 --> 01:15:55.260
+Thank you.
+
+01:15:55.260 --> 01:15:55.260
+
+
+01:16:23.260 --> 01:16:24.260
+Thank you.
+
+01:16:24.260 --> 01:16:25.260
+Thank you.
+
+01:16:25.260 --> 01:16:26.260
+Thank you.
+
+01:16:26.260 --> 01:16:27.260
+Thank you.
+
+01:16:27.260 --> 01:16:28.260
+Thank you.
+
+01:16:28.260 --> 01:16:29.260
+Thank you.
+
+01:16:29.260 --> 01:16:30.260
+Thank you.
+
+01:16:30.260 --> 01:16:31.260
+Thank you.
+
+01:16:31.260 --> 01:16:32.260
+Thank you.
+
+01:16:32.260 --> 01:16:35.260
+Thank you.
+
+01:16:52.260 --> 01:16:59.260
+Thank you.
+
+01:17:22.260 --> 01:17:24.260
+Thank you.
+
+01:17:52.260 --> 01:17:54.260
+Thank you.
+
+01:18:22.260 --> 01:18:23.260
+Thank you.
+
+01:18:23.260 --> 01:18:24.260
+Thank you.
+
+01:18:24.260 --> 01:18:25.260
+Thank you.
+
+01:18:25.260 --> 01:18:26.260
+Thank you.
+
+01:18:26.260 --> 01:18:27.260
+Thank you.
+
+01:18:27.260 --> 01:18:27.260
+
+
+01:18:52.260 --> 01:18:53.260
+Thank you.
+
+01:18:53.260 --> 01:18:54.260
+Thank you.
+
+01:18:54.260 --> 01:18:55.260
+Thank you.
+
+01:18:55.260 --> 01:18:55.260
+
+
+01:19:22.260 --> 01:19:23.260
+Thank you.
+
+01:19:23.260 --> 01:19:24.260
+Thank you.
+
+01:19:24.260 --> 01:19:25.260
+Thank you.
+
+01:19:25.260 --> 01:19:25.260
+
+
+01:19:52.260 --> 01:19:53.260
+Thank you.
+
+01:19:53.260 --> 01:19:54.260
+Thank you.
+
+01:19:54.260 --> 01:19:55.260
+Thank you.
+
+01:19:55.260 --> 01:19:55.260
+
+

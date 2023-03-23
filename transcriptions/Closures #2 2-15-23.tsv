@@ -1,0 +1,1130 @@
+start	end	text
+90000	96800	All right, folks.
+96800	99760	Let's get started.
+99760	102160	Anybody have any notes?
+102160	103160	I do not.
+103160	107160	I think everything's going well from my side.
+107160	111000	Anything on your side that's not going well?
+111000	115000	All right.
+115000	118000	Things are going well.
+118000	122840	Interesting, like, news item for the day.
+122840	130640	This is a graph representing the amount of time it takes to run a linter on the CPython
+130640	133780	codebase from scratch.
+133780	137400	The top line is a service called Ruff.
+137400	142640	Down below, autoflake, flake8, pyflakes, pycode-style, pylint.
+142640	147900	For those of you who don't know, a linter is something that goes through a codebase
+147900	157260	or it parses code to find idiosyncratic usages of the language.
+157260	162000	So it will alert you in JavaScript if you have forgotten your semicolon.
+162000	164280	And it suggests maybe you want a semicolon.
+164280	168980	Even though it's not needed, it's purely a cosmetic improvement.
+168980	170360	But somebody's got to do it.
+170360	173640	So Ruff is a new service that does this.
+173640	180440	And it does it in .3 seconds, compared to the next fastest in 6 seconds.
+180440	184260	Which is 20 times faster than the next fastest competitor.
+184260	188420	The only difference between the first one and the bottom five...
+188420	190460	The first one is written in Rust.
+190460	194300	The bottom five are all written in Python.
+194300	195920	They implement the same features.
+195920	198500	They're doing the exact same thing.
+198500	202000	The people who wrote these bottom five weren't dumb.
+202000	204940	They're often the maintainers of Python.
+204940	206840	They're very intelligent people.
+206840	212000	But if you write it in Rust, it'll be 20 times faster.
+212000	214000	Kind of interesting.
+214000	217240	All right.
+217240	220080	Let's do an activity.
+220080	225600	Because I like activities.
+225600	234820	You guys can see this.
+234820	237260	Can everybody read this code?
+237260	239740	Is that big enough for everyone in the back?
+239740	240740	Cool.
+240740	241740	All right.
+241740	243780	This is from the midterm.
+243780	244820	This is the assignment.
+244820	248360	This is a problem that I gave on the midterm last semester.
+248360	255820	I asked the students from last semester to tell me what the output of running this program
+255820	258000	is.
+258000	262600	So I think let's start class by trying to solve that.
+262600	268480	And hopefully what we'll find is it's a little tricky to solve with our current knowledge.
+268480	273100	But through today's lecture, we'll develop some tools to help us solve it more consistently.
+273100	278220	So my task for you is chatting with two or three people around you.
+279080	283800	Try and figure out what is printed on line 14 to console.
+283800	289720	You can use scratch notes or any paper that you want.
+289720	291040	But try and figure it out.
+291040	294800	What's the output of the last line?
+294800	296560	If you can do it all in your head, great.
+296560	297560	That's fine.
+297560	298560	You don't need to.
+298560	300560	Because computers don't.
+300560	303080	So all right.
+303080	304120	Chat with people next to you.
+304120	306140	Figure out what it is.
+334120	336140	All right.
+364120	366140	All right.
+394120	416120	What do you guys think it is?
+416120	417120	35?
+417120	418120	25?
+418120	419120	You got an idea?
+419120	420120	Still working through it?
+420120	421120	What are you thinking so far?
+422120	423120	20 does become the Y.
+423120	424120	Okay.
+424120	425120	Why would it?
+425120	426120	Or why wouldn't it?
+426120	427120	Uh-huh.
+427120	428120	I think it does.
+428120	429120	Okay.
+429120	430120	Yeah.
+430120	431120	I like the idea that it does.
+431120	432120	Yeah.
+432120	458120	And then what's G?
+459120	466120	I'll let you keep working through it.
+466120	470120	It sounds like you're on the right path, though.
+470120	473120	How's it going over here?
+473120	474120	You guys have an idea?
+474120	475120	Nine.
+475120	476120	Nine?
+476120	477120	Why is?
+477120	478120	It's a closure problem, right?
+478120	479120	It is a closure problem.
+479120	482120	And is it related to F not being graphed as like another
+482120	484120	anomalous function?
+484120	486120	We give the other answer.
+486120	494120	What's the other answer?
+494120	495120	Right.
+495120	496120	Yeah.
+496120	497120	Yeah.
+497120	499120	Like, should A be updated or should it not?
+499120	500120	Yeah.
+500120	503120	Sounds like you guys have the right idea, though.
+503120	505120	So that's good.
+505120	508120	How's it going over here?
+508120	510120	Struggling?
+510120	512120	Well, what's the value of H?
+512120	515120	That's maybe where to start.
+515120	524120	You have an idea for what H is?
+524120	525120	Not quite.
+525120	526120	Okay.
+526120	527120	Yeah.
+527120	529120	So we're equal to calling F, right?
+529120	531120	We call F.
+531120	532120	And what is F?
+532120	534120	F is that, like, whole function, right?
+534120	538120	It's from line one all the way down to line 12.
+538120	543120	And so we want to figure out what's the result of running
+543120	544120	that function.
+544120	546120	So F is the big function.
+546120	548120	And so what is F returning?
+548120	551120	If we kind of ignore all the middle part of F,
+551120	555120	what's the last line say?
+555120	557120	We're, exactly, returning G.
+557120	560120	So H is going to be equal to whatever G is.
+560120	562120	And then we've got to go backwards and say, like,
+562120	564120	okay, well, what is G?
+564120	568120	But that's how I would start with this one.
+568120	573120	I'm assuming we're comparing the 20 input as Y.
+573120	575120	So I kind of understood that part.
+575120	580120	I'm just having a tough time seeing how to start.
+580120	581120	I think I've got a good idea.
+581120	582120	All right.
+582120	583120	All right.
+583120	584120	For sure.
+584120	585120	For sure.
+585120	592120	All right.
+592120	594120	Let's come back together.
+594120	596120	I heard a couple of different answers
+596120	598120	as I was wandering the room.
+598120	602120	Can I get some brave individuals to suggest
+602120	604120	what they think the result is?
+604120	607120	How many people feel like they came to a result, actually?
+607120	608120	Okay.
+608120	609120	Wow.
+609120	610120	Okay.
+610120	611120	Everybody.
+611120	612120	Or almost everybody.
+612120	613120	So what are some of the ideas?
+613120	615120	I'll write them down.
+615120	616120	I heard different ones.
+616120	618120	So we aren't all at the same place.
+618120	619120	Yeah.
+619120	622120	We have nine as an option.
+622120	626120	Anybody else?
+626120	631120	Nobody else has another idea for the answer?
+631120	632120	Everybody?
+632120	635120	Who votes nine?
+635120	637120	All right.
+637120	638120	All right.
+638120	639120	All right.
+639120	641120	So what you're saying is the midterm needs
+641120	644120	a little bit more of an interesting problem this year.
+644120	649120	No?
+649120	650120	Okay.
+650120	651120	So the answer is nine.
+651120	654120	How did we get there, though?
+654120	660120	Because this is 14 lines of weird obfuscated code
+660120	662120	where we kind of go in and then pop back out
+662120	664120	and then update the thing and come back.
+664120	665120	Yeah.
+665120	666120	Question?
+666120	667120	Oh.
+667120	669120	You have an answer for how we get there?
+700120	705120	I liked almost everything that you said
+705120	707120	except for the first line.
+707120	709120	Everything else, I'm with you on it,
+709120	711120	and we'll go over it explicitly.
+711120	712120	But yeah.
+712120	713120	Yeah.
+713120	714120	What's your question?
+714120	725120	That's exactly my question for your fellow student as well.
+725120	726120	Yeah.
+727120	731120	The thing that you said is that y is 20 because we're
+731120	736120	calling h of 20, h is f, so y gets the value 20.
+736120	738120	And that's not quite right.
+738120	740120	Who can change that?
+740120	741120	Yeah.
+741120	767120	Yeah.
+767120	768120	All right.
+768120	770120	This is the converse for you.
+770120	772120	I like exactly how you started.
+772120	774120	Didn't like quite where it went, though.
+774120	776120	But your first line, totally with you.
+776120	780120	Let's start, actually, with line 13
+780120	783120	and say h is equal to the result of f.
+783120	784120	Yeah.
+784120	804120	Exactly.
+804120	809120	So let's start here and say h is equal to the result
+809120	811120	of executing f.
+811120	812120	f is a function.
+812120	815120	It's going to return back something.
+815120	818120	Whatever it returns, h is going to store it.
+818120	820120	If we look at what f is returning,
+820120	822120	it's the line right here.
+822120	825120	We have to kind of scan through the whole function.
+825120	827120	f returns g.
+827120	830120	And indentation is your friend here.
+830120	832120	It's not guaranteed to be your friend.
+832120	835120	Braces are the real thing that you need to be looking at.
+835120	838120	But indentation kind of shows you the return g
+838120	841120	is the last return of f.
+841120	844120	It's the only return of f.
+844120	847120	So h is going to be equal to g.
+847120	850120	So when we execute h of 20, we can think of it
+850120	854120	as executing g of 20.
+854120	858120	But it's not only that h is equal to the code of g.
+858120	862120	It's also equal to the environment around g.
+862120	867120	And around g, we have this a equals 5.
+867120	872120	So we're going to call g of 20, where a is equal to 5.
+872120	874120	So 20 goes in for y.
+874120	877120	And this is, as one of you mentioned, 20 is equal to y.
+877120	879120	20 is greater than 10.
+879120	881120	a equals a minus 1.
+881120	883120	And this is where we're updating our environment
+883120	885120	for the function that we're calling.
+885120	889120	So we update a from being 5 to 4.
+889120	892120	Return g, where g is the code that we have,
+892120	895120	with the environment a is 4.
+895620	899920	Of 5, blah, blah, blah, blah, return 9.
+899920	903120	That's a lot to do in your head and to process.
+903120	905620	Computers are cheating, because they have all of this memory
+905620	908120	that they're keeping track of everything as it's going.
+908120	911120	We, as humans, don't have that.
+911120	913620	So how can we still look at this code
+913620	916120	and easily figure out what's going to happen
+916120	917120	and in what order?
+917120	921120	Some of you have already heard me say this many, many times
+921120	922120	in office hours.
+922120	924120	When does the code execute?
+924120	928120	When does this line of code or this expression execute?
+928120	930120	That's the key question you want to ask
+930120	934120	every time you're staring at JavaScript like this.
+934120	938120	When does this line of code execute?
+938120	941120	Not until we get to it.
+941120	946120	It doesn't happen when we parse line 9 or line 8.
+946120	949620	It happens when we've called h of 20,
+949620	956620	which then calls g of 5, which then returns y plus a.
+956620	958620	Being able to follow that is tricky.
+958620	962620	So let's make it easier.
+962620	965620	And this is where, at the end of the last lecture,
+965620	969620	we started bringing in this idea of a diagram
+969620	971620	to represent our environment.
+980620	985620	What do we want to keep track of in our environment?
+985620	990620	Whenever I call a function, what were we keeping track of?
+990620	995620	Or what do we want to keep track of?
+995620	996620	Yeah?
+996620	999620	The parameters.
+999620	1000620	Definitely.
+1000620	1006620	So in our example over here, we have� we're working
+1006620	1009620	with the factorial function.
+1009620	1013620	So we would have a parameter, n.
+1013620	1017620	What's the value of n?
+1017620	1021620	We're going to just start from the beginning.
+1021620	1023620	What's the value of n?
+1023620	1024620	Yeah.
+1024620	1025620	3.
+1025620	1026620	Yeah.
+1026620	1027620	Okay.
+1027620	1034620	What else do we want to keep track of?
+1035620	1037620	Yeah?
+1037620	1039620	Variables declared within the function.
+1039620	1041620	In this case, we don't have any.
+1041620	1042620	But, yes, we do.
+1042620	1046620	If we had said, like, let x equal 5,
+1046620	1049620	we would want to store x in our scope.
+1049620	1053620	What else?
+1053620	1054620	Recursive calls.
+1054620	1055620	What about them?
+1055620	1057620	What do we need to store?
+1058620	1066620	Yeah.
+1066620	1069620	And I think I want to generalize that to say,
+1069620	1072620	we care about what we are returning.
+1072620	1076620	So here, we're returning n times something.
+1076620	1077620	That's something.
+1077620	1081620	We could store it as kind of its own private variable.
+1081620	1084620	Or we could just call it the return value.
+1085620	1091620	So we have some return value that we will be storing.
+1091620	1101620	What else?
+1101620	1106620	What do I need to keep track of when I'm inside of a function
+1106620	1110620	for when I'm done?
+1110620	1123620	Other than the return value.
+1123620	1127620	We call that the control pointer.
+1127620	1131620	You also need to know where are you supposed to return to
+1131620	1135620	in code to continue execution.
+1135620	1139620	So, when we finish calling fact 3,
+1139620	1143620	jump back to this next line, whatever it is.
+1143620	1146620	That's also called the instruction pointer.
+1146620	1149620	In various assembly languages.
+1149620	1151620	Cool.
+1151620	1155620	So now we know what we came in with.
+1155620	1157620	What we are returning with.
+1157620	1160620	And where we return it to.
+1160620	1163620	And then if we had any more local state,
+1163620	1165620	we could store that here as well.
+1165620	1168620	This is similar to your stack frame.
+1168620	1170620	It's almost identical to your stack frame
+1170620	1178620	when you're thinking about stack frames in assembly or C.
+1178620	1184620	So, I've put those in here.
+1184620	1187620	And what I've represented is the return.
+1187620	1189620	I'm just calling ret.
+1189620	1191620	And then control, the control pointer.
+1191620	1193620	I'm saying return control back to global.
+1193620	1198620	Which just means return it back to where we were before.
+1198620	1201620	If we were nested deep inside of a recursive call,
+1201620	1207620	we would be pointing back to the start instead.
+1207620	1214620	Okay.
+1214620	1217620	So, to formalize some of these things,
+1217620	1223620	the control link records where we return the environment pointer to
+1223620	1226620	when we are done with our current scope.
+1226620	1232620	When we finish our current function, where do we return?
+1232620	1242620	Do we need that for block scopes?
+1242620	1244620	Yes?
+1244620	1245620	No.
+1245620	1248620	I don't know.
+1248620	1254620	I don't know is always a valid answer.
+1254620	1259620	Somebody who says yes, why?
+1259620	1261620	There were a few of you.
+1261620	1262620	Yeah?
+1262620	1274620	No, exactly.
+1274620	1281620	We wouldn't want to duplicate all of the information of the outside world into our block scope.
+1281620	1288620	So, let's treat a block scope as a completely almost identical to our function scope.
+1288620	1290620	And it will have a control pointer.
+1290620	1291620	It's always gonna be pretty obvious.
+1291620	1292620	You can kind of look.
+1292620	1296620	It's just directly back to where it came from.
+1296620	1299620	Whereas functions can be a little bit more complicated.
+1299620	1302620	But just because it's obvious doesn't mean we shouldn't do it.
+1302620	1307620	So, yeah.
+1307620	1309620	Okay.
+1309620	1311620	In terms of these other things,
+1311620	1313620	This is where the L value, R value comes in.
+1313620	1324620	Not the most important.
+1324620	1334620	Do we need anything else besides the control link?
+1334620	1336620	This is a bit of a trick question.
+1336620	1339620	Because I conflated these two.
+1339620	1344620	So, the control link specifically talks about the environment pointer.
+1344620	1351620	I'm also calling the control link the return address, where you are returning execution to.
+1351620	1353620	They're effectively one and the same.
+1353620	1360620	We talk more about returning to code addresses later, especially in a security context.
+1360620	1364620	So, we'll get to the fun stuff there in a future lecture.
+1364620	1366620	All the way at the end of class.
+1366620	1367620	Okay.
+1367620	1371620	So, let's actually do this.
+1371620	1375620	We start with fact 3.
+1375620	1382620	And when we call the function fact 3, we're going to immediately create an activation record.
+1382620	1384620	That looks like this.
+1384620	1386620	Where we say n is 3.
+1386620	1388620	Return we don't know yet.
+1388620	1394620	And control is going to global.
+1394620	1397620	When we're done, we come back to the global scope.
+1397620	1408620	What happens inside of fact 3?
+1409620	1427620	What do we do next?
+1427620	1428620	Yep.
+1428620	1434620	Which branch of the conditional do we take?
+1434620	1435620	We'll go into the else.
+1435620	1436620	Great.
+1437620	1445620	Return n times 3 times what?
+1445620	1448620	Yep.
+1448620	1450620	Factorial of 2.
+1450620	1457620	How do we figure out the result of factorial 2?
+1457620	1460620	We're going to create another activation record.
+1460620	1464620	And I've drawn this one a little big, but we can fit it in over here.
+1464620	1470620	What is going to be inside of our activation record?
+1470620	1472620	Yeah.
+1472620	1474620	n is 2.
+1474620	1476620	What else do we have?
+1476620	1486620	Yeah.
+1486620	1487620	Definitely.
+1487620	1488620	Yeah.
+1488620	1491620	So, control is going to point back to our first activation record.
+1491620	1497620	Which is saying, once we're done with this one, go back over here.
+1497620	1498620	Okay?
+1498620	1502620	And then what's the last thing that we have?
+1502620	1505620	As a class?
+1505620	1507620	Return.
+1507620	1513620	And what's the value?
+1513620	1517620	2 times what?
+1517620	1522620	Yet another activation record.
+1522620	1527620	What goes in this one?
+1527620	1535620	Someone knew.
+1535620	1537620	Yeah.
+1537620	1538620	n equals 1.
+1538620	1542620	What else?
+1542620	1544620	Yeah.
+1544620	1546620	Return 1.
+1546620	1550620	And where are we returning to?
+1550620	1556620	Yeah.
+1556620	1562620	Our CTL is going up to activation record number 2.
+1562620	1563620	Okay.
+1563620	1565620	So, we finished executing.
+1565620	1567620	We know what we are returning.
+1567620	1572620	Where do we go?
+1572620	1574620	Where do we go?
+1574620	1575620	Back to 2.
+1575620	1579620	We follow our control pointer to say, go back to 2.
+1579620	1583620	We were right in the middle of executing this return statement.
+1583620	1586620	So, it's 2 times 1.
+1586620	1588620	We've now finished this one.
+1588620	1598620	Where do we go from here?
+1598620	1599620	Back to the first one.
+1599620	1600620	Back to this one.
+1600620	1603620	And we know that we are returning the value 2.
+1603620	1604620	All right.
+1604620	1606620	Now we're done with this.
+1606620	1612620	Where do we go from here?
+1612620	1613620	Global.
+1613620	1614620	We'll go to global with the value 6.
+1614620	1616620	And we're going to return 6.
+1616620	1620620	This might feel very rote and mechanical.
+1620620	1623620	That is exactly by design.
+1623620	1627620	This is what the compiler or interpreter does.
+1627620	1628620	It needs to be mechanical.
+1628620	1630620	There's no creativity here.
+1630620	1633620	Because if there were, the computer couldn't do it.
+1633620	1636620	It's algorithmic for a reason.
+1636620	1639620	Because it's an algorithm.
+1639620	1642620	So, if it feels boring, I apologize.
+1642620	1644620	It'll make you a better coder.
+1644620	1645620	So, do it anyway.
+1645620	1647620	So, okay.
+1647620	1649620	We can put these up.
+1649620	1655620	At each point, as we are executing the activation record, we will update our environment pointer
+1655620	1657620	to say we're now executing this one.
+1657620	1659620	We're now executing this one.
+1659620	1661620	We're now executing this one.
+1661620	1667620	And then as we pop back up, we get to move our environment pointer to wherever our control
+1667620	1671620	pointer says.
+1671620	1674620	Okay.
+1674620	1676620	I've got a question for you here.
+1676620	1681620	Do we keep the activation records on the stack after evaluation?
+1681620	1689620	Once we have finished returning from this activation record, do we keep it on the stack?
+1689620	1692620	Or do we pop it off?
+1692620	1694620	Chat with your neighbor.
+1694620	1696620	Try and convince them of your opinion.
+1711620	1736620	What do you guys think?
+1736620	1738620	No?
+1739620	1742620	Oh.
+1742620	1744620	That's clever.
+1745620	1769620	All right.
+1769620	1772620	Let's take a vote.
+1772620	1774620	Who says yes?
+1774620	1779620	We need to keep them on the stack after evaluation.
+1779620	1780620	Who says no?
+1780620	1782620	We do not need to keep them on the stack.
+1782620	1783620	Okay.
+1783620	1786620	I saw one yes and everyone else no, basically.
+1786620	1788620	I want to know why.
+1788620	1789620	From either of you.
+1789620	1791620	Anybody who says no or yes.
+1791620	1792620	Yes?
+1792620	1811620	Yeah, that's a great idea.
+1811620	1817620	So, in the first example that we did the activity with, we had to keep that function around,
+1818620	1822620	the activation record around, where we had stored the value A is 5.
+1822620	1827620	So then when we decremented it to get A is 4, we could use that value of A is 4.
+1827620	1831620	If we had garbage collected that, we would have been done for.
+1831620	1834620	We would have gotten like a variable undefined.
+1834620	1835620	Yeah?
+1835620	1842620	Wouldn't it be easier just to store it in static memory instead so that you can keep
+1842620	1843620	the...
+1843620	1849620	Otherwise, you'd just be copying it in a separate case?
+1849620	1853620	Wouldn't it be easier to store it in static memory instead?
+1853620	1857620	Just the stuff that you would need to store for each call.
+1857620	1864620	So, if you could, at compile time, know what you needed to store, then yes.
+1864620	1869620	But you don't normally.
+1869620	1872620	But I don't know how many of these I might generate.
+1872620	1873620	Right.
+1873620	1878620	No, it's a great idea when you have knowledge about the system.
+1878620	1879620	But you don't always.
+1879620	1881620	So, yeah.
+1881620	1886620	So, if we have closures, then maybe we can't always pop these off.
+1886620	1890620	However, 95% of you said no.
+1890620	1897620	Why did you say no?
+1897620	1901620	Yeah.
+1901620	1902620	Because these are not closures.
+1902620	1904620	So, you can just pop them off.
+1904620	1907620	Is that true?
+1907620	1910620	No, I'm gonna say no on that one.
+1910620	1914620	Every function in JavaScript creates a closure.
+1914620	1918620	It doesn't matter how it's used, where it's used, what's going on.
+1918620	1920620	It is a closure.
+1920620	1921620	Yeah.
+1921620	1927620	It's an empty closure, so you don't need it anymore.
+1927620	1930620	Kind of.
+1930620	1937620	I'd say it's a specific case of the fact that it's an empty closure that we don't need anymore.
+1937620	1941620	And the key term is that it's tail recursive.
+1941620	1946620	Here, what we are doing is we are recursing in the tail position.
+1947620	1952620	Which means it's impossible for us to ever return to that closure.
+1952620	1954620	We're never going back to it.
+1954620	1957620	So, it's safe to clear.
+1957620	1962620	Generally speaking, we do need to keep activation records on the stack.
+1962620	1964620	Because they are closures.
+1964620	1966620	And we might need to reference them again.
+1966620	1969620	In this specific case, we don't.
+1969620	1972620	Okay.
+1972620	1978620	So, this process here is what we are going to continue working with for a little bit.
+1978620	1983620	But we're going to get some more interesting use cases.
+1983620	1990620	Starting with free variables, and then hopefully getting to high order functions.
+1990620	1992620	Okay.
+1992620	1994620	Let X equal 1.
+1994620	1998620	F is a function that logs X.
+1998620	2001620	Execute F.
+2001620	2005620	Question?
+2005620	2007620	Tail recursion.
+2007620	2015620	So, tail recursion is when we recurse in the last step of a function.
+2015620	2019620	So, when we are returning a recursive call.
+2019620	2020620	That is tail recursion.
+2020620	2026620	If we had written this code where we call factorial of N minus 1 as the first step.
+2027620	2032620	And then we do a check to say was N greater than or something of that sort.
+2032620	2034620	That would not be tail recursive.
+2034620	2038620	Yeah.
+2038620	2039620	Okay.
+2039620	2047620	Going back to this little code step.
+2047620	2054620	So, we have some activation record where our global state, that's the top box, has X as 1.
+2054620	2061620	And then F, when we execute it, creates an activation record with a control link back to global.
+2061620	2062620	And a return value.
+2062620	2064620	It's going to return nothing.
+2064620	2071620	What are we going to print out here?
+2071620	2078620	What's printed to screen?
+2078620	2088620	You don't have a lot of options.
+2088620	2090620	What is it?
+2090620	2091620	1.
+2091620	2092620	Yeah.
+2092620	2095620	We know the value of X.
+2095620	2098620	I feel like most of you guys knew that, but you just don't want to answer.
+2098620	2099620	It's fine to answer.
+2099620	2100620	Just raise your hand.
+2100620	2101620	Answer.
+2101620	2102620	We print out X.
+2102620	2104620	X is 1.
+2104620	2106620	So, we get the value 1.
+2106620	2107620	No tricks here.
+2107620	2109620	That's what we expect.
+2109620	2113620	How did we find X?
+2113620	2126620	Did we look it up via the control link?
+2126620	2136620	Give it a second to thought.
+2136620	2137620	Yeah.
+2137620	2138620	Go for it.
+2138620	2139620	Yes.
+2139620	2140620	Why?
+2140620	2141620	Yeah.
+2141620	2155620	So, we had access with our control to the global environment.
+2155620	2157620	And that's where X was.
+2157620	2160620	So, maybe yes.
+2160620	2163620	Any other ideas on it?
+2163620	2165620	Yeah.
+2165620	2166620	Yeah.
+2166620	2179620	So, maybe there's some concept of global that we can just use.
+2179620	2181620	But to that, I would say...
+2181620	2183620	Well, I won't write it out.
+2183620	2190620	But what if we just wrap this entire thing inside of a function?
+2190620	2192620	We would still get the value 1.
+2192620	2201620	So, it's not that global is unique.
+2201620	2203620	How many people are voting yes?
+2203620	2205620	Look it up via control link.
+2205620	2207620	How many people are voting no?
+2207620	2209620	Don't look it up via control link.
+2209620	2210620	Okay.
+2210620	2211620	So, there's like a 50-50 split.
+2211620	2213620	Why not?
+2213620	2214620	We had two arguments for yes.
+2214620	2215620	Yeah.
+2216620	2233620	I'm not quite sure I'm following.
+2233620	2234620	Yep.
+2234620	2235620	Yeah.
+2235620	2244380	Yeah, yeah, so I'm not saying that we would be moving to the outer scope or the control
+2244380	2249380	scope for execution, but just to look up a variable.
+2249380	2258580	So we'd be looking up the value X in the outer scope via the control link.
+2258580	2262420	Not that we would be going to the outer scope to execute things.
+2262420	2265540	So we won't get this kind of ping-pong.
+2265540	2267980	Yeah.
+2267980	2271860	Any other ideas?
+2271860	2278660	All right.
+2278660	2282340	My vote is no.
+2282340	2289020	And I have an example to show it.
+2290020	2301020	Well, this is going to be inconvenient.
+2301020	2321620	Is this big enough to read in the back?
+2321620	2325620	OK, cool.
+2325620	2345460	Although, now it's probably harder to read.
+2345460	2348020	Especially going all the way to the bottom there.
+2348020	2349020	But...
+2349020	2352340	All right.
+2352340	2355100	X is equal to 1.
+2355100	2359900	F is a function that prints out X.
+2359900	2364540	G is a function that sets X equal to 2.
+2364540	2372220	And then calls F. Execute G.
+2372220	2373540	That was someone next to you.
+2373540	2387540	What does this print out?
+2447540	2465220	All right.
+2465220	2466220	What are we going to draw?
+2466220	2467220	Actually, starting.
+2467220	2472700	What does it print?
+2472700	2476500	What are the options?
+2476500	2479180	What are reasonable outputs for this program?
+2479180	2480180	Yeah.
+2480180	2481460	One or two.
+2481460	2482700	I like both of those options.
+2482700	2486620	Does anybody have any other options that are reasonable for it to print?
+2486620	2487620	No.
+2487620	2488620	OK.
+2488620	2489620	Those are the reasonable options.
+2489620	2491500	Which one is it?
+2491500	2493580	How many people vote 1?
+2493580	2495340	How many people vote 2?
+2495340	2496340	OK.
+2496340	2497980	We have a little bit of dissent.
+2497980	2503060	But the vast majority look at this code and say this should print out 1.
+2503060	2505340	How?
+2505340	2507660	Let's draw our diagrams.
+2507660	2510140	And see what happens.
+2510140	2512740	We'll start with global state.
+2512740	2520460	What do we have in global state?
+2520460	2521460	X equals 1.
+2521460	2522980	Great.
+2522980	2529420	What's next?
+2529420	2530420	What's next?
+2530420	2531420	Yeah?
+2532420	2534620	Oh, yep.
+2534620	2538660	We have a function f.
+2538660	2543420	This f is a variable in our global state.
+2543420	2545340	And this is a function.
+2545340	2548580	And we're going to figure out what we're going to point to.
+2548580	2551940	But it points to something.
+2551940	2553940	What else do we have?
+2553940	2557420	Come on, guys.
+2557420	2558420	Yeah?
+2558420	2560060	We have a g.
+2560140	2561580	G is also a function.
+2561580	2563580	Excellent.
+2563580	2572020	Now what?
+2572020	2573020	We're going to call g.
+2573020	2576540	What happens when we call g?
+2576540	2582620	Yeah?
+2582620	2584940	We're going to create an activation record.
+2584940	2587460	And this will be the g activation record.
+2587460	2590300	Or the execution of g activation record.
+2590300	2599500	What's going in this one?
+2599500	2600540	X equals 2.
+2600540	2601660	We're going to call f.
+2601660	2611300	But before we get there, what else is in here?
+2611300	2615980	Return and?
+2615980	2620300	Pointer to what?
+2620300	2621300	Pointer to global.
+2621300	2624460	And what do we call it?
+2624460	2627180	The control pointer.
+2627180	2630740	And this is pointing over to global.
+2630740	2632420	Okay.
+2632420	2633780	Now we are executing f.
+2633780	2638940	What happens when we execute f?
+2638940	2647220	New activation record.
+2647220	2648220	Excellent.
+2648220	2655220	Actually, before we execute f, where is f?
+2655220	2657380	Because we're looking at this activation record.
+2657380	2659500	And we don't know where f is.
+2659500	2661420	Or what f is here.
+2661420	2667460	So if we operate under the assumption we look up the control link, we would follow the control
+2667460	2670460	link back over here and say what is f?
+2670460	2671620	F is a function.
+2671620	2672620	Great.
+2672620	2673620	Now we found f.
+2673620	2674620	We get to execute f.
+2674620	2677740	We get to create our activation record for it.
+2677740	2679220	And what do we do?
+2679220	2688220	What's inside of our activation record?
+2688220	2689260	Control link.
+2689260	2698340	What does the control point to?
+2698340	2701180	Control link points to g, because we were called from g.
+2701180	2704380	100% correct.
+2704380	2707460	That's how we establish the control link.
+2707460	2714100	What else do we have?
+2715100	2717100	Return.
+2717100	2720020	All right.
+2720020	2722260	Now we are printing out...
+2722260	2723260	Where is it?
+2723260	2725120	We are printing out x.
+2725120	2737620	What is the value of x inside of this context?
+2737620	2740420	One is what we want it to be.
+2740420	2743060	X doesn't exist here, though.
+2743060	2747640	So we have to look it up somehow.
+2747640	2753060	If we followed the control link, we would go look it up here, and we would find that
+2753060	2754820	x is equal to 2.
+2754820	2761180	Now 90% of you had the intuition that that's wrong.
+2761180	2766900	Which means we can't follow the control link, or else everyone's intuition is wrong.
+2766900	2771340	Your intuition is that way because you've seen it work that way every single time you've
+2771340	2774340	run code, unless you've worked with Lisp.
+2774340	2777840	In which case, you've seen it work this way.
+2777840	2782820	So we can't use the control link, because we would find the value 2.
+2782820	2787380	Which means we need something else.
+2787380	2789800	Let me put this down.
+2789800	2796700	So if we were following the control link, we would find x is equal to 2.
+2796700	2802700	And what we would have just done is invent what's called dynamic scoping.
+2802700	2809740	Where you can override the scoping of what would be expected of the function.
+2809740	2811600	But that's not what we want.
+2811600	2814020	This is not how normal languages function.
+2814020	2815540	This is how Lisp functions.
+2815540	2817440	It's really weird.
+2817440	2819680	And can be quite annoying.
+2819680	2822180	So how can we fix it?
+2822180	2826780	There's one more thing that we track in our activation records.
+2826780	2831540	And this is what's called the access link.
+2831540	2843540	The access link tracks the enclosing lexical scope.
+2843540	2849320	And our algorithm will be updated to first find whatever environment we are currently
+2849320	2850980	in.
+2850980	2855460	We check to see if the variable is in our environment.
+2855460	2864300	If it's not, follow our access link and repeat.
+2864300	2872380	So if we go back to our example, we start where x is equal to 1.
+2872380	2874740	We call g.
+2874740	2876740	We say x is equal to 2.
+2876740	2882560	But notice in addition to the control link, we are also storing an access link.
+2882560	2887420	And this access link is from where we were defined.
+2887420	2892080	G was defined in the global scope.
+2892080	2897340	Which means our access link points to the global scope.
+2897340	2898340	Then we call f.
+2898340	2906460	F was also defined in the global scope, which means its access link points to the global
+2907180	2908180	scope.
+2908180	2910860	The control link still points to g.
+2910860	2913620	Because we still want to return to g.
+2913620	2919140	But when we look up a variable, we will follow the access link and find that it's 1.
+2919140	2920140	Yeah?
+2920140	2928580	If x was never defined in the global environment, would it know the control link for x?
+2928580	2929580	No.
+2929580	2930580	So, yeah.
+2930580	2931580	Good question.
+2931580	2934980	If we hadn't run this line of code, what happens?
+2934980	2945700	What's output?
+2945700	2949700	In JavaScript, we call that undefined.
+2949700	2953380	We would not have been able to find x.
+2953380	2955340	We would search here for x.
+2955340	2956700	It doesn't exist.
+2956700	2958960	Then we would search global for x.
+2958960	2960460	It doesn't exist.
+2960460	2964620	We would actually search the interpreter for x.
+2964620	2968940	And the interpreter would say, hey, you're looking in a place that you aren't supposed
+2968940	2969940	to look.
+2969940	2971620	That means you have undefined.
+2971620	2980700	And it would tell the log that x is undefined.
+2980700	2988060	Okay.
+2988060	2993260	So how do we know how to wire up the access links?
+2993260	3004700	How can we figure out that f and g both have access links back to global?
+3004700	3013620	And this is what I put these arrows in for.
+3013620	3021020	When we create a function, we're defining the function f.
+3021020	3029000	We're going to create with it what I represent as a closure object.
+3029000	3034860	Which is two boxes.
+3034860	3043100	I forget which order I do these in.
+3043100	3050140	The left-hand box represents the access link for f.
+3050140	3059260	And it will point back to wherever f was defined.
+3059260	3067760	The right-hand box is the code for the function f.
+3067760	3074760	So that we know what to execute when we are executing things.
+3074760	3078560	So what does g look like?
+3078560	3081640	By this same design?
+3081640	3086800	What's the left-hand box of g?
+3086800	3094440	Yeah?
+3094440	3097600	An access link back to the global scope.
+3097600	3102880	So maybe I should be a little bit more generic when drawing these.
+3102880	3106760	It's not that it's pointing back to the variable g and f here.
+3106760	3114120	It's that it points to whatever scope it was created inside of.
+3114120	3124040	So that when we then later call f and g, we have an access link.
+3124040	3130920	Can we go look up what their access link was from their closure?
+3130920	3136320	So here, both of them are global.
+3136320	3137320	Global there.
+3137320	3139920	And global here.
+3139920	3149140	Apologies for the messy arrows.
+3149140	3152040	Any questions on access links?
+3152040	3159600	That's exactly right.
+3159600	3165320	So we set up these pieces when we create the function.
+3165320	3171520	And then we use them when we execute the function.
+3171520	3173160	It's two phases.
+3173160	3174160	There's the creation.
+3174160	3175160	And then there's the usage.
+3175160	3176160	Yeah?
+3176160	3196280	Great question.
+3196280	3203160	So this is, it goes back to our algorithm here.
+3203160	3211000	Our lookup algorithm for a variable is first what environment are we in?
+3211000	3214760	Then is the variable in our environment?
+3214760	3217000	If it is, we're done.
+3217000	3223200	If it's not, recursively apply this algorithm on the access link.
+3223200	3226080	So we will just keep going until we find it.
+3226080	3228500	And we'll take the first one that we find.
+3228500	3242260	We can't access an X from an outer scope if we have an X in our scope.
+3242260	3250100	Other questions on access links?
+3250100	3254700	Okay.
+3254700	3258380	So I've represented that over here.
+3258460	3261140	This looks very similar to what I had on the board.
+3261140	3265840	Where what we're saying is the left-hand side points to the global scope.
+3265840	3271700	The right-hand side is pointing to the literal code that we will execute when we run this
+3271700	3275460	function.
+3275460	3285420	Because functions are just a piece of data.
+3285420	3287340	I think this is all just the same thing.
+3287340	3288340	Yep.
+3289060	3295060	Environment and code.
+3295060	3298060	That is how we will handle free variables.
+3298060	3303860	Aka variables we don't have a definition for.
+3303860	3309100	All right.
+3309100	3314340	I want to pause for a minute to give you time to think of any questions you might have before
+3314340	3322060	we get into the last section of this module.
+3322060	3325060	So take a second.
+3325060	3327740	Think of any questions that might be lingering.
+3327740	3330740	Because it's only getting more complicated.
+3330740	3331740	Yeah.
+3331740	3333740	Oh, wait.
+3333740	3334740	Actually...
+3334740	3335740	Once...
+3335740	3336740	Keep thinking.
+3336740	3342740	Then I'll get you.
+3343140	3346140	Okay.
+3346140	3349140	Questions.
+3349140	3355140	You had one.
+3355140	3358140	Yeah.
+3358140	3379060	That's actually what we're about to cover.
+3379060	3381300	That is called a high-order function.
+3381300	3382300	Yep.
+3382300	3385420	So we will get to that.
+3385420	3392580	Other questions?
+3392580	3400140	The access link is the thing that most students make the mistake on when solving these problems.
+3400140	3403860	It's figuring out what's the access link and how do I use it?
+3403860	3406540	So make sure that feels clear.
+3406540	3410780	Because that's the easiest part to get tripped up on.
+3410780	3414560	All right.
+3414560	3420160	Now we have a high-order function.
+3420160	3435800	Make counter.
+3435800	3438120	Somebody walk me through this.
+3438120	3439520	Step one.
+3439520	3443620	I have global environment.
+3443680	3449180	What is in my global environment?
+3449180	3452500	X.
+3452500	3456500	What is X?
+3456500	3463260	Actually, we're ahead of ourselves by starting with X.
+3463260	3466860	What comes before X?
+3466860	3470940	Yeah.
+3470940	3477260	Make counter.
+3477260	3492180	What is make counter?
+3492180	3499340	If you don't have an answer for what is make counter, that's something that we need to
+3499340	3500420	address.
+3500420	3502260	So if this doesn't feel...
+3502260	3503860	It might feel obvious.
+3503860	3507580	You guys don't always answer my questions, even when you know the answer.
+3507580	3508900	Which is fine.
+3508900	3509940	You should.
+3509940	3515920	But if it doesn't make sense, what I'm going to draw right here, that's an indicating factor
+3515920	3518620	that you should ask me questions.
+3518620	3522860	Because it's very important that you know exactly what this is.
+3522860	3525220	So I won't call on anyone.
+3525220	3530020	But how many of you feel like you know what I'm about to put over here?
+3530020	3533900	How many of you would like me to slow down a little bit and spend a little bit more time
+3533900	3535180	on it?
+3535180	3536180	Okay.
+3536180	3542100	Now that I know that you guys are following along and just being difficult...
+3542100	3544260	What goes over here?
+3544260	3545260	Yeah.
+3545260	3547780	Go for it.
+3547780	3548860	A closure object.
+3548860	3555900	And what does it look like?
+3555900	3557140	Access link and code.
+3557140	3559940	What does the access link point to?
+3559940	3563140	Yeah.
+3563140	3564620	Global scope.
+3564620	3569020	And the code points to which lines?
+3569020	3582700	Yeah, it's the three lines...
+3582700	3586580	Like the return, open parentheses, equals, right?
+3586580	3589740	All the way down to the close with the semicolon.
+3589740	3592260	So it's those three lines.
+3592260	3594320	Okay?
+3594320	3595320	Now what?
+3596080	3600480	Established make counter.
+3600480	3610640	What else do we do?
+3610640	3612720	We have a variable X.
+3612720	3622120	What is X equal to?
+3622120	3623720	The result of make counter zero.
+3623720	3624720	All right.
+3624720	3625720	We got to figure out what that is.
+3625720	3634320	How do we figure out what make counter zero is?
+3634320	3635320	How do we do that?
+3635320	3636320	I agree.
+3636320	3638120	We want to go into make counter.
+3638120	3641120	That's a very English way of describing it.
+3641120	3643120	Exactly.
+3643120	3651120	So we're executing a function, which means we create an activation record for our make
+3651120	3652280	counter.
+3652280	3660440	So we can call this one make counter zero.
+3660440	3661960	Just so that it has a name.
+3661960	3666280	What's going inside of this activation record?
+3666280	3672600	Yeah.
+3672600	3673940	C is equal to zero.
+3673940	3675640	That's our parameter.
+3675640	3677920	What else do we have?
+3677920	3679980	Return.
+3679980	3683460	We don't know what the value is yet, but we have it.
+3683460	3686980	What else do we have?
+3686980	3688980	Yeah.
+3688980	3690980	Control.
+3690980	3701860	What does that point to?
+3701860	3703400	It points to global.
+3703400	3709080	And if we wanted to be precise, we could say it, like, points to this line of global.
+3709080	3710680	But the line number doesn't really matter.
+3710680	3712680	It points to global.
+3712680	3713680	Global.
+3713680	3714680	Great.
+3714680	3717200	What else do we have?
+3717200	3718760	Yeah.
+3718760	3719760	Access link.
+3719760	3721240	And what does that point to?
+3721240	3722440	Global.
+3722440	3726600	And how do we know that it points to global?
+3726600	3728080	It was defined in global.
+3728080	3730980	We go look up the function that we're executing.
+3730980	3733560	The function we are executing is make counter.
+3733560	3738920	Make counter is a closure that has an access link pointing to global.
+3739760	3741760	So we set it equal to global.
+3741760	3745120	Great.
+3745120	3751720	Now what?
+3751720	3759440	These are so fun.
+3759440	3762520	What do we do now that we have called make counter zero?
+3762520	3765560	We've created the activation record for it.
+3765560	3767560	What next?
+3779800	3780920	Exactly.
+3780920	3788280	So we are actually executing our code inside of make counter.
+3788280	3789880	We've set C equal to zero.
+3789880	3793160	We're on line 2, where we're returning something.
+3793160	3798280	And what we are returning is an anonymous function.
+3798280	3799760	Functions are closures.
+3799760	3810200	So what does this return look like?
+3810200	3812280	Another closure.
+3812280	3817280	So let me just draw this out a bit more precisely.
+3817280	3820400	All right.
+3820400	3825960	So it's equal to a closure.
+3825960	3839120	What are the left and right-hand sides of this closure?
+3839120	3840480	Someone knew.
+3840480	3842200	You three have done a lot.
+3842200	3846400	I appreciate it.
+3846400	3849040	Yeah.
+3849040	3852040	Yeah.
+3852040	3859000	Yeah.
+3859000	3865000	So access link points back to the activation record where it was defined.
+3865000	3868200	It was defined inside of make counter.
+3868200	3869600	So it's this one.
+3869600	3870600	Yep.
+3870600	3871600	Great.
+3871600	3873600	And what's the right-hand side?
+3873600	3874600	Yeah.
+3874600	3875600	Exactly.
+3875600	3879360	It's just that little snippet of code.
+3879360	3880360	Return C++.
+3880360	3882240	So I'll just leave it there.
+3882240	3884440	But it's the little snippet.
+3884440	3885680	Great.
+3885680	3900600	Now what?
+3900600	3905040	We want to get to make counter 2, but we have to finish out what we were in the middle
+3905480	3906480	of.
+3906480	3912720	We're done with this activation record, which means we return back, and we set x equal to
+3912720	3915400	the returned value.
+3915400	3925040	That means we're just going to have x point down to the same closure that was returned.
+3925040	3931800	Yeah.
+3931800	3939680	So x, if we wanted to look up the value of C with respect to executing x, we have captured
+3939680	3942280	it inside of this activation record.
+3942280	3943960	That is exactly correct.
+3943960	3950600	So when we go ahead and execute x, we'll see what happens.
+3950600	3952720	Let's get on to the next line, though.
+3952720	3955400	We're on to y equals make counter 2.
+3955400	3956400	What does that look like?
+3956400	3965920	Pretty much exactly like make counter 0, but C is 2.
+3965920	3966920	All right.
+3966920	3970800	Pretty much exactly like make counter 0, but C is 2.
+3970800	3974000	I accept this.
+3974000	3977720	The important point is we aren't updating this one.
+3977720	3980600	We aren't going to change this activation record.
+3980600	3988200	We're going to create an entirely new make counter 2 activation record.
+3988200	3990360	And this one will look almost identical.
+3990360	4003520	We'll say C is 2, return, we'll figure out, control is global, access is still global.
+4003520	4011800	And then the return here is to yet another new closure where the access points to that
+4011800	4018400	and the code is the C++ code.
+4018400	4024600	And then y is going to be pointing to this closure.
+4024600	4027000	Which will be hard to draw.
+4027000	4031080	So we'll name this one number 3.
+4031080	4032440	Closure number 3.
+4032440	4034480	And just say that it's number 3.
+4034480	4035480	Yeah?
+4035480	4057540	Yeah.
+4057540	4061320	So these are new activation records.
+4061320	4067400	They get their access link from how we defined make counter before.
+4067400	4068880	Yeah.
+4068880	4078600	And then I think let's execute X and follow that logic to see, like, what this leads to.
+4078600	4084120	So we get to the point of our code where we're trying to log X.
+4084120	4087080	Or log execution of X.
+4087080	4088520	What is X?
+4088520	4090300	We're in the global scope.
+4090300	4091300	What is X?
+4091300	4092300	Yeah?
+4092300	4113460	X is a pointer to a closure.
+4113460	4114580	X is a closure.
+4114580	4118620	It's specifically this one.
+4118620	4121900	What code is inside of that closure?
+4121900	4123620	Yeah.
+4123620	4125140	C++.
+4125140	4130700	So we want to execute the code C++.
+4130700	4134340	What is the value of C?
+4134340	4138300	So we're gonna create our closure here.
+4138300	4145700	X has a return, a CTL, and an access.
+4145700	4148540	What are the values of these three things?
+4148540	4150220	Let's start with control.
+4150220	4156260	What's the control pointer point to?
+4156260	4162260	Yeah.
+4162260	4164820	The make counter activation record.
+4164820	4167780	Over here.
+4167780	4171540	So control tells us where did we come from.
+4171540	4174060	Where are we coming from here?
+4174060	4175780	We're coming from global.
+4175780	4183660	We executed inside of global, which means control points to global.
+4183660	4188620	The access link, though, tells us where were we defined.
+4188620	4196420	And when we look at X, this closure was defined inside of make counter 0.
+4196420	4201900	Which means that the access link will point over to make counter 0.
+4201900	4205740	Which we'll just say MKC 0.
+4211140	4217700	So when we look up the value of C for our return, how do we find it?
+4220380	4222940	Is C in our current activation record?
+4228620	4230220	Yes?
+4230220	4232060	No.
+4232060	4233100	No, it's not.
+4233100	4235380	All we have is return control access.
+4235380	4236260	So we don't have it.
+4236260	4237260	Where do we go?
+4237260	4238580	Do we go to global?
+4238580	4240540	Or do we go to make counter 0?
+4247940	4250900	Follow the access link back to make counter 0.
+4250900	4254300	We do have C defined here.
+4254300	4259580	We're going to update the value of C, because we called C++
+4259580	4261500	to be 1.
+4261500	4264260	And then we return.
+4264260	4265500	And what is printed out?
+4271860	4274340	What's printed out?
+4274340	4275540	Tricked you.
+4275540	4280260	It's plus plus, not plus plus C. Prints out 0.
+4280260	4281660	But C will be 1.
+4282380	4287100	OK.
+4287100	4290980	So the slides for this are all up.
+4290980	4298020	You can, like, follow exactly the same logic that we took here.
+4298020	4300660	But that covers the complexity of high-order functions.
+4300660	4301660	Yeah?
+4301660	4305860	Why was there no activation record for the anonymous function?
+4305860	4307980	No activation record for the anonymous function.
+4307980	4309300	There is.
+4309300	4311260	This is the anonymous function.
+4311260	4314260	The one, the function that was defined inside.
+4314260	4317740	Why don't we make an activation record for that?
+4317740	4320220	Yeah.
+4320220	4320740	Wait.
+4320740	4321340	Hold on, guys.
+4321340	4321820	Hold on.
+4321820	4322340	Pay attention.
+4322340	4323740	This is an important question.
+4323740	4326740	Why did we not create an activation record
+4326740	4329980	when we were inside of make counter 0,
+4329980	4334060	and we were executing line 1 of make counter 0?
+4334060	4337220	Why did we not create an activation record
+4337260	4338660	for this anonymous function?
+4342460	4343860	Give it 30 seconds of thought.
+4343860	4347260	I want you to have an answer to that.
+4347260	4351420	Why did we not create an activation record
+4351420	4354500	when we were inside of make counter 0,
+4354500	4357060	when we were executing here?
+4357060	4359740	Why did we not create an activation record
+4359740	4360900	for the anonymous function?
+4364420	4365720	Give it 30 seconds of thought.
+4365720	4367760	We still have like three minutes left of class.
+4367760	4368760	Just a quick question.
+4368760	4371240	There is an activation record.
+4371240	4371740	All right.
+4371740	4373200	So I'll just do the final one.
+4373200	4373700	Yeah.
+4373700	4375680	So I'm actually going to call it a function.
+4375680	4377160	I'm going to call the function.
+4377160	4378160	It's still a function.
+4378160	4378660	Yeah.
+4378660	4381640	I'm on your side.
+4381640	4382120	Oops.
+4382120	4383600	I'm just going to put it down.
+4383600	4384100	OK.
+4384100	4387000	So I'm going to call it a statement.
+4387000	4387560	All right.
+4387560	4389020	How many people feel like they have
+4389020	4394640	a solid answer for why we did not create an activation record?
+4394640	4395920	Not enough of you.
+4395920	4398400	This is a very important question.
+4398400	4401160	So I heard the answer.
+4401160	4403080	I think you said it perfectly.
+4403080	4405680	So I want to broadcast to the class.
+4405680	4409160	Why did we not do this?
+4409160	4412340	Activation records are created when we call a function.
+4412340	4417360	Activation records are created when you call a function.
+4417360	4422600	Inside of make counter, we define an anonymous function,
+4422600	4424560	but we do not execute it.
+4424560	4426800	We do not call it, which means we don't
+4426800	4429000	create an activation record.
+4429000	4433720	Later, we execute x, and that's what actually
+4433720	4437880	creates the activation record for that anonymous function.
+4437880	4441560	Prior to that point, we never created.
+4441560	4446000	So understanding when code actually gets executed
+4446000	4448720	is hard and extremely important.
+4448720	4452240	That's like at least 50% of the things on Piazza
+4452240	4455800	where people are like, this JavaScript code isn't working.
+4455800	4458840	It's pretty often the case that it's just,
+4458840	4461840	when is that thing being executed?
+4461840	4463800	So great question.
+4463800	4467540	Any other last questions on this stuff?
+4467540	4468040	Yeah.
+4468040	4469000	What is being returned?
+4469000	4471560	Is it a pointer return?
+4471560	4475160	Yeah, so what is being returned is a closure.
+4475160	4480040	It's this whole object here.
+4480040	4484120	And we represent that as like a pointer in our diagrams.
+4484120	4486600	And JavaScript does the same thing.
+4486600	4488280	Yeah.
+4488280	4492200	Other questions on these diagrams?
+4492200	4494480	You have two of these on the homework.
+4494480	4498240	So they should make sense.
+4498240	4501080	If not, stop by office hours.
+4510040	4511600	Thank you.
+4540040	4541600	Thank you.
+4570040	4571600	Thank you.
+4600040	4601600	Thank you.
+4630040	4631600	Thank you.
+4660040	4661600	Thank you.
+4690040	4691600	Thank you.
+4720040	4721600	Thank you.
+4750040	4751600	Thank you.
+4780040	4781600	Thank you.

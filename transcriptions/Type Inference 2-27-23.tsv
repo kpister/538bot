@@ -1,0 +1,751 @@
+start	end	text
+90960	98640	That's gonna be really unfortunate for the rest of this class. Alright guys, so
+98640	105680	as hopefully all of you know, midterm is postponed to not this Wednesday but next
+105680	113960	Monday. That means you get an extra four days to study, I think. That is entirely
+113960	119880	my fault for over, like, over planning the semester. Things are going a little bit
+119880	124400	slower. That's fine. I don't want to test you on type inference when we haven't
+124400	130640	talked enough about type inference. That's just not fair. So what we're gonna
+130640	137880	do today is talk about types and type inference. Homeworks and PA... Homework 4,
+137880	143120	PA 4, both were delayed to this upcoming Sunday as well, in case you didn't see
+143120	150240	that. Those are the notes. Anybody have questions about that stuff? Any logistics
+150240	154000	questions? Yeah?
+154000	157920	Is there going to be any PA 5 this week?
+157920	166400	No PA 5 this week. No PA 5 next week either. Yeah. So we're... I'm swapping things
+166400	170840	around a little bit. Everything will be in your favor. You guys as students will
+170840	177040	enjoy the fact that you won't have as much work altogether. Maybe. Or you'll be
+177040	182120	sad that we miss out on a few extra fun lectures at the end. Everything's a give
+182120	183120	and take. Yeah?
+183120	187880	So if PA 5 is delayed another week, is it due during spring break?
+187880	193840	No, no, no. Spring break. No work. Nothing. So next week is Monday's midterm. Wednesday
+193840	200280	is going to be a lecture about PL in research and, like, why are we talking
+200280	205280	about all of this stuff? And how does this actually play into what, like, real
+205280	210960	world looks like? And then spring break, no homework, no projects, nothing. We
+210960	215400	come back from spring break, we're going to start talking about generics. And
+215400	222560	how type classes work. How C++ does things. Things of that nature. Yeah.
+222560	228000	That's the roadmap.
+228000	238600	Any other logistics? All right. Cool. So Wednesday is review. We're going to be
+238600	242880	doing entirely review for the midterm. We will be doing lambda calculus, we'll be
+242880	247400	doing closures, we'll be doing types. All of that good stuff. For now, we're just
+247400	250440	talking about types.
+250440	253440	What is the type of this expression?
+253440	255440	Yeah?
+255880	257880	Yeah.
+257880	267600	What's the type of the result of this expression? Yeah. No, I think I was ambiguous
+267600	274280	there. It's an int. This expression will evaluate to be an integer. That seems
+274280	278880	reasonable. At least within our micro Haskell. Maybe you could argue it's like
+278880	282840	number. It's of type number. We could be adding floats or something. But not in
+282840	285800	micro Haskell.
+285800	289320	How do we know that this is of type integer? That the result is going to be of
+289320	290320	type integer?
+290320	291320	Yeah.
+291320	316520	Yeah, so we know that the plus operator takes two numbers and it returns a
+316520	320640	number. And if one of the numbers is an integer, then all of the numbers will
+320640	325800	be integers. In micro Haskell, we know plus operates on integers. We only have
+325800	328680	integers.
+328680	335760	So what we can do to make it a little bit more explicit, we can say let y equal
+335760	340560	2 plus x. And then we would say, like, this is just JavaScript, right? I'm not
+340560	347360	really talking about Haskell here. Let y equal 2 plus x. What is the type of y?
+347360	358480	We've said it's an integer.
+358480	361920	This is a very simple expression. There's not a lot of complicated stuff going
+361920	366440	on there. So it should be relatively straightforward to look at this and say
+366440	371880	what's the type of it? But not all expressions are simple. Functions can be
+371880	376840	very complicated. But they still want to have a type signature. They still take
+376840	381240	input and return output. And you want to be able to figure out how does input
+381240	384160	correspond to output?
+384160	387560	So we're starting with a simple example. But everything that we're going to talk
+387560	394040	about applies to more complicated functions.
+394040	398960	And this process that we have done here, mentally, the compiler somehow has to
+398960	405880	do. We have to get our interpreter or compiler to understand our expressions so
+405880	412920	that we can figure out their types and verify your code as being error free.
+412920	417920	The process for doing that I described last time as the Hindley-Milner type
+417920	423000	inference algorithm. And the algorithm breaks down into five steps.
+423000	428400	Step one is parse the program. Where you break apart the literal text to find
+428400	433280	out what is going on in this program. Step two, we assign arbitrary type
+433280	438640	variables to all of our nodes. Step three, we look at the constraints from
+438640	445760	our program. Step four, solve. And step five, look at your final type.
+445760	450600	We're gonna take this approach on a couple of programs today and see where it
+450600	460560	gets us. So let's start with the first example. We had... I think it's fx equals
+460560	468080	2 plus x. Now we're in Haskell. We have a function that we have called f.
+468080	475800	It takes a parameter called x, and it returns the result 2 plus x.
+475800	478520	What do we expect the type to be?
+491320	495000	How many of you are just being quiet and know the answer, but you just don't
+495000	502280	want to answer? Okay. A decent number of you.
+502280	508640	This... Being able to look at this function and intuit the type and just say,
+508640	514240	like, this is the type, not really for any specific reason, is an important,
+514240	520400	like, skill to have. So you... I do, to some extent, expect you to be able
+520400	527040	to look at a function and say, this is a type of this. So if that feels
+527040	531120	uncomfortable, that's okay. But get some more practice with it,
+531120	534280	and hopefully this will help. So someone who is comfortable,
+534280	538240	what type is this function? Yeah?
+538240	545160	It's a function that takes an integer, and it returns an integer.
+545160	551920	So we have int to int. What we're saying here is the arrow denotes
+551920	559560	that it's a function. It has an input of an integer and an output of an integer.
+559560	563520	So we are going to go through this whole step, 1, 2, 3, 4, 5.
+563520	569040	If we don't get this result at the end, we've probably done something wrong.
+569040	572960	I want to emphasize, when I, like, give you a test and say,
+572960	576640	solve for the type of this thing, you are allowed to look at it and say,
+576640	581960	as a human, I know the type should be this to this. That's not cheating.
+581960	586560	That's just, like, using common sense. Then do the algorithm and prove that it
+586560	590640	is that to that. That's the important, like,
+590640	597840	understanding connection piece. Okay. So we have the type that we think it is.
+597840	604800	And now we want to prove it. Our first step is to parse the program.
+604800	614120	How do we parse the program? What does that even mean? Yeah?
+614120	628960	Yes, we're going to split up the literal text of our code into nodes.
+628960	634840	What are we going to do then? So let's talk about what a parser is.
+634840	642840	The parser reads this string of text from a text file, from a Haskell file,
+642840	648440	and it breaks it into tokens. It says I have an F token, I have an X token,
+648440	662280	I have an equals, I have a 2, I have a plus, and I have an X.
+662280	668640	This is the first step of the compiler. We're breaking apart.
+668640	674400	We're reading in the file and breaking it apart.
+674400	689280	What do we do then? Yeah, so we're going to use our grammar
+689280	695840	to build a tree that represents our program. The abstract syntax tree.
+695840	699480	We're going to look at each line of our program.
+699480	703160	This is one line. And we're going to say how can I match this
+703160	711040	against our grammar? And in doing so, the syntax tree just falls
+711040	714720	out. By matching it against the grammar, we know
+714720	721760	explicitly how all the nodes are connected. So, for example, we have a rule in our grammar
+721760	728520	that we can do an E plus an E. This is one of our rules from our grammar.
+728520	735480	You can add two expressions. We had another rule in our grammar that we
+735480	744280	could have a function name, a parameter, and then equals an expression.
+744280	754520	That was another one of the rules of our grammar.
+754520	760320	What's one more rule that we had in our grammar that we need to use to parse our program?
+760320	765640	Yeah? E is equal to E plus E.
+765640	772120	E is equal to E plus E. Yeah, so an expression can be equal to or
+772120	783160	is replaceable by an expression plus an expression.
+783160	789480	What else do we need? Yeah, terminal for E.
+789480	795240	So we can say that an expression can also be an integer.
+795240	811040	It could also be a variable. What other rule from our grammar do we need?
+811040	832120	What's kind of a subtle one that's remaining? I think this is actually a typo.
+832120	841720	I think it's an identifier is what I call it.
+841720	858440	What's the last thing we're missing? What can P be?
+858440	873840	What are we using it? How are we using it?
+873840	878840	It's not that it's an expression, actually. It's that it's an identifier.
+878840	888240	So it would be an invalid program to say 2 plus 3 equals X or something plus 2.
+888240	892080	Something of this sort. We can't have an arbitrary expression in
+892080	898080	our parameter side. But we can have identifiers.
+898080	904240	Okay. So we have some rules for our language.
+904240	909160	These are language level rules that say how can you write code?
+909160	915360	And if you use anything else outside of these rules, you're gonna get a syntax error.
+915360	920240	Your compiler will get mad at you, because it doesn't know how to parse your program.
+920240	928520	Okay. So let's use these rules and build a tree.
+928520	936320	At the top level, what's our first rule that we want to use?
+936320	940920	Generally you want to greedily match as much of the program as you can with your rule.
+940920	958200	So what should we use as our first rule? Yeah.
+958200	962380	We have this function with a parameter P is equal to an expression.
+962380	965960	This almost directly matches our entire code.
+965960	973520	So we can start drawing by saying we have our root node, which I've called function
+973520	979480	here. And it takes a name, the function name, which
+979480	985000	we have as F. It takes a parameter, which we don't know
+985000	990200	yet. And it takes an expression.
+990200	995320	Which we don't know yet. We've now started the process of building
+995320	1006360	our abstract syntax tree. Going just from the left side arbitrarily,
+1006360	1013360	what can we replace our P with? Yeah.
+1013360	1023320	We can replace it with X. And this is valid to do, because X is an identifier.
+1023320	1028760	So we're using our P can be replaced with identifier rule.
+1028760	1035960	All right. This will get us into a little bit of trouble.
+1035960	1042680	But it's not too much of a big deal. We now have another hole in our tree.
+1042680	1048760	We have a generic expression. What can we do with that?
+1048760	1063560	Yeah. So we can turn it into the result of the
+1063560	1074080	plus operation on two expressions. And this is where I use the at sign to say
+1074160	1081520	it's the result of. The result of what expression?
+1081520	1090000	The result of the expression of... How do we want to do this?
+1090000	1099000	We can break our plus down into our prefix notation of plus EE with parentheses over
+1099200	1104200	here. And we're saying it's the result of the result
+1104200	1111440	of adding... What's our left-hand side?
+1111440	1118360	This is still an expression. And an expression.
+1118360	1123600	So because plus is a little bit complicated in that it takes two parameters, we need to
+1123720	1128560	denote that in some way. What we do here is we say it's the result
+1128560	1135560	of the result of adding expression... Adding an E to that expression.
+1135560	1142560	Okay. Now, what can we do with these two Es?
+1153840	1158720	Yeah. Substitute in two and X.
+1158720	1163920	Excellent. We have our last remaining tokens that we
+1163920	1170600	still need to use. They fit in with our E and E.
+1170600	1176000	And the result that we get out of this is a parse tree that tells us what is happening
+1176000	1181080	in this expression. We have a function with the name F and the
+1181080	1188080	input X. The result of it is the result of adding 2 to X.
+1194040	1199040	We have now accomplished step 1. We have parsed our program.
+1199040	1201040	Yeah?
+1202040	1216120	Yeah, so if we had a different function, FX equals X, the identity function, you take
+1216120	1222840	in something, you return something. Let's start parsing it using our rules.
+1222840	1229440	What's the first rule that we want to apply? Yeah.
+1229440	1232500	The function rule. All right? So we have a function node.
+1232500	1235420	That's our root node. And we have F.
+1235420	1239800	We have a P. And we have an E.
+1239800	1244800	What's P? Yeah.
+1244800	1248920	X. It's the identifier X.
+1248920	1253880	Just like before. Now we have E.
+1253880	1258880	What's E? Yeah.
+1258880	1263280	X. First of all, is this valid?
+1263280	1268720	Well, if we check our rules, we are allowed to replace an expression with an identifier.
+1268720	1271600	So it is valid. And then what does it mean?
+1271600	1275560	Well, it means we have a function that takes� that has the name F.
+1275560	1281040	It takes a parameter X. And it returns the value X.
+1281040	1288980	So the idea of this third node here is to say this is the return value of the function.
+1288980	1303960	The return value of this function is the result of adding to and X.
+1303960	1308040	We can do a type analysis on this one after we do that.
+1309040	1311720	Okay. So we finished step 1.
+1311720	1316860	Any more questions on step 1? It's a big step.
+1316860	1329320	It's often a hard step.
+1329320	1332320	You first, then you. Yeah.
+1332320	1336880	Oh, yeah, yeah. That's what's next.
+1336880	1339880	Any other questions first, though? Yeah.
+1339880	1348880	In Haskell, do all infix operators� are they all internally represented like that?
+1348880	1352960	Yeah. So can we always do this kind of, like, infix
+1352960	1356180	notation? No.
+1356180	1359880	But you can sometimes. And it's kind of just a special case.
+1359880	1366320	Yeah. But the step of rewriting it to prefix notation
+1366320	1372440	is an important first step for just for, like, visibility.
+1372440	1382520	All right. This is the first step of every compiler
+1382520	1386480	everywhere that's ever been written, that ever will be written.
+1386480	1394440	You need to figure out what does the code actually look like?
+1394440	1397720	Then what we are doing specifically is a type analysis.
+1397720	1404840	So let's assign type variables. And what that means is that we just give everything
+1404840	1413360	an arbitrary variable name. So we can call this one T0, T1, or tau1,
+1413360	1432120	tau2, tau3, tau1, because it's the same X. Or we could say it's tau4, tau5, and tau6.
+1432120	1437180	There's no, like, magic stuff happening here. This is just� we need to give everything
+1437180	1442240	a name so that we can talk about it. So we can reference it later.
+1442240	1446880	It's just like using normal variables in programming.
+1446880	1464760	All right. So we've done step 2. Oh, question.
+1464760	1467580	Do it however you want. We don't even have to call it tau.
+1467580	1470840	We don't have to start with 0. We do whatever we want.
+1470840	1476720	In fact, we will use a different letter in a minute.
+1476720	1480040	Yep. Okay.
+1480040	1488040	We're 40% of the way done. We have step 3, 4, and 5.
+1488040	1493200	Step 3. This is kind of the biggest� yeah, the biggest
+1493200	1497340	part of the algorithm. Add constraints.
+1497340	1502740	So we're going to look at our tree, and we're going to say, what constraints are there on
+1502740	1507360	the variables that we're using? On the type variables that we're using?
+1507360	1513920	What can we infer about the types? To start, we can do a pretty simple one.
+1513920	1521060	What do we know about tau1 and tau4? Yeah.
+1521060	1527940	Tau1 equals tau4. Nothing crazy there.
+1527940	1530560	It's the same identifier. X is equal to X.
+1530560	1539020	So the type of X is equal to the type of X. It seems obvious, but remember, you're a computer.
+1539020	1545580	You need to explicitly state everything so that you can do the final math.
+1545580	1553980	What do we know about tau0? Yeah.
+1553980	1561500	Tau0 is tau1 to tau2. And what that means is that it's a function
+1561500	1572020	that takes in tau1, and it returns tau2. Okay.
+1572020	1587980	What do we know about tau6? You guys are great.
+1587980	1591300	Someone who hasn't answered. What do we know about tau6?
+1591300	1600540	Yeah. It equals 2, but what's the type of it?
+1600540	1609060	It's an int. It has the value 2 and the type of int.
+1609060	1622300	How do we know that? Yeah.
+1622300	1625620	The plus operator. Yes and no.
+1625620	1627860	I mean, that kind of gets us back to the same question.
+1627860	1630780	How do we know that the plus operator works with ints?
+1630780	1638180	Yeah. Is int just our best guess?
+1638180	1640180	Is it the best guess? No.
+1640180	1647620	It's actually what we're told by our grammar. Plus works with ints in our grammar.
+1647620	1654040	2 is an integer in our grammar. MicroHaskell doesn't have floats.
+1654040	1658640	So it doesn't let you type check anything as a float.
+1658640	1664200	In Haskell, in real Haskell, you would look at this 2, and you would say, I don't know.
+1664200	1667520	That might be an integer. It might be a float.
+1667520	1674320	I'll tell you that it's a generic number, where it could be one of those two.
+1674320	1682360	Yeah. So here we know that 2 is an integer because we've been told, but it's not necessarily
+1682520	1684680	in another language.
+1684680	1693280	What else do we know? What's something else we can get from our tree? Yeah.
+1693280	1702200	So is tau3 an int? This kind of gets to the main question of how do we look at this chunk
+1702200	1707480	of the tree in general?
+1707480	1724440	What does that chunk represent? Yeah.
+1724440	1729360	The T5 takes in an int and outputs an int.
+1729360	1742160	How does that reckon with this part of the tree?
+1742160	1750120	I think the root of most misunderstanding is what is T3?
+1750120	1753760	What does that node mean? What does it represent?
+1753760	1761040	And once that piece makes sense, the other parts kind of fall into place.
+1761040	1768280	So if you're confused about what T3 is, that's fine. That's kind of the hard piece.
+1768280	1774280	But think about it this way. We have plus here.
+1774280	1780000	Plus is taking in an input of 2.
+1780000	1784960	If we know nothing else about the structure of this graph, plus is a function that's taking
+1784960	1789400	in input 2.
+1789400	1793320	Think about the same structure one level up.
+1793320	1800280	This node is a function that's taking in an input x.
+1800280	1802800	That's how we've read this structure.
+1802800	1808360	The left child is a node that takes in the right child as input.
+1808360	1809400	Same thing happening here.
+1809400	1811320	The left child is a node.
+1811320	1818640	It's a function that's taking in the input x.
+1818640	1824800	So if T3 were an int, can we pass it a value?
+1824800	1827720	Can we pass it an input parameter?
+1827720	1830100	No. Right?
+1830100	1836760	We can't call the number 3 with the value 7 or something like that.
+1836760	1842160	So our result here, T3, must be a function itself.
+1842160	1846840	Because it's taking a parameter.
+1846840	1856720	What do we know about the type of T5 from our grammar?
+1856720	1857720	You momentarily had your hand up, yeah.
+1857720	1869880	It does result in an int.
+1869880	1878000	When we, like, fully realize the potential of plus, what we get back is an integer.
+1878000	1880920	But how do we get that integer in the first place?
+1880920	1881920	Yeah?
+1881920	1884120	Right.
+1884120	1889160	We need two integers to be fed into plus in order to get one out.
+1889160	1892760	And that needs to be written as part of the type.
+1892760	1894760	So it takes one integer.
+1894760	1897000	It takes a second integer.
+1897000	1900480	And then it outputs an integer.
+1900480	1904200	It has two parameters, int, int.
+1904200	1907800	And it outputs an int.
+1907800	1910840	Okay.
+1910840	1914400	So that's what we know about T5.
+1914400	1917160	What else do we know about T5?
+1917160	1921680	Looking at the tree.
+1921680	1929160	Yeah?
+1929160	1931880	It takes in T6 and T4.
+1931880	1935060	So it definitely takes in T6.
+1935060	1939560	But I would say it doesn't directly take in T4.
+1939560	1944020	What it gives us back will take in T4.
+1944020	1949560	The result of taking in T6 takes in T4.
+1949560	1954200	Which is a little weird to, like, say.
+1954200	1959240	But what it means is that T5 is equal to int...
+1959240	1960240	Oh, wait.
+1960240	1961240	Sorry.
+1961240	1963480	We were talking about the Ts.
+1963480	1967960	Is equal to T6 to T3.
+1968400	1971240	T5 takes in T6.
+1971240	1978520	And it results in a node which takes in T4.
+1978520	1983560	And what does that node that it results in, that takes in T4, what does that one return?
+1983560	1992240	What does T3 give back to us?
+1992240	1993960	T2.
+1993960	2003960	So T3 takes in T4, and it outputs T2.
+2003960	2011240	The general rule that you can use here is that whenever you see a function application,
+2011240	2019400	the left-hand child is the, like, before the equals, that is a function from the right-hand
+2019400	2022680	child to the top node.
+2022680	2023680	From the input to the result.
+2023680	2024680	Yeah?
+2024680	2025680	What does application or the app represent in, like, for example, representing T2 and
+2025680	2026680	T3 in a little function?
+2026680	2027680	Like, T5 equals T6 to T3.
+2027680	2042280	What is, like, that application representing?
+2042280	2052680	It's the� so the application node represents the result of applying the input to the output.
+2052680	2062040	So this piece here, if we called F of 6, for example, this piece here would have the value
+2062040	2064420	8.
+2064420	2066240	The value is 8.
+2066240	2071680	The type will be T2, which will figure out to be an integer.
+2071680	2074040	Yeah.
+2074040	2075040	You first.
+2075040	2076040	Yeah.
+2076040	2077040	Yeah.
+2077040	2088600	So that sounds right.
+2088600	2091320	So top node is result.
+2091320	2094000	Left node is operation.
+2094000	2096440	Right node is parameter.
+2096440	2097440	Here as well.
+2097440	2099680	Top node is result.
+2099680	2101760	Left node is operation.
+2101760	2103440	Right node is parameter.
+2103440	2110880	So how does that apply to the first one, the function?
+2110880	2113800	So the function is the result.
+2113800	2117680	The thing that we are defining is the result.
+2117680	2123960	And it has these pieces to it.
+2123960	2130440	Where� so it's important to note, these are different parts of our grammar.
+2130440	2134080	This is a function declaration piece of our grammar.
+2134080	2138600	This is an expression, like, evaluation piece of our grammar.
+2138600	2139600	And they mean different things.
+2139600	2153400	We could.
+2153400	2162200	We could structure this slightly differently and get rid of this and call this T0.
+2162200	2170640	But it's not the case that T1 is a function from T2 to T0 or something like that.
+2170640	2178440	So we structure it differently because they represent different constructs in our language.
+2178440	2185040	And so we can have different types of nodes to represent different things.
+2185040	2191300	It's very common to treat� like, to have a function node in your compiler and to have
+2191300	2196300	an expression node in your compiler that you have different optimizations for, they're
+2196300	2198860	used in different ways.
+2198860	2199860	Very common.
+2199860	2200860	Yeah.
+2200860	2201860	There was another question.
+2201860	2213420	Yeah, so when you're splitting the tree, like, you start to pick up the top of the output
+2213420	2224420	and just put it to, like, parameters and whatever, but what if you had, like� I guess, what
+2224420	2236260	type of list of X or whatever, would you split that also into, like, a list of X or parameters?
+2236260	2239100	Hopefully we will have time to do this problem.
+2239100	2243180	And I think that might address some� this is also potentially on the homework.
+2243180	2244500	I'm not sure if it is.
+2244500	2245660	If it is, great.
+2245660	2249900	That's free points for anyone watching the lecture or showing up to class.
+2249900	2250900	You guys are great.
+2250900	2251900	Okay.
+2251900	2252900	But where were we?
+2252980	2253980	Where were we?
+2253980	2254980	Actually, any other questions?
+2254980	2255980	Before we keep going?
+2255980	2256980	Yeah?
+2256980	2265980	So, now, when you just wrote out tau5 equals int to int to int, is that something that
+2265980	2272980	you inferred from, like�
+2272980	2280940	Yeah, so we get T5� or tau5 and tau6, both of these are from our grammar.
+2280940	2285380	We know that plus is int to int to int because of the grammar specifically.
+2285380	2290980	If we didn't know that, we wouldn't be able to solve the rest of this problem.
+2290980	2292860	Yeah.
+2292860	2295780	Or we would, but we'd get a different answer.
+2295780	2296780	Okay.
+2296780	2301500	So we've done number three now.
+2301500	2302500	Unless I'm missing something.
+2302500	2305500	Are there any other constraints that we can generate?
+2305500	2313180	Yeah, we do know� so we know tau5 is int to int to int.
+2313180	2317740	We also know tau5 is tau6 to tau3.
+2317740	2323180	We know tau5 is tau6 to tau3 because of this triangle here.
+2323180	2324180	This subtree.
+2324180	2327860	And we know that it's int to int to int because of our grammar.
+2327860	2328860	Yeah.
+2328860	2329860	So there are two.
+2329860	2330860	Yeah?
+2330860	2345420	Would it matter?
+2345420	2352860	Yeah, so the order that we generate these in is kind of arbitrary.
+2352860	2357420	So long as you visit all of your nodes in your tree, you're gonna come up with the same
+2357420	2358980	set.
+2359700	2363820	And if you want to go top down or keep track of all your leaves and go bottom up, either
+2363820	2365460	one's fine.
+2365460	2371140	One might be more efficient for some types of trees.
+2371140	2376260	Okay.
+2376260	2378020	We're on to number four.
+2378020	2381500	Which is solving the constraints.
+2381500	2383940	Now this is just math class.
+2383940	2388460	It's doing the transitive property repeatedly.
+2388460	2393580	We have a bunch of equations.
+2393580	2398540	And we can just replace one with the other wherever we say that they're equal.
+2398540	2407500	So we know, for example, that tau6 is an int.
+2407500	2412540	How can we use that information in our other constraints?
+2420540	2421540	Yeah?
+2421540	2424140	Wherever tau6 appears, replace it with int.
+2424140	2426220	Wherever tau6 appears, replace it with int.
+2426220	2427220	Great.
+2427220	2429180	Where does it appear?
+2429180	2432220	In tau5.
+2432220	2437780	So what this means is that we can add another constraint to our list of constraints.
+2437780	2445260	Which is that tau5 is equal to int to tau3.
+2445260	2452820	Now we have another constraint.
+2452820	2458580	What else can we say about our program?
+2458580	2460740	Tau3 is int to int.
+2460860	2462860	How do we know that?
+2470860	2471860	Great.
+2471860	2474820	So if we look at tau5 is int to int to int.
+2474820	2478660	And tau5 is also int to tau3.
+2478660	2483420	Then we know that tau3 is int to int.
+2483420	2485100	Great.
+2485100	2492180	So we can add that one.
+2492180	2495380	What else do we know?
+2507380	2510380	Go for it.
+2510380	2511700	Tau1 is an int.
+2511700	2514380	How do we know that tau1 is an int?
+2514660	2521660	Tau3 is equal to tau4 to tau2.
+2521660	2523980	And tau3 is also int to int.
+2523980	2529100	Therefore, we know tau4 is int.
+2529100	2533500	Which is also tau1, because of this rule.
+2533500	2536140	And we also know tau2 is an int.
+2536140	2537660	By the same logic.
+2537660	2538660	Great.
+2538660	2543860	Tau2 is an int.
+2543860	2547340	We've got so many constraints now.
+2547340	2553260	Can we figure out our function definition type?
+2553260	2556820	What is our function definition type?
+2556820	2558020	Tau0.
+2558020	2560340	And what's tau0 equal to?
+2560340	2562380	Yeah.
+2562380	2563380	Int to int.
+2563380	2566260	We know that tau0 is tau1 to tau2.
+2566260	2568300	Tau1, we've just said, is an int.
+2568300	2570460	Tau2, we've just said, is an int.
+2570460	2579220	So our final type, tau0, is of type int to int.
+2579220	2580580	Done.
+2580580	2581380	Step five.
+2581380	2581880	Relax.
+2584740	2587780	When we compare against our initial intuition, great.
+2587780	2588540	We got it correct.
+2593740	2599060	So 1 through 5, we've done it on one program.
+2600540	2603580	With 7 characters.
+2603580	2604380	6 characters.
+2609380	2612180	Your compiler does this for every line of code
+2612180	2613940	that you have in Haskell.
+2613940	2616620	It's figuring out what are the types of the variables
+2616620	2618260	and the functions you're using.
+2618260	2619460	How are you using them?
+2619460	2621700	Are you using them properly?
+2621700	2623260	So it's got to be efficient.
+2623260	2627140	But importantly, it's very mechanical.
+2627140	2628620	And because it's math, it's something
+2628620	2632420	that they can optimize, which is great.
+2632420	2634660	Questions on 2 plus x?
+2645700	2647700	Let's do our other one, then.
+2647700	2649180	f of x equals x.
+2649180	2657960	I'm going to erase this, unless anyone
+2657960	2661300	says they have a question.
+2661300	2661800	OK.
+2673580	2674820	We've done step one.
+2674820	2676060	We've parsed our program.
+2676060	2677300	What do we do next?
+2680180	2681180	Yeah?
+2681180	2682500	Assign the type variables.
+2682500	2683540	Give them type variables.
+2683540	2684460	What do we want to do?
+2687860	2690740	Tau 0, tau 1, tau 2.
+2690740	2692340	Awesome.
+2692340	2693540	Done with step 2.
+2693540	2694700	40% of the way there.
+2698500	2701060	I don't think I give you any points for the type variables,
+2701060	2702300	unfortunately.
+2702300	2705740	I think I do those for you already.
+2705780	2710940	So let's do the add constraints.
+2710940	2712020	What are our constraints?
+2716980	2720260	We know that tau 1 is going to be equal to tau 2.
+2720260	2721780	Technically, part of step 4.
+2721780	2723140	But yes.
+2723140	2726500	Tau 1 equals tau 2.
+2726500	2728980	Same identifier, same type value.
+2728980	2729640	Great.
+2729640	2731180	What else do we know?
+2731180	2733900	Yeah?
+2733900	2741580	Tau 0 is a function from tau 1 to tau 2.
+2741580	2742080	Awesome.
+2746220	2747780	Any other constraints?
+2751660	2752160	Yeah?
+2752160	2753140	I have a question.
+2753140	2753640	Yeah?
+2753640	2758140	Why wouldn't the second item also be tau 1?
+2758140	2759140	It is.
+2759140	2761620	Why isn't it labeled as tau 1?
+2762220	2766380	Normally, when we have the tree labeled both as tau 1?
+2766380	2767980	We could do it either way.
+2767980	2768660	Yeah.
+2768660	2770100	We could give them different names
+2770100	2773380	and then say that they're equal.
+2773380	2777060	Or we could just call them both tau 1 and be done with it.
+2777060	2777820	Either way is fine.
+2781300	2782020	OK.
+2782020	2783340	We're done with our constraints.
+2783340	2786580	There's nothing else we can say about our graph.
+2786580	2787940	Let's move on to step 4.
+2791700	2793380	Solve the constraints.
+2798620	2799180	What can we do?
+2805460	2805960	Yeah?
+2813340	2815100	Tau 0 is equal to tau 1 to tau 1.
+2818820	2821580	Is there anything else we can do?
+2821580	2825380	Is there a reason you chose tau 1 instead of tau 2?
+2825380	2828660	Just like number one more?
+2828660	2830260	There's nothing else we can do.
+2830260	2834540	This is as solved as it gets.
+2834540	2836260	So what's our final type for the function?
+2844820	2845320	Yeah?
+2845320	2846700	Tau 1 to tau 1.
+2846700	2850220	Our final type for the function is tau 1 to tau 1.
+2850220	2850720	Exactly.
+2853780	2855700	What does that mean?
+2855700	2856200	Yeah?
+2856200	2859660	That virtually any type can be put into the function
+2859660	2861180	and still be the same.
+2861180	2861940	Exactly.
+2861940	2864940	Any type could go into this function.
+2864940	2868740	And what we will get out is the same type of function.
+2868740	2869240	Yeah?
+2869240	2871820	Could you write A to A, then?
+2871820	2876980	So could we write tau 0 equals A to A?
+2876980	2878620	Are these two equivalent?
+2880820	2882900	How many people say yes?
+2882900	2884660	How many people say no?
+2884660	2886380	How many people say it's sleep time?
+2889420	2890580	Yeah, this is totally fine.
+2890580	2894100	We arbitrarily chose naming these tau 1.
+2894100	2897980	And we could have called them A instead.
+2897980	2901060	What we're saying is it takes in a generic A,
+2901060	2904340	and it will return something that is also of that same type.
+2904860	2907020	Yeah?
+2907020	2911300	Also relevant for the homework, in case you're still on that,
+2911300	2913100	on 1.2 or whatever it is.
+2915580	2916060	Cool.
+2916060	2917180	We're done with this one.
+2917180	2918260	How about you guys do one?
+2929580	2931500	I'll give you, oh, yeah.
+2931500	2933340	Question, yeah.
+2933340	2933840	Yeah?
+2938640	2940740	For the identity function?
+2940740	2941240	Yeah.
+2941240	2944140	So the final statement would be, you would say,
+2944140	2949260	it is of type A to A. Or you would say tau 1 to tau 1.
+2952500	2954500	Yeah?
+2954500	2958580	Is the objective to find the type of tau 0, or only tau 0?
+2958580	2961740	The objective is to find tau 0.
+2961740	2968060	But so for us, I will be asking you the type of tau 0.
+2968060	2970660	The compiler has to check all of the types
+2970660	2972180	to make sure there aren't any errors
+2972180	2973900	anywhere else in the program.
+2973900	2975500	For you guys, I'm only giving you
+2975500	2979260	valid programs, which means all that you really need
+2979260	2980700	is tau 0.
+2980700	2981200	Yeah.
+2983940	2985900	OK.
+2985900	2987780	Draw a parse tree.
+2987780	2990100	Add some type variables.
+2990100	2992420	Write some constraints.
+2992420	2993960	I'll give you guys like five minutes.
+2997940	3000060	Chat with someone next to you if you want.
+3000060	3001820	It's a community activity.
+3015900	3016400	OK.
+3045900	3046400	OK.
+3075900	3076400	OK.
+3105900	3106400	Yeah.
+3165900	3166400	Yeah.
+3195900	3196400	Yeah.
+3226520	3227020	Yeah.
+3236580	3238180	How many people need more time?
+3238180	3240420	Like another minute or so.
+3240420	3241220	OK.
+3241220	3242340	We'll do another minute.
+3256900	3257400	Yeah.
+3260900	3263380	It's already been like this for like a minute or so.
+3263380	3264380	It's been like a minute.
+3264380	3264880	Yeah.
+3264880	3265380	Yeah.
+3265380	3265880	All right.
+3285900	3286400	Yeah.
+3305820	3308860	All right.
+3308860	3311580	Let's perform our type inference.
+3311580	3312660	Who wants to start us off?
+3313380	3316380	What do we do first?
+3324380	3324880	Sure.
+3342700	3343540	I like it.
+3343540	3345580	We can start there.
+3345580	3348260	So to start, we parse our program.
+3348260	3350220	The first rule that we're going to apply
+3350220	3353140	is our function definition rule, where
+3353140	3357260	we say we have a P for an argument, which is G.
+3357260	3359100	It's an identifier.
+3359100	3362180	And then our result is some expression.
+3362180	3364380	How do we then parse our expression?
+3370460	3370960	Yeah.
+3370960	3374640	It's an application of the function G with parameter 2.
+3374640	3379680	It's an application of the parameter G and the number 2.
+3384360	3387120	Now, we don't actually have a rule for this written
+3387120	3390000	over here, but there was one in our original grammar.
+3390000	3391920	We said that an expression could also
+3391920	3396920	be an expression application, EE.
+3396920	3397760	So that's fine.
+3397760	3398240	Yeah.
+3398240	3401440	So it's an application of the function G
+3401440	3405560	with the parameter 2.
+3405560	3408680	Done with step 1.
+3408680	3409680	What do we do for step 2?
+3416040	3417960	Give them type variables.
+3417960	3426240	Tau 0, tau 1, tau 2, tau 3, and tau 4.
+3426240	3426740	Great.
+3429080	3432160	Done with step 2.
+3437160	3437660	What next?
+3446280	3447080	Go for it.
+3447080	3449440	You can add constraints.
+3449440	3451360	Add constraints.
+3451360	3452600	Yeah.
+3452600	3458480	For example, tau 0 being equal to tau 1 goes to tau 2.
+3458480	3462880	Tau 0 is tau 1 to tau 2.
+3462880	3465960	We know that because that's what our function definition says.
+3465960	3466840	It takes tau 1.
+3466840	3468680	It returns tau 2.
+3468680	3469800	Great.
+3469800	3470720	What else do we know?
+3473600	3474100	Yeah.
+3474940	3482300	Tau 3 to tau 4 to tau 2.
+3482300	3486620	Tau 3 is equal to tau 4 to tau 2.
+3486620	3490540	Tau 3 is a function that takes in tau 4 as a parameter,
+3490540	3492500	and it returns tau 2.
+3492500	3494780	Great.
+3494780	3497860	Did you have one as well?
+3497860	3498900	Tau 4 is an int.
+3502420	3502980	Great.
+3502980	3503900	It's the number 2.
+3503900	3507580	We know that 2 is int.
+3507580	3509940	What else do we know?
+3509940	3512780	Yeah.
+3512780	3514460	Tau 3 equals tau 1.
+3517860	3520380	They're both g.
+3520380	3523620	What else do we know?
+3523620	3524120	Yeah.
+3525120	3537240	T1 is a function that takes an int and returns T2.
+3537240	3537720	All right.
+3537720	3539760	So we're getting to step 4 here.
+3539760	3547600	T1 is a function that takes an int, and it returns T2, tau 2.
+3547600	3550840	We know this by applying two rules at once,
+3550840	3553800	where we say T3 is T1.
+3553960	3556000	And T4 is an int.
+3556000	3558960	So T1 is equal to T4 to T2.
+3558960	3560000	And T4 is an int.
+3560000	3562200	So T1 is equal to int to T2.
+3566640	3567200	OK.
+3567200	3568080	What else do we know?
+3568080	3568580	Yeah.
+3582720	3583360	Yeah, go for it.
+3587000	3592800	T0 is int to T2 to T2.
+3598580	3599080	Yeah.
+3605800	3607240	How many people agree?
+3607240	3608320	We have the final answer.
+3613120	3614360	Is there one thing missing?
+3616960	3619320	How many people can spot the one thing that's missing?
+3619320	3619820	OK.
+3625200	3628800	We said that T1 is int to T2, and then we
+3628800	3631400	substituted T1 as int to T2.
+3634320	3640920	However, if you read this function type line,
+3640920	3644200	what does this read as?
+3644200	3645200	Yeah.
+3645200	3657160	It's a function that takes an integer and a T2,
+3657160	3660000	and then it returns a T2.
+3660000	3664840	But we know that T1, which was its only parameter,
+3664840	3667840	should be itself a function.
+3667840	3675200	So what we want is T0 takes a function, and it returns a T2.
+3675200	3680240	The way that we denote that is putting some parentheses in.
+3680240	3685800	So we say T0 takes a function from int to T2,
+3685800	3689360	and then it returns a T2.
+3689360	3693640	Is there anything else we can do to simplify this expression?
+3697840	3702080	No.
+3702080	3702720	No.
+3702720	3704720	We're done.
+3704720	3706960	We've reached the end of our type inference.
+3710280	3710780	Yeah.
+3710780	3711760	So what?
+3711760	3714240	So the function g that is getting lost,
+3714240	3718240	this could be any function that takes an int,
+3718240	3721480	and returns any other int type?
+3721480	3722000	Right.
+3722000	3725760	So this function g that we're being given
+3725760	3728720	has an interesting type.
+3728720	3731960	It's of type int to T2, which means
+3731960	3736280	so long as it has the type of taking an integer
+3736280	3740160	and giving you something back, you can use it.
+3740160	3745360	You can pass a g that takes an integer and returns a string,
+3745360	3746520	and that'll work.
+3746520	3748360	You could pass a g that takes an integer
+3748360	3749760	and returns a character.
+3749760	3750840	That'll work.
+3750840	3754040	You can pass a g that takes an integer and returns a list.
+3754040	3754920	That'll work.
+3754920	3758720	All of those functions can be passed into T0,
+3758720	3762320	and the result of that function application
+3762320	3764280	will depend on what g you give it.
+3769560	3770720	OK.
+3770720	3776520	We're going to do one more, and then I'll let you guys go.
+3784920	3785420	OK.
+3815920	3816420	OK.
+3824720	3826960	You can chat amongst yourselves as well if you want.
+3826960	3828200	Don't be shy.
+3844920	3846480	Thank you.
+3874920	3876480	Thank you.
+3904920	3906480	Thank you.
+3934920	3936480	Thank you.
+3964920	3966480	Thank you.
+3994920	3996480	Thank you.
+4024920	4026480	Thank you.
+4054920	4056480	Thank you.
+4084920	4086480	Thank you.
+4114920	4116480	Thank you.
+4144920	4146480	Thank you.
+4174920	4176480	Thank you.
+4204920	4206480	Thank you.
+4234920	4236480	Thank you.
+4264920	4266480	Thank you.
+4294920	4296480	Thank you.
+4324920	4326480	Thank you.
+4354920	4356480	Thank you.
+4384920	4386480	Thank you.
+4414920	4416480	Thank you.
+4444920	4446480	Thank you.
+4474920	4476480	Thank you.
+4504920	4506480	Thank you.
+4534920	4536480	Thank you.
+4564920	4566480	Thank you.
+4594920	4596480	Thank you.
+4624920	4626480	Thank you.
+4654920	4656480	Thank you.
+4684920	4686480	Thank you.
+4714920	4716480	Thank you.
+4744920	4746480	Thank you.
+4774920	4776480	Thank you.

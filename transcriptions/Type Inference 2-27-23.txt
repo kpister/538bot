@@ -1,0 +1,750 @@
+That's gonna be really unfortunate for the rest of this class. Alright guys, so
+as hopefully all of you know, midterm is postponed to not this Wednesday but next
+Monday. That means you get an extra four days to study, I think. That is entirely
+my fault for over, like, over planning the semester. Things are going a little bit
+slower. That's fine. I don't want to test you on type inference when we haven't
+talked enough about type inference. That's just not fair. So what we're gonna
+do today is talk about types and type inference. Homeworks and PA... Homework 4,
+PA 4, both were delayed to this upcoming Sunday as well, in case you didn't see
+that. Those are the notes. Anybody have questions about that stuff? Any logistics
+questions? Yeah?
+Is there going to be any PA 5 this week?
+No PA 5 this week. No PA 5 next week either. Yeah. So we're... I'm swapping things
+around a little bit. Everything will be in your favor. You guys as students will
+enjoy the fact that you won't have as much work altogether. Maybe. Or you'll be
+sad that we miss out on a few extra fun lectures at the end. Everything's a give
+and take. Yeah?
+So if PA 5 is delayed another week, is it due during spring break?
+No, no, no. Spring break. No work. Nothing. So next week is Monday's midterm. Wednesday
+is going to be a lecture about PL in research and, like, why are we talking
+about all of this stuff? And how does this actually play into what, like, real
+world looks like? And then spring break, no homework, no projects, nothing. We
+come back from spring break, we're going to start talking about generics. And
+how type classes work. How C++ does things. Things of that nature. Yeah.
+That's the roadmap.
+Any other logistics? All right. Cool. So Wednesday is review. We're going to be
+doing entirely review for the midterm. We will be doing lambda calculus, we'll be
+doing closures, we'll be doing types. All of that good stuff. For now, we're just
+talking about types.
+What is the type of this expression?
+Yeah?
+Yeah.
+What's the type of the result of this expression? Yeah. No, I think I was ambiguous
+there. It's an int. This expression will evaluate to be an integer. That seems
+reasonable. At least within our micro Haskell. Maybe you could argue it's like
+number. It's of type number. We could be adding floats or something. But not in
+micro Haskell.
+How do we know that this is of type integer? That the result is going to be of
+type integer?
+Yeah.
+Yeah, so we know that the plus operator takes two numbers and it returns a
+number. And if one of the numbers is an integer, then all of the numbers will
+be integers. In micro Haskell, we know plus operates on integers. We only have
+integers.
+So what we can do to make it a little bit more explicit, we can say let y equal
+2 plus x. And then we would say, like, this is just JavaScript, right? I'm not
+really talking about Haskell here. Let y equal 2 plus x. What is the type of y?
+We've said it's an integer.
+This is a very simple expression. There's not a lot of complicated stuff going
+on there. So it should be relatively straightforward to look at this and say
+what's the type of it? But not all expressions are simple. Functions can be
+very complicated. But they still want to have a type signature. They still take
+input and return output. And you want to be able to figure out how does input
+correspond to output?
+So we're starting with a simple example. But everything that we're going to talk
+about applies to more complicated functions.
+And this process that we have done here, mentally, the compiler somehow has to
+do. We have to get our interpreter or compiler to understand our expressions so
+that we can figure out their types and verify your code as being error free.
+The process for doing that I described last time as the Hindley-Milner type
+inference algorithm. And the algorithm breaks down into five steps.
+Step one is parse the program. Where you break apart the literal text to find
+out what is going on in this program. Step two, we assign arbitrary type
+variables to all of our nodes. Step three, we look at the constraints from
+our program. Step four, solve. And step five, look at your final type.
+We're gonna take this approach on a couple of programs today and see where it
+gets us. So let's start with the first example. We had... I think it's fx equals
+2 plus x. Now we're in Haskell. We have a function that we have called f.
+It takes a parameter called x, and it returns the result 2 plus x.
+What do we expect the type to be?
+How many of you are just being quiet and know the answer, but you just don't
+want to answer? Okay. A decent number of you.
+This... Being able to look at this function and intuit the type and just say,
+like, this is the type, not really for any specific reason, is an important,
+like, skill to have. So you... I do, to some extent, expect you to be able
+to look at a function and say, this is a type of this. So if that feels
+uncomfortable, that's okay. But get some more practice with it,
+and hopefully this will help. So someone who is comfortable,
+what type is this function? Yeah?
+It's a function that takes an integer, and it returns an integer.
+So we have int to int. What we're saying here is the arrow denotes
+that it's a function. It has an input of an integer and an output of an integer.
+So we are going to go through this whole step, 1, 2, 3, 4, 5.
+If we don't get this result at the end, we've probably done something wrong.
+I want to emphasize, when I, like, give you a test and say,
+solve for the type of this thing, you are allowed to look at it and say,
+as a human, I know the type should be this to this. That's not cheating.
+That's just, like, using common sense. Then do the algorithm and prove that it
+is that to that. That's the important, like,
+understanding connection piece. Okay. So we have the type that we think it is.
+And now we want to prove it. Our first step is to parse the program.
+How do we parse the program? What does that even mean? Yeah?
+Yes, we're going to split up the literal text of our code into nodes.
+What are we going to do then? So let's talk about what a parser is.
+The parser reads this string of text from a text file, from a Haskell file,
+and it breaks it into tokens. It says I have an F token, I have an X token,
+I have an equals, I have a 2, I have a plus, and I have an X.
+This is the first step of the compiler. We're breaking apart.
+We're reading in the file and breaking it apart.
+What do we do then? Yeah, so we're going to use our grammar
+to build a tree that represents our program. The abstract syntax tree.
+We're going to look at each line of our program.
+This is one line. And we're going to say how can I match this
+against our grammar? And in doing so, the syntax tree just falls
+out. By matching it against the grammar, we know
+explicitly how all the nodes are connected. So, for example, we have a rule in our grammar
+that we can do an E plus an E. This is one of our rules from our grammar.
+You can add two expressions. We had another rule in our grammar that we
+could have a function name, a parameter, and then equals an expression.
+That was another one of the rules of our grammar.
+What's one more rule that we had in our grammar that we need to use to parse our program?
+Yeah? E is equal to E plus E.
+E is equal to E plus E. Yeah, so an expression can be equal to or
+is replaceable by an expression plus an expression.
+What else do we need? Yeah, terminal for E.
+So we can say that an expression can also be an integer.
+It could also be a variable. What other rule from our grammar do we need?
+What's kind of a subtle one that's remaining? I think this is actually a typo.
+I think it's an identifier is what I call it.
+What's the last thing we're missing? What can P be?
+What are we using it? How are we using it?
+It's not that it's an expression, actually. It's that it's an identifier.
+So it would be an invalid program to say 2 plus 3 equals X or something plus 2.
+Something of this sort. We can't have an arbitrary expression in
+our parameter side. But we can have identifiers.
+Okay. So we have some rules for our language.
+These are language level rules that say how can you write code?
+And if you use anything else outside of these rules, you're gonna get a syntax error.
+Your compiler will get mad at you, because it doesn't know how to parse your program.
+Okay. So let's use these rules and build a tree.
+At the top level, what's our first rule that we want to use?
+Generally you want to greedily match as much of the program as you can with your rule.
+So what should we use as our first rule? Yeah.
+We have this function with a parameter P is equal to an expression.
+This almost directly matches our entire code.
+So we can start drawing by saying we have our root node, which I've called function
+here. And it takes a name, the function name, which
+we have as F. It takes a parameter, which we don't know
+yet. And it takes an expression.
+Which we don't know yet. We've now started the process of building
+our abstract syntax tree. Going just from the left side arbitrarily,
+what can we replace our P with? Yeah.
+We can replace it with X. And this is valid to do, because X is an identifier.
+So we're using our P can be replaced with identifier rule.
+All right. This will get us into a little bit of trouble.
+But it's not too much of a big deal. We now have another hole in our tree.
+We have a generic expression. What can we do with that?
+Yeah. So we can turn it into the result of the
+plus operation on two expressions. And this is where I use the at sign to say
+it's the result of. The result of what expression?
+The result of the expression of... How do we want to do this?
+We can break our plus down into our prefix notation of plus EE with parentheses over
+here. And we're saying it's the result of the result
+of adding... What's our left-hand side?
+This is still an expression. And an expression.
+So because plus is a little bit complicated in that it takes two parameters, we need to
+denote that in some way. What we do here is we say it's the result
+of the result of adding expression... Adding an E to that expression.
+Okay. Now, what can we do with these two Es?
+Yeah. Substitute in two and X.
+Excellent. We have our last remaining tokens that we
+still need to use. They fit in with our E and E.
+And the result that we get out of this is a parse tree that tells us what is happening
+in this expression. We have a function with the name F and the
+input X. The result of it is the result of adding 2 to X.
+We have now accomplished step 1. We have parsed our program.
+Yeah?
+Yeah, so if we had a different function, FX equals X, the identity function, you take
+in something, you return something. Let's start parsing it using our rules.
+What's the first rule that we want to apply? Yeah.
+The function rule. All right? So we have a function node.
+That's our root node. And we have F.
+We have a P. And we have an E.
+What's P? Yeah.
+X. It's the identifier X.
+Just like before. Now we have E.
+What's E? Yeah.
+X. First of all, is this valid?
+Well, if we check our rules, we are allowed to replace an expression with an identifier.
+So it is valid. And then what does it mean?
+Well, it means we have a function that takes� that has the name F.
+It takes a parameter X. And it returns the value X.
+So the idea of this third node here is to say this is the return value of the function.
+The return value of this function is the result of adding to and X.
+We can do a type analysis on this one after we do that.
+Okay. So we finished step 1.
+Any more questions on step 1? It's a big step.
+It's often a hard step.
+You first, then you. Yeah.
+Oh, yeah, yeah. That's what's next.
+Any other questions first, though? Yeah.
+In Haskell, do all infix operators� are they all internally represented like that?
+Yeah. So can we always do this kind of, like, infix
+notation? No.
+But you can sometimes. And it's kind of just a special case.
+Yeah. But the step of rewriting it to prefix notation
+is an important first step for just for, like, visibility.
+All right. This is the first step of every compiler
+everywhere that's ever been written, that ever will be written.
+You need to figure out what does the code actually look like?
+Then what we are doing specifically is a type analysis.
+So let's assign type variables. And what that means is that we just give everything
+an arbitrary variable name. So we can call this one T0, T1, or tau1,
+tau2, tau3, tau1, because it's the same X. Or we could say it's tau4, tau5, and tau6.
+There's no, like, magic stuff happening here. This is just� we need to give everything
+a name so that we can talk about it. So we can reference it later.
+It's just like using normal variables in programming.
+All right. So we've done step 2. Oh, question.
+Do it however you want. We don't even have to call it tau.
+We don't have to start with 0. We do whatever we want.
+In fact, we will use a different letter in a minute.
+Yep. Okay.
+We're 40% of the way done. We have step 3, 4, and 5.
+Step 3. This is kind of the biggest� yeah, the biggest
+part of the algorithm. Add constraints.
+So we're going to look at our tree, and we're going to say, what constraints are there on
+the variables that we're using? On the type variables that we're using?
+What can we infer about the types? To start, we can do a pretty simple one.
+What do we know about tau1 and tau4? Yeah.
+Tau1 equals tau4. Nothing crazy there.
+It's the same identifier. X is equal to X.
+So the type of X is equal to the type of X. It seems obvious, but remember, you're a computer.
+You need to explicitly state everything so that you can do the final math.
+What do we know about tau0? Yeah.
+Tau0 is tau1 to tau2. And what that means is that it's a function
+that takes in tau1, and it returns tau2. Okay.
+What do we know about tau6? You guys are great.
+Someone who hasn't answered. What do we know about tau6?
+Yeah. It equals 2, but what's the type of it?
+It's an int. It has the value 2 and the type of int.
+How do we know that? Yeah.
+The plus operator. Yes and no.
+I mean, that kind of gets us back to the same question.
+How do we know that the plus operator works with ints?
+Yeah. Is int just our best guess?
+Is it the best guess? No.
+It's actually what we're told by our grammar. Plus works with ints in our grammar.
+2 is an integer in our grammar. MicroHaskell doesn't have floats.
+So it doesn't let you type check anything as a float.
+In Haskell, in real Haskell, you would look at this 2, and you would say, I don't know.
+That might be an integer. It might be a float.
+I'll tell you that it's a generic number, where it could be one of those two.
+Yeah. So here we know that 2 is an integer because we've been told, but it's not necessarily
+in another language.
+What else do we know? What's something else we can get from our tree? Yeah.
+So is tau3 an int? This kind of gets to the main question of how do we look at this chunk
+of the tree in general?
+What does that chunk represent? Yeah.
+The T5 takes in an int and outputs an int.
+How does that reckon with this part of the tree?
+I think the root of most misunderstanding is what is T3?
+What does that node mean? What does it represent?
+And once that piece makes sense, the other parts kind of fall into place.
+So if you're confused about what T3 is, that's fine. That's kind of the hard piece.
+But think about it this way. We have plus here.
+Plus is taking in an input of 2.
+If we know nothing else about the structure of this graph, plus is a function that's taking
+in input 2.
+Think about the same structure one level up.
+This node is a function that's taking in an input x.
+That's how we've read this structure.
+The left child is a node that takes in the right child as input.
+Same thing happening here.
+The left child is a node.
+It's a function that's taking in the input x.
+So if T3 were an int, can we pass it a value?
+Can we pass it an input parameter?
+No. Right?
+We can't call the number 3 with the value 7 or something like that.
+So our result here, T3, must be a function itself.
+Because it's taking a parameter.
+What do we know about the type of T5 from our grammar?
+You momentarily had your hand up, yeah.
+It does result in an int.
+When we, like, fully realize the potential of plus, what we get back is an integer.
+But how do we get that integer in the first place?
+Yeah?
+Right.
+We need two integers to be fed into plus in order to get one out.
+And that needs to be written as part of the type.
+So it takes one integer.
+It takes a second integer.
+And then it outputs an integer.
+It has two parameters, int, int.
+And it outputs an int.
+Okay.
+So that's what we know about T5.
+What else do we know about T5?
+Looking at the tree.
+Yeah?
+It takes in T6 and T4.
+So it definitely takes in T6.
+But I would say it doesn't directly take in T4.
+What it gives us back will take in T4.
+The result of taking in T6 takes in T4.
+Which is a little weird to, like, say.
+But what it means is that T5 is equal to int...
+Oh, wait.
+Sorry.
+We were talking about the Ts.
+Is equal to T6 to T3.
+T5 takes in T6.
+And it results in a node which takes in T4.
+And what does that node that it results in, that takes in T4, what does that one return?
+What does T3 give back to us?
+T2.
+So T3 takes in T4, and it outputs T2.
+The general rule that you can use here is that whenever you see a function application,
+the left-hand child is the, like, before the equals, that is a function from the right-hand
+child to the top node.
+From the input to the result.
+Yeah?
+What does application or the app represent in, like, for example, representing T2 and
+T3 in a little function?
+Like, T5 equals T6 to T3.
+What is, like, that application representing?
+It's the� so the application node represents the result of applying the input to the output.
+So this piece here, if we called F of 6, for example, this piece here would have the value
+8.
+The value is 8.
+The type will be T2, which will figure out to be an integer.
+Yeah.
+You first.
+Yeah.
+Yeah.
+So that sounds right.
+So top node is result.
+Left node is operation.
+Right node is parameter.
+Here as well.
+Top node is result.
+Left node is operation.
+Right node is parameter.
+So how does that apply to the first one, the function?
+So the function is the result.
+The thing that we are defining is the result.
+And it has these pieces to it.
+Where� so it's important to note, these are different parts of our grammar.
+This is a function declaration piece of our grammar.
+This is an expression, like, evaluation piece of our grammar.
+And they mean different things.
+We could.
+We could structure this slightly differently and get rid of this and call this T0.
+But it's not the case that T1 is a function from T2 to T0 or something like that.
+So we structure it differently because they represent different constructs in our language.
+And so we can have different types of nodes to represent different things.
+It's very common to treat� like, to have a function node in your compiler and to have
+an expression node in your compiler that you have different optimizations for, they're
+used in different ways.
+Very common.
+Yeah.
+There was another question.
+Yeah, so when you're splitting the tree, like, you start to pick up the top of the output
+and just put it to, like, parameters and whatever, but what if you had, like� I guess, what
+type of list of X or whatever, would you split that also into, like, a list of X or parameters?
+Hopefully we will have time to do this problem.
+And I think that might address some� this is also potentially on the homework.
+I'm not sure if it is.
+If it is, great.
+That's free points for anyone watching the lecture or showing up to class.
+You guys are great.
+Okay.
+But where were we?
+Where were we?
+Actually, any other questions?
+Before we keep going?
+Yeah?
+So, now, when you just wrote out tau5 equals int to int to int, is that something that
+you inferred from, like�
+Yeah, so we get T5� or tau5 and tau6, both of these are from our grammar.
+We know that plus is int to int to int because of the grammar specifically.
+If we didn't know that, we wouldn't be able to solve the rest of this problem.
+Yeah.
+Or we would, but we'd get a different answer.
+Okay.
+So we've done number three now.
+Unless I'm missing something.
+Are there any other constraints that we can generate?
+Yeah, we do know� so we know tau5 is int to int to int.
+We also know tau5 is tau6 to tau3.
+We know tau5 is tau6 to tau3 because of this triangle here.
+This subtree.
+And we know that it's int to int to int because of our grammar.
+Yeah.
+So there are two.
+Yeah?
+Would it matter?
+Yeah, so the order that we generate these in is kind of arbitrary.
+So long as you visit all of your nodes in your tree, you're gonna come up with the same
+set.
+And if you want to go top down or keep track of all your leaves and go bottom up, either
+one's fine.
+One might be more efficient for some types of trees.
+Okay.
+We're on to number four.
+Which is solving the constraints.
+Now this is just math class.
+It's doing the transitive property repeatedly.
+We have a bunch of equations.
+And we can just replace one with the other wherever we say that they're equal.
+So we know, for example, that tau6 is an int.
+How can we use that information in our other constraints?
+Yeah?
+Wherever tau6 appears, replace it with int.
+Wherever tau6 appears, replace it with int.
+Great.
+Where does it appear?
+In tau5.
+So what this means is that we can add another constraint to our list of constraints.
+Which is that tau5 is equal to int to tau3.
+Now we have another constraint.
+What else can we say about our program?
+Tau3 is int to int.
+How do we know that?
+Great.
+So if we look at tau5 is int to int to int.
+And tau5 is also int to tau3.
+Then we know that tau3 is int to int.
+Great.
+So we can add that one.
+What else do we know?
+Go for it.
+Tau1 is an int.
+How do we know that tau1 is an int?
+Tau3 is equal to tau4 to tau2.
+And tau3 is also int to int.
+Therefore, we know tau4 is int.
+Which is also tau1, because of this rule.
+And we also know tau2 is an int.
+By the same logic.
+Great.
+Tau2 is an int.
+We've got so many constraints now.
+Can we figure out our function definition type?
+What is our function definition type?
+Tau0.
+And what's tau0 equal to?
+Yeah.
+Int to int.
+We know that tau0 is tau1 to tau2.
+Tau1, we've just said, is an int.
+Tau2, we've just said, is an int.
+So our final type, tau0, is of type int to int.
+Done.
+Step five.
+Relax.
+When we compare against our initial intuition, great.
+We got it correct.
+So 1 through 5, we've done it on one program.
+With 7 characters.
+6 characters.
+Your compiler does this for every line of code
+that you have in Haskell.
+It's figuring out what are the types of the variables
+and the functions you're using.
+How are you using them?
+Are you using them properly?
+So it's got to be efficient.
+But importantly, it's very mechanical.
+And because it's math, it's something
+that they can optimize, which is great.
+Questions on 2 plus x?
+Let's do our other one, then.
+f of x equals x.
+I'm going to erase this, unless anyone
+says they have a question.
+OK.
+We've done step one.
+We've parsed our program.
+What do we do next?
+Yeah?
+Assign the type variables.
+Give them type variables.
+What do we want to do?
+Tau 0, tau 1, tau 2.
+Awesome.
+Done with step 2.
+40% of the way there.
+I don't think I give you any points for the type variables,
+unfortunately.
+I think I do those for you already.
+So let's do the add constraints.
+What are our constraints?
+We know that tau 1 is going to be equal to tau 2.
+Technically, part of step 4.
+But yes.
+Tau 1 equals tau 2.
+Same identifier, same type value.
+Great.
+What else do we know?
+Yeah?
+Tau 0 is a function from tau 1 to tau 2.
+Awesome.
+Any other constraints?
+Yeah?
+I have a question.
+Yeah?
+Why wouldn't the second item also be tau 1?
+It is.
+Why isn't it labeled as tau 1?
+Normally, when we have the tree labeled both as tau 1?
+We could do it either way.
+Yeah.
+We could give them different names
+and then say that they're equal.
+Or we could just call them both tau 1 and be done with it.
+Either way is fine.
+OK.
+We're done with our constraints.
+There's nothing else we can say about our graph.
+Let's move on to step 4.
+Solve the constraints.
+What can we do?
+Yeah?
+Tau 0 is equal to tau 1 to tau 1.
+Is there anything else we can do?
+Is there a reason you chose tau 1 instead of tau 2?
+Just like number one more?
+There's nothing else we can do.
+This is as solved as it gets.
+So what's our final type for the function?
+Yeah?
+Tau 1 to tau 1.
+Our final type for the function is tau 1 to tau 1.
+Exactly.
+What does that mean?
+Yeah?
+That virtually any type can be put into the function
+and still be the same.
+Exactly.
+Any type could go into this function.
+And what we will get out is the same type of function.
+Yeah?
+Could you write A to A, then?
+So could we write tau 0 equals A to A?
+Are these two equivalent?
+How many people say yes?
+How many people say no?
+How many people say it's sleep time?
+Yeah, this is totally fine.
+We arbitrarily chose naming these tau 1.
+And we could have called them A instead.
+What we're saying is it takes in a generic A,
+and it will return something that is also of that same type.
+Yeah?
+Also relevant for the homework, in case you're still on that,
+on 1.2 or whatever it is.
+Cool.
+We're done with this one.
+How about you guys do one?
+I'll give you, oh, yeah.
+Question, yeah.
+Yeah?
+For the identity function?
+Yeah.
+So the final statement would be, you would say,
+it is of type A to A. Or you would say tau 1 to tau 1.
+Yeah?
+Is the objective to find the type of tau 0, or only tau 0?
+The objective is to find tau 0.
+But so for us, I will be asking you the type of tau 0.
+The compiler has to check all of the types
+to make sure there aren't any errors
+anywhere else in the program.
+For you guys, I'm only giving you
+valid programs, which means all that you really need
+is tau 0.
+Yeah.
+OK.
+Draw a parse tree.
+Add some type variables.
+Write some constraints.
+I'll give you guys like five minutes.
+Chat with someone next to you if you want.
+It's a community activity.
+OK.
+OK.
+OK.
+Yeah.
+Yeah.
+Yeah.
+Yeah.
+How many people need more time?
+Like another minute or so.
+OK.
+We'll do another minute.
+Yeah.
+It's already been like this for like a minute or so.
+It's been like a minute.
+Yeah.
+Yeah.
+All right.
+Yeah.
+All right.
+Let's perform our type inference.
+Who wants to start us off?
+What do we do first?
+Sure.
+I like it.
+We can start there.
+So to start, we parse our program.
+The first rule that we're going to apply
+is our function definition rule, where
+we say we have a P for an argument, which is G.
+It's an identifier.
+And then our result is some expression.
+How do we then parse our expression?
+Yeah.
+It's an application of the function G with parameter 2.
+It's an application of the parameter G and the number 2.
+Now, we don't actually have a rule for this written
+over here, but there was one in our original grammar.
+We said that an expression could also
+be an expression application, EE.
+So that's fine.
+Yeah.
+So it's an application of the function G
+with the parameter 2.
+Done with step 1.
+What do we do for step 2?
+Give them type variables.
+Tau 0, tau 1, tau 2, tau 3, and tau 4.
+Great.
+Done with step 2.
+What next?
+Go for it.
+You can add constraints.
+Add constraints.
+Yeah.
+For example, tau 0 being equal to tau 1 goes to tau 2.
+Tau 0 is tau 1 to tau 2.
+We know that because that's what our function definition says.
+It takes tau 1.
+It returns tau 2.
+Great.
+What else do we know?
+Yeah.
+Tau 3 to tau 4 to tau 2.
+Tau 3 is equal to tau 4 to tau 2.
+Tau 3 is a function that takes in tau 4 as a parameter,
+and it returns tau 2.
+Great.
+Did you have one as well?
+Tau 4 is an int.
+Great.
+It's the number 2.
+We know that 2 is int.
+What else do we know?
+Yeah.
+Tau 3 equals tau 1.
+They're both g.
+What else do we know?
+Yeah.
+T1 is a function that takes an int and returns T2.
+All right.
+So we're getting to step 4 here.
+T1 is a function that takes an int, and it returns T2, tau 2.
+We know this by applying two rules at once,
+where we say T3 is T1.
+And T4 is an int.
+So T1 is equal to T4 to T2.
+And T4 is an int.
+So T1 is equal to int to T2.
+OK.
+What else do we know?
+Yeah.
+Yeah, go for it.
+T0 is int to T2 to T2.
+Yeah.
+How many people agree?
+We have the final answer.
+Is there one thing missing?
+How many people can spot the one thing that's missing?
+OK.
+We said that T1 is int to T2, and then we
+substituted T1 as int to T2.
+However, if you read this function type line,
+what does this read as?
+Yeah.
+It's a function that takes an integer and a T2,
+and then it returns a T2.
+But we know that T1, which was its only parameter,
+should be itself a function.
+So what we want is T0 takes a function, and it returns a T2.
+The way that we denote that is putting some parentheses in.
+So we say T0 takes a function from int to T2,
+and then it returns a T2.
+Is there anything else we can do to simplify this expression?
+No.
+No.
+We're done.
+We've reached the end of our type inference.
+Yeah.
+So what?
+So the function g that is getting lost,
+this could be any function that takes an int,
+and returns any other int type?
+Right.
+So this function g that we're being given
+has an interesting type.
+It's of type int to T2, which means
+so long as it has the type of taking an integer
+and giving you something back, you can use it.
+You can pass a g that takes an integer and returns a string,
+and that'll work.
+You could pass a g that takes an integer
+and returns a character.
+That'll work.
+You can pass a g that takes an integer and returns a list.
+That'll work.
+All of those functions can be passed into T0,
+and the result of that function application
+will depend on what g you give it.
+OK.
+We're going to do one more, and then I'll let you guys go.
+OK.
+OK.
+You can chat amongst yourselves as well if you want.
+Don't be shy.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.

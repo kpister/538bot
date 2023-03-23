@@ -1,0 +1,4444 @@
+1
+00:00:30,000 --> 00:00:42,680
+All right, welcome to class.
+
+2
+00:00:42,680 --> 00:00:46,760
+Let's get started.
+
+3
+00:00:46,760 --> 00:00:50,360
+So some of you may have seen some cool news today.
+
+4
+00:00:50,360 --> 00:00:52,120
+Let me hit the lights.
+
+5
+00:00:52,120 --> 00:01:00,760
+Google, or the CEO of Google, just put this out.
+
+6
+00:01:00,760 --> 00:01:03,680
+An important next step for our AI journey.
+
+7
+00:01:03,680 --> 00:01:10,640
+Some of you have probably been following GPT-3 and 3.5, chat GPT, that sort of stuff.
+
+8
+00:01:10,640 --> 00:01:18,280
+Google has an AI model similar to GPT-3 that's literally three times larger.
+
+9
+00:01:18,280 --> 00:01:19,280
+And they've had it forever.
+
+10
+00:01:19,280 --> 00:01:21,680
+They just haven't been letting anybody use it.
+
+11
+00:01:21,680 --> 00:01:28,720
+They announced today what they're calling BARD, which is effectively chat GPT, but Google
+
+12
+00:01:28,720 --> 00:01:29,720
+branded.
+
+13
+00:01:29,720 --> 00:01:30,920
+It's their version.
+
+14
+00:01:30,920 --> 00:01:33,920
+With potentially a model that's significantly more powerful.
+
+15
+00:01:33,920 --> 00:01:37,160
+So some fun stuff in the news today.
+
+16
+00:01:37,160 --> 00:01:40,460
+We don't get access to it for a little bit longer, but that's Google for you.
+
+17
+00:01:40,460 --> 00:01:48,360
+So just thought I'd give you that update in case you haven't seen it.
+
+18
+00:01:48,360 --> 00:01:49,360
+Today...
+
+19
+00:01:49,360 --> 00:01:50,360
+Oh, yeah?
+
+20
+00:01:50,360 --> 00:01:52,920
+What do companies do keeping it internal?
+
+21
+00:01:52,920 --> 00:01:55,040
+What do companies do keeping it internal?
+
+22
+00:01:55,040 --> 00:01:56,040
+What do you mean?
+
+23
+00:01:56,040 --> 00:01:57,040
+So something like chat GPT.
+
+24
+00:01:57,040 --> 00:01:58,040
+I know it's not making any money for Microsoft just yet.
+
+25
+00:01:58,040 --> 00:01:59,040
+But it's, like, good marketing.
+
+26
+00:01:59,040 --> 00:02:00,040
+Right?
+
+27
+00:02:00,040 --> 00:02:01,040
+But unless Google is integrating this into one of their services, what is the point of
+
+28
+00:02:01,040 --> 00:02:14,040
+keeping it on your laptop?
+
+29
+00:02:14,040 --> 00:02:15,040
+Yeah.
+
+30
+00:02:15,040 --> 00:02:16,640
+So what's the point of keeping...
+
+31
+00:02:16,640 --> 00:02:21,040
+As a business, what's the point of keeping a service that you've created internal and
+
+32
+00:02:21,040 --> 00:02:24,520
+not allowing kind of open access to it?
+
+33
+00:02:24,520 --> 00:02:26,720
+I think the first thing is...
+
+34
+00:02:26,720 --> 00:02:29,060
+Why allow open access to something?
+
+35
+00:02:29,060 --> 00:02:30,760
+The pro is...
+
+36
+00:02:30,760 --> 00:02:31,920
+You might make money.
+
+37
+00:02:31,920 --> 00:02:33,840
+You can potentially sell the service.
+
+38
+00:02:33,840 --> 00:02:34,880
+That's great.
+
+39
+00:02:34,880 --> 00:02:38,080
+The con is that people are gonna be messing around with your service.
+
+40
+00:02:38,080 --> 00:02:41,040
+And maybe they're gonna be able to do things that you aren't expecting them to do.
+
+41
+00:02:41,040 --> 00:02:44,920
+You might get really bad PR, especially.
+
+42
+00:02:44,920 --> 00:02:48,440
+Google is very conscious of their PR.
+
+43
+00:02:48,440 --> 00:02:53,560
+When it comes to AI, they don't want to be too scary.
+
+44
+00:02:53,560 --> 00:02:59,120
+So keeping things internal keeps their PR presence contained.
+
+45
+00:02:59,120 --> 00:03:07,160
+It means that when chat GPT says something racist or very out there and problematic,
+
+46
+00:03:07,160 --> 00:03:08,520
+that's on open AI.
+
+47
+00:03:08,520 --> 00:03:11,000
+Open AI has released that model.
+
+48
+00:03:11,000 --> 00:03:12,240
+Anybody can use it.
+
+49
+00:03:12,240 --> 00:03:16,720
+Google doesn't have that problem, because Google has not released their model.
+
+50
+00:03:16,720 --> 00:03:21,520
+The benefits of keeping something internal, though, go beyond just having something internal.
+
+51
+00:03:21,520 --> 00:03:23,800
+They can still use it.
+
+52
+00:03:23,800 --> 00:03:27,840
+Open AI has built something that a lot of engineers are using now.
+
+53
+00:03:27,840 --> 00:03:32,840
+So Copilot is something done by open AI that's great and useful.
+
+54
+00:03:32,840 --> 00:03:38,080
+But beyond that, their GPT model is useful for all sorts of data processing.
+
+55
+00:03:38,080 --> 00:03:44,400
+Google definitely uses Lambda, their GPT equivalent, internally to do data processing.
+
+56
+00:03:44,400 --> 00:03:45,400
+Yeah.
+
+57
+00:03:45,400 --> 00:03:49,040
+So there's a lot of benefit to having it.
+
+58
+00:03:49,040 --> 00:03:53,640
+Even if it's not directly generating funds.
+
+59
+00:03:53,640 --> 00:03:54,960
+That's not what we're talking about today.
+
+60
+00:03:54,960 --> 00:03:57,480
+That's a future lecture, if we have time.
+
+61
+00:03:57,480 --> 00:04:04,400
+Today, what we're talking about is fundamentals of Lambda calculus.
+
+62
+00:04:04,400 --> 00:04:13,680
+Today, what we're talking about is fundamentals of Lambda calculus.
+
+63
+00:04:13,680 --> 00:04:17,000
+Before we get started, a couple of quick notes.
+
+64
+00:04:17,000 --> 00:04:19,560
+Homework 2 and PA2 are released.
+
+65
+00:04:19,560 --> 00:04:23,000
+Homework 2 is decently harder than Homework 1.
+
+66
+00:04:23,000 --> 00:04:24,000
+It's longer.
+
+67
+00:04:24,000 --> 00:04:25,080
+There are more questions on it.
+
+68
+00:04:25,080 --> 00:04:29,600
+Homework 1 had seven pretty short questions that you could kind of just throw into Node
+
+69
+00:04:29,600 --> 00:04:31,240
+and see what happens.
+
+70
+00:04:31,240 --> 00:04:35,480
+Homework 2 has, I think, four times as many questions.
+
+71
+00:04:35,480 --> 00:04:36,480
+Start earlier.
+
+72
+00:04:36,480 --> 00:04:39,000
+PA2, though, is a bit easier.
+
+73
+00:04:39,000 --> 00:04:43,920
+It's just got, like, three or four functions that you have to implement.
+
+74
+00:04:43,920 --> 00:04:45,640
+Video recordings seem to be a success.
+
+75
+00:04:45,640 --> 00:04:47,000
+I have another one going now.
+
+76
+00:04:47,000 --> 00:04:53,200
+So hopefully you'll always be able to watch these recordings as you study later.
+
+77
+00:04:53,200 --> 00:04:56,680
+Any questions on those two before the third one?
+
+78
+00:04:56,680 --> 00:05:01,480
+Oh, yeah.
+
+79
+00:05:01,480 --> 00:05:02,480
+That's me.
+
+80
+00:05:02,480 --> 00:05:03,480
+Sorry.
+
+81
+00:05:03,480 --> 00:05:04,840
+I normally turn that off at the start of class.
+
+82
+00:05:04,840 --> 00:05:08,080
+I got excited by this Google announcement.
+
+83
+00:05:08,080 --> 00:05:09,720
+It's really cool.
+
+84
+00:05:09,720 --> 00:05:14,920
+It's three times bigger than OpenAI.
+
+85
+00:05:14,920 --> 00:05:15,920
+Not necessarily.
+
+86
+00:05:15,920 --> 00:05:16,920
+No.
+
+87
+00:05:16,920 --> 00:05:22,680
+It is likely better, but it's not guaranteed to be.
+
+88
+00:05:22,680 --> 00:05:23,960
+Whole different training regimen.
+
+89
+00:05:23,960 --> 00:05:24,960
+So...
+
+90
+00:05:24,960 --> 00:05:25,960
+Could be anything.
+
+91
+00:05:25,960 --> 00:05:26,960
+Questions.
+
+92
+00:05:26,960 --> 00:05:27,960
+Questions.
+
+93
+00:05:27,960 --> 00:05:28,960
+Questions.
+
+94
+00:05:28,960 --> 00:05:29,960
+Okay.
+
+95
+00:05:29,960 --> 00:05:34,840
+Then the form here that I have is a quick...
+
+96
+00:05:34,840 --> 00:05:37,360
+Like it should take two minutes.
+
+97
+00:05:37,360 --> 00:05:40,480
+It's a form that I have hosted on my website.
+
+98
+00:05:40,480 --> 00:05:48,240
+If you go to uw.pister.dev...
+
+99
+00:05:48,240 --> 00:05:51,240
+There's this DEIB form here.
+
+100
+00:05:51,240 --> 00:05:58,200
+It'll take you to a Google form where I'm asking a simple set of questions.
+
+101
+00:05:58,200 --> 00:05:59,200
+It's not...
+
+102
+00:05:59,200 --> 00:06:00,200
+Oh.
+
+103
+00:06:00,200 --> 00:06:01,200
+Okay.
+
+104
+00:06:01,200 --> 00:06:02,200
+It apparently needs you to log in.
+
+105
+00:06:02,200 --> 00:06:05,480
+It does not collect your email or anything of the sort.
+
+106
+00:06:05,480 --> 00:06:06,720
+It's completely anonymous.
+
+107
+00:06:06,720 --> 00:06:09,600
+I am not recording names or anything like that.
+
+108
+00:06:09,600 --> 00:06:15,080
+But this is part of the micro grant that I received where I'm trying to figure out how
+
+109
+00:06:15,080 --> 00:06:18,760
+to engage best for your learning.
+
+110
+00:06:18,760 --> 00:06:22,400
+So if you could answer those questions as honestly as you can.
+
+111
+00:06:22,400 --> 00:06:27,120
+If you don't have a computer with you today, I mean, you could probably do it on your phone,
+
+112
+00:06:27,120 --> 00:06:28,320
+because it's a Google form.
+
+113
+00:06:28,320 --> 00:06:31,720
+But the slides are up with the links, so please do it later.
+
+114
+00:06:31,720 --> 00:06:37,280
+I'll give you guys two to three minutes right now, though, just to fill it out.
+
+115
+00:06:37,280 --> 00:06:38,520
+Don't spend...
+
+116
+00:06:38,520 --> 00:06:40,060
+You don't need to put a lot of effort.
+
+117
+00:06:40,060 --> 00:06:42,440
+Just whatever first comes to mind.
+
+118
+00:06:42,440 --> 00:06:43,440
+Yeah.
+
+119
+00:06:43,440 --> 00:06:44,440
+Yeah.
+
+120
+00:06:44,600 --> 00:06:47,600
+The link is...
+
+121
+00:06:47,600 --> 00:06:50,600
+Somewhere.
+
+122
+00:07:03,240 --> 00:07:04,240
+Is it working?
+
+123
+00:07:04,240 --> 00:07:05,240
+You guys can access it?
+
+124
+00:07:05,240 --> 00:07:06,240
+Okay.
+
+125
+00:07:14,440 --> 00:07:17,440
+Okay.
+
+126
+00:07:44,440 --> 00:07:47,440
+Okay.
+
+127
+00:08:14,440 --> 00:08:17,440
+Okay.
+
+128
+00:08:44,440 --> 00:08:48,440
+Okay.
+
+129
+00:09:14,440 --> 00:09:34,440
+All right.
+
+130
+00:09:34,440 --> 00:09:36,320
+If you were able to fill out the form, thank you.
+
+131
+00:09:36,320 --> 00:09:38,000
+I appreciate your input.
+
+132
+00:09:38,000 --> 00:09:40,960
+It will improve my teaching down the line.
+
+133
+00:09:40,960 --> 00:09:43,640
+If you weren't able to fill out the form, either you need more time or you didn't have
+
+134
+00:09:43,640 --> 00:09:47,060
+your computer, please find time later tonight to do that.
+
+135
+00:09:47,060 --> 00:09:50,000
+It really just takes, like, two minutes.
+
+136
+00:09:50,000 --> 00:09:53,880
+Now we're going to move on to LambdaCalc, though.
+
+137
+00:09:53,880 --> 00:09:56,880
+So I did a sign reading.
+
+138
+00:09:56,880 --> 00:09:57,880
+A sign reading.
+
+139
+00:09:57,880 --> 00:10:02,800
+I uploaded, like, a few photos from my phone of a book.
+
+140
+00:10:02,800 --> 00:10:07,160
+How many of you were able to read the PDF that I uploaded?
+
+141
+00:10:07,160 --> 00:10:08,400
+Okay.
+
+142
+00:10:08,400 --> 00:10:09,400
+Decent number of you.
+
+143
+00:10:10,200 --> 00:10:15,600
+Then some decent number of you understand what this line of code means.
+
+144
+00:10:15,600 --> 00:10:20,200
+But we're going to dive into it pretty explicitly.
+
+145
+00:10:20,200 --> 00:10:31,360
+So what I'm saying here is an expression can become a variable X, or it can become a function
+
+146
+00:10:31,360 --> 00:10:39,320
+that takes a parameter X and has an expression for a body, or it can become an expression
+
+147
+00:10:39,320 --> 00:10:43,320
+with another expression passed in as an argument.
+
+148
+00:10:43,320 --> 00:10:49,740
+That's the English way of reading this line of code.
+
+149
+00:10:49,740 --> 00:10:54,480
+So how can we use that?
+
+150
+00:10:54,480 --> 00:10:56,160
+If we wanted to...
+
+151
+00:10:56,160 --> 00:10:57,160
+This is...
+
+152
+00:10:57,160 --> 00:10:58,160
+Sorry.
+
+153
+00:10:58,160 --> 00:10:59,160
+Backing up a step.
+
+154
+00:10:59,160 --> 00:11:03,080
+This is the grammar for LambdaCalculus.
+
+155
+00:11:03,080 --> 00:11:08,360
+This is the CFG, the context-free grammar, for the language LambdaCalculus.
+
+156
+00:11:08,360 --> 00:11:09,960
+That's all that you need.
+
+157
+00:11:09,960 --> 00:11:18,800
+So what this means is that we can start from E and turn this into a valid LambdaCalculus
+
+158
+00:11:18,800 --> 00:11:20,320
+program.
+
+159
+00:11:20,320 --> 00:11:26,760
+That's one step that we could take from E to generate a valid LambdaCalculus program.
+
+160
+00:11:26,760 --> 00:11:40,120
+Yeah, so we can use E goes to an X and turn this into the variable X.
+
+161
+00:11:40,120 --> 00:11:43,080
+X is a LambdaCalculus program.
+
+162
+00:11:43,080 --> 00:11:46,400
+All it is is a variable called X.
+
+163
+00:11:46,400 --> 00:11:47,880
+That's the program.
+
+164
+00:11:47,880 --> 00:11:49,840
+Pretty simple.
+
+165
+00:11:49,840 --> 00:11:52,720
+What if we wanted a slightly more complex program?
+
+166
+00:11:52,720 --> 00:12:00,980
+What's a different step that we could take right here that would lead us down that path?
+
+167
+00:12:00,980 --> 00:12:13,120
+What else could we do?
+
+168
+00:12:13,120 --> 00:12:14,400
+Apply E to itself.
+
+169
+00:12:14,400 --> 00:12:26,080
+So we can use this third rule to turn E into E1, E2, where these are different Es.
+
+170
+00:12:26,080 --> 00:12:30,080
+What's another step that we can take from this program?
+
+171
+00:12:30,080 --> 00:12:31,840
+This is a partial program.
+
+172
+00:12:31,840 --> 00:12:34,360
+It's not complete.
+
+173
+00:12:34,360 --> 00:12:35,360
+What can we do to this one?
+
+174
+00:12:35,360 --> 00:12:36,360
+To E1, E2?
+
+175
+00:12:36,360 --> 00:12:54,360
+Yeah, so let's turn this...
+
+176
+00:12:54,360 --> 00:12:55,360
+Either one.
+
+177
+00:12:55,360 --> 00:12:56,360
+Either one or both.
+
+178
+00:12:56,360 --> 00:12:57,680
+We could turn into X.
+
+179
+00:12:57,680 --> 00:13:04,200
+So we could say that this E1 becomes an X, and then we still have our E2.
+
+180
+00:13:05,040 --> 00:13:09,960
+So E1, by this production rule, we could turn E into X.
+
+181
+00:13:09,960 --> 00:13:11,960
+So we've turned E into X.
+
+182
+00:13:11,960 --> 00:13:14,120
+We've turned E1 into X specifically.
+
+183
+00:13:14,120 --> 00:13:16,560
+We still have E2.
+
+184
+00:13:16,560 --> 00:13:22,040
+What else can we do to continue simplifying or turning this into a real program?
+
+185
+00:13:22,040 --> 00:13:40,200
+Yeah, so let's turn this E2, using the second rule, into lambdaX.E.
+
+186
+00:13:40,200 --> 00:13:46,200
+So this would turn into X, lambdaX.E.
+
+187
+00:13:46,200 --> 00:13:54,320
+I'm putting parentheses just to keep that together, because this one E, E2, turned into
+
+188
+00:13:54,320 --> 00:13:59,000
+lambdaX.E by our second production rule.
+
+189
+00:13:59,000 --> 00:14:00,000
+But it's still not done.
+
+190
+00:14:00,000 --> 00:14:01,440
+We have an E in here.
+
+191
+00:14:01,440 --> 00:14:02,440
+What can we do?
+
+192
+00:14:02,440 --> 00:14:11,640
+Yeah, sure, we could turn this E into an X, using the first rule.
+
+193
+00:14:11,640 --> 00:14:18,680
+And our final result here would be X, lambdaX.X.
+
+194
+00:14:18,680 --> 00:14:24,240
+This is another valid program in lambda calculus.
+
+195
+00:14:24,240 --> 00:14:27,320
+I don't know what it means or what it does.
+
+196
+00:14:27,320 --> 00:14:30,200
+Right now, we don't actually care.
+
+197
+00:14:30,200 --> 00:14:35,240
+But we know that it's valid, because we used the syntax, the grammar that we've been given,
+
+198
+00:14:35,240 --> 00:14:41,560
+to generate it.
+
+199
+00:14:41,560 --> 00:14:46,160
+We're gonna spend a little bit more time with the slides, like, diving into what's valid,
+
+200
+00:14:46,160 --> 00:14:47,480
+what's not valid.
+
+201
+00:14:47,480 --> 00:14:54,000
+But these steps that we take here are the fundamental steps of developing a program
+
+202
+00:14:54,000 --> 00:14:55,720
+from a grammar.
+
+203
+00:14:55,720 --> 00:14:58,160
+You do it with everything that you do.
+
+204
+00:14:58,160 --> 00:15:04,040
+When you write code, JavaScript has a grammar that's way more complicated than this, but
+
+205
+00:15:04,040 --> 00:15:06,680
+it fundamentally turns into something like that.
+
+206
+00:15:07,080 --> 00:15:12,720
+English as well has a grammar where we start from expressions and build things out with
+
+207
+00:15:12,720 --> 00:15:18,520
+noun phrases and replace the noun in the noun phrase with this or that.
+
+208
+00:15:18,520 --> 00:15:23,280
+So context-free grammars have applications everywhere.
+
+209
+00:15:23,280 --> 00:15:26,360
+Here what we're using them for is to generate valid programs.
+
+210
+00:15:26,360 --> 00:15:27,360
+Yeah?
+
+211
+00:15:27,360 --> 00:15:38,280
+Yeah, so what's the deal with these 1, 2?
+
+212
+00:15:38,280 --> 00:15:40,520
+Why doesn't this one have one?
+
+213
+00:15:40,520 --> 00:15:42,240
+The numbers here are arbitrary.
+
+214
+00:15:42,240 --> 00:15:43,920
+We could give them any name we wanted.
+
+215
+00:15:43,920 --> 00:15:53,700
+We could say that this is E1, and E1 turns into E2, E3, which turns into XE3, which turns
+
+216
+00:15:53,700 --> 00:15:56,320
+into E4.
+
+217
+00:15:56,920 --> 00:16:02,720
+So each of these are their own expression, independent of the other expressions.
+
+218
+00:16:02,720 --> 00:16:06,760
+That's what the context-free part of context-free grammar means.
+
+219
+00:16:06,760 --> 00:16:07,760
+Yeah?
+
+220
+00:16:07,760 --> 00:16:15,280
+Yeah, so what's the deal with this X?
+
+221
+00:16:15,280 --> 00:16:18,320
+Or this X or this X, right?
+
+222
+00:16:18,320 --> 00:16:19,560
+Or even this X.
+
+223
+00:16:19,560 --> 00:16:23,000
+So all of these are variables in our language.
+
+224
+00:16:23,000 --> 00:16:28,840
+They're just like in JavaScript when we say let X equal 3.
+
+225
+00:16:28,840 --> 00:16:30,760
+This X here.
+
+226
+00:16:30,760 --> 00:16:33,640
+They're the variables that are gonna capture some meaning.
+
+227
+00:16:33,640 --> 00:16:36,840
+We can actually use whatever we want here.
+
+228
+00:16:36,840 --> 00:16:41,400
+So we could say this is actually the variable Y.
+
+229
+00:16:41,400 --> 00:16:42,480
+You know, use a different name.
+
+230
+00:16:42,480 --> 00:16:45,000
+I've just put X to keep things simple.
+
+231
+00:16:45,000 --> 00:16:46,840
+We can name it whatever we want.
+
+232
+00:16:46,840 --> 00:16:49,400
+Just don't name it E, because E is our expression.
+
+233
+00:16:49,400 --> 00:16:56,600
+I think for clarity, could you explain the difference between the X, which is a variable,
+
+234
+00:16:56,600 --> 00:16:59,800
+and an expression, which is E, right?
+
+235
+00:16:59,800 --> 00:17:00,800
+Right.
+
+236
+00:17:00,800 --> 00:17:09,720
+So what's the difference between this and this?
+
+237
+00:17:09,720 --> 00:17:17,600
+The key difference, E has somewhere to go.
+
+238
+00:17:17,600 --> 00:17:19,360
+It is non-terminal.
+
+239
+00:17:19,360 --> 00:17:24,600
+E can turn into one of these three things.
+
+240
+00:17:24,600 --> 00:17:28,040
+X is what's called a terminal.
+
+241
+00:17:28,040 --> 00:17:30,320
+There's nowhere that X can go.
+
+242
+00:17:30,320 --> 00:17:32,980
+It can't turn into anything else.
+
+243
+00:17:32,980 --> 00:17:40,720
+We don't have a rule that says X is equal to, I don't know, what would even make sense
+
+244
+00:17:40,720 --> 00:17:41,720
+here.
+
+245
+00:17:41,720 --> 00:17:44,480
+Let's say X is equal to 3.
+
+246
+00:17:44,480 --> 00:17:52,080
+If we had a rule like this, that means when we're generating our program, we have to turn
+
+247
+00:17:52,080 --> 00:17:58,520
+these Xs into their corresponding value, in this case, 3.
+
+248
+00:17:58,520 --> 00:18:07,200
+Because we don't have a production rule with X in it, X is a terminal value, and that's
+
+249
+00:18:07,200 --> 00:18:08,200
+just part of our language.
+
+250
+00:18:08,200 --> 00:18:14,640
+It's a feature of our language.
+
+251
+00:18:14,640 --> 00:18:17,160
+So this is the syntax.
+
+252
+00:18:17,160 --> 00:18:18,160
+It's the grammar.
+
+253
+00:18:18,160 --> 00:18:19,160
+Do you have another question?
+
+254
+00:18:19,160 --> 00:18:20,160
+Yeah.
+
+255
+00:18:20,160 --> 00:18:23,160
+Again, could you also just explain what lambda is?
+
+256
+00:18:23,160 --> 00:18:25,600
+Ah, yeah, sure.
+
+257
+00:18:25,600 --> 00:18:27,400
+What is lambda?
+
+258
+00:18:27,400 --> 00:18:28,800
+What is dot?
+
+259
+00:18:28,800 --> 00:18:30,160
+What do these things mean?
+
+260
+00:18:30,160 --> 00:18:31,720
+At this point, it doesn't matter.
+
+261
+00:18:31,720 --> 00:18:34,840
+We're talking not about meaning.
+
+262
+00:18:34,840 --> 00:18:39,080
+We're just talking about what is valid and what's not valid.
+
+263
+00:18:39,080 --> 00:18:41,880
+What programs can exist?
+
+264
+00:18:41,880 --> 00:18:45,760
+The meaning is something that we're going to dive into of, like, what does each of these
+
+265
+00:18:45,760 --> 00:18:47,720
+characters represent?
+
+266
+00:18:47,720 --> 00:18:49,880
+But that's semantics.
+
+267
+00:18:49,880 --> 00:18:54,440
+This is syntax.
+
+268
+00:18:54,440 --> 00:18:58,200
+And I want those two to be pretty separate in your mind.
+
+269
+00:18:58,200 --> 00:19:01,620
+What is a valid thing in lambda calculus?
+
+270
+00:19:01,620 --> 00:19:11,060
+And then once I know that it's valid, what does that valid thing mean?
+
+271
+00:19:11,060 --> 00:19:17,980
+The one thing that I've put in here that's not actually in our grammar is these parentheses.
+
+272
+00:19:17,980 --> 00:19:22,180
+Parentheses help us just to associate things together, just like we would do in math, where
+
+273
+00:19:22,180 --> 00:19:27,460
+you say, like, multiply these two things first, then do the division.
+
+274
+00:19:27,460 --> 00:19:34,100
+So any time we turn E into one of these three, we're effectively putting parentheses around
+
+275
+00:19:34,100 --> 00:19:35,100
+it.
+
+276
+00:19:35,100 --> 00:19:41,060
+And we could, if we wanted, put parentheses around each of those production rules.
+
+277
+00:19:41,060 --> 00:19:42,060
+Yeah?
+
+278
+00:19:42,060 --> 00:19:50,900
+Shouldn't it just start by, like, readability, which is, like, names, and stuff like that?
+
+279
+00:19:50,900 --> 00:19:51,900
+Well, so...
+
+280
+00:19:51,900 --> 00:19:52,900
+Do they actually change the...?
+
+281
+00:19:52,900 --> 00:19:53,900
+Right.
+
+282
+00:19:53,900 --> 00:19:54,900
+Yes and no.
+
+283
+00:19:55,220 --> 00:19:58,020
+And this, our equivalent...
+
+284
+00:19:58,020 --> 00:20:00,180
+In this case, it is just readability.
+
+285
+00:20:00,180 --> 00:20:03,100
+At some points, parentheses will matter.
+
+286
+00:20:03,100 --> 00:20:08,220
+So having them helps from the start.
+
+287
+00:20:08,220 --> 00:20:10,940
+But they will matter.
+
+288
+00:20:10,940 --> 00:20:13,500
+Yeah.
+
+289
+00:20:13,500 --> 00:20:16,140
+Okay.
+
+290
+00:20:16,140 --> 00:20:25,500
+Any other questions on syntax here?
+
+291
+00:20:25,500 --> 00:20:31,620
+If this is the first time you've seen context-free grammars, I recognize it's tricky.
+
+292
+00:20:31,620 --> 00:20:32,620
+They're different.
+
+293
+00:20:32,620 --> 00:20:35,700
+And it's a new way of expressing language.
+
+294
+00:20:35,700 --> 00:20:38,580
+Read the chapter that I uploaded to Piazza.
+
+295
+00:20:38,580 --> 00:20:39,780
+It's ten pages.
+
+296
+00:20:39,780 --> 00:20:40,780
+It's not...
+
+297
+00:20:40,780 --> 00:20:42,780
+And it's a small book.
+
+298
+00:20:42,780 --> 00:20:46,580
+So it will probably take 15, 20 minutes tops.
+
+299
+00:20:46,580 --> 00:20:48,580
+And it will hopefully clarify some of this.
+
+300
+00:20:48,580 --> 00:20:49,580
+Yeah?
+
+301
+00:20:49,580 --> 00:21:00,580
+Does the X in front of the root get the statement that's kind of part of the head, or is the
+
+302
+00:21:00,580 --> 00:21:01,580
+head just the lambda X?
+
+303
+00:21:01,580 --> 00:21:02,580
+The head.
+
+304
+00:21:02,580 --> 00:21:03,580
+I guess, I don't know.
+
+305
+00:21:03,580 --> 00:21:04,580
+I'm just trying to figure out the format of it.
+
+306
+00:21:04,580 --> 00:21:11,580
+I'm trying to figure out the format of it so I can read something that says that the
+
+307
+00:21:11,580 --> 00:21:12,580
+head is the lambda...
+
+308
+00:21:12,580 --> 00:21:13,580
+Oh!
+
+309
+00:21:13,580 --> 00:21:14,580
+In lambda calculus, you mean.
+
+310
+00:21:14,580 --> 00:21:15,580
+Yeah, yeah, yeah.
+
+311
+00:21:15,580 --> 00:21:17,140
+So there's...
+
+312
+00:21:17,140 --> 00:21:18,880
+This is its own expression.
+
+313
+00:21:18,880 --> 00:21:19,880
+This X.
+
+314
+00:21:19,880 --> 00:21:22,140
+You're asking about this piece, right?
+
+315
+00:21:22,140 --> 00:21:23,140
+Yeah.
+
+316
+00:21:23,140 --> 00:21:30,260
+So this piece here, this lambda X dot, which corresponds to this piece here, that's what
+
+317
+00:21:30,260 --> 00:21:32,980
+we're going to dive into with semantics.
+
+318
+00:21:32,980 --> 00:21:34,980
+Yeah.
+
+319
+00:21:34,980 --> 00:21:36,980
+Okay.
+
+320
+00:21:36,980 --> 00:21:47,620
+So let's start talking about semantics.
+
+321
+00:21:47,620 --> 00:21:50,140
+Because that's what you guys keep asking about.
+
+322
+00:21:50,140 --> 00:21:51,140
+Which is fair.
+
+323
+00:21:51,140 --> 00:21:56,980
+Because that's what the language actually is.
+
+324
+00:21:56,980 --> 00:22:01,020
+Okay.
+
+325
+00:22:01,020 --> 00:22:03,700
+So we've seen this grammar.
+
+326
+00:22:03,700 --> 00:22:06,100
+That's what I just had up on the board.
+
+327
+00:22:06,100 --> 00:22:11,260
+E can turn into a variable, which we could call X, Y, Z, whatever we wanted.
+
+328
+00:22:11,260 --> 00:22:17,400
+It can turn into a function that takes a parameter named X and returns an expression E. Or it
+
+329
+00:22:17,400 --> 00:22:23,020
+can turn into a function application of E1 onto E2.
+
+330
+00:22:23,020 --> 00:22:27,140
+So we have variables, such as X, Y, Z.
+
+331
+00:22:27,220 --> 00:22:32,140
+We have functions, or lambda abstractions is another way of saying that.
+
+332
+00:22:32,140 --> 00:22:36,340
+I'm going to dive into that part next.
+
+333
+00:22:36,340 --> 00:22:44,220
+But the way to, like, just very straightforwardly think of it is lambda X dot E is equivalent
+
+334
+00:22:44,220 --> 00:22:48,500
+to X arrow E in JavaScript.
+
+335
+00:22:48,500 --> 00:22:52,060
+We've just started working with arrow syntax.
+
+336
+00:22:52,060 --> 00:22:56,420
+But if you're getting more familiar with it, that might help.
+
+337
+00:22:56,420 --> 00:23:00,300
+And then the last thing that we have is function application.
+
+338
+00:23:00,300 --> 00:23:07,180
+Which in JavaScript looks like E1 is the function, where E2 is the argument.
+
+339
+00:23:07,180 --> 00:23:12,420
+So these are the JavaScript conversion rules.
+
+340
+00:23:12,420 --> 00:23:17,380
+Okay.
+
+341
+00:23:17,380 --> 00:23:20,920
+We're sticking with syntax just for a second.
+
+342
+00:23:20,920 --> 00:23:28,480
+One term that we might have is something like lambda X dot 2 plus X.
+
+343
+00:23:28,480 --> 00:23:30,840
+And immediately you might say, hey, wait.
+
+344
+00:23:30,840 --> 00:23:32,000
+You've lied to me.
+
+345
+00:23:32,000 --> 00:23:33,000
+What is 2?
+
+346
+00:23:33,000 --> 00:23:34,220
+What is plus?
+
+347
+00:23:34,220 --> 00:23:35,840
+We don't have those things in our language.
+
+348
+00:23:35,840 --> 00:23:39,280
+We only have X, lambda X, E1, E2.
+
+349
+00:23:39,280 --> 00:23:40,460
+And that's fair.
+
+350
+00:23:40,460 --> 00:23:48,220
+But you can't actually represent numbers and addition with these terms alone.
+
+351
+00:23:48,220 --> 00:23:50,980
+We will do that at the end of next lecture, I believe.
+
+352
+00:23:50,980 --> 00:23:52,300
+So for now, just bear with me.
+
+353
+00:23:52,300 --> 00:23:57,620
+We can pretend that they exist in our language as normal entities.
+
+354
+00:23:57,620 --> 00:24:04,660
+So lambda X dot 2 plus X would be the equivalent of a JavaScript function that takes a variable
+
+355
+00:24:04,660 --> 00:24:11,260
+X and it returns 2 plus X.
+
+356
+00:24:11,260 --> 00:24:18,940
+If we wanted to call that function with the value 5, that would look something like this.
+
+357
+00:24:18,940 --> 00:24:25,540
+Lambda X dot 2 plus X applied to the value 5.
+
+358
+00:24:25,540 --> 00:24:31,460
+So if we looked at it in JavaScript, that would look something like X arrow 2 plus X
+
+359
+00:24:31,460 --> 00:24:39,260
+with the input value of 5.
+
+360
+00:24:39,260 --> 00:24:41,540
+Before we get to this complicated one...
+
+361
+00:24:41,540 --> 00:24:42,900
+Oh, no?
+
+362
+00:24:42,900 --> 00:24:43,900
+Okay.
+
+363
+00:24:43,900 --> 00:24:47,300
+I hit it too many times.
+
+364
+00:24:47,300 --> 00:24:54,540
+I want to take a step and go backwards from what we're looking at there.
+
+365
+00:24:54,540 --> 00:24:57,220
+Which is hard, because they don't give us much whiteboard space.
+
+366
+00:24:57,220 --> 00:24:59,100
+But we'll make it work.
+
+367
+00:24:59,100 --> 00:25:08,920
+So we have lambda X dot 2 plus X applied to 5.
+
+368
+00:25:08,920 --> 00:25:11,360
+They have one more set of parentheses.
+
+369
+00:25:11,360 --> 00:25:14,960
+That's fine.
+
+370
+00:25:14,960 --> 00:25:21,120
+So I want to use the syntax that we have, our grammar that we've defined, and break
+
+371
+00:25:21,120 --> 00:25:25,440
+this apart into the rules that we have.
+
+372
+00:25:25,440 --> 00:25:30,300
+Using X, lambda X dot E, and E1, E2.
+
+373
+00:25:30,300 --> 00:25:41,220
+How can we reverse engineer this statement into the expressions that it's composed of?
+
+374
+00:25:41,220 --> 00:25:46,340
+What would be the steps to do that?
+
+375
+00:25:46,340 --> 00:25:50,620
+Yeah.
+
+376
+00:25:50,620 --> 00:25:56,480
+Let's do a little bit of a simpler one.
+
+377
+00:25:56,480 --> 00:26:07,640
+If we have lambda X dot X, we can go backwards from this state to our expression by saying
+
+378
+00:26:07,640 --> 00:26:15,280
+this is equivalent to lambda X dot E, where we've turned E into X.
+
+379
+00:26:15,280 --> 00:26:18,120
+So we're reversing our production rule.
+
+380
+00:26:18,120 --> 00:26:25,560
+And then this is equivalent to E. Where E is using the production rule, E turns into
+
+381
+00:26:25,560 --> 00:26:32,880
+lambda X dot E. Using the production rule, E turns into X.
+
+382
+00:26:32,880 --> 00:26:38,360
+So if we started with E, we could take this step and then take that step using our production
+
+383
+00:26:38,360 --> 00:26:41,400
+rules.
+
+384
+00:26:41,400 --> 00:26:46,560
+I want to do that same process on this more complicated term.
+
+385
+00:26:46,560 --> 00:26:48,400
+Yeah.
+
+386
+00:26:48,400 --> 00:26:59,840
+Yeah, so let's turn 2 plus X into E. That's a reasonable thing to do here.
+
+387
+00:26:59,840 --> 00:27:05,400
+I guess we don't need this second parenthesis anymore.
+
+388
+00:27:05,400 --> 00:27:12,560
+So what we've done here is, say, we have some complicated expression, 2 plus X.
+
+389
+00:27:12,560 --> 00:27:17,840
+Let's turn that into E. You know, for whatever E is.
+
+390
+00:27:17,840 --> 00:27:21,160
+Then we have this step here.
+
+391
+00:27:21,160 --> 00:27:28,200
+What's another backward step we can take?
+
+392
+00:27:28,200 --> 00:27:30,240
+Turn 5 into E. Yeah, sure.
+
+393
+00:27:30,240 --> 00:27:34,600
+This 5 can be a different E. We'll give this one a new name.
+
+394
+00:27:34,600 --> 00:27:37,400
+We'll call this one E2.
+
+395
+00:27:37,400 --> 00:27:39,200
+Lambda X dot E1.
+
+396
+00:27:39,200 --> 00:27:40,640
+So just to keep them separate.
+
+397
+00:27:40,640 --> 00:27:44,560
+They aren't the same variable E. They're a different expression.
+
+398
+00:27:44,560 --> 00:27:46,080
+Yeah.
+
+399
+00:27:47,080 --> 00:27:52,160
+Yeah, so this lambda X E1, we can call that E3.
+
+400
+00:27:52,160 --> 00:27:55,240
+And then we still have E2.
+
+401
+00:27:55,240 --> 00:27:59,080
+What's our last step?
+
+402
+00:27:59,080 --> 00:28:10,480
+We know that E1, E2 is one of the productions of E. So we can generate some E4.
+
+403
+00:28:10,480 --> 00:28:18,080
+So what we've done here is, we've stepped backwards from a final term, a program, into
+
+404
+00:28:18,080 --> 00:28:19,580
+the base expression.
+
+405
+00:28:19,580 --> 00:28:23,600
+Which means that we have a valid program in lambda calculus.
+
+406
+00:28:23,600 --> 00:28:25,960
+We were able to backward step here.
+
+407
+00:28:25,960 --> 00:28:26,960
+All the way to E. Yeah?
+
+408
+00:28:26,960 --> 00:28:42,120
+Yeah.
+
+409
+00:28:42,120 --> 00:28:49,640
+So what if...
+
+410
+00:28:49,640 --> 00:28:59,600
+In JavaScript, or in any language, really, we can do something like F of 3 times 2.
+
+411
+00:28:59,600 --> 00:29:05,640
+Where we have a complicated expression as a parameter to a function.
+
+412
+00:29:05,640 --> 00:29:13,280
+This is an E. But it's an E in the same exact way that F of 3 is.
+
+413
+00:29:13,280 --> 00:29:17,360
+Both of those are expressions that have a value.
+
+414
+00:29:17,360 --> 00:29:21,000
+That we want to, you know, backwards figure out.
+
+415
+00:29:21,000 --> 00:29:29,240
+Now, the specifics of how we can turn 5, which we're kind of hand waving as being part of
+
+416
+00:29:29,240 --> 00:29:33,480
+our language, into E is fair.
+
+417
+00:29:33,480 --> 00:29:36,520
+What I would say is...
+
+418
+00:29:36,520 --> 00:29:42,460
+We can write this as a full, long lambda expression.
+
+419
+00:29:42,460 --> 00:29:44,800
+But 5 is just shorter.
+
+420
+00:29:44,800 --> 00:29:45,800
+To do that.
+
+421
+00:29:45,800 --> 00:29:46,800
+Yeah.
+
+422
+00:29:46,800 --> 00:29:50,840
+But it would look kind of like 3 times 2.
+
+423
+00:29:50,840 --> 00:29:56,880
+When you write it all out.
+
+424
+00:29:56,880 --> 00:30:09,600
+Other questions about this backwards process that we've taken?
+
+425
+00:30:09,600 --> 00:30:10,600
+Yeah.
+
+426
+00:30:10,600 --> 00:30:14,840
+The three production rules that I gave you are the three rules of lambda calculus.
+
+427
+00:30:14,840 --> 00:30:16,380
+That's all that there is.
+
+428
+00:30:16,380 --> 00:30:21,040
+People put more rules on top of it to create variants of lambda calculus.
+
+429
+00:30:21,040 --> 00:30:25,920
+Things like typed lambda calculus or lambda calculus with objects.
+
+430
+00:30:25,960 --> 00:30:34,240
+But the base lambda calculus only has those three rules.
+
+431
+00:30:34,240 --> 00:30:36,840
+Other questions?
+
+432
+00:30:36,840 --> 00:30:40,120
+Okay.
+
+433
+00:30:40,120 --> 00:30:43,000
+In that case...
+
+434
+00:30:43,000 --> 00:30:46,640
+We have another example term here.
+
+435
+00:30:46,640 --> 00:30:53,680
+Lambda F dot F of 3 applied to lambda X dot X plus 1.
+
+436
+00:30:53,680 --> 00:30:54,680
+Yeah?
+
+437
+00:30:55,080 --> 00:30:56,080
+Yeah.
+
+438
+00:30:56,080 --> 00:31:11,200
+Yeah, so we went in a very specific order here.
+
+439
+00:31:11,200 --> 00:31:12,720
+Does that order matter?
+
+440
+00:31:12,720 --> 00:31:14,560
+Could we have gone in another order?
+
+441
+00:31:14,560 --> 00:31:23,000
+And would it have still worked?
+
+442
+00:31:23,000 --> 00:31:24,000
+You are nodding.
+
+443
+00:31:24,000 --> 00:31:25,000
+Right.
+
+444
+00:31:25,000 --> 00:31:26,000
+Exactly.
+
+445
+00:31:26,000 --> 00:31:43,400
+So we could have swapped some of these things around and done them in a different order.
+
+446
+00:31:43,400 --> 00:31:46,280
+We could have done this 5 to E2 right away.
+
+447
+00:31:46,280 --> 00:31:48,320
+And then done the next rule right after it.
+
+448
+00:31:48,320 --> 00:31:50,120
+And that would be fine.
+
+449
+00:31:50,120 --> 00:31:54,760
+That's another feature of the fact that these are context-free grammars.
+
+450
+00:31:54,760 --> 00:31:56,720
+The order here doesn't matter.
+
+451
+00:31:56,720 --> 00:31:59,560
+So long as you're applying the rules correctly.
+
+452
+00:31:59,560 --> 00:32:03,520
+If you try and turn, like, the whole...
+
+453
+00:32:03,520 --> 00:32:09,240
+Like this piece here into an expression, that's, like, cheating.
+
+454
+00:32:09,240 --> 00:32:10,900
+It doesn't work in the language.
+
+455
+00:32:10,900 --> 00:32:13,080
+So you'll get a different answer.
+
+456
+00:32:13,080 --> 00:32:17,760
+But so long as you apply valid rules from the language, you'll always end up in the
+
+457
+00:32:17,760 --> 00:32:20,880
+same place.
+
+458
+00:32:20,880 --> 00:32:45,320
+Little bit of an asterisk there that we'll cover at the end of the next lecture.
+
+459
+00:32:45,320 --> 00:32:52,720
+So importantly, we can't go back up any way that we want.
+
+460
+00:32:52,720 --> 00:32:59,280
+Once we have created our system here, we're actually storing more information than I've
+
+461
+00:32:59,280 --> 00:33:00,520
+written.
+
+462
+00:33:00,520 --> 00:33:07,640
+For example, we would say this step here works so long as...
+
+463
+00:33:07,640 --> 00:33:09,020
+Where can I write this?
+
+464
+00:33:09,020 --> 00:33:14,980
+So long as E is equal to X plus 2.
+
+465
+00:33:14,980 --> 00:33:16,340
+Or 2 plus X.
+
+466
+00:33:16,340 --> 00:33:21,540
+And then we can take this next step so long as E1 is equal to...
+
+467
+00:33:21,540 --> 00:33:24,820
+Oh, I guess that's what we've said here.
+
+468
+00:33:24,820 --> 00:33:26,460
+So E1 equals that.
+
+469
+00:33:26,460 --> 00:33:30,840
+And then E2 is equal to 5.
+
+470
+00:33:30,840 --> 00:33:38,500
+And then we can take this next step so long as E3 is equal to lambdaX.E1, et cetera.
+
+471
+00:33:38,500 --> 00:33:43,300
+So we're encoding that transformation in this backwards process.
+
+472
+00:33:43,300 --> 00:33:47,780
+But that's not super important towards the class.
+
+473
+00:33:47,780 --> 00:33:54,380
+It's just that that is the way that we're doing it.
+
+474
+00:33:54,380 --> 00:33:55,380
+That's brilliant.
+
+475
+00:33:55,380 --> 00:33:56,380
+All right.
+
+476
+00:33:56,380 --> 00:33:57,380
+Thank you.
+
+477
+00:33:57,380 --> 00:33:58,380
+Thank you for that note.
+
+478
+00:33:58,380 --> 00:34:06,380
+We will use this for the next stuff on the board.
+
+479
+00:34:06,380 --> 00:34:08,860
+Other questions?
+
+480
+00:34:08,860 --> 00:34:11,220
+Okay.
+
+481
+00:34:11,220 --> 00:34:18,280
+Then try and do this same backwards process that we've done on the second example.
+
+482
+00:34:18,280 --> 00:34:23,540
+On this third one, feel free to chat with someone next to you to figure it out.
+
+483
+00:34:23,540 --> 00:34:25,740
+But try and get all the way back to sum E.
+
+484
+00:35:55,740 --> 00:36:04,740
+All right.
+
+485
+00:36:04,740 --> 00:36:08,700
+Let's put it together as a class.
+
+486
+00:36:08,700 --> 00:36:12,400
+I've got the expression up here.
+
+487
+00:36:12,400 --> 00:36:13,620
+Let's go backwards.
+
+488
+00:36:13,620 --> 00:36:17,380
+What's one first step that we could take?
+
+489
+00:36:17,380 --> 00:36:22,420
+Yeah.
+
+490
+00:36:22,420 --> 00:36:27,900
+We can turn this X plus 1 into an E1, let's say.
+
+491
+00:36:27,900 --> 00:36:28,900
+LambdaX.E1.
+
+492
+00:36:28,900 --> 00:36:29,900
+Okay.
+
+493
+00:36:29,900 --> 00:36:33,260
+And then we keep everything else.
+
+494
+00:36:33,260 --> 00:36:36,460
+Cool.
+
+495
+00:36:36,460 --> 00:36:44,220
+What's another step that we could take from here?
+
+496
+00:36:44,220 --> 00:36:46,860
+We could turn the 3 into an E. Yeah.
+
+497
+00:36:46,860 --> 00:36:47,860
+Sure.
+
+498
+00:36:47,860 --> 00:36:50,020
+So here we kind of elided that step.
+
+499
+00:36:50,020 --> 00:36:53,900
+We turned our X plus 1 all into an E. That's fine.
+
+500
+00:36:53,900 --> 00:36:57,000
+We can do the same...
+
+501
+00:36:57,000 --> 00:37:01,100
+Over here, I guess we're going to just do the 3, and that's okay.
+
+502
+00:37:01,100 --> 00:37:10,220
+So F of E2, lambdaX.E1.
+
+503
+00:37:10,220 --> 00:37:11,220
+What else can we do?
+
+504
+00:37:11,220 --> 00:37:12,220
+Yeah.
+
+505
+00:37:12,220 --> 00:37:13,220
+Behind you.
+
+506
+00:37:13,220 --> 00:37:14,220
+Sorry.
+
+507
+00:37:14,220 --> 00:37:15,220
+FE2 into E4.
+
+508
+00:37:15,220 --> 00:37:16,220
+Yeah.
+
+509
+00:37:16,220 --> 00:37:17,220
+We can totally turn that into E4.
+
+510
+00:37:17,220 --> 00:37:18,220
+Cool.
+
+511
+00:37:18,220 --> 00:37:19,220
+All right.
+
+512
+00:37:19,220 --> 00:37:20,220
+So that's good.
+
+513
+00:37:20,220 --> 00:37:21,220
+We're good.
+
+514
+00:37:21,220 --> 00:37:22,220
+We're good.
+
+515
+00:37:22,220 --> 00:37:23,220
+That's fine.
+
+516
+00:37:23,220 --> 00:37:24,220
+We can do that.
+
+517
+00:37:24,220 --> 00:37:25,220
+All right.
+
+518
+00:37:25,220 --> 00:37:26,220
+So let's...
+
+519
+00:37:26,220 --> 00:37:27,220
+We can do a class.
+
+520
+00:37:27,220 --> 00:37:28,220
+That's fine.
+
+521
+00:37:28,220 --> 00:37:29,220
+We're good.
+
+522
+00:37:29,220 --> 00:37:30,220
+Let's go back.
+
+523
+00:37:30,220 --> 00:37:31,220
+What else can we do?
+
+524
+00:37:31,220 --> 00:37:32,220
+Yeah.
+
+525
+00:37:32,220 --> 00:37:33,220
+Oh.
+
+526
+00:37:33,220 --> 00:37:34,220
+Behind you.
+
+527
+00:37:34,220 --> 00:37:35,220
+Sorry.
+
+528
+00:37:35,220 --> 00:37:36,220
+FE2 into E4.
+
+529
+00:37:36,220 --> 00:37:38,580
+Yeah.
+
+530
+00:37:38,580 --> 00:37:44,140
+We can totally turn that into E4, E3.
+
+531
+00:37:44,140 --> 00:37:45,140
+And then...
+
+532
+00:37:45,140 --> 00:37:46,140
+Yeah.
+
+533
+00:37:46,140 --> 00:37:47,140
+One from here.
+
+534
+00:37:47,140 --> 00:37:48,140
+Yep.
+
+535
+00:37:48,140 --> 00:37:53,980
+Turn that into E5, E3.
+
+536
+00:37:53,980 --> 00:37:55,740
+And finally...
+
+537
+00:37:55,740 --> 00:38:00,620
+You guys in the back probably can't see all the way down anymore, but...
+
+538
+00:38:00,620 --> 00:38:02,700
+Turn the last thing into E6.
+
+539
+00:38:02,700 --> 00:38:04,280
+Why not?
+
+540
+00:38:04,280 --> 00:38:13,800
+So we're able to go from this complicated expression, step by step, into a simple E6.
+
+541
+00:38:13,800 --> 00:38:16,320
+And each of these E's has a different value.
+
+542
+00:38:16,320 --> 00:38:21,400
+We've given it some number or some meaning inside of there.
+
+543
+00:38:21,400 --> 00:38:25,240
+But we can forget about that at this point.
+
+544
+00:38:25,240 --> 00:38:31,880
+The point is we were able to get down to E, which means we have a valid program.
+
+545
+00:38:31,880 --> 00:38:38,320
+This is exactly the process that your IDE takes every time it gives you a redline squiggle.
+
+546
+00:38:38,320 --> 00:38:41,080
+And it says, hey, your code is bad.
+
+547
+00:38:41,080 --> 00:38:44,040
+You forgot to write int at the start of this line.
+
+548
+00:38:44,040 --> 00:38:45,680
+Or you forgot the semicolon.
+
+549
+00:38:45,680 --> 00:38:50,160
+It's going through this process constantly, trying to figure out where do you fail to
+
+550
+00:38:50,160 --> 00:38:52,640
+parse your code?
+
+551
+00:38:52,640 --> 00:38:56,600
+That's an error.
+
+552
+00:38:56,600 --> 00:39:01,880
+Same exact process in a more complicated language.
+
+553
+00:39:01,880 --> 00:39:05,600
+Okay.
+
+554
+00:39:05,600 --> 00:39:13,040
+If we wanted to write that one as JavaScript, it might look something like this.
+
+555
+00:39:13,040 --> 00:39:20,520
+The first part of your homework is converting JavaScript into lambda calculus.
+
+556
+00:39:20,520 --> 00:39:26,640
+And then the second part is lambda calculus into JavaScript.
+
+557
+00:39:26,640 --> 00:39:34,820
+So if we wanted to turn a function in JavaScript into lambda calculus, for example, function
+
+558
+00:39:34,820 --> 00:39:45,880
+composition, what would function composition look like in JavaScript?
+
+559
+00:39:45,880 --> 00:39:53,760
+So this is a function where we're applying f of f of x.
+
+560
+00:39:53,760 --> 00:39:58,060
+F of x, instead of fog x.
+
+561
+00:39:58,060 --> 00:40:01,920
+What would this look like?
+
+562
+00:40:01,920 --> 00:40:04,920
+Yeah?
+
+563
+00:40:04,920 --> 00:40:20,820
+Yeah, so the main function body is going to be f of f of x.
+
+564
+00:40:20,820 --> 00:40:23,600
+But we're defining a function to do this.
+
+565
+00:40:23,600 --> 00:40:32,160
+So we might have some sort of x goes to this result.
+
+566
+00:40:32,160 --> 00:40:36,840
+It's a function that takes x and applies f of f of x to it.
+
+567
+00:40:36,840 --> 00:40:45,000
+Or we might go a step further and say it's a function that takes a function f and a value
+
+568
+00:40:45,000 --> 00:40:51,720
+x and then applies f of f of x.
+
+569
+00:40:51,720 --> 00:40:54,200
+That's probably how I would write it in JavaScript.
+
+570
+00:40:54,200 --> 00:40:57,280
+Let's see if that's what I wrote over here.
+
+571
+00:40:57,280 --> 00:40:58,960
+Yes.
+
+572
+00:40:58,960 --> 00:41:07,040
+Basically the same, but I've separated out the parameters.
+
+573
+00:41:07,040 --> 00:41:10,120
+Questions on this composition function?
+
+574
+00:41:10,120 --> 00:41:13,920
+Before we take it a step further?
+
+575
+00:41:13,920 --> 00:41:15,920
+Okay.
+
+576
+00:41:15,920 --> 00:41:17,920
+So...
+
+577
+00:41:17,920 --> 00:41:20,920
+Oh, yeah.
+
+578
+00:41:20,920 --> 00:41:39,760
+That's primarily a preference thing.
+
+579
+00:41:39,760 --> 00:41:40,760
+Yeah.
+
+580
+00:41:40,760 --> 00:41:41,760
+No.
+
+581
+00:41:41,760 --> 00:41:48,440
+No, like, performance or readability for general people, I would assume.
+
+582
+00:41:48,440 --> 00:41:52,000
+Some people prefer one way, some would prefer another.
+
+583
+00:41:52,000 --> 00:41:53,480
+In some cases it matters.
+
+584
+00:41:53,480 --> 00:41:56,160
+But we can talk about that later.
+
+585
+00:41:56,160 --> 00:41:57,800
+All right.
+
+586
+00:41:57,800 --> 00:42:02,880
+So then let's use this function.
+
+587
+00:42:02,880 --> 00:42:10,600
+So the inner part here from f up to these parentheses is the same function that we've
+
+588
+00:42:10,600 --> 00:42:12,040
+written already.
+
+589
+00:42:12,040 --> 00:42:15,360
+But now we're calling it with two parameters.
+
+590
+00:42:15,360 --> 00:42:21,560
+We're calling it with a function that takes in a variable x and returns x plus 1.
+
+591
+00:42:21,560 --> 00:42:25,400
+And we're calling it with the number 4.
+
+592
+00:42:25,400 --> 00:42:29,800
+Right off the bat, what would you assume this program is going to output?
+
+593
+00:42:29,800 --> 00:42:34,760
+What's the return value of this final thing?
+
+594
+00:42:34,760 --> 00:42:37,340
+6, right?
+
+595
+00:42:37,340 --> 00:42:41,280
+We're going to call x plus 1 on 4 twice.
+
+596
+00:42:41,280 --> 00:42:46,720
+So we get 4 plus 1 is 5, plus 1 is 6.
+
+597
+00:42:46,720 --> 00:42:47,720
+Okay.
+
+598
+00:42:47,720 --> 00:42:53,280
+So this is how we would write and then use function composition.
+
+599
+00:42:53,280 --> 00:42:55,720
+In JavaScript.
+
+600
+00:42:55,720 --> 00:43:00,120
+Let's do it in lambda calculus.
+
+601
+00:43:00,120 --> 00:43:08,400
+Here we've seen this, like, application before, where we're passing things in.
+
+602
+00:43:08,400 --> 00:43:10,300
+I guess we've done that over here.
+
+603
+00:43:10,300 --> 00:43:14,560
+But the 5 is the argument.
+
+604
+00:43:14,560 --> 00:43:33,140
+So what this would look like is something like lambda f dot lambda x dot f of f of x.
+
+605
+00:43:33,140 --> 00:43:46,380
+And what we've done, if we look at it as a transformation, I guess I've put in these
+
+606
+00:43:46,380 --> 00:43:47,380
+extra parentheses.
+
+607
+00:43:47,380 --> 00:43:51,300
+We don't need to.
+
+608
+00:43:51,300 --> 00:43:57,900
+In JavaScript, we had our parameters on the left-hand side of this equal sign.
+
+609
+00:43:57,900 --> 00:44:06,140
+In lambda calc, we have our parameters, x and f, on the left-hand side of these periods.
+
+610
+00:44:06,140 --> 00:44:08,340
+Of the DOM.
+
+611
+00:44:08,340 --> 00:44:12,000
+So x and f are our parameters.
+
+612
+00:44:12,000 --> 00:44:16,460
+And our return is f of f of x.
+
+613
+00:44:16,460 --> 00:44:19,340
+Which is f of f of x.
+
+614
+00:44:19,340 --> 00:44:25,460
+And we could, if we wanted to, put in these extra parentheses, just to make it look more
+
+615
+00:44:25,460 --> 00:44:26,460
+similar.
+
+616
+00:44:26,460 --> 00:44:30,900
+But that would be kind of anti-lambda calc-y.
+
+617
+00:44:30,900 --> 00:44:37,620
+So we'll write it like that much more often.
+
+618
+00:44:37,620 --> 00:44:43,200
+Okay.
+
+619
+00:44:43,200 --> 00:44:50,500
+If we wanted to then pass in our parameters, lambda x dot� or x goes to x plus 1 and
+
+620
+00:44:50,500 --> 00:44:56,180
+4, that would look something like this.
+
+621
+00:44:56,180 --> 00:45:04,700
+Where we're turning our x goes to x plus 1 function into lambda x dot x plus 1.
+
+622
+00:45:04,700 --> 00:45:09,700
+Once again, notice the x, the parameter on the left-hand side of the equals corresponds
+
+623
+00:45:09,700 --> 00:45:12,500
+to the x before the period.
+
+624
+00:45:12,500 --> 00:45:16,940
+The right-hand side corresponds to the right-hand side.
+
+625
+00:45:16,940 --> 00:45:36,980
+4 is 4.
+
+626
+00:45:36,980 --> 00:45:40,140
+We're gonna keep going and see a lot more examples of this.
+
+627
+00:45:40,140 --> 00:45:43,820
+So if it's feeling confusing, that's totally fine.
+
+628
+00:45:43,820 --> 00:45:46,760
+That's very much expected, even.
+
+629
+00:45:47,580 --> 00:45:50,960
+It will get less confusing the more that we look at it.
+
+630
+00:45:50,960 --> 00:45:52,960
+Okay.
+
+631
+00:45:52,960 --> 00:45:59,800
+And one way that we're gonna do this is just by doing a little, like, figure out is this
+
+632
+00:45:59,800 --> 00:46:02,440
+valid, is this not?
+
+633
+00:46:02,440 --> 00:46:10,880
+So if we had a term, lambda x plus y dot 3, is that valid?
+
+634
+00:46:10,880 --> 00:46:13,440
+Give it a second of thought.
+
+635
+00:46:13,440 --> 00:46:21,840
+You can try and go backwards from the final expression to an E, as we've done over here.
+
+636
+00:46:21,840 --> 00:46:24,180
+If you get to E, then you're good.
+
+637
+00:46:24,180 --> 00:46:26,680
+If you don't get to E, then you're bad.
+
+638
+00:46:26,680 --> 00:46:30,960
+Like, I mean, the program is bad, not you.
+
+639
+00:46:30,960 --> 00:46:31,960
+You guys are great.
+
+640
+00:46:31,960 --> 00:46:34,760
+Thanks for showing up to class.
+
+641
+00:46:34,760 --> 00:46:39,760
+But try and figure out, yes or no, is this valid?
+
+642
+00:46:39,760 --> 00:46:40,760
+Okay.
+
+643
+00:46:40,760 --> 00:46:41,760
+So let's do this.
+
+644
+00:46:41,760 --> 00:46:42,760
+So let's do this.
+
+645
+00:46:42,760 --> 00:46:43,760
+Okay.
+
+646
+00:46:43,760 --> 00:46:44,760
+So let's do this.
+
+647
+00:46:44,760 --> 00:46:45,760
+So let's do this.
+
+648
+00:46:45,760 --> 00:47:09,320
+Okay.
+
+649
+00:47:09,320 --> 00:47:13,800
+How many people are voting yes, valid term?
+
+650
+00:47:13,840 --> 00:47:16,440
+How many people are voting no, not a valid term?
+
+651
+00:47:16,440 --> 00:47:17,440
+All right.
+
+652
+00:47:17,440 --> 00:47:18,800
+The nos have it.
+
+653
+00:47:18,800 --> 00:47:20,200
+Why is it not valid?
+
+654
+00:47:20,200 --> 00:47:21,800
+What's the problem here?
+
+655
+00:47:21,800 --> 00:47:29,120
+Yeah, in the back.
+
+656
+00:47:29,120 --> 00:47:30,120
+That's exactly right.
+
+657
+00:47:30,120 --> 00:47:33,720
+So we have x plus y on the left-hand side of that dot.
+
+658
+00:47:33,720 --> 00:47:42,120
+We have a rule that allows us to use lambda x dot E, but we can't turn x plus y into x.
+
+659
+00:47:42,240 --> 00:47:47,360
+We could turn x plus y into E, into another expression, but that's not valid.
+
+660
+00:47:47,360 --> 00:47:49,560
+That's not one of our production rules.
+
+661
+00:47:49,560 --> 00:47:52,920
+So yep, not valid here.
+
+662
+00:47:52,920 --> 00:48:04,720
+What about lambda x dot 3?
+
+663
+00:48:04,720 --> 00:48:07,360
+How many people say yes, valid?
+
+664
+00:48:07,360 --> 00:48:08,600
+No, not valid.
+
+665
+00:48:08,600 --> 00:48:10,000
+All right.
+
+666
+00:48:10,000 --> 00:48:11,620
+Yes, valid.
+
+667
+00:48:11,620 --> 00:48:18,180
+We can turn 3 into E1, and then lambda x dot E1, we just use that second rule to turn
+
+668
+00:48:18,180 --> 00:48:20,300
+it back into E. Great.
+
+669
+00:48:20,300 --> 00:48:24,260
+What about lambda x x of x?
+
+670
+00:48:24,260 --> 00:48:27,580
+Valid, not valid?
+
+671
+00:48:27,580 --> 00:48:31,060
+How many people say valid?
+
+672
+00:48:31,060 --> 00:48:32,620
+How many people say not valid?
+
+673
+00:48:32,620 --> 00:48:33,980
+All right.
+
+674
+00:48:33,980 --> 00:48:35,740
+A majority of valid.
+
+675
+00:48:35,740 --> 00:48:37,300
+Yeah, this one is fine.
+
+676
+00:48:37,300 --> 00:48:46,260
+So we can turn xx, this inside part, into E1, E2, and then E1, E2 turns into E3, and
+
+677
+00:48:46,260 --> 00:48:51,420
+then lambda x E3 turns into E4.
+
+678
+00:48:51,420 --> 00:48:54,140
+How about this one?
+
+679
+00:48:54,140 --> 00:48:56,580
+Very similar, but we've replaced one of the x's with a y.
+
+680
+00:48:56,580 --> 00:49:05,820
+Valid?
+
+681
+00:49:05,820 --> 00:49:07,260
+Not valid.
+
+682
+00:49:07,260 --> 00:49:09,540
+All right.
+
+683
+00:49:09,540 --> 00:49:11,340
+Most people are saying valid here.
+
+684
+00:49:11,340 --> 00:49:12,660
+I'm in agreement.
+
+685
+00:49:12,660 --> 00:49:20,420
+The one caveat being that I've said E goes to x, so long as x is the set of variables.
+
+686
+00:49:20,420 --> 00:49:23,880
+So we can name our variables anything we want.
+
+687
+00:49:23,880 --> 00:49:31,220
+In this case, we're naming one of our variables y instead of x, which is fine.
+
+688
+00:49:31,220 --> 00:49:32,220
+But we don't know what y is.
+
+689
+00:49:32,220 --> 00:49:34,540
+But that's also fine.
+
+690
+00:49:34,540 --> 00:49:37,380
+Okay.
+
+691
+00:49:37,380 --> 00:49:51,780
+Any questions on any of these problems here?
+
+692
+00:49:51,780 --> 00:49:59,180
+Since we're in PL, and PL people are mathematicians, and mathematicians are very tired of writing,
+
+693
+00:49:59,180 --> 00:50:03,020
+there is more compact syntax.
+
+694
+00:50:03,020 --> 00:50:09,900
+So for example, function application, that is E1, E2, is left associative.
+
+695
+00:50:09,900 --> 00:50:16,200
+That means you perform the left application before the right-hand application.
+
+696
+00:50:16,200 --> 00:50:24,620
+So E1, E2, E3 is equivalent to E1 applied to E2, the result of that applied to E3.
+
+697
+00:50:24,620 --> 00:50:29,860
+So we don't need those parentheses if we don't want to use them.
+
+698
+00:50:30,060 --> 00:50:37,980
+Lambdas, on the other hand, that is to say lambda abstraction or functions, bind all
+
+699
+00:50:37,980 --> 00:50:41,260
+the way to the right.
+
+700
+00:50:41,260 --> 00:50:50,260
+What that means is that when we have lambda x dot lambda y dot lambda z dot E, this outside
+
+701
+00:50:50,260 --> 00:50:56,220
+lambda x goes all the way to the end of the E.
+
+702
+00:50:56,220 --> 00:50:59,700
+We're going to go into a lot of examples of how to use this rule.
+
+703
+00:50:59,700 --> 00:51:04,260
+So I'm not going to get too far into it now.
+
+704
+00:51:04,260 --> 00:51:11,740
+But the trick is that you stop the, like, bounds of your lambda when you find an unmatched
+
+705
+00:51:11,740 --> 00:51:13,540
+closing parentheses.
+
+706
+00:51:13,540 --> 00:51:18,500
+You can think of this as the same algorithm with curly braces.
+
+707
+00:51:18,500 --> 00:51:24,620
+When you open a curly brace at the start of a function, that function contains the scope
+
+708
+00:51:24,620 --> 00:51:32,740
+of everything until you close the curly brace for it.
+
+709
+00:51:32,740 --> 00:51:36,580
+Okay.
+
+710
+00:51:36,580 --> 00:51:43,500
+So where do parentheses go in this expression?
+
+711
+00:51:43,500 --> 00:51:47,060
+Lambda x dot x, x.
+
+712
+00:51:47,060 --> 00:51:56,780
+Do they go around the body, the xx, or around the lambda abstraction?
+
+713
+00:51:56,780 --> 00:51:58,140
+Chat with a neighbor.
+
+714
+00:51:58,140 --> 00:51:59,340
+Try and come up with an answer.
+
+715
+00:51:59,340 --> 00:52:13,340
+And a reason why.
+
+716
+00:52:43,340 --> 00:52:58,860
+How many people say A is correct?
+
+717
+00:52:58,860 --> 00:53:01,740
+How many people say B is correct?
+
+718
+00:53:01,740 --> 00:53:03,420
+All right.
+
+719
+00:53:03,420 --> 00:53:07,420
+Why is A correct?
+
+720
+00:53:07,420 --> 00:53:09,340
+Who's got a reason for me?
+
+721
+00:53:09,340 --> 00:53:10,340
+Yeah.
+
+722
+00:53:10,340 --> 00:53:15,500
+Exactly.
+
+723
+00:53:15,500 --> 00:53:19,960
+So lambdas bind all the way to the right until an unmatched closing parentheses.
+
+724
+00:53:19,960 --> 00:53:21,440
+There are no parentheses.
+
+725
+00:53:21,440 --> 00:53:23,200
+So lambdas go all the way.
+
+726
+00:53:23,200 --> 00:53:27,660
+That means everything in the body is part of the lambda.
+
+727
+00:53:27,660 --> 00:53:28,700
+Is this other...
+
+728
+00:53:28,700 --> 00:53:32,380
+Is B a valid expression in lambda calculus?
+
+729
+00:53:32,380 --> 00:53:33,820
+Yes?
+
+730
+00:53:33,820 --> 00:53:35,140
+No.
+
+731
+00:53:35,140 --> 00:53:38,820
+All right.
+
+732
+00:53:38,820 --> 00:53:39,820
+Let's do it again.
+
+733
+00:53:40,300 --> 00:53:43,300
+Is B a valid term in lambda calculus?
+
+734
+00:53:43,300 --> 00:53:44,300
+Yes?
+
+735
+00:53:44,300 --> 00:53:45,300
+No.
+
+736
+00:53:45,300 --> 00:53:46,300
+All right.
+
+737
+00:53:46,300 --> 00:53:47,300
+It is.
+
+738
+00:53:47,300 --> 00:53:49,460
+It is valid.
+
+739
+00:53:49,460 --> 00:53:56,420
+We could replace lambda x dot x using the second rule into E and turn x into E as well.
+
+740
+00:53:56,420 --> 00:53:57,540
+E1, E2.
+
+741
+00:53:57,540 --> 00:53:58,540
+So it's valid.
+
+742
+00:53:58,540 --> 00:54:00,460
+It's just different.
+
+743
+00:54:00,460 --> 00:54:03,300
+It's not what we were saying when we wrote that top term.
+
+744
+00:54:03,300 --> 00:54:09,140
+Yeah.
+
+745
+00:54:09,140 --> 00:54:12,500
+So if we didn't have...
+
+746
+00:54:12,500 --> 00:54:15,180
+Oops.
+
+747
+00:54:15,180 --> 00:54:21,100
+If we didn't have these two rules, it would be ambiguous to say...
+
+748
+00:54:21,100 --> 00:54:22,860
+To give that term up top.
+
+749
+00:54:22,860 --> 00:54:26,540
+We wouldn't know which one this is being represented by.
+
+750
+00:54:26,540 --> 00:54:31,900
+But because we have these two rules, we know what that term means.
+
+751
+00:54:31,900 --> 00:54:32,900
+Yeah.
+
+752
+00:54:32,900 --> 00:54:33,900
+All right.
+
+753
+00:54:33,900 --> 00:54:36,860
+What about this one?
+
+754
+00:54:36,860 --> 00:54:52,940
+Lambda y dot lambda x, x, x.
+
+755
+00:54:52,940 --> 00:54:55,940
+How many people vote A?
+
+756
+00:54:55,940 --> 00:54:58,180
+How many people vote B?
+
+757
+00:54:58,180 --> 00:55:00,500
+How many people vote C?
+
+758
+00:55:00,500 --> 00:55:01,500
+How many people vote...
+
+759
+00:55:01,500 --> 00:55:02,740
+We've spent too much time on it.
+
+760
+00:55:02,740 --> 00:55:03,740
+All right.
+
+761
+00:55:03,740 --> 00:55:04,740
+I mean, you guys all got it.
+
+762
+00:55:04,740 --> 00:55:05,740
+This is great.
+
+763
+00:55:05,740 --> 00:55:06,740
+Yeah.
+
+764
+00:55:06,740 --> 00:55:12,420
+So B here, by the same logic as the previous slide, lambdas go all the way until they find
+
+765
+00:55:12,420 --> 00:55:14,740
+a nonmatched closing parenthesis.
+
+766
+00:55:14,740 --> 00:55:17,180
+All right.
+
+767
+00:55:17,180 --> 00:55:19,620
+I think this is the last one of these.
+
+768
+00:55:19,620 --> 00:55:25,620
+Are these two equivalent?
+
+769
+00:55:26,620 --> 00:55:33,620
+Yes.
+
+770
+00:55:33,620 --> 00:55:34,620
+They are equivalent.
+
+771
+00:55:34,620 --> 00:55:35,620
+No.
+
+772
+00:55:35,620 --> 00:55:36,620
+They are not equivalent.
+
+773
+00:55:36,620 --> 00:55:37,620
+No.
+
+774
+00:55:37,620 --> 00:55:38,620
+They are not equivalent.
+
+775
+00:55:38,620 --> 00:55:39,620
+Great.
+
+776
+00:55:39,620 --> 00:55:41,300
+You guys seem to be getting it.
+
+777
+00:55:41,300 --> 00:55:43,020
+This is awesome.
+
+778
+00:55:43,020 --> 00:55:46,500
+So the summarized rules...
+
+779
+00:55:46,500 --> 00:55:48,460
+Applications are left associative.
+
+780
+00:55:48,460 --> 00:55:52,460
+And precedence-wise, application happens before lambda calculus.
+
+781
+00:55:52,980 --> 00:55:58,660
+I mean, lambda abstractions, sorry.
+
+782
+00:55:58,660 --> 00:56:03,940
+One more way that we can make these things more compact is if we have lambda x dot lambda
+
+783
+00:56:03,940 --> 00:56:08,680
+y dot lambda z dot e, we can just say lambda x, y, z.
+
+784
+00:56:08,680 --> 00:56:12,940
+We aren't giving it one parameter called x, y, z.
+
+785
+00:56:12,940 --> 00:56:17,580
+We're giving it three parameters, x, y, and z.
+
+786
+00:56:17,580 --> 00:56:23,660
+So it's kind of the difference between this function over here, where we have two parameters
+
+787
+00:56:23,660 --> 00:56:24,900
+at once.
+
+788
+00:56:24,900 --> 00:56:28,500
+And if we rewrote that to be taking f, then taking x.
+
+789
+00:56:28,500 --> 00:56:29,500
+Yeah?
+
+790
+00:56:29,500 --> 00:56:39,500
+If you did just want one parameter called x, y, z, would you just, like, put a parenthesis
+
+791
+00:56:39,500 --> 00:56:40,500
+around it?
+
+792
+00:56:40,500 --> 00:56:43,460
+You wouldn't really be a mathematician then, would you?
+
+793
+00:56:43,980 --> 00:56:46,380
+Honestly, I don't know what the notation...
+
+794
+00:56:46,380 --> 00:56:49,300
+Like, the standard thing to do there is.
+
+795
+00:56:49,300 --> 00:56:53,660
+People just always use single-letter variable names.
+
+796
+00:56:53,660 --> 00:56:54,660
+Which is horrible practice.
+
+797
+00:56:54,660 --> 00:56:58,140
+It's, like, exactly what you learn not to do in intro programming.
+
+798
+00:56:58,140 --> 00:57:01,020
+Like, give your variables descriptive names.
+
+799
+00:57:01,020 --> 00:57:03,720
+But because it's kind of math, it's, like...
+
+800
+00:57:03,720 --> 00:57:07,020
+We use x, y much more often.
+
+801
+00:57:07,020 --> 00:57:09,380
+I don't know.
+
+802
+00:57:09,380 --> 00:57:14,580
+If you wanted, maybe, multi-character names, you could do...
+
+803
+00:57:14,580 --> 00:57:15,820
+Then you wouldn't do this.
+
+804
+00:57:15,820 --> 00:57:17,280
+You would keep things all separate.
+
+805
+00:57:17,280 --> 00:57:26,420
+You would keep it like the left-hand side, perhaps.
+
+806
+00:57:26,420 --> 00:57:33,420
+Further questions on syntax?
+
+807
+00:57:33,420 --> 00:57:40,820
+Great.
+
+808
+00:57:40,820 --> 00:57:41,820
+We're done with syntax.
+
+809
+00:57:41,820 --> 00:57:43,660
+Let's get to the exciting thing.
+
+810
+00:57:43,660 --> 00:57:45,840
+Let's actually evaluate this.
+
+811
+00:57:45,840 --> 00:57:49,180
+Let's get to the semantics.
+
+812
+00:57:49,180 --> 00:57:52,020
+So the semantics of lambda calc.
+
+813
+00:57:52,020 --> 00:57:55,540
+There's basically one rule.
+
+814
+00:57:55,540 --> 00:58:03,180
+We're going to try to reduce a term into another term as often as we can.
+
+815
+00:58:03,180 --> 00:58:08,660
+Once we can't reduce it, we're done.
+
+816
+00:58:08,660 --> 00:58:10,300
+That's the one rule.
+
+817
+00:58:10,300 --> 00:58:16,020
+We're going to reduce a term into another term.
+
+818
+00:58:16,020 --> 00:58:19,060
+Once we're done, we're done.
+
+819
+00:58:19,060 --> 00:58:25,140
+The way we reduce is by rewriting terms.
+
+820
+00:58:25,140 --> 00:58:29,620
+Rewriting terms means that we are doing substitution.
+
+821
+00:58:29,620 --> 00:58:32,220
+Oops.
+
+822
+00:58:32,220 --> 00:58:39,060
+So now what we're going to look at is what substitution means in lambda calculus.
+
+823
+00:58:39,060 --> 00:58:42,500
+This is the one rule of lambda calc.
+
+824
+00:58:42,500 --> 00:58:46,500
+It's the one way to do things.
+
+825
+00:58:46,500 --> 00:58:48,140
+But there's a lot to it.
+
+826
+00:58:48,140 --> 00:58:50,020
+So let's go through.
+
+827
+00:58:50,020 --> 00:58:54,740
+So we can go back to our example over here that we had on the board.
+
+828
+00:58:54,740 --> 00:58:58,780
+Lambda X dot 2 plus X of 5.
+
+829
+00:58:58,780 --> 00:59:01,380
+We could rewrite that to JavaScript.
+
+830
+00:59:01,380 --> 00:59:04,980
+And we would expect in JavaScript the answer to be what?
+
+831
+00:59:04,980 --> 00:59:12,980
+The output of this expression to be what?
+
+832
+00:59:12,980 --> 00:59:13,980
+Not a trick question.
+
+833
+00:59:13,980 --> 00:59:14,980
+7.
+
+834
+00:59:14,980 --> 00:59:18,220
+I heard muttered.
+
+835
+00:59:18,220 --> 00:59:24,980
+So we would get to 7 by substituting X, our parameter, with the value 5.
+
+836
+00:59:24,980 --> 00:59:28,860
+Because we were calling the function with the value 5.
+
+837
+00:59:28,860 --> 00:59:31,140
+The same thing is going to happen.
+
+838
+00:59:31,140 --> 00:59:32,140
+Or I guess...
+
+839
+00:59:32,140 --> 00:59:33,460
+Actually, I think we...
+
+840
+00:59:33,460 --> 00:59:34,940
+Which one goes next?
+
+841
+00:59:34,940 --> 00:59:35,940
+Yeah.
+
+842
+00:59:35,940 --> 00:59:36,940
+Okay.
+
+843
+00:59:36,940 --> 00:59:39,300
+So in lambda calc, the same thing is going to happen.
+
+844
+00:59:39,300 --> 00:59:42,900
+We're going to pass that 5 into the X.
+
+845
+00:59:43,060 --> 00:59:48,860
+And we're going to get 2 plus 5, which then reduces to 7.
+
+846
+00:59:48,860 --> 01:00:07,900
+So what we've done up above, which I can draw, is that we've passed 5 in for the value X.
+
+847
+01:00:07,900 --> 01:00:12,740
+So lambda X dot 2 plus X applied to 5.
+
+848
+01:00:12,740 --> 01:00:13,900
+This is a function.
+
+849
+01:00:13,900 --> 01:00:15,900
+That's the parameter name.
+
+850
+01:00:15,900 --> 01:00:18,980
+We're going to pass 5 in for X.
+
+851
+01:00:18,980 --> 01:00:23,800
+And we're gonna get 2 plus 5.
+
+852
+01:00:23,800 --> 01:00:28,340
+More specifically, what we would write, as an intermediate stage, is we would say we
+
+853
+01:00:28,340 --> 01:00:34,880
+get 2 plus X, where X is equal to 5.
+
+854
+01:00:34,880 --> 01:00:44,320
+Then we would get 2 plus 5, 7.
+
+855
+01:00:44,320 --> 01:00:51,120
+Okay.
+
+856
+01:00:51,120 --> 01:00:54,040
+The more complicated expression.
+
+857
+01:00:54,040 --> 01:01:02,920
+In JavaScript, we have our function here with an argument here.
+
+858
+01:01:02,960 --> 01:01:10,920
+What we would do is we would pass that function argument in for the value F. So we would replace
+
+859
+01:01:10,920 --> 01:01:14,320
+F with the function.
+
+860
+01:01:14,320 --> 01:01:18,320
+And then we would pass the 3 in for the X.
+
+861
+01:01:18,320 --> 01:01:20,200
+And we'd get an output of 4.
+
+862
+01:01:20,200 --> 01:01:24,920
+This is what we would do in JavaScript.
+
+863
+01:01:24,920 --> 01:01:29,480
+I hope I've convinced you at this point, lambda calculus, we aren't doing anything different.
+
+864
+01:01:29,480 --> 01:01:32,460
+It's the same thing as what we would do in JavaScript.
+
+865
+01:01:32,500 --> 01:01:40,000
+We will pass the function argument, lambda X dot X plus 1, in for F.
+
+866
+01:01:40,000 --> 01:01:43,620
+So we replace F with that value.
+
+867
+01:01:43,620 --> 01:01:46,700
+Then we pass in the 3 for the X.
+
+868
+01:01:46,700 --> 01:01:48,740
+Replace X with 3.
+
+869
+01:01:48,740 --> 01:01:49,740
+3 plus 1.
+
+870
+01:01:49,740 --> 01:01:50,740
+4.
+
+871
+01:01:50,740 --> 01:02:01,740
+I'll give you a second to digest that.
+
+872
+01:02:02,420 --> 01:02:09,420
+If you have any questions, feel free to ask.
+
+873
+01:02:09,420 --> 01:02:16,420
+Yeah?
+
+874
+01:02:16,420 --> 01:02:34,140
+It is not F multiplied by 3.
+
+875
+01:02:34,140 --> 01:02:35,140
+No.
+
+876
+01:02:35,140 --> 01:02:40,700
+So F3, the F space 3 in the center of that body, is...
+
+877
+01:02:40,740 --> 01:02:52,060
+If we pattern matched it to our rule, we would be matching that to the E equals E1, E2 rule.
+
+878
+01:02:52,060 --> 01:02:58,500
+And this is saying E1 is a function, E2 is the argument to that function.
+
+879
+01:02:58,500 --> 01:03:14,220
+So we would be passing the argument 3 to the function F. Yeah.
+
+880
+01:03:14,220 --> 01:03:18,940
+Any other questions here?
+
+881
+01:03:18,940 --> 01:03:23,280
+Okay.
+
+882
+01:03:23,280 --> 01:03:25,940
+Let's keep getting into it.
+
+883
+01:03:25,940 --> 01:03:27,520
+Maybe this looks easy for now.
+
+884
+01:03:27,520 --> 01:03:28,800
+Maybe it looks hard.
+
+885
+01:03:28,800 --> 01:03:30,520
+If it looks hard, that's fine.
+
+886
+01:03:30,520 --> 01:03:32,120
+If it looks easy, that's also fine.
+
+887
+01:03:32,120 --> 01:03:35,240
+We're gonna make it a little bit trickier, though.
+
+888
+01:03:35,240 --> 01:03:41,600
+But the idea that we've done here is we really just replaced the left-hand variable name
+
+889
+01:03:41,600 --> 01:03:45,880
+F with the input argument.
+
+890
+01:03:45,880 --> 01:03:47,600
+That's all that the substitution was.
+
+891
+01:03:47,600 --> 01:03:54,340
+So substitute the term you're applying to the function for the argument variable.
+
+892
+01:03:54,340 --> 01:03:56,600
+This isn't quite right, though.
+
+893
+01:03:56,680 --> 01:04:04,620
+But if we wanted to use this as, like, a base, which is what we'll do, we could define E1
+
+894
+01:04:04,620 --> 01:04:14,620
+with the context X equals E2 to mean replace every occurrence of X in E1 with E2.
+
+895
+01:04:14,620 --> 01:04:16,720
+And this is what I've written over here.
+
+896
+01:04:16,720 --> 01:04:19,740
+E1 is 2 plus X.
+
+897
+01:04:19,740 --> 01:04:23,480
+X equals 5 is our X equals E2.
+
+898
+01:04:23,480 --> 01:04:32,260
+So what we're saying is replace every instance of X with the value 5.
+
+899
+01:04:32,260 --> 01:04:38,780
+That's like the theory way of writing it.
+
+900
+01:04:38,780 --> 01:04:47,240
+Our general rule of reduction, then, would be that lambdaX.E1 being applied to E2 reduces
+
+901
+01:04:47,240 --> 01:04:51,680
+to E1 where X equals E2.
+
+902
+01:04:51,680 --> 01:04:57,120
+So any time we have a function application, you take the parameter name, set it equal
+
+903
+01:04:57,120 --> 01:05:05,420
+to the value E2.
+
+904
+01:05:05,420 --> 01:05:24,660
+So function application means rewrite E1 with every instance of X replaced with E2.
+
+905
+01:05:24,660 --> 01:05:29,220
+Questions here?
+
+906
+01:05:29,220 --> 01:05:33,820
+It's just like function application in other languages.
+
+907
+01:05:33,820 --> 01:05:41,860
+And that's actually by design, because function applications all look the same, for the most
+
+908
+01:05:41,860 --> 01:05:42,860
+part.
+
+909
+01:05:42,860 --> 01:05:43,860
+Okay.
+
+910
+01:05:43,860 --> 01:05:44,860
+No questions.
+
+911
+01:05:44,860 --> 01:05:49,980
+That means you guys can do them.
+
+912
+01:05:49,980 --> 01:05:50,980
+Take a second.
+
+913
+01:05:50,980 --> 01:05:52,400
+Or take two minutes.
+
+914
+01:05:52,400 --> 01:05:54,620
+Do both of these with your neighbor.
+
+915
+01:07:24,620 --> 01:07:39,500
+Let's do the first one.
+
+916
+01:07:39,500 --> 01:07:44,780
+What do we get as our next step of evaluation over here?
+
+917
+01:07:44,780 --> 01:07:46,740
+With intermediate stages.
+
+918
+01:07:46,740 --> 01:07:47,740
+What do we get?
+
+919
+01:07:47,740 --> 01:07:48,740
+Yeah.
+
+920
+01:07:48,740 --> 01:07:49,740
+Go for it.
+
+921
+01:07:49,740 --> 01:07:58,780
+That will be...
+
+922
+01:07:58,780 --> 01:08:00,380
+Give me the step right before that.
+
+923
+01:08:00,380 --> 01:08:05,500
+Like the intermediate representation, which I've kind of written over there already.
+
+924
+01:08:05,500 --> 01:08:06,500
+Yeah.
+
+925
+01:08:06,500 --> 01:08:07,500
+Right.
+
+926
+01:08:07,500 --> 01:08:08,500
+So same idea.
+
+927
+01:08:08,500 --> 01:08:13,140
+2 plus X where X is equal to 5.
+
+928
+01:08:13,140 --> 01:08:16,540
+And then that will reduce a second time.
+
+929
+01:08:16,540 --> 01:08:24,660
+Where we can do this substitution, where we get 2 plus 5.
+
+930
+01:08:24,660 --> 01:08:29,020
+Done.
+
+931
+01:08:29,020 --> 01:08:31,540
+Let's do the second one.
+
+932
+01:08:31,540 --> 01:08:35,420
+These are so fun.
+
+933
+01:08:35,420 --> 01:08:39,460
+What can we do here?
+
+934
+01:08:39,460 --> 01:08:43,260
+First of all, what's the order...
+
+935
+01:08:43,260 --> 01:08:47,700
+Like, which one of these goes first?
+
+936
+01:08:47,700 --> 01:08:50,460
+We got 4, 5, and 6.
+
+937
+01:08:50,460 --> 01:08:51,460
+How many people...
+
+938
+01:08:51,460 --> 01:08:53,660
+Well, so I guess...
+
+939
+01:08:53,660 --> 01:08:56,940
+We want to figure out what goes into X.
+
+940
+01:08:56,940 --> 01:09:00,340
+That's our outermost function variable.
+
+941
+01:09:00,340 --> 01:09:02,940
+We have three options.
+
+942
+01:09:02,940 --> 01:09:05,860
+How many people are gonna vote that it's 4?
+
+943
+01:09:05,860 --> 01:09:08,200
+How many people are voting it's 5?
+
+944
+01:09:08,200 --> 01:09:10,560
+How many people are voting it's 6?
+
+945
+01:09:10,560 --> 01:09:11,560
+Okay.
+
+946
+01:09:11,560 --> 01:09:15,600
+So we have mostly 4 with a little bit of 6.
+
+947
+01:09:15,600 --> 01:09:18,040
+Why would it be 4?
+
+948
+01:09:18,040 --> 01:09:19,440
+Yeah.
+
+949
+01:09:19,440 --> 01:09:26,920
+Outside of parentheses, things go left to right.
+
+950
+01:09:26,920 --> 01:09:30,320
+Function application is left associative.
+
+951
+01:09:30,320 --> 01:09:41,640
+So that means E1, E2, E3 is equivalent to E1, E2 first, then the result of that with
+
+952
+01:09:41,640 --> 01:09:43,800
+E3.
+
+953
+01:09:43,800 --> 01:09:49,220
+So if we wanted to draw parentheses in here, we would do...
+
+954
+01:09:49,220 --> 01:10:02,780
+If we call all of this E1, 4, 5, 6, it would be E1, 4, the result of that, 5, the result
+
+955
+01:10:02,780 --> 01:10:07,820
+of that, 6.
+
+956
+01:10:07,820 --> 01:10:10,280
+Okay?
+
+957
+01:10:10,280 --> 01:10:22,000
+With that knowledge ahead of us, what can we do?
+
+958
+01:10:22,000 --> 01:10:23,480
+How can we reduce this?
+
+959
+01:10:23,480 --> 01:10:31,480
+Can you just do 1 plus 3 and then...
+
+960
+01:10:31,480 --> 01:10:33,520
+You're skipping ahead a little bit.
+
+961
+01:10:33,520 --> 01:10:37,520
+Give me all the simple steps in between.
+
+962
+01:10:37,520 --> 01:10:38,520
+You got an idea?
+
+963
+01:10:38,520 --> 01:10:47,720
+I don't know if it's just simple steps, but the...
+
+964
+01:10:47,720 --> 01:10:50,040
+That's what it is.
+
+965
+01:10:50,040 --> 01:10:51,040
+What do you mean?
+
+966
+01:10:51,040 --> 01:10:52,040
+I mean...
+
+967
+01:10:52,040 --> 01:10:54,040
+I might be misunderstanding.
+
+968
+01:10:54,040 --> 01:10:56,120
+Oh, yeah, yeah.
+
+969
+01:10:56,120 --> 01:11:01,000
+So we could rewrite this X, Y, Z, dot Y plus 3.
+
+970
+01:11:01,000 --> 01:11:04,520
+4, 5, 6.
+
+971
+01:11:04,520 --> 01:11:06,120
+These are equivalent.
+
+972
+01:11:06,120 --> 01:11:07,920
+They're just different notation.
+
+973
+01:11:07,920 --> 01:11:12,520
+We'll stick with the top one so that we can go one parameter at a time.
+
+974
+01:11:12,520 --> 01:11:13,960
+Very clearly.
+
+975
+01:11:13,960 --> 01:11:14,960
+But those are equivalent.
+
+976
+01:11:14,960 --> 01:11:15,960
+Yeah?
+
+977
+01:11:15,960 --> 01:11:32,240
+If you do Y, Y, dot Y plus 3, dot Y plus 3, where X is equal to 4, and 5, 6...
+
+978
+01:11:32,240 --> 01:11:33,240
+Exactly.
+
+979
+01:11:33,240 --> 01:11:36,600
+So we can pass just the 4 into our function.
+
+980
+01:11:36,600 --> 01:11:40,160
+And what that means is that X is gonna take on the value 4.
+
+981
+01:11:40,160 --> 01:11:46,600
+We're gonna be left with still a function, lambda Y, dot lambda Z, dot Y plus 3, with
+
+982
+01:11:46,600 --> 01:11:49,160
+the two parameters still being passed in.
+
+983
+01:11:49,160 --> 01:11:51,880
+And now we have some state that we've tacked on.
+
+984
+01:11:51,880 --> 01:11:53,600
+X is equal to 4.
+
+985
+01:11:53,600 --> 01:11:57,600
+What would we do next?
+
+986
+01:11:57,600 --> 01:12:00,600
+Yeah?
+
+987
+01:12:00,600 --> 01:12:08,600
+And what are we left with over here?
+
+988
+01:12:08,600 --> 01:12:12,120
+Yep.
+
+989
+01:12:12,120 --> 01:12:16,000
+So we'll keep lambda Z, dot Y plus 3 of 6.
+
+990
+01:12:16,000 --> 01:12:18,880
+And now we have a state X is equal to 4.
+
+991
+01:12:18,880 --> 01:12:22,600
+And Y is equal to 5.
+
+992
+01:12:22,600 --> 01:12:25,840
+Okay?
+
+993
+01:12:25,840 --> 01:12:37,560
+Last piece here.
+
+994
+01:12:37,560 --> 01:12:38,560
+I know you guys know it.
+
+995
+01:12:38,560 --> 01:12:39,560
+Oh!
+
+996
+01:12:39,560 --> 01:12:40,560
+Yeah.
+
+997
+01:12:40,560 --> 01:12:45,320
+Yep.
+
+998
+01:12:45,320 --> 01:12:47,320
+So Y plus 3 is left.
+
+999
+01:12:47,320 --> 01:12:53,360
+We have X equals 4, Y equals 5, and Z equals 6.
+
+1000
+01:12:53,360 --> 01:13:01,200
+We can do the last little step of 5 plus 3, because we know Y is 5.
+
+1001
+01:13:01,200 --> 01:13:06,320
+And we're done.
+
+1002
+01:13:06,320 --> 01:13:07,600
+That's what's on the slides.
+
+1003
+01:13:07,600 --> 01:13:09,700
+We've just done the same exact thing.
+
+1004
+01:13:09,700 --> 01:13:15,440
+And I've left off the state, but that's not too important.
+
+1005
+01:13:15,440 --> 01:13:17,640
+All right.
+
+1006
+01:13:17,640 --> 01:13:20,640
+One more before we finish.
+
+1007
+01:13:20,920 --> 01:13:26,200
+Actually, we probably don't have time before we finish.
+
+1008
+01:13:26,200 --> 01:13:33,260
+So we are going to continue on Wednesday doing more semantics of lambda calc.
+
+1009
+01:13:33,260 --> 01:13:37,160
+This is exactly what you're gonna be doing on the homework, where I will give you lambda
+
+1010
+01:13:37,160 --> 01:13:42,520
+calculus, you turn it into JavaScript, or I give you JavaScript, you turn it into lambda
+
+1011
+01:13:42,520 --> 01:13:45,520
+calculus.
+
+1012
+01:13:45,520 --> 01:13:48,600
+Yeah?
+
+1013
+01:13:48,600 --> 01:14:10,120
+So I wonder how can we go from here to this expression?
+
+1014
+01:14:10,120 --> 01:14:12,440
+So which one was this?
+
+1015
+01:14:12,440 --> 01:14:17,080
+Where we can go...
+
+1016
+01:14:17,080 --> 01:14:18,080
+So we have...
+
+1017
+01:14:18,080 --> 01:14:21,960
+What are we starting with?
+
+1018
+01:14:21,960 --> 01:14:30,520
+Lambda F dot F of 3 being applied to lambda X dot X plus 1.
+
+1019
+01:14:30,520 --> 01:14:31,520
+Right?
+
+1020
+01:14:31,520 --> 01:14:32,520
+Yeah.
+
+1021
+01:14:32,520 --> 01:14:33,520
+So...
+
+1022
+01:14:33,520 --> 01:14:36,720
+And we're turning them into our E1, E2, right?
+
+1023
+01:14:36,720 --> 01:14:41,680
+So we can turn 3 into an expression.
+
+1024
+01:14:41,680 --> 01:14:43,840
+Because that's just a complex expression.
+
+1025
+01:14:43,840 --> 01:14:48,360
+So we can say lambda F dot F of E1.
+
+1026
+01:14:48,360 --> 01:14:51,800
+Lambda X dot X plus 1.
+
+1027
+01:14:51,800 --> 01:15:02,920
+And then because of this rule here, E1, E2, we can turn these into E2, E1.
+
+1028
+01:15:02,920 --> 01:15:05,840
+Lambda F dot...
+
+1029
+01:15:05,840 --> 01:15:09,040
+Well, okay.
+
+1030
+01:15:09,040 --> 01:15:12,800
+I guess we're using this rule to turn F into E.
+
+1031
+01:15:12,800 --> 01:15:19,920
+Then we use that rule to turn E2, E1 into E3.
+
+1032
+01:15:19,920 --> 01:15:24,920
+And now we use the middle rule to turn that into E4.
+
+1033
+01:15:24,920 --> 01:15:35,120
+Yeah, that's right.
+
+1034
+01:15:35,120 --> 01:15:39,940
+So lambdas bind until they find an unmatched closed parenthesis.
+
+1035
+01:15:39,940 --> 01:15:46,640
+So this lambda here, if we take these out, this lambda here goes until it finds an unmatched
+
+1036
+01:15:46,640 --> 01:15:47,880
+closed parenthesis.
+
+1037
+01:15:47,880 --> 01:15:49,920
+So it's going...
+
+1038
+01:15:49,920 --> 01:15:50,920
+Unmatched closed parenthesis.
+
+1039
+01:15:50,920 --> 01:15:52,640
+Because it binds outside.
+
+1040
+01:15:52,640 --> 01:15:56,000
+So from here, goes and stops here.
+
+1041
+01:15:56,000 --> 01:15:59,920
+That means this is the body of the lambda.
+
+1042
+01:15:59,920 --> 01:16:14,680
+So that, like, this here goes all the way to that point.
+
+1043
+01:16:14,680 --> 01:16:44,080
+Which means we're allowed to then put in these parentheses if we want.
+
+1044
+01:16:44,080 --> 01:16:46,320
+Make sure you include the dot there.
+
+1045
+01:16:46,320 --> 01:16:47,320
+Yes.
+
+1046
+01:16:47,320 --> 01:16:48,320
+Yeah.
+
+1047
+01:16:48,320 --> 01:16:53,520
+I think it's...
+
+1048
+01:16:53,520 --> 01:16:54,520
+It's kind of faint there.
+
+1049
+01:16:54,520 --> 01:16:55,560
+I might have been...
+
+1050
+01:16:55,560 --> 01:16:58,600
+I might have forgotten it, but it needs to have a dot.
+
+1051
+01:16:58,600 --> 01:16:59,600
+Yeah.
+
+1052
+01:16:59,600 --> 01:17:00,600
+The dot needs to stick around.
+
+1053
+01:17:00,600 --> 01:17:01,600
+Yeah.
+
+1054
+01:17:01,600 --> 01:17:02,600
+Yep.
+
+1055
+01:17:02,600 --> 01:17:03,600
+Yep.
+
+1056
+01:17:03,600 --> 01:17:12,720
+So, like, I did this how I think it should be based on the load.json file.
+
+1057
+01:17:12,720 --> 01:17:18,280
+But it keeps only giving me a 2 out of 5, so I'm not sure if it's the cache being...
+
+1058
+01:17:18,280 --> 01:17:19,280
+Yeah.
+
+1059
+01:17:19,280 --> 01:17:20,280
+It looks like...
+
+1060
+01:17:20,280 --> 01:17:24,080
+So you need to create your own cache.
+
+1061
+01:17:24,080 --> 01:17:30,480
+So you want to check, like, after you do work, save that work to the cache so that the next
+
+1062
+01:17:30,480 --> 01:17:36,160
+time you then check to say if this work is already done in the cache, return whatever
+
+1063
+01:17:36,160 --> 01:17:38,560
+is in the cache.
+
+1064
+01:17:38,560 --> 01:17:41,360
+So you're setting cache, but you aren't checking cache.
+
+1065
+01:17:41,360 --> 01:17:46,000
+I think is one way to think of it.
+
+1066
+01:17:46,000 --> 01:17:50,720
+So if I have some...
+
+1067
+01:17:50,720 --> 01:17:54,040
+I'll just write Python, because that's, you know...
+
+1068
+01:17:54,040 --> 01:18:03,000
+Then what I can do is I can say if x in cache, return cache at x.
+
+1069
+01:18:03,000 --> 01:18:04,000
+Right?
+
+1070
+01:18:04,000 --> 01:18:09,160
+So all you need to do is check if obj is already in cache, and then just pass obj back.
+
+1071
+01:18:09,160 --> 01:18:19,400
+But then the important thing is also how we store that cache at x is equal to...
+
+1072
+01:18:19,400 --> 01:18:20,400
+Right.
+
+1073
+01:18:20,400 --> 01:18:21,400
+But yeah.
+
+1074
+01:18:21,400 --> 01:18:25,960
+So these are, like, the important before and after steps of the compute.
+
+1075
+01:18:25,960 --> 01:18:29,040
+But I just check first if obj is already in that.
+
+1076
+01:18:29,040 --> 01:18:31,200
+My hunch is that should resolve your issues.
+
+1077
+01:18:31,200 --> 01:18:35,760
+And then my other thing is it says that I have to use load.js file, but it's not...
+
+1078
+01:18:35,760 --> 01:18:36,760
+It doesn't believe that it exists.
+
+1079
+01:18:36,760 --> 01:18:46,320
+Like, any time I do load.js file, it says that function doesn't exist.
+
+1080
+01:18:46,320 --> 01:18:47,920
+Is it on...
+
+1081
+01:18:47,920 --> 01:18:50,240
+Is it, like, exported or something?
+
+1082
+01:18:50,240 --> 01:18:54,360
+No, because I'm just doing it like this, and it just says that's not...
+
+1083
+01:18:54,360 --> 01:18:55,360
+So have you...
+
+1084
+01:18:55,360 --> 01:18:56,360
+Wait.
+
+1085
+01:18:56,360 --> 01:19:00,520
+So you have a...
+
+1086
+01:19:00,520 --> 01:19:10,520
+So I believe with this one, you need to be giving it the information that it needs.
+
+1087
+01:19:10,520 --> 01:19:15,320
+So let me double-check on that.
+
+1088
+01:19:15,320 --> 01:19:16,680
+But yeah, my...
+
+1089
+01:19:16,680 --> 01:19:17,680
+So do we define...
+
+1090
+01:19:17,680 --> 01:19:20,840
+Load.js file is defined in require.
+
+1091
+01:19:20,840 --> 01:19:23,440
+And it's not exported for you to use somehow?
+
+1092
+01:19:23,440 --> 01:19:27,560
+Well, we have require saved, but even if I, like, require is as an object.
+
+1093
+01:19:27,560 --> 01:19:28,560
+Yeah.
+
+1094
+01:19:28,560 --> 01:19:30,880
+So if I use require, it doesn't exist.
+
+1095
+01:19:30,880 --> 01:19:31,880
+But it's exported on require.
+
+1096
+01:19:31,880 --> 01:19:32,880
+Like...
+
+1097
+01:19:32,880 --> 01:19:33,880
+You mean this?
+
+1098
+01:19:33,880 --> 01:19:34,880
+Yeah.
+
+1099
+01:19:34,880 --> 01:19:35,880
+Yeah.
+
+1100
+01:19:35,880 --> 01:19:36,880
+So you can't require underscore...
+
+1101
+01:19:36,880 --> 01:19:37,880
+Oh.
+
+1102
+01:19:37,880 --> 01:19:38,880
+Is load.js exported?
+
+1103
+01:19:38,880 --> 01:19:39,880
+No, it is not.
+
+1104
+01:19:39,880 --> 01:19:40,880
+I don't think so.
+
+1105
+01:19:40,880 --> 01:19:41,880
+Yeah.
+
+1106
+01:19:41,880 --> 01:19:44,400
+So I think...
+
+1107
+01:19:44,400 --> 01:19:46,080
+But it's on the loader.
+
+1108
+01:19:46,080 --> 01:19:56,520
+So the idea is we have some before where we have the normal, like, load function that
+
+1109
+01:19:56,520 --> 01:19:57,520
+we're running.
+
+1110
+01:19:57,520 --> 01:19:58,720
+Or loader function.
+
+1111
+01:19:58,720 --> 01:19:59,720
+And then the goal is that...
+

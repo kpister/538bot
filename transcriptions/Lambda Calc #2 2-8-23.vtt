@@ -1,0 +1,2705 @@
+WEBVTT
+
+00:30.000 --> 00:38.620
+All right.
+
+00:38.620 --> 00:41.200
+Let's get going.
+
+00:41.200 --> 00:51.140
+So as I like to do, starting with a little bit of news, is there, like, I sound louder
+
+00:51.140 --> 00:52.140
+to myself.
+
+00:52.140 --> 00:53.960
+Do I sound louder to you guys?
+
+00:53.960 --> 00:54.960
+No?
+
+00:54.960 --> 00:55.960
+Maybe that's just me.
+
+00:55.960 --> 00:57.060
+All right.
+
+00:57.060 --> 01:04.480
+There was an interesting post end of January, so a little bit ago, about Rust in business.
+
+01:04.480 --> 01:09.360
+A lot of people ask, like, okay, we're learning these languages, Haskell, Rust, JavaScript
+
+01:09.360 --> 01:11.440
+I think is pretty easy to justify.
+
+01:11.440 --> 01:14.680
+But do these other languages have an option?
+
+01:14.680 --> 01:17.340
+Especially if I'm going to an established company.
+
+01:17.340 --> 01:19.760
+And the answer is definitely yes.
+
+01:19.760 --> 01:23.120
+So AWS does a lot of Rust.
+
+01:23.120 --> 01:29.520
+If you've heard about Lambda, AWS Lambda, that is run entirely on a Rust service called
+
+01:29.520 --> 01:32.080
+Firecracker.
+
+01:32.080 --> 01:39.360
+Google is using Rust in Android and Chromium, as well as some of their other products.
+
+01:39.360 --> 01:44.760
+Huawei is using it for their operating system stuff as well.
+
+01:44.760 --> 01:47.560
+Facebook is using Rust for blockchain.
+
+01:47.560 --> 01:50.000
+Microsoft is using Rust.
+
+01:50.000 --> 01:54.200
+It's just every big company that you know is now using Rust.
+
+01:54.200 --> 02:01.180
+They're migrating away from languages like C and C++ and using Rust when they can.
+
+02:01.180 --> 02:06.600
+Other kind of also big companies, but maybe less well known, Shopify is huge.
+
+02:06.600 --> 02:11.920
+They're using Rust not as a language for their service, but as a language to compile their
+
+02:11.920 --> 02:13.220
+other language.
+
+02:13.220 --> 02:15.520
+So they use Ruby for everything.
+
+02:15.520 --> 02:20.360
+But they need a good Ruby compiler, so they wrote that in Rust.
+
+02:20.360 --> 02:23.640
+Then there are, like, a bunch of startups using Rust.
+
+02:23.640 --> 02:24.640
+Everybody's using Rust.
+
+02:24.640 --> 02:26.040
+Rust all over the place.
+
+02:26.040 --> 02:27.040
+Great.
+
+02:27.040 --> 02:28.400
+So people are using it.
+
+02:28.400 --> 02:29.720
+It's worth learning.
+
+02:29.720 --> 02:33.580
+It's also worth learning just because it's fun.
+
+02:33.580 --> 02:38.740
+That's the news for the day.
+
+02:38.740 --> 02:39.740
+Some notes.
+
+02:39.740 --> 02:40.740
+PA2.
+
+02:40.740 --> 02:44.300
+There is a deadline extension.
+
+02:44.300 --> 02:46.460
+This is just the programming assignment.
+
+02:46.460 --> 02:48.600
+Homework is still due at the normal time.
+
+02:48.600 --> 02:50.660
+Early deadline is still the same time.
+
+02:50.660 --> 02:55.340
+Programming assignment 2 makes use of ideas that we're gonna be talking about next week.
+
+02:55.340 --> 02:57.340
+So I'm giving you some more time to do it.
+
+02:57.340 --> 03:03.340
+You can probably figure it out, but it'll be easier after Monday's lecture in particular.
+
+03:03.340 --> 03:04.380
+Next Monday's lecture.
+
+03:04.380 --> 03:08.380
+So one week extension on the hard deadline.
+
+03:08.380 --> 03:10.340
+The early deadline is still tomorrow.
+
+03:10.340 --> 03:14.660
+So if you want the bonus points, do it this week.
+
+03:14.660 --> 03:17.540
+But getting 100% is good.
+
+03:17.540 --> 03:18.540
+It's good enough.
+
+03:18.540 --> 03:20.540
+So if you want to wait, wait.
+
+03:20.540 --> 03:22.260
+Either way is fine.
+
+03:22.260 --> 03:25.340
+PA3, though, is still due at the same time.
+
+03:25.340 --> 03:29.060
+So we aren't pushing all programming assignments back.
+
+03:29.060 --> 03:30.300
+It's just this one assignment.
+
+03:30.300 --> 03:36.180
+That means if you don't do PA2 this week, you have to do PA2 and PA3 next week.
+
+03:36.180 --> 03:38.900
+PA3 is also JavaScript.
+
+03:39.460 --> 03:41.500
+Lastly, programming is hard.
+
+03:41.500 --> 03:44.980
+A lot of you might not have worked with JavaScript very much before.
+
+03:44.980 --> 03:48.060
+If you're having trouble, come stop by office hours.
+
+03:48.060 --> 03:51.180
+Start early so that you know what you're not understanding.
+
+03:51.180 --> 03:52.340
+And come ask questions.
+
+03:52.340 --> 03:53.860
+We're here to help.
+
+03:53.860 --> 03:59.020
+The point of this class is not that I'm trying to teach you how to write perfect JavaScript.
+
+03:59.020 --> 04:01.480
+That's the point of the programming assignment.
+
+04:01.480 --> 04:06.140
+So I'm not gonna spend lecture time saying here's how we write JavaScript.
+
+04:06.140 --> 04:08.020
+That's something that you have to figure out.
+
+04:08.020 --> 04:11.340
+And so if you're having a hard time with that, come chat.
+
+04:11.340 --> 04:15.020
+Because that's where we can help you.
+
+04:15.020 --> 04:16.020
+Those are the notes.
+
+04:16.020 --> 04:17.020
+Any other questions...
+
+04:17.020 --> 04:20.980
+Or any questions on this stuff?
+
+04:20.980 --> 04:28.380
+Before we go to LambdaCalc?
+
+04:28.380 --> 04:30.980
+How many people have finished PA2 already?
+
+04:30.980 --> 04:31.980
+Okay.
+
+04:31.980 --> 04:32.980
+A few.
+
+04:32.980 --> 04:33.980
+Not too many.
+
+04:33.980 --> 04:34.980
+How many people have started?
+
+04:34.980 --> 04:35.980
+Oh, almost everybody.
+
+04:35.980 --> 04:36.980
+Great.
+
+04:36.980 --> 04:40.340
+Okay.
+
+04:40.340 --> 04:44.580
+That's much better than UCSD.
+
+04:44.580 --> 04:46.020
+There was a different culture there.
+
+04:46.020 --> 04:47.020
+Okay.
+
+04:47.020 --> 04:51.540
+So we're going to jump into LambdaCalc again.
+
+04:51.540 --> 04:53.820
+We started last time, we looked at syntax.
+
+04:53.820 --> 04:57.420
+And we said what does a LambdaCalculus program look like?
+
+04:57.420 --> 05:01.180
+And then towards the end of class, we started evaluating those programs.
+
+05:01.180 --> 05:06.580
+I want to start right where we left off of saying let's evaluate LambdaCalculus programs.
+
+05:07.180 --> 05:09.620
+So we're going to do these three problems.
+
+05:09.620 --> 05:11.380
+I believe they're new, right?
+
+05:11.380 --> 05:12.620
+We didn't do these three last time.
+
+05:12.620 --> 05:14.140
+This is where we ended.
+
+05:14.140 --> 05:15.140
+All right.
+
+05:15.140 --> 05:17.660
+So take two minutes.
+
+05:17.660 --> 05:20.960
+Try and work these out on your own or with somebody next to you.
+
+05:20.960 --> 05:25.660
+And then we'll go over them as a class.
+
+06:25.660 --> 06:37.020
+All right.
+
+06:37.020 --> 06:41.620
+It sounds pretty quiet, so I think that means that you guys are ready to go.
+
+06:41.620 --> 06:44.340
+Let's start off with this one.
+
+06:44.340 --> 06:46.460
+Who can give me first step?
+
+06:46.460 --> 06:49.460
+What do we want to do to start this problem?
+
+06:49.460 --> 06:51.460
+Yeah.
+
+06:52.060 --> 06:55.900
+Assign 3 to Y.
+
+06:55.900 --> 07:01.500
+So we're taking this 3 and we're passing it into the function LambdaY.2.
+
+07:01.500 --> 07:02.620
+Y is the parameter.
+
+07:02.620 --> 07:03.940
+So we'll have 3.
+
+07:03.940 --> 07:04.940
+Sure.
+
+07:04.940 --> 07:20.860
+So that's going to look something like LambdaX.2, where Y is equal to 3 of 5, right?
+
+07:20.860 --> 07:21.940
+That's what you meant?
+
+07:21.940 --> 07:30.820
+So we're going to say Y is equal to 3, and then we get the body of the function returned.
+
+07:30.820 --> 07:32.980
+What can we do from here?
+
+07:32.980 --> 07:34.580
+Sure.
+
+07:34.580 --> 07:38.500
+We can assign 5 to X.
+
+07:38.500 --> 07:41.060
+So we do the same process.
+
+07:41.060 --> 07:42.740
+Put 5 in for X.
+
+07:42.820 --> 07:59.980
+We get 2, where Y is equal to 3 and X is equal to 5.
+
+07:59.980 --> 08:03.380
+Any questions on the two steps that we've taken here?
+
+08:03.380 --> 08:06.900
+Because we went kind of all at once through it.
+
+08:06.900 --> 08:07.900
+Yeah?
+
+08:07.900 --> 08:18.020
+Can you explain the order of the Lambda function?
+
+08:18.020 --> 08:19.020
+Yeah.
+
+08:19.020 --> 08:21.540
+So we took a specific approach here.
+
+08:21.540 --> 08:24.700
+We passed 3 in for Y first.
+
+08:24.700 --> 08:29.900
+Could we have passed 5 in for X first instead?
+
+08:29.900 --> 08:31.020
+I'm seeing a lot of nodding.
+
+08:31.020 --> 08:32.580
+Yeah, we could have.
+
+08:32.580 --> 08:38.900
+We chose to do 3 goes in for Y, but we could have done it in the other order.
+
+08:38.900 --> 08:44.140
+And what would we have gotten if we went that way?
+
+08:44.140 --> 08:45.700
+It would have been the same thing.
+
+08:45.700 --> 08:50.780
+We would have had different intermediary steps, but we would end up with 2, where Y is 3 and
+
+08:50.780 --> 08:52.700
+X is 5.
+
+08:52.700 --> 08:53.940
+Yeah.
+
+08:54.860 --> 09:04.180
+We'll talk more about order towards the end of class.
+
+09:04.180 --> 09:06.980
+Other questions on this part?
+
+09:06.980 --> 09:09.980
+All right.
+
+09:09.980 --> 09:19.740
+Let's do the other side.
+
+09:19.740 --> 09:20.740
+What should we do here?
+
+09:20.740 --> 09:21.740
+Yeah?
+
+09:22.740 --> 09:26.740
+That second 2, I believe, is a 3 on the 4th.
+
+09:26.740 --> 09:31.740
+I believe you.
+
+09:31.740 --> 09:38.740
+3 gets passed to the X.
+
+09:38.740 --> 09:43.220
+We can look at this whole piece here as a function.
+
+09:43.220 --> 09:47.860
+And the 3 is the argument to the outer part of the function, the X.
+
+09:47.980 --> 09:56.780
+We get lambda Y dot 2, where X is equal to 3, 5.
+
+09:56.780 --> 10:03.020
+What can we do now?
+
+10:03.020 --> 10:04.220
+Pass 5 for the Y.
+
+10:04.220 --> 10:13.460
+And what we get at the end is we have 2 remaining, and X is equal to 3, Y is 5.
+
+10:13.460 --> 10:15.660
+I hate writing 5s.
+
+10:15.780 --> 10:18.100
+I don't know why.
+
+10:18.100 --> 10:19.220
+OK.
+
+10:19.220 --> 10:22.460
+So we get 2, Y is 3, X is 5.
+
+10:22.460 --> 10:24.980
+That leaves us with this last question.
+
+10:24.980 --> 10:27.820
+Are these two equivalent?
+
+10:27.820 --> 10:29.100
+And we can put those up.
+
+10:35.380 --> 10:37.420
+Yes?
+
+10:37.420 --> 10:39.580
+No?
+
+10:39.580 --> 10:40.300
+No.
+
+10:40.300 --> 10:41.820
+Why are they not equivalent?
+
+10:46.340 --> 10:50.380
+Yeah, the variables are different.
+
+10:50.380 --> 10:52.940
+On one side, we had X is 3, Y is 5.
+
+10:52.940 --> 10:55.180
+On the other side, Y is 3, X is 5.
+
+10:55.180 --> 10:56.900
+Our state is different.
+
+10:56.900 --> 11:02.380
+We ended up with the same final expression result, but the state that goes with that
+
+11:02.380 --> 11:04.580
+result is different.
+
+11:04.580 --> 11:10.180
+This is very similar to in closures, or in JavaScript with closures, where two functions
+
+11:10.180 --> 11:17.180
+might look identical, but the state that's going with them is different.
+
+11:17.180 --> 11:21.540
+OK.
+
+11:21.540 --> 11:23.000
+Let's do another one.
+
+11:23.000 --> 11:24.000
+Take a minute.
+
+11:24.000 --> 11:28.180
+Do this on your own.
+
+11:28.180 --> 11:34.220
+The more of these that you do, the better, more efficient, and easily they will come
+
+11:34.220 --> 11:35.300
+to you.
+
+12:04.220 --> 12:29.380
+What is state?
+
+12:29.380 --> 12:34.140
+What is state?
+
+12:34.140 --> 12:38.300
+State is the representation of the environment.
+
+12:38.300 --> 12:51.340
+So when we say, like, solve X plus Y, if you don't tell me what X is or what Y is, I can't
+
+12:51.340 --> 12:53.060
+solve this problem.
+
+12:53.060 --> 13:01.260
+I need some environment, some state, where I say X is 3 and Y is 2 in order to actually
+
+13:01.260 --> 13:10.580
+solve for this equation.
+
+13:10.580 --> 13:12.380
+That's a way of thinking of it.
+
+13:12.380 --> 13:17.220
+You can kind of reframe it as the arguments to the expression.
+
+13:17.220 --> 13:23.940
+But think about when you write code and you assign variables to your...
+
+13:23.940 --> 13:29.140
+As you're writing code, when you execute, those variables accumulate information over
+
+13:29.140 --> 13:30.140
+time.
+
+13:30.140 --> 13:31.140
+They update.
+
+13:31.140 --> 13:36.020
+That's the state of your program.
+
+13:36.020 --> 13:38.980
+Yeah.
+
+13:38.980 --> 13:42.660
+OK.
+
+13:42.660 --> 13:46.260
+Let's reduce this expression here.
+
+13:46.260 --> 13:55.900
+How should we start?
+
+13:55.900 --> 13:56.900
+A is 7.
+
+13:56.900 --> 13:57.900
+Yeah.
+
+13:57.900 --> 14:02.660
+So we'll take this 7 and substitute it in for this parameter A here.
+
+14:02.660 --> 14:13.340
+And we'll be left with lambda X dot X plus A of 4, where A is equal to 7.
+
+14:13.340 --> 14:16.220
+Great.
+
+14:16.220 --> 14:19.580
+What next?
+
+14:19.580 --> 14:20.580
+X is 4.
+
+14:20.580 --> 14:22.420
+We can pass in this 4 for X.
+
+14:22.420 --> 14:28.660
+We'll get X plus A, where our state is A is 7.
+
+14:28.660 --> 14:30.620
+And X is 4.
+
+14:30.620 --> 14:31.620
+Great.
+
+14:31.620 --> 14:33.580
+So when we solve it, we get 11.
+
+14:33.580 --> 14:41.660
+When we actually plug in our variables, we get 11.
+
+14:41.660 --> 14:42.660
+How did this one go?
+
+14:42.660 --> 14:44.700
+Any questions?
+
+14:44.700 --> 14:50.340
+Anything arise as you were solving it?
+
+14:50.340 --> 15:04.340
+Is it wrong to apply the 4 to the X first, and then 7 to A?
+
+15:04.340 --> 15:10.340
+Is it wrong to do 4 goes into X, and then 7 goes into A?
+
+15:10.340 --> 15:11.340
+No.
+
+15:11.340 --> 15:12.340
+No.
+
+15:12.340 --> 15:13.340
+That's totally fine.
+
+15:13.340 --> 15:14.340
+That's the way to solve this problem.
+
+15:14.340 --> 15:15.340
+Will the 2 always result in the same?
+
+15:15.340 --> 15:16.340
+No.
+
+15:16.340 --> 15:17.340
+No.
+
+15:17.340 --> 15:18.340
+But almost always.
+
+15:18.340 --> 15:19.340
+OK.
+
+15:19.340 --> 15:20.340
+Yeah.
+
+15:20.340 --> 15:27.300
+So 4, you'll be able to recognize when they won't.
+
+15:27.300 --> 15:31.220
+So in general, you can always say they will reduce to the same thing.
+
+15:31.220 --> 15:32.220
+Yeah.
+
+15:32.220 --> 15:39.380
+But we'll cover a case where they don't in the end of class.
+
+15:39.380 --> 15:43.900
+So what we could do is we could substitute in the 4 for the X. That's actually the way
+
+15:43.900 --> 15:45.940
+I have it in the slides.
+
+15:45.940 --> 15:50.740
+7 for the A. Get 11.
+
+15:50.740 --> 15:55.180
+All right.
+
+15:55.180 --> 16:18.300
+What about this one?
+
+16:48.300 --> 17:01.940
+I missed a thing here.
+
+17:01.940 --> 17:03.340
+What should we do first here?
+
+17:03.340 --> 17:04.340
+Yeah.
+
+17:04.340 --> 17:13.820
+Why A plus 5 to the X depends on the date that A, one of the A's to a K.
+
+17:13.820 --> 17:16.060
+Let's cover that second part later.
+
+17:16.060 --> 17:17.060
+But yes.
+
+17:17.220 --> 17:26.020
+We're going to apply A plus 5 to X. So we will, following the same algorithm that we've
+
+17:26.020 --> 17:35.780
+been using, X plus A of 7, where X is equal to A plus 5.
+
+17:35.780 --> 17:40.660
+All right.
+
+17:40.660 --> 17:43.660
+Now what do we do?
+
+17:44.380 --> 17:47.380
+A is 7.
+
+17:47.380 --> 17:48.380
+All right.
+
+17:48.380 --> 17:55.860
+So we get X plus A, where X is equal to A plus 5, and A equals 7.
+
+17:55.860 --> 17:59.540
+Now when we try to solve this, we can say, okay, X is equal to A plus 5.
+
+17:59.540 --> 18:03.140
+So A plus 5, gosh.
+
+18:03.140 --> 18:05.660
+Plus A. A is 7.
+
+18:05.660 --> 18:07.660
+So we get 1419.
+
+18:07.660 --> 18:08.660
+Yeah.
+
+18:08.660 --> 18:18.300
+Yeah, so is there no scope?
+
+18:18.300 --> 18:24.900
+This A here is, like, these guys are clearly connected.
+
+18:24.900 --> 18:27.500
+But what's the deal with this A?
+
+18:27.500 --> 18:36.820
+Is that A the same A as this A?
+
+18:36.820 --> 18:38.700
+Does it need to be evaluated first?
+
+18:38.700 --> 18:44.780
+Could we have substituted in the 7 first and then maybe avoided this whole headache?
+
+18:44.780 --> 19:01.340
+If we solve it the alternative way, and we do lambda X dot A plus A dot 7.
+
+19:01.340 --> 19:15.300
+If we plug in 7 first for A, and we get 7 plus X, and then we sub in our A plus 5 for
+
+19:15.300 --> 19:27.860
+X, we get a very different answer than what we got before.
+
+19:27.860 --> 19:34.860
+Instead of 19, which is what we got last time, this time we get 12 plus A.
+
+19:34.860 --> 19:39.160
+Now there was a previous question about, does order matter?
+
+19:39.160 --> 19:42.620
+So here we're seeing order made a difference.
+
+19:42.620 --> 19:46.100
+And my answer before was that it shouldn't make a difference, except in a very specific
+
+19:46.100 --> 19:47.100
+case.
+
+19:47.100 --> 19:48.700
+This is not that specific case.
+
+19:48.700 --> 19:51.900
+Something went wrong here.
+
+19:51.900 --> 19:56.420
+What we wanted to get, what we should get, is 12 plus A.
+
+19:56.420 --> 20:09.300
+But in the other method, going the other way, we got 19.
+
+20:09.300 --> 20:13.780
+A couple of you have already pointed out, maybe this is a scoping issue.
+
+20:13.780 --> 20:21.860
+Maybe it's because we somehow captured the second A in our inner A. And that's the right
+
+20:21.860 --> 20:22.860
+intuition.
+
+20:22.860 --> 20:26.100
+So let's play that out.
+
+20:26.100 --> 20:29.620
+This is...
+
+20:29.620 --> 20:32.780
+We kind of already answered that one.
+
+20:32.780 --> 20:38.380
+So what we find is that substitution is actually a little bit more complicated than what we
+
+20:38.380 --> 20:39.380
+thought.
+
+20:39.380 --> 20:43.420
+It's not just that we can take a term as an argument and pass it in.
+
+20:43.420 --> 20:49.460
+If we do that, we might end up with this case, where we're passing in A plus 5, and then
+
+20:49.460 --> 20:56.820
+somehow it gets lost inside.
+
+20:56.820 --> 21:06.140
+We say that in this case, the A has been captured by an inner scope.
+
+21:06.140 --> 21:16.080
+And we'll come back to the kind of description of this and the notation in a minute.
+
+21:16.080 --> 21:17.660
+Example to do at home.
+
+21:17.660 --> 21:18.660
+Example to do at home.
+
+21:18.860 --> 21:26.860
+All right.
+
+21:26.860 --> 21:28.580
+I like this other one more.
+
+21:28.580 --> 21:29.580
+Let's look at this one.
+
+21:29.580 --> 21:34.500
+So one way to see this same problem is in JavaScript.
+
+21:34.500 --> 21:38.580
+We might have a function that takes a variable X.
+
+21:38.580 --> 21:48.620
+And as the first line of that function, we're going to print out the value A plus 5.
+
+21:48.620 --> 21:57.240
+What is the value of A at the start of that function, when we're printing A plus 5?
+
+21:57.240 --> 22:14.900
+What's the value of A?
+
+22:14.900 --> 22:15.900
+Would it work?
+
+22:15.900 --> 22:19.940
+All right.
+
+22:19.940 --> 22:20.940
+Fair enough.
+
+22:20.940 --> 22:21.940
+Yeah.
+
+22:21.940 --> 22:26.260
+A is undefined at this point.
+
+22:26.260 --> 22:29.620
+Or maybe it is defined, but, you know, it's, like, defined up...
+
+22:29.620 --> 22:31.260
+Can you guys see my cursor?
+
+22:31.260 --> 22:32.260
+No.
+
+22:32.260 --> 22:33.380
+It's, like, defined up top.
+
+22:33.380 --> 22:34.620
+So if we said...
+
+22:34.620 --> 22:42.620
+If we had a...
+
+22:42.620 --> 22:50.060
+If we have somewhere in an outer scope, let A equal something, then we'll use whatever
+
+22:50.060 --> 22:55.860
+value that is.
+
+22:55.860 --> 23:03.420
+When we then create a new function that takes a parameter A, and we log A plus X, and we're
+
+23:03.420 --> 23:11.100
+calling that with the value A plus 5, what are all of these different values of A?
+
+23:11.100 --> 23:14.180
+This A here, this A...
+
+23:14.180 --> 23:15.180
+What's that A?
+
+23:15.180 --> 23:16.180
+Yeah?
+
+23:16.180 --> 23:30.540
+This A?
+
+23:30.540 --> 23:31.540
+Is that the parameter?
+
+23:31.540 --> 23:35.860
+I mean, it's, like, the argument to this function.
+
+23:35.860 --> 23:38.100
+Yeah.
+
+23:38.100 --> 23:44.980
+Yeah, it's the same A that we were initially doing a console log with.
+
+23:44.980 --> 23:53.140
+It's the outer scoped A. Then we have the A as the parameter.
+
+23:53.140 --> 23:55.980
+What's the value of that A?
+
+23:55.980 --> 23:57.660
+I wish these had line numbers.
+
+23:57.660 --> 23:59.740
+On line 4 from the top.
+
+23:59.740 --> 24:00.740
+Yeah?
+
+24:00.740 --> 24:03.500
+The outer scoped A from 5?
+
+24:03.500 --> 24:04.500
+Yeah.
+
+24:04.500 --> 24:08.460
+It'll be whatever the result of this expression is.
+
+24:08.460 --> 24:10.380
+All right?
+
+24:10.380 --> 24:15.660
+And lastly, what is this A?
+
+24:15.660 --> 24:21.020
+Yeah.
+
+24:21.020 --> 24:23.020
+It's the same A that we just talked about.
+
+24:23.020 --> 24:29.380
+The one before the equal sign, which is equal to the value of this A plus 5.
+
+24:29.380 --> 24:36.020
+So we have two different A's here, and we don't want to get them mixed up.
+
+24:36.020 --> 24:39.700
+This inner A is a different A than the outer A.
+
+24:40.020 --> 24:42.380
+The same goes for lambda calculus.
+
+24:42.380 --> 24:51.060
+So this function here has its own scope, and this A is equivalent to this A, but not equivalent
+
+24:51.060 --> 24:57.940
+to this A. This is an outer scoped A that we don't know what its value is.
+
+24:57.940 --> 25:05.120
+This is a defined A. It's a captured A, or bound A.
+
+25:05.120 --> 25:11.320
+So we don't want to mix them up.
+
+25:11.320 --> 25:18.580
+Here's another way to write that same idea.
+
+25:18.580 --> 25:23.980
+The outer function references an A that it doesn't necessarily define itself.
+
+25:23.980 --> 25:25.900
+It's from someone else.
+
+25:25.900 --> 25:34.300
+But then the inner function captures, or binds, the A as its parameter.
+
+25:34.300 --> 25:37.900
+OK.
+
+25:37.900 --> 25:38.900
+How can we fix this?
+
+25:38.900 --> 25:39.900
+Oh, yeah?
+
+25:39.900 --> 25:46.780
+Can't we just use subscripts and be done with it?
+
+25:46.780 --> 25:47.780
+How?
+
+25:47.780 --> 25:58.820
+Yeah, so give this one A1, that one A1, that one A2.
+
+25:58.820 --> 26:01.340
+Yeah, that's a fine idea.
+
+26:01.340 --> 26:05.320
+So what happens if we...
+
+26:05.320 --> 26:11.640
+I wish that this were actual code instead.
+
+26:11.640 --> 26:18.080
+So using the same A1 and A2 to reference A1 and A2.
+
+26:18.080 --> 26:20.080
+What happens if we do this?
+
+26:20.080 --> 26:22.880
+Is that readable?
+
+26:22.880 --> 26:24.520
+Kind of.
+
+26:24.520 --> 26:27.200
+That's good enough.
+
+26:27.200 --> 26:31.200
+So rename them with subscripts.
+
+26:31.200 --> 26:40.200
+What's gonna happen?
+
+26:40.240 --> 26:42.240
+Does it solve our problem?
+
+26:42.240 --> 26:50.800
+Yeah, in fact, A2 is not defined at all.
+
+26:50.800 --> 26:57.640
+We defined A outside, but A2 nobody's talking about.
+
+26:57.640 --> 26:59.260
+That's definitely undefined.
+
+26:59.260 --> 27:07.920
+So we will still run into a different problem when we rename this A to be A2.
+
+27:07.920 --> 27:09.160
+We've done something illegal.
+
+27:09.160 --> 27:13.880
+We've changed the name of a variable we don't control.
+
+27:13.880 --> 27:19.000
+It's definitely fine to call this one A1, because we control that variable.
+
+27:19.000 --> 27:22.720
+We control all the scoped references of it.
+
+27:22.720 --> 27:24.880
+This one we don't control.
+
+27:24.880 --> 27:30.220
+We can't change the name of.
+
+27:30.220 --> 27:31.220
+Which is...
+
+27:31.220 --> 27:36.160
+It leads perfectly into how we will fix this problem.
+
+27:36.160 --> 27:40.920
+So what we're gonna do is we're going to rename our variables.
+
+27:40.920 --> 27:45.480
+But we have to have a rule about which variables we're allowed to rename.
+
+27:45.480 --> 27:49.440
+Because we don't want to end up in the situation where we rename a variable that we didn't
+
+27:49.440 --> 27:57.000
+control and now we can't reference the variable that we wanted to reference.
+
+27:57.000 --> 27:59.800
+So if we have...
+
+27:59.800 --> 28:05.880
+This is the same problem that I was showing with JavaScript, but it's just in Haskell
+
+28:05.880 --> 28:07.440
+instead.
+
+28:07.440 --> 28:08.440
+Which we haven't covered yet.
+
+28:08.440 --> 28:16.600
+But the idea is the same, where we say X is equal to A plus 5, and A is 7 in X plus A.
+
+28:16.600 --> 28:21.880
+So we can do a renaming, a dumb renaming.
+
+28:21.880 --> 28:24.760
+Or a renaming and then the dumb substitution.
+
+28:24.760 --> 28:25.760
+Where we say...
+
+28:25.760 --> 28:26.760
+Okay.
+
+28:26.760 --> 28:28.560
+This A, we control.
+
+28:28.560 --> 28:35.720
+We can change that A without changing the outer A.
+
+28:35.720 --> 28:41.640
+And then once we do the substitution, we get the expected result.
+
+28:41.640 --> 28:48.620
+All right.
+
+28:48.620 --> 28:54.320
+So I'm arguing this will work so long as we know what variables we can and which variables
+
+28:54.320 --> 28:59.600
+we cannot rename.
+
+28:59.600 --> 29:02.280
+The reason we're going to be doing it this way...
+
+29:02.440 --> 29:03.600
+Or I guess...
+
+29:03.600 --> 29:06.880
+What are we exactly doing?
+
+29:06.880 --> 29:14.880
+First of all, we're talking about a variable being bound if the parameter is within the
+
+29:14.880 --> 29:16.480
+scope.
+
+29:16.480 --> 29:24.240
+So when we talk about this A here, this A is bound to this A parameter.
+
+29:24.240 --> 29:34.720
+This X is bound to this X parameter.
+
+29:34.720 --> 29:39.760
+Can we always rename bound variables?
+
+29:39.760 --> 29:43.280
+Yes?
+
+29:43.280 --> 29:46.960
+No?
+
+29:46.960 --> 29:50.960
+No?
+
+29:50.960 --> 29:57.080
+Like ten people voted.
+
+29:57.080 --> 30:06.480
+Think about JavaScript.
+
+30:06.480 --> 30:12.320
+Can we always rename X in this function?
+
+30:12.320 --> 30:17.360
+Or always rename A1 in the other function?
+
+30:17.360 --> 30:19.360
+Yes?
+
+30:19.360 --> 30:21.360
+No?
+
+30:21.360 --> 30:22.700
+Yes!
+
+30:22.700 --> 30:23.700
+We wrote the code.
+
+30:23.700 --> 30:24.880
+We get to decide.
+
+30:24.880 --> 30:26.700
+The parameter name is up to us.
+
+30:26.700 --> 30:29.880
+So we totally can.
+
+30:29.880 --> 30:31.200
+These are just placeholders.
+
+30:31.200 --> 30:36.480
+It's a parameter name.
+
+30:36.480 --> 30:42.880
+So we specifically say that they are equivalent by an alpha rename.
+
+30:42.880 --> 30:44.440
+The character is very small there.
+
+30:44.440 --> 30:54.120
+That is the Greek alpha symbol.
+
+30:54.120 --> 31:04.080
+So we can rename lambdaX.X plus Y to lambdaZ.Z plus Y.
+
+31:04.080 --> 31:09.800
+And what we've already started to get at is can we rename everything?
+
+31:09.800 --> 31:13.520
+We've seen this in JavaScript that we couldn't.
+
+31:13.520 --> 31:16.100
+So what can't we rename?
+
+31:16.100 --> 31:23.120
+Can we rename the Y in lambdaX.X plus Y?
+
+31:23.120 --> 31:25.760
+No.
+
+31:25.760 --> 31:28.360
+We don't know what it's going to be.
+
+31:28.360 --> 31:35.320
+Somebody else defined it, and we are just using that value.
+
+31:35.320 --> 31:40.360
+And what I'm trying to get at here is that you can change the name of your parameters
+
+31:40.360 --> 31:42.280
+and arguments.
+
+31:42.280 --> 31:53.680
+You can't change the name of variables in the outer scope.
+
+31:53.680 --> 31:57.800
+Any questions on this renaming idea?
+
+31:57.800 --> 31:59.240
+Yeah?
+
+31:59.240 --> 32:21.160
+Why do we only have access to part of the codebase?
+
+32:21.160 --> 32:23.400
+Why can't we change the outer A?
+
+32:23.400 --> 32:24.400
+Yeah?
+
+32:24.400 --> 32:46.700
+Yeah, so if it's something that's, like, beyond the code, kind of, it's just the string literal
+
+32:46.700 --> 32:49.760
+that we need to use there, I think that's a fair reason.
+
+32:49.760 --> 32:51.520
+Why else?
+
+32:51.520 --> 32:54.320
+Why else might we not have full control?
+
+32:54.320 --> 33:04.400
+Yeah, definitely.
+
+33:04.400 --> 33:11.880
+So if we were to be using any external library, any external API or other code, we don't necessarily
+
+33:11.880 --> 33:14.400
+control that.
+
+33:14.400 --> 33:25.880
+How many of you have created a file called, like, time.py or math.py in your projects?
+
+33:25.880 --> 33:27.120
+I feel like that's...
+
+33:27.120 --> 33:31.800
+I did that when I was, like, first learning how to code and got an error for, like, half
+
+33:31.800 --> 33:37.720
+an hour trying to figure out what's going on, and it's just because you've overwritten
+
+33:37.720 --> 33:40.400
+the default library for time.
+
+33:40.400 --> 33:43.920
+And so Python gets confused, because there's this name conflict.
+
+33:43.920 --> 33:47.400
+You used time when they've already defined it.
+
+33:47.400 --> 33:50.440
+It's the same exact fundamental problem.
+
+33:50.440 --> 33:56.200
+So we operate and write code in very complicated systems.
+
+33:56.200 --> 34:00.960
+Whether it's an interpreter or just a large codebase that you don't necessarily get to
+
+34:00.960 --> 34:03.000
+control everything.
+
+34:03.000 --> 34:05.220
+So this definitely happens.
+
+34:05.220 --> 34:10.960
+Where you, like, can't control all of your environment.
+
+34:10.960 --> 34:13.620
+Yeah.
+
+34:13.620 --> 34:16.540
+Any other questions on renaming?
+
+34:16.540 --> 34:19.820
+All right.
+
+34:19.820 --> 34:26.340
+We're gonna get a bit more formal, then.
+
+34:26.340 --> 34:28.200
+We've covered informal substitution.
+
+34:28.200 --> 34:32.100
+We have an idea about, okay, we can, like, substitute these things so long as we rename
+
+34:32.100 --> 34:34.620
+some of them sometimes.
+
+34:34.620 --> 34:37.300
+Let's do it in a more formal way.
+
+34:37.300 --> 34:40.620
+So first of all, what is a free variable?
+
+34:40.620 --> 34:43.580
+We've talked about bound variables.
+
+34:43.580 --> 34:46.020
+A variable is not bound.
+
+34:46.020 --> 34:47.820
+Then it is free.
+
+34:47.820 --> 34:51.500
+So any nonbound variable is a free variable.
+
+34:51.500 --> 34:54.980
+We had this expression, lambdaX.X plus Y.
+
+34:54.980 --> 34:56.820
+X was bound.
+
+34:56.820 --> 34:59.660
+Y is free.
+
+34:59.660 --> 35:19.840
+I answered the next question there for you.
+
+35:19.840 --> 35:24.020
+Let's try and solve for these two equations, though.
+
+35:24.020 --> 35:30.860
+So we want to be able to algorithmically find what are the free variables of an expression.
+
+35:30.860 --> 35:36.620
+The free variables of the expression X are X.
+
+35:36.620 --> 35:43.220
+If all that we have is the variable X, we have just, like, nobody's told us anything
+
+35:43.220 --> 35:44.220
+about it.
+
+35:44.220 --> 35:47.680
+It is free.
+
+35:47.680 --> 36:09.700
+What about the free variables of lambdaX.E. Yeah?
+
+36:09.700 --> 36:13.680
+Is it empty?
+
+36:13.680 --> 36:14.680
+That's one idea.
+
+36:14.680 --> 36:15.680
+Yeah?
+
+36:15.680 --> 36:17.920
+Every variable except for X.
+
+36:17.920 --> 36:19.680
+Every variable except X.
+
+36:19.680 --> 36:27.640
+So the, like, all� what would even every variable look like?
+
+36:27.640 --> 36:30.600
+Something like that minus X.
+
+36:30.600 --> 36:40.600
+The set of all variables minus X. Yeah?
+
+36:40.600 --> 36:48.920
+The free variables of E minus X. Okay?
+
+36:48.920 --> 36:51.040
+Any other candidates?
+
+36:51.040 --> 36:53.480
+Yeah?
+
+36:53.480 --> 36:59.840
+Just E. E here is an expression.
+
+36:59.840 --> 37:00.840
+Not a variable.
+
+37:00.840 --> 37:02.080
+Just to be clear.
+
+37:02.080 --> 37:04.940
+But we can leave it up.
+
+37:04.940 --> 37:10.320
+So the expression E. Any other candidates?
+
+37:10.320 --> 37:17.360
+So, okay.
+
+37:17.360 --> 37:22.200
+Let's think about all of these.
+
+37:22.200 --> 37:26.520
+If we have an expression, we can just choose an expression.
+
+37:26.520 --> 37:33.080
+So let's use the expression X plus Y. E equals X plus Y.
+
+37:33.080 --> 37:35.480
+That's been our running example.
+
+37:35.480 --> 37:48.040
+Are the free variables of lambdaX.X plus Y, is that the empty set?
+
+37:48.040 --> 37:51.480
+No.
+
+37:51.480 --> 37:55.120
+We've said that Y is free.
+
+37:55.120 --> 38:03.200
+So we know Y is free, which means the free variables of this expression can't be empty.
+
+38:03.200 --> 38:05.240
+So we can't do that one.
+
+38:05.240 --> 38:11.360
+What about the set of all variables minus the free variable� or minus X?
+
+38:11.360 --> 38:12.640
+We've captured X.
+
+38:12.640 --> 38:13.640
+No.
+
+38:13.640 --> 38:14.640
+Oh, wait.
+
+38:14.640 --> 38:18.640
+We're looking at�
+
+38:18.640 --> 38:26.080
+That's okay?
+
+38:26.080 --> 38:28.120
+Any ideas on this one?
+
+38:28.120 --> 38:34.480
+No, because E might have bound variables.
+
+38:34.480 --> 38:37.080
+E might have bound variables.
+
+38:37.080 --> 38:39.480
+What if we have a different E?
+
+38:39.480 --> 38:55.200
+We could use lambdaZ.Z plus A. Here, Z is bound.
+
+38:55.200 --> 38:59.420
+A is free.
+
+38:59.420 --> 39:15.200
+So when we have the free variables of lambdaX.lambdaZ.Z plus A, it's not actually all variables minus
+
+39:15.200 --> 39:16.580
+X.
+
+39:16.580 --> 39:17.860
+We've also captured Z.
+
+39:17.860 --> 39:18.860
+Yeah?
+
+39:18.860 --> 39:35.300
+Yeah, so Z is bound in here, but it's not bound out here.
+
+39:35.300 --> 39:37.580
+Oh, that's fair.
+
+39:37.580 --> 39:38.820
+Yeah?
+
+39:38.820 --> 39:51.380
+Z, in the context of this whole function, is still free, if it exists.
+
+39:51.380 --> 40:03.820
+So this one doesn't actually disprove all variables minus X.
+
+40:03.820 --> 40:07.400
+Trying to think what a good example would be.
+
+40:07.400 --> 40:16.320
+I think that there actually might not be a great way of showing that this is not true.
+
+40:16.320 --> 40:22.440
+What we can look at is then comparing it with this next one.
+
+40:22.440 --> 40:27.880
+The free variables of E minus X.
+
+40:27.880 --> 40:30.800
+So here, what we would see is...
+
+40:30.800 --> 40:37.720
+I'm too low on this, aren't I?
+
+40:37.720 --> 40:43.440
+What would be an expression that could show that the free variables of E minus X does
+
+40:43.440 --> 40:46.440
+or does not work?
+
+40:46.440 --> 40:48.440
+Yeah?
+
+40:48.440 --> 40:50.440
+Wait.
+
+40:50.440 --> 40:52.440
+No.
+
+40:52.440 --> 40:54.440
+Sure.
+
+40:54.960 --> 41:09.800
+So if we say E is equal to X plus Y, and we look at the free variables of E, this would
+
+41:09.800 --> 41:17.160
+be equal to the set of X and Y.
+
+41:17.160 --> 41:25.120
+When we then subtract out X, we will be left with the set Y, which is what we are looking
+
+41:25.120 --> 41:26.840
+for.
+
+41:26.840 --> 41:33.300
+So this is the answer I have on my slides.
+
+41:33.300 --> 41:40.320
+I think this is also somewhat reasonable.
+
+41:40.320 --> 41:44.080
+The only thing is they aren't, like, defined there.
+
+41:44.080 --> 41:47.680
+Like, Z is not defined in X plus Y.
+
+41:47.680 --> 41:49.900
+Or it's not used in X plus Y.
+
+41:49.900 --> 41:51.880
+That doesn't mean it's not free in X plus Y.
+
+41:51.880 --> 41:58.720
+That one's thrown me for a bit of a loop.
+
+41:58.720 --> 42:06.080
+But the simplest set to represent the free variables of lambdaX.E are the free variables
+
+42:06.080 --> 42:10.440
+of E minus the variable X.
+
+42:10.440 --> 42:29.880
+That we capture the X from within E. Yeah?
+
+42:29.880 --> 42:38.860
+So if we have E is X plus Y, the free variables of E, following� actually, I guess we kind
+
+42:38.860 --> 42:39.860
+of need this one.
+
+42:39.860 --> 42:47.480
+But following this, we can say that X and Y are both free.
+
+42:47.480 --> 42:52.480
+Inside of E.
+
+42:52.480 --> 42:56.520
+So X is only captured as we move out.
+
+42:56.520 --> 42:58.520
+Exactly.
+
+42:58.520 --> 43:00.520
+Yeah.
+
+43:00.520 --> 43:08.960
+So then we work inwards, out.
+
+43:08.960 --> 43:13.980
+You start at the inside and kind of grow out to your expression.
+
+43:13.980 --> 43:18.480
+Find what's free and what's not.
+
+43:18.480 --> 43:21.720
+All right.
+
+43:21.720 --> 43:45.240
+Doing this last one for application.
+
+43:45.240 --> 43:49.640
+What are the free variables of E1 applied to E2?
+
+43:49.640 --> 43:55.120
+Let's give ourselves some examples to see what it should be.
+
+43:55.120 --> 44:01.940
+We could have lambdaX, X plus Y, and Z, for example.
+
+44:01.940 --> 44:06.000
+So E1 is lambdaX, X plus Y, E2 is Z.
+
+44:06.000 --> 44:10.400
+The free variables of E1 are what?
+
+44:10.400 --> 44:13.360
+Y.
+
+44:13.360 --> 44:18.600
+So we have FV of E1 equals Y.
+
+44:18.720 --> 44:23.520
+What are the free variables of E2?
+
+44:23.520 --> 44:34.960
+Z.
+
+44:34.960 --> 44:40.640
+And what would we expect to be the free variables of the full expression?
+
+44:40.640 --> 44:42.640
+Yeah.
+
+44:42.640 --> 44:54.120
+Yeah, we would think they would be Y and Z.
+
+44:54.120 --> 45:01.200
+That in this whole part, we don't know what Z is or what Y is.
+
+45:01.200 --> 45:10.840
+So we have the free variables is equal to, well, here, it's equal to Y, Z, which means
+
+45:10.840 --> 45:20.720
+if we write it out, that it's equal to the free variables of E1 union free variables
+
+45:20.720 --> 45:28.720
+of E2.
+
+45:29.120 --> 45:34.920
+Yeah.
+
+45:34.920 --> 45:55.400
+Oh, oh, yeah, yeah.
+
+45:55.400 --> 45:56.400
+Yeah.
+
+45:56.400 --> 46:20.200
+What are the
+
+46:20.200 --> 46:32.480
+free variables of this full expression?
+
+46:32.480 --> 46:36.580
+X and Y.
+
+46:36.580 --> 46:40.280
+We have this as our equation.
+
+46:40.280 --> 46:43.700
+It's the union of the two sets.
+
+46:43.700 --> 46:46.120
+Here we have Y, here we have X.
+
+46:46.120 --> 46:52.960
+Even though X is bound over here, in the overall expression, X is still free.
+
+46:52.960 --> 46:57.160
+And that's what's going to end up causing us trouble when we try and do substitution,
+
+46:57.160 --> 47:11.080
+if we don't do some sort of subscript to say this one's X1.
+
+47:11.080 --> 47:12.080
+Other questions?
+
+47:12.080 --> 47:13.080
+Right.
+
+47:13.080 --> 47:14.080
+That's right.
+
+47:14.080 --> 47:27.440
+So here, this X and this X are the same.
+
+47:27.440 --> 47:32.040
+This X is different.
+
+47:32.040 --> 47:40.160
+Because it's free, yeah.
+
+47:40.160 --> 47:46.540
+All right.
+
+47:46.540 --> 47:52.660
+So the last bit of formal stuff that we do here is how can we actually define capture
+
+47:52.660 --> 47:54.740
+avoiding substitution?
+
+47:54.740 --> 48:03.240
+That is to say we don't run into our problem with the solution being 19 from earlier.
+
+48:03.240 --> 48:09.500
+What is the value of X where X is equal to E?
+
+48:09.500 --> 48:12.940
+Think of yourself as a computer trying to solve these.
+
+48:12.940 --> 48:17.140
+Or we have to come up with the rules so that a computer could solve these.
+
+48:17.140 --> 48:20.300
+What's the value of X where X is equal to E?
+
+48:20.300 --> 48:23.240
+E. I like it.
+
+48:23.240 --> 48:26.280
+We just replace X with E. That's totally fine.
+
+48:26.280 --> 48:32.680
+What's the value of Y where X is equal to E?
+
+48:32.680 --> 48:35.520
+Y if what?
+
+48:35.520 --> 48:37.400
+Right.
+
+48:37.400 --> 48:41.000
+It will remain Y so long as Y is not X.
+
+48:41.000 --> 48:44.640
+If Y were X, then we would use rule one.
+
+48:44.640 --> 48:46.320
+All right.
+
+48:46.320 --> 49:04.280
+What about E1 applied to E2 where X is equal to E?
+
+49:04.280 --> 49:29.120
+Think recursively.
+
+49:29.120 --> 49:57.320
+We can also do one on the board just to kind of see what happens.
+
+49:57.320 --> 50:09.440
+So, this is E1 applied to E2 where X is equal to 3.
+
+50:09.440 --> 50:15.640
+How would we simplify this expression?
+
+50:15.640 --> 50:31.200
+Yeah, go for it.
+
+50:31.200 --> 50:32.200
+Is it already simplified?
+
+50:32.200 --> 50:33.200
+No.
+
+50:33.200 --> 50:37.080
+No, there's more we can do.
+
+50:37.080 --> 50:40.080
+I want to substitute in this value of X.
+
+50:40.080 --> 50:44.280
+How do I do that?
+
+50:44.280 --> 50:47.480
+Our current two rules, by the way, are just those.
+
+50:47.480 --> 50:48.480
+Yeah?
+
+50:48.480 --> 50:53.920
+Is it X where Y equals X?
+
+50:53.920 --> 50:54.920
+X where Y equals X.
+
+50:54.920 --> 50:55.920
+Ah!
+
+50:55.920 --> 50:59.480
+So, you're, like, doing the substitution.
+
+50:59.480 --> 51:02.880
+So we could, like, kind of continue evaluating.
+
+51:02.880 --> 51:07.380
+But what I want to do, actually, is just clear up our state.
+
+51:07.380 --> 51:10.240
+Give all of our Xs the value 3.
+
+51:10.240 --> 51:12.300
+That's our goal right now.
+
+51:12.300 --> 51:26.800
+How can we do that?
+
+51:26.800 --> 51:30.920
+Would it help if you talked to the person next to you?
+
+51:30.920 --> 51:31.920
+Give it 30 seconds.
+
+51:31.920 --> 51:32.960
+What can we do here?
+
+52:01.920 --> 52:26.940
+Okay.
+
+52:26.940 --> 52:29.920
+What's the, again, algorithmic.
+
+52:29.920 --> 52:35.160
+Like what your computer is going to do when trying to take the next step here to simplify
+
+52:35.160 --> 52:36.160
+the state.
+
+52:36.160 --> 52:37.160
+Yeah.
+
+52:37.160 --> 52:42.080
+All the way in the back.
+
+52:42.080 --> 52:43.080
+I'm sorry.
+
+52:43.080 --> 52:46.400
+What was that?
+
+52:46.400 --> 52:48.720
+Distribute the definition to each expression.
+
+52:48.720 --> 52:50.040
+This is the definition?
+
+52:50.040 --> 52:51.040
+Yeah.
+
+52:51.040 --> 52:58.320
+So we can say that this is equal to lambda Y dot X, where X is equal to three, applied
+
+52:58.320 --> 53:06.360
+to lambda Z dot X plus Z, where X is equal to three.
+
+53:06.360 --> 53:10.480
+We're telling each expression that X is equal to three.
+
+53:10.480 --> 53:15.200
+Then if we wanted to continue, we can, you know, keep substituting, blah, blah, blah.
+
+53:15.200 --> 53:22.320
+But we need to be able to actually give X in each of those two contexts the value three.
+
+53:22.320 --> 53:23.320
+Yeah.
+
+53:23.320 --> 53:30.320
+I'm a little confused, because I thought we could only substitute bounds, or, like, the
+
+53:30.320 --> 53:37.280
+bounds are the same, so why are we assigning them to that?
+
+53:37.280 --> 53:38.280
+Yeah.
+
+53:38.280 --> 53:39.280
+Let me do that.
+
+53:39.280 --> 53:40.280
+Yeah.
+
+53:40.280 --> 53:42.920
+So are these free or bound?
+
+53:42.920 --> 53:52.120
+Is X free or bound in this expression?
+
+53:52.120 --> 53:53.120
+Free?
+
+53:53.280 --> 53:54.280
+Bound?
+
+53:55.840 --> 53:59.120
+It is actually free.
+
+53:59.120 --> 54:05.600
+If we look at the free variables of this expression, we would say X is free, X is free, the union
+
+54:05.600 --> 54:08.640
+of X and X is X.
+
+54:08.640 --> 54:11.880
+How would we have gotten to a state like this, though?
+
+54:11.880 --> 54:18.040
+Maybe it's bound in a larger function?
+
+54:18.040 --> 54:22.000
+It's bound in a larger function, where we've given it value.
+
+54:22.000 --> 54:32.400
+It's like if we go back to our JavaScript, and we have that outer let A equal.
+
+54:32.400 --> 54:35.080
+And we've said A is equal to three.
+
+54:35.080 --> 54:39.000
+Then we know exactly what to do with A. We can substitute it with three.
+
+54:39.000 --> 54:41.000
+So same thing's happening here.
+
+54:41.000 --> 54:48.120
+And one way, if we kind of, like, backstep here, we could pretend that there was a lambda
+
+54:48.120 --> 54:55.960
+X three, right before this step, that we've now substituted in that three for X, and so
+
+54:55.960 --> 55:01.720
+now we have this state, X equals three.
+
+55:01.720 --> 55:08.640
+This step here is very similar to what's called an eta reduction, or an eta conversion.
+
+55:08.640 --> 55:10.440
+But we'll cover that later.
+
+55:10.440 --> 55:11.440
+Yeah?
+
+55:11.440 --> 55:15.720
+So we can't bound it into only free variables?
+
+55:15.720 --> 55:17.800
+We can substitute only free variables.
+
+55:18.000 --> 55:20.320
+Yeah, so that's right.
+
+55:20.320 --> 55:27.480
+If we had, let's see, what can I do here?
+
+55:27.480 --> 55:35.600
+X plus lambda X dot X plus two, it doesn't make any sense anymore, because we're adding
+
+55:35.600 --> 55:37.040
+a function.
+
+55:37.040 --> 55:41.200
+But this X here is bound to this X.
+
+55:41.400 --> 55:48.800
+That means when we substitute X equals three, we don't want to replace this inner X with
+
+55:48.800 --> 55:51.000
+the value three.
+
+55:51.000 --> 55:53.160
+Because it's tied to a different parameter.
+
+55:53.160 --> 55:56.080
+It's scoped to a different parameter.
+
+55:56.080 --> 55:59.720
+That's just like shadowing in, like, traditional programming.
+
+55:59.720 --> 56:03.560
+But we haven't gotten to the lambda one yet.
+
+56:03.560 --> 56:07.200
+We're about to.
+
+56:08.200 --> 56:11.520
+Okay.
+
+56:11.520 --> 56:20.880
+So where we are right now is that with two expressions, we can say the X equals E distributes
+
+56:20.880 --> 56:26.760
+to each expression.
+
+56:26.760 --> 56:32.800
+Now the question that we have over here is what are we supposed to do if we have lambda
+
+56:32.800 --> 56:38.880
+X dot E and X is assigned a value?
+
+56:38.880 --> 56:54.000
+What should we get here with this substitution?
+
+56:54.000 --> 57:04.760
+The simplest case of this would be lambda X dot X where X is equal to two.
+
+57:04.760 --> 57:19.320
+What should that reduce to?
+
+57:19.320 --> 57:24.200
+How many people feel like they have an idea?
+
+57:24.200 --> 57:28.000
+How many people are confused as to what I'm asking?
+
+57:28.000 --> 57:29.560
+A few.
+
+57:29.560 --> 57:32.000
+No, it's fair.
+
+57:32.000 --> 57:33.000
+It's tricky.
+
+57:33.000 --> 57:36.640
+Especially, like, there's math notation in computer science.
+
+57:36.640 --> 57:44.940
+It doesn't happen very often when you're actually, like, coding.
+
+57:44.940 --> 57:47.260
+But some number of you had an idea.
+
+57:47.260 --> 58:07.780
+What are you thinking?
+
+58:07.780 --> 58:08.780
+Go for it.
+
+58:08.780 --> 58:13.780
+Yeah, it's a bound variable.
+
+58:13.780 --> 58:15.600
+So can't we just rename it?
+
+58:15.600 --> 58:22.820
+So what would happen if we say it's equal to ZZ?
+
+58:22.820 --> 58:25.220
+Does this make it easier?
+
+58:25.220 --> 58:31.020
+What should this simplify to?
+
+58:31.020 --> 58:35.860
+Yeah?
+
+58:35.860 --> 58:46.960
+Does it simplify to Z?
+
+58:46.960 --> 58:54.840
+So we aren't passing 2 in as a parameter.
+
+58:54.840 --> 59:10.580
+We have an expression and we have some state as well.
+
+59:10.580 --> 59:12.620
+We can push state inside the function.
+
+59:12.620 --> 59:13.620
+Sure.
+
+59:13.620 --> 59:26.700
+We can get lambdaZ.Z where X is equal to 3 inside of that Z.
+
+59:26.700 --> 59:30.380
+What does that simplify to?
+
+59:30.380 --> 59:38.740
+We can use rule number 2.
+
+59:38.740 --> 59:39.740
+Go for it.
+
+59:39.740 --> 59:44.780
+Is Z equal to X?
+
+59:44.780 --> 59:45.780
+No.
+
+59:45.780 --> 59:50.300
+Z is equal to Z. Z is Z.
+
+59:50.300 --> 59:56.260
+So it's equal to Z. So we can just get rid of this state.
+
+59:56.260 --> 01:00:01.740
+That's the intuitive thing to do when we're trying to substitute X equals 2 in an expression
+
+01:00:01.740 --> 01:00:04.740
+that doesn't use X. We can just ignore X.
+
+01:00:04.740 --> 01:00:12.100
+Right?
+
+01:00:12.100 --> 01:00:13.740
+Does that feel intuitive?
+
+01:00:13.740 --> 01:00:14.740
+Does it...
+
+01:00:14.740 --> 01:00:22.420
+Do you have questions about why we can do that?
+
+01:00:22.420 --> 01:00:25.700
+We're trying to say X is equal to 2, but we aren't using X.
+
+01:00:25.700 --> 01:00:31.660
+So within that scope, we can just ignore the fact that X is equal to 2.
+
+01:00:31.660 --> 01:00:46.320
+What that looks like is saying lambdaX.E, where X is equal to E, is just lambdaX.E.
+
+01:00:46.320 --> 01:00:54.080
+This problem started, by the way, slightly differently with XX.
+
+01:00:54.080 --> 01:01:00.840
+But the point was, because this X is bound to that X parameter, we were able to rename
+
+01:01:00.840 --> 01:01:04.880
+it.
+
+01:01:04.880 --> 01:01:08.020
+Which is why, then, it was very clear that we could do this.
+
+01:01:08.020 --> 01:01:13.120
+We can do it either way, without the rename or with the rename.
+
+01:01:13.120 --> 01:01:20.640
+But the rename kind of makes it a little bit clearer as to why we can do that.
+
+01:01:20.640 --> 01:01:21.640
+Question?
+
+01:01:21.640 --> 01:01:22.640
+Yeah.
+
+01:01:22.640 --> 01:01:36.880
+Yeah, so this X in the outer scope that is equal to E, what if this X is in E1?
+
+01:01:36.880 --> 01:01:37.880
+Yeah.
+
+01:01:37.880 --> 01:01:42.080
+Then it would be bound.
+
+01:01:42.080 --> 01:01:48.520
+And it wouldn't be this X. This X cannot exist inside of the scope E1.
+
+01:01:48.520 --> 01:01:57.880
+Any Xs inside of E1 are bound to this X or another inner X that is binding them.
+
+01:01:57.880 --> 01:02:03.600
+It's never going to be this X. Because that one comes first.
+
+01:02:03.600 --> 01:02:08.280
+It's similar to when you're writing code and you say X is equal to 3.
+
+01:02:08.280 --> 01:02:11.880
+That X is equal to 3, the outer ones aren't.
+
+01:02:11.880 --> 01:02:16.000
+Unless you're, like, doing something weird.
+
+01:02:16.000 --> 01:02:18.720
+All right.
+
+01:02:18.720 --> 01:02:22.080
+Can we get the last one here?
+
+01:02:22.080 --> 01:02:33.920
+What happens lambda Y dot E1 and X is equal to E2?
+
+01:02:33.920 --> 01:02:53.000
+Push it inside.
+
+01:02:53.000 --> 01:02:54.000
+Yeah.
+
+01:02:54.000 --> 01:03:14.640
+Maybe...
+
+01:03:14.640 --> 01:03:22.740
+So what we want to say is that it's lambda Y dot E1 where X is equal to E2.
+
+01:03:22.740 --> 01:03:30.020
+So basically what we've done is we've dropped the lambda Y as part of the consideration.
+
+01:03:30.020 --> 01:03:38.260
+And so then we can take another step based on whatever E1 is where X is equal to E2.
+
+01:03:38.260 --> 01:03:43.220
+That's what we would like to say.
+
+01:03:43.220 --> 01:03:48.740
+But there are some important caveats here.
+
+01:03:48.740 --> 01:03:51.140
+Yeah.
+
+01:03:51.340 --> 01:03:53.360
+Yeah.
+
+01:03:53.360 --> 01:03:56.060
+So can I read what I just wrote?
+
+01:03:56.060 --> 01:03:57.700
+Lambda Y dot E1.
+
+01:03:57.700 --> 01:04:05.460
+The expression lambda Y dot E1 where the state X is equal to E2.
+
+01:04:05.460 --> 01:04:14.540
+On the next line, we have lambda Y dot E1 where the state is X equals E2.
+
+01:04:14.540 --> 01:04:21.780
+So here what I'm saying is that the state is part of this expression only.
+
+01:04:21.780 --> 01:04:35.720
+Here what I'm saying is the state is part of the entire expression.
+
+01:04:35.720 --> 01:04:38.280
+We might have Y in E2.
+
+01:04:38.280 --> 01:04:44.920
+So Y in E2.
+
+01:04:44.920 --> 01:04:54.480
+What would happen if we have Y in E2?
+
+01:04:54.480 --> 01:04:59.120
+So if E2 is equal to exactly, for example, Y.
+
+01:04:59.120 --> 01:05:00.120
+Yeah.
+
+01:05:00.120 --> 01:05:01.120
+Yeah.
+
+01:05:01.120 --> 01:05:02.120
+Yeah.
+
+01:05:02.120 --> 01:05:26.400
+So if E2 is equal to Y, and let's say E1 equals X, then when we perform our replacement based
+
+01:05:26.400 --> 01:05:32.420
+on the state, we would get lambda Y dot Y as our result.
+
+01:05:32.420 --> 01:05:39.760
+Because E1 is X, and X is equal to E2, and E2 is equal to Y.
+
+01:05:39.760 --> 01:05:42.460
+So we would end up with lambda Y dot Y.
+
+01:05:42.460 --> 01:05:48.800
+In which case, we have captured the Y.
+
+01:05:48.800 --> 01:05:57.760
+Because E2 is not being controlled by this Y here.
+
+01:05:57.760 --> 01:05:59.840
+So this Y was free, potentially.
+
+01:05:59.840 --> 01:06:03.140
+Well, I guess, no, it's definitely free here.
+
+01:06:03.140 --> 01:06:05.880
+And then we've accidentally captured it.
+
+01:06:05.880 --> 01:06:13.320
+So if Y is in E2, we have an issue, and we will need to do an alpha rename on this Y.
+
+01:06:13.320 --> 01:06:19.680
+This Y and any Y inside of E1.
+
+01:06:19.680 --> 01:06:23.640
+The other case is defined by this one here.
+
+01:06:23.640 --> 01:06:34.960
+If Y is equal to X, then we would just use this rule instead and drop the state.
+
+01:06:34.960 --> 01:06:41.320
+So our expression is that lambda Y dot E1, where X is equal to E2, is equal to lambda
+
+01:06:41.320 --> 01:06:45.120
+Y dot E1, where X is equal to E2.
+
+01:06:45.120 --> 01:06:51.240
+So long as Y does not equal X, if Y equaled X, we would use this rule here.
+
+01:06:51.240 --> 01:06:55.200
+And so long as Y is not in the free variables of E2.
+
+01:06:55.200 --> 01:06:59.280
+If Y were in the free variables of E2, then we would be capturing the Y.
+
+01:06:59.280 --> 01:07:00.280
+Yeah?
+
+01:07:00.280 --> 01:07:01.280
+Just to clarify, between these last two bullet points, does the E inside of the brackets
+
+01:07:01.280 --> 01:07:22.280
+having a 2 or not make a difference?
+
+01:07:22.280 --> 01:07:23.280
+No.
+
+01:07:23.280 --> 01:07:24.280
+OK.
+
+01:07:24.360 --> 01:07:33.200
+Yeah, it's just to say that these are different E's.
+
+01:07:33.200 --> 01:07:34.720
+These are different E's as well.
+
+01:07:34.720 --> 01:07:35.720
+Those are different E's.
+
+01:07:35.720 --> 01:07:36.720
+Yeah.
+
+01:07:36.720 --> 01:07:37.720
+Yeah?
+
+01:07:37.720 --> 01:07:48.600
+So if Y is in the state of the free variable E2, do you just go with X?
+
+01:07:48.600 --> 01:07:51.600
+If Y is in the state...
+
+01:07:51.920 --> 01:07:56.920
+If Y is in the free variable of E2, then you would just throw away that?
+
+01:07:56.920 --> 01:07:57.920
+Ah, yeah.
+
+01:07:57.920 --> 01:08:04.600
+So what do we do if Y is in E2 here, in the free variables of E2?
+
+01:08:04.600 --> 01:08:08.360
+Then what we need to do is we need to actually alpha rename.
+
+01:08:08.360 --> 01:08:15.520
+That's when we do our renaming of this Y here and any Y in E1.
+
+01:08:15.520 --> 01:08:16.720
+That's the way to solve that.
+
+01:08:16.720 --> 01:08:19.080
+It's not that we just throw away this state.
+
+01:08:19.080 --> 01:08:22.720
+We can't ignore the fact that X equals E2 here.
+
+01:08:22.720 --> 01:08:26.200
+Because we might be using X inside of E1.
+
+01:08:26.200 --> 01:08:35.320
+So we have to actually rename the bound version of Y so that we can do the substitution.
+
+01:08:35.320 --> 01:08:38.320
+Yeah?
+
+01:08:38.320 --> 01:08:41.320
+Yeah.
+
+01:08:41.320 --> 01:08:44.320
+Yeah.
+
+01:08:44.560 --> 01:08:46.560
+Yeah.
+
+01:08:46.560 --> 01:08:47.560
+Yeah.
+
+01:08:47.560 --> 01:08:50.560
+So we need to rewrite the code to do it this way.
+
+01:08:50.560 --> 01:08:51.560
+Yeah.
+
+01:08:51.560 --> 01:08:54.560
+To rename the parameters.
+
+01:09:04.560 --> 01:09:05.560
+Yeah.
+
+01:09:05.560 --> 01:09:08.560
+So let's use this one.
+
+01:09:14.560 --> 01:09:17.560
+Yeah.
+
+01:09:25.560 --> 01:09:33.800
+We have a function and we have a parameter or an argument being passed in to that function.
+
+01:09:33.800 --> 01:09:35.840
+Our first step here is...
+
+01:09:35.840 --> 01:09:39.440
+Well, actually, the first thing we can do is what are the free variables of this whole
+
+01:09:39.440 --> 01:09:42.440
+expression?
+
+01:09:42.440 --> 01:09:57.880
+What are the free variables of a union of...
+
+01:09:57.880 --> 01:09:58.880
+Or...
+
+01:09:58.880 --> 01:09:59.880
+Okay.
+
+01:09:59.880 --> 01:10:01.440
+It's the union of an application.
+
+01:10:01.440 --> 01:10:06.440
+So what are the free variables of the left-hand side of this application?
+
+01:10:06.440 --> 01:10:09.640
+None.
+
+01:10:09.640 --> 01:10:10.800
+It's the empty set.
+
+01:10:11.160 --> 01:10:13.040
+This X here is bound by this X.
+
+01:10:13.040 --> 01:10:16.400
+What are the free variables of the right-hand side of the application?
+
+01:10:16.400 --> 01:10:17.800
+Y.
+
+01:10:17.800 --> 01:10:22.200
+So the free variables of the whole expression are the union of empty set and Y.
+
+01:10:22.200 --> 01:10:24.200
+Which means...
+
+01:10:24.200 --> 01:10:25.500
+Y.
+
+01:10:25.500 --> 01:10:36.200
+When we perform this substitution, what's the first step that we do?
+
+01:10:36.600 --> 01:10:39.600
+Yeah.
+
+01:10:39.600 --> 01:10:54.600
+Set X equal Y.
+
+01:10:54.600 --> 01:11:01.100
+We're gonna pass Y in for the parameter to X.
+
+01:11:01.220 --> 01:11:16.580
+So we're going to get lambda Y dot X, where X is equal to Y.
+
+01:11:16.580 --> 01:11:22.820
+What's our next step?
+
+01:11:22.820 --> 01:11:28.380
+Go for it.
+
+01:11:28.380 --> 01:11:31.420
+How about rename Y in the lambda Y?
+
+01:11:31.420 --> 01:11:34.340
+This Y here.
+
+01:11:34.340 --> 01:11:36.800
+And why do we have to do that?
+
+01:11:36.800 --> 01:11:43.340
+If we take a look at this example here, or this rule here, we are exactly in violation
+
+01:11:43.340 --> 01:11:44.860
+of it.
+
+01:11:44.860 --> 01:11:52.900
+Where we're trying to do lambda Y dot X, where X is equal to Y.
+
+01:11:52.900 --> 01:11:58.460
+And so that means Y is in the free variables of the Y.
+
+01:11:58.460 --> 01:12:04.340
+This Y here is in the free variables of that Y there.
+
+01:12:04.340 --> 01:12:12.320
+And if we don't do the renaming, then we will end up with lambda Y dot Y, where we've captured
+
+01:12:12.320 --> 01:12:13.580
+the Y.
+
+01:12:13.580 --> 01:12:21.020
+We've accidentally bound a free variable that started out free, now it's not free.
+
+01:12:21.140 --> 01:12:31.020
+If we rename this Y to something like Z, how can we simplify this expression?
+
+01:12:31.020 --> 01:12:50.540
+What rule would we use?
+
+01:12:50.540 --> 01:12:57.420
+We'll use the last rule, where we're saying, let's pass this state into the expression
+
+01:12:57.420 --> 01:13:01.340
+instead of looking at it at the whole level.
+
+01:13:01.340 --> 01:13:05.200
+So now we're saying X, where X equals Y.
+
+01:13:05.200 --> 01:13:08.500
+How do we substitute that?
+
+01:13:08.500 --> 01:13:11.500
+What rule do we use?
+
+01:13:11.500 --> 01:13:20.820
+Yeah.
+
+01:13:20.820 --> 01:13:26.500
+We have X, where X equals E. E in this case is Y.
+
+01:13:26.500 --> 01:13:28.460
+So we can do our substitution.
+
+01:13:28.460 --> 01:13:32.340
+We will end up with lambda Z dot Y.
+
+01:13:32.340 --> 01:13:42.660
+Y.
+
+01:13:42.660 --> 01:13:48.340
+So that's Y, the if.
+
+01:13:48.340 --> 01:13:51.400
+Okay.
+
+01:13:51.400 --> 01:13:56.500
+This largely speaking covers these first two rules.
+
+01:13:56.500 --> 01:14:02.300
+We have alpha rename, where we're saying we can rename any bound variable.
+
+01:14:02.300 --> 01:14:10.300
+And we have beta reduction, where we're saying we can actually perform an application.
+
+01:14:10.300 --> 01:14:16.460
+We can pass an argument into a function and then reduce it.
+
+01:14:16.460 --> 01:14:23.940
+The last one here is the eta conversion, which says that if we have a pattern such as lambda
+
+01:14:23.940 --> 01:14:32.300
+X, E of X, that can be reduced to E automatically.
+
+01:14:32.300 --> 01:14:37.180
+I'll leave you to figure out exactly how this works.
+
+01:14:37.180 --> 01:14:42.620
+I would recommend writing it in JavaScript, and then it becomes kind of apparent.
+
+01:14:42.620 --> 01:14:45.300
+But I'm going to stop here.
+
+01:14:45.300 --> 01:14:48.820
+We do have some more lambda calculus to do on Monday.
+
+01:14:48.820 --> 01:14:53.780
+But you are equipped to solve all of the homework assignment problems.
+
+01:14:53.780 --> 01:14:57.820
+Just using basically these first two techniques.
+
+01:15:23.780 --> 01:15:48.780
+Hey, what's up?
+
+01:15:53.780 --> 01:16:20.780
+Hey, what's up?
+
+01:16:20.780 --> 01:16:49.780
+Hey, what's up?
+
+01:16:49.780 --> 01:17:18.780
+Hey, what's up?
+
+01:17:18.780 --> 01:17:47.780
+Hey, what's up?
+
+01:17:47.780 --> 01:18:16.780
+Hey, what's up?
+
+01:18:16.780 --> 01:18:45.780
+Hey, what's up?
+
+01:18:45.780 --> 01:19:14.780
+Hey, what's up?
+
+01:19:14.780 --> 01:19:15.780
+Hey, what's up?
+
+01:19:15.780 --> 01:19:15.780
+
+
+01:19:44.780 --> 01:19:45.780
+Hey, what's up?
+
+01:19:45.780 --> 01:19:46.780
+Hey, what's up?
+
+01:19:46.780 --> 01:19:57.780
+Hey, what's up?
+
+01:19:57.780 --> 01:20:11.780
+Hey, what's up?
+

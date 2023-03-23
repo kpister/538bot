@@ -1,0 +1,1111 @@
+All right, welcome to class.
+Let's get started.
+So some of you may have seen some cool news today.
+Let me hit the lights.
+Google, or the CEO of Google, just put this out.
+An important next step for our AI journey.
+Some of you have probably been following GPT-3 and 3.5, chat GPT, that sort of stuff.
+Google has an AI model similar to GPT-3 that's literally three times larger.
+And they've had it forever.
+They just haven't been letting anybody use it.
+They announced today what they're calling BARD, which is effectively chat GPT, but Google
+branded.
+It's their version.
+With potentially a model that's significantly more powerful.
+So some fun stuff in the news today.
+We don't get access to it for a little bit longer, but that's Google for you.
+So just thought I'd give you that update in case you haven't seen it.
+Today...
+Oh, yeah?
+What do companies do keeping it internal?
+What do companies do keeping it internal?
+What do you mean?
+So something like chat GPT.
+I know it's not making any money for Microsoft just yet.
+But it's, like, good marketing.
+Right?
+But unless Google is integrating this into one of their services, what is the point of
+keeping it on your laptop?
+Yeah.
+So what's the point of keeping...
+As a business, what's the point of keeping a service that you've created internal and
+not allowing kind of open access to it?
+I think the first thing is...
+Why allow open access to something?
+The pro is...
+You might make money.
+You can potentially sell the service.
+That's great.
+The con is that people are gonna be messing around with your service.
+And maybe they're gonna be able to do things that you aren't expecting them to do.
+You might get really bad PR, especially.
+Google is very conscious of their PR.
+When it comes to AI, they don't want to be too scary.
+So keeping things internal keeps their PR presence contained.
+It means that when chat GPT says something racist or very out there and problematic,
+that's on open AI.
+Open AI has released that model.
+Anybody can use it.
+Google doesn't have that problem, because Google has not released their model.
+The benefits of keeping something internal, though, go beyond just having something internal.
+They can still use it.
+Open AI has built something that a lot of engineers are using now.
+So Copilot is something done by open AI that's great and useful.
+But beyond that, their GPT model is useful for all sorts of data processing.
+Google definitely uses Lambda, their GPT equivalent, internally to do data processing.
+Yeah.
+So there's a lot of benefit to having it.
+Even if it's not directly generating funds.
+That's not what we're talking about today.
+That's a future lecture, if we have time.
+Today, what we're talking about is fundamentals of Lambda calculus.
+Today, what we're talking about is fundamentals of Lambda calculus.
+Before we get started, a couple of quick notes.
+Homework 2 and PA2 are released.
+Homework 2 is decently harder than Homework 1.
+It's longer.
+There are more questions on it.
+Homework 1 had seven pretty short questions that you could kind of just throw into Node
+and see what happens.
+Homework 2 has, I think, four times as many questions.
+Start earlier.
+PA2, though, is a bit easier.
+It's just got, like, three or four functions that you have to implement.
+Video recordings seem to be a success.
+I have another one going now.
+So hopefully you'll always be able to watch these recordings as you study later.
+Any questions on those two before the third one?
+Oh, yeah.
+That's me.
+Sorry.
+I normally turn that off at the start of class.
+I got excited by this Google announcement.
+It's really cool.
+It's three times bigger than OpenAI.
+Not necessarily.
+No.
+It is likely better, but it's not guaranteed to be.
+Whole different training regimen.
+So...
+Could be anything.
+Questions.
+Questions.
+Questions.
+Okay.
+Then the form here that I have is a quick...
+Like it should take two minutes.
+It's a form that I have hosted on my website.
+If you go to uw.pister.dev...
+There's this DEIB form here.
+It'll take you to a Google form where I'm asking a simple set of questions.
+It's not...
+Oh.
+Okay.
+It apparently needs you to log in.
+It does not collect your email or anything of the sort.
+It's completely anonymous.
+I am not recording names or anything like that.
+But this is part of the micro grant that I received where I'm trying to figure out how
+to engage best for your learning.
+So if you could answer those questions as honestly as you can.
+If you don't have a computer with you today, I mean, you could probably do it on your phone,
+because it's a Google form.
+But the slides are up with the links, so please do it later.
+I'll give you guys two to three minutes right now, though, just to fill it out.
+Don't spend...
+You don't need to put a lot of effort.
+Just whatever first comes to mind.
+Yeah.
+Yeah.
+The link is...
+Somewhere.
+Is it working?
+You guys can access it?
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+All right.
+If you were able to fill out the form, thank you.
+I appreciate your input.
+It will improve my teaching down the line.
+If you weren't able to fill out the form, either you need more time or you didn't have
+your computer, please find time later tonight to do that.
+It really just takes, like, two minutes.
+Now we're going to move on to LambdaCalc, though.
+So I did a sign reading.
+A sign reading.
+I uploaded, like, a few photos from my phone of a book.
+How many of you were able to read the PDF that I uploaded?
+Okay.
+Decent number of you.
+Then some decent number of you understand what this line of code means.
+But we're going to dive into it pretty explicitly.
+So what I'm saying here is an expression can become a variable X, or it can become a function
+that takes a parameter X and has an expression for a body, or it can become an expression
+with another expression passed in as an argument.
+That's the English way of reading this line of code.
+So how can we use that?
+If we wanted to...
+This is...
+Sorry.
+Backing up a step.
+This is the grammar for LambdaCalculus.
+This is the CFG, the context-free grammar, for the language LambdaCalculus.
+That's all that you need.
+So what this means is that we can start from E and turn this into a valid LambdaCalculus
+program.
+That's one step that we could take from E to generate a valid LambdaCalculus program.
+Yeah, so we can use E goes to an X and turn this into the variable X.
+X is a LambdaCalculus program.
+All it is is a variable called X.
+That's the program.
+Pretty simple.
+What if we wanted a slightly more complex program?
+What's a different step that we could take right here that would lead us down that path?
+What else could we do?
+Apply E to itself.
+So we can use this third rule to turn E into E1, E2, where these are different Es.
+What's another step that we can take from this program?
+This is a partial program.
+It's not complete.
+What can we do to this one?
+To E1, E2?
+Yeah, so let's turn this...
+Either one.
+Either one or both.
+We could turn into X.
+So we could say that this E1 becomes an X, and then we still have our E2.
+So E1, by this production rule, we could turn E into X.
+So we've turned E into X.
+We've turned E1 into X specifically.
+We still have E2.
+What else can we do to continue simplifying or turning this into a real program?
+Yeah, so let's turn this E2, using the second rule, into lambdaX.E.
+So this would turn into X, lambdaX.E.
+I'm putting parentheses just to keep that together, because this one E, E2, turned into
+lambdaX.E by our second production rule.
+But it's still not done.
+We have an E in here.
+What can we do?
+Yeah, sure, we could turn this E into an X, using the first rule.
+And our final result here would be X, lambdaX.X.
+This is another valid program in lambda calculus.
+I don't know what it means or what it does.
+Right now, we don't actually care.
+But we know that it's valid, because we used the syntax, the grammar that we've been given,
+to generate it.
+We're gonna spend a little bit more time with the slides, like, diving into what's valid,
+what's not valid.
+But these steps that we take here are the fundamental steps of developing a program
+from a grammar.
+You do it with everything that you do.
+When you write code, JavaScript has a grammar that's way more complicated than this, but
+it fundamentally turns into something like that.
+English as well has a grammar where we start from expressions and build things out with
+noun phrases and replace the noun in the noun phrase with this or that.
+So context-free grammars have applications everywhere.
+Here what we're using them for is to generate valid programs.
+Yeah?
+Yeah, so what's the deal with these 1, 2?
+Why doesn't this one have one?
+The numbers here are arbitrary.
+We could give them any name we wanted.
+We could say that this is E1, and E1 turns into E2, E3, which turns into XE3, which turns
+into E4.
+So each of these are their own expression, independent of the other expressions.
+That's what the context-free part of context-free grammar means.
+Yeah?
+Yeah, so what's the deal with this X?
+Or this X or this X, right?
+Or even this X.
+So all of these are variables in our language.
+They're just like in JavaScript when we say let X equal 3.
+This X here.
+They're the variables that are gonna capture some meaning.
+We can actually use whatever we want here.
+So we could say this is actually the variable Y.
+You know, use a different name.
+I've just put X to keep things simple.
+We can name it whatever we want.
+Just don't name it E, because E is our expression.
+I think for clarity, could you explain the difference between the X, which is a variable,
+and an expression, which is E, right?
+Right.
+So what's the difference between this and this?
+The key difference, E has somewhere to go.
+It is non-terminal.
+E can turn into one of these three things.
+X is what's called a terminal.
+There's nowhere that X can go.
+It can't turn into anything else.
+We don't have a rule that says X is equal to, I don't know, what would even make sense
+here.
+Let's say X is equal to 3.
+If we had a rule like this, that means when we're generating our program, we have to turn
+these Xs into their corresponding value, in this case, 3.
+Because we don't have a production rule with X in it, X is a terminal value, and that's
+just part of our language.
+It's a feature of our language.
+So this is the syntax.
+It's the grammar.
+Do you have another question?
+Yeah.
+Again, could you also just explain what lambda is?
+Ah, yeah, sure.
+What is lambda?
+What is dot?
+What do these things mean?
+At this point, it doesn't matter.
+We're talking not about meaning.
+We're just talking about what is valid and what's not valid.
+What programs can exist?
+The meaning is something that we're going to dive into of, like, what does each of these
+characters represent?
+But that's semantics.
+This is syntax.
+And I want those two to be pretty separate in your mind.
+What is a valid thing in lambda calculus?
+And then once I know that it's valid, what does that valid thing mean?
+The one thing that I've put in here that's not actually in our grammar is these parentheses.
+Parentheses help us just to associate things together, just like we would do in math, where
+you say, like, multiply these two things first, then do the division.
+So any time we turn E into one of these three, we're effectively putting parentheses around
+it.
+And we could, if we wanted, put parentheses around each of those production rules.
+Yeah?
+Shouldn't it just start by, like, readability, which is, like, names, and stuff like that?
+Well, so...
+Do they actually change the...?
+Right.
+Yes and no.
+And this, our equivalent...
+In this case, it is just readability.
+At some points, parentheses will matter.
+So having them helps from the start.
+But they will matter.
+Yeah.
+Okay.
+Any other questions on syntax here?
+If this is the first time you've seen context-free grammars, I recognize it's tricky.
+They're different.
+And it's a new way of expressing language.
+Read the chapter that I uploaded to Piazza.
+It's ten pages.
+It's not...
+And it's a small book.
+So it will probably take 15, 20 minutes tops.
+And it will hopefully clarify some of this.
+Yeah?
+Does the X in front of the root get the statement that's kind of part of the head, or is the
+head just the lambda X?
+The head.
+I guess, I don't know.
+I'm just trying to figure out the format of it.
+I'm trying to figure out the format of it so I can read something that says that the
+head is the lambda...
+Oh!
+In lambda calculus, you mean.
+Yeah, yeah, yeah.
+So there's...
+This is its own expression.
+This X.
+You're asking about this piece, right?
+Yeah.
+So this piece here, this lambda X dot, which corresponds to this piece here, that's what
+we're going to dive into with semantics.
+Yeah.
+Okay.
+So let's start talking about semantics.
+Because that's what you guys keep asking about.
+Which is fair.
+Because that's what the language actually is.
+Okay.
+So we've seen this grammar.
+That's what I just had up on the board.
+E can turn into a variable, which we could call X, Y, Z, whatever we wanted.
+It can turn into a function that takes a parameter named X and returns an expression E. Or it
+can turn into a function application of E1 onto E2.
+So we have variables, such as X, Y, Z.
+We have functions, or lambda abstractions is another way of saying that.
+I'm going to dive into that part next.
+But the way to, like, just very straightforwardly think of it is lambda X dot E is equivalent
+to X arrow E in JavaScript.
+We've just started working with arrow syntax.
+But if you're getting more familiar with it, that might help.
+And then the last thing that we have is function application.
+Which in JavaScript looks like E1 is the function, where E2 is the argument.
+So these are the JavaScript conversion rules.
+Okay.
+We're sticking with syntax just for a second.
+One term that we might have is something like lambda X dot 2 plus X.
+And immediately you might say, hey, wait.
+You've lied to me.
+What is 2?
+What is plus?
+We don't have those things in our language.
+We only have X, lambda X, E1, E2.
+And that's fair.
+But you can't actually represent numbers and addition with these terms alone.
+We will do that at the end of next lecture, I believe.
+So for now, just bear with me.
+We can pretend that they exist in our language as normal entities.
+So lambda X dot 2 plus X would be the equivalent of a JavaScript function that takes a variable
+X and it returns 2 plus X.
+If we wanted to call that function with the value 5, that would look something like this.
+Lambda X dot 2 plus X applied to the value 5.
+So if we looked at it in JavaScript, that would look something like X arrow 2 plus X
+with the input value of 5.
+Before we get to this complicated one...
+Oh, no?
+Okay.
+I hit it too many times.
+I want to take a step and go backwards from what we're looking at there.
+Which is hard, because they don't give us much whiteboard space.
+But we'll make it work.
+So we have lambda X dot 2 plus X applied to 5.
+They have one more set of parentheses.
+That's fine.
+So I want to use the syntax that we have, our grammar that we've defined, and break
+this apart into the rules that we have.
+Using X, lambda X dot E, and E1, E2.
+How can we reverse engineer this statement into the expressions that it's composed of?
+What would be the steps to do that?
+Yeah.
+Let's do a little bit of a simpler one.
+If we have lambda X dot X, we can go backwards from this state to our expression by saying
+this is equivalent to lambda X dot E, where we've turned E into X.
+So we're reversing our production rule.
+And then this is equivalent to E. Where E is using the production rule, E turns into
+lambda X dot E. Using the production rule, E turns into X.
+So if we started with E, we could take this step and then take that step using our production
+rules.
+I want to do that same process on this more complicated term.
+Yeah.
+Yeah, so let's turn 2 plus X into E. That's a reasonable thing to do here.
+I guess we don't need this second parenthesis anymore.
+So what we've done here is, say, we have some complicated expression, 2 plus X.
+Let's turn that into E. You know, for whatever E is.
+Then we have this step here.
+What's another backward step we can take?
+Turn 5 into E. Yeah, sure.
+This 5 can be a different E. We'll give this one a new name.
+We'll call this one E2.
+Lambda X dot E1.
+So just to keep them separate.
+They aren't the same variable E. They're a different expression.
+Yeah.
+Yeah, so this lambda X E1, we can call that E3.
+And then we still have E2.
+What's our last step?
+We know that E1, E2 is one of the productions of E. So we can generate some E4.
+So what we've done here is, we've stepped backwards from a final term, a program, into
+the base expression.
+Which means that we have a valid program in lambda calculus.
+We were able to backward step here.
+All the way to E. Yeah?
+Yeah.
+So what if...
+In JavaScript, or in any language, really, we can do something like F of 3 times 2.
+Where we have a complicated expression as a parameter to a function.
+This is an E. But it's an E in the same exact way that F of 3 is.
+Both of those are expressions that have a value.
+That we want to, you know, backwards figure out.
+Now, the specifics of how we can turn 5, which we're kind of hand waving as being part of
+our language, into E is fair.
+What I would say is...
+We can write this as a full, long lambda expression.
+But 5 is just shorter.
+To do that.
+Yeah.
+But it would look kind of like 3 times 2.
+When you write it all out.
+Other questions about this backwards process that we've taken?
+Yeah.
+The three production rules that I gave you are the three rules of lambda calculus.
+That's all that there is.
+People put more rules on top of it to create variants of lambda calculus.
+Things like typed lambda calculus or lambda calculus with objects.
+But the base lambda calculus only has those three rules.
+Other questions?
+Okay.
+In that case...
+We have another example term here.
+Lambda F dot F of 3 applied to lambda X dot X plus 1.
+Yeah?
+Yeah.
+Yeah, so we went in a very specific order here.
+Does that order matter?
+Could we have gone in another order?
+And would it have still worked?
+You are nodding.
+Right.
+Exactly.
+So we could have swapped some of these things around and done them in a different order.
+We could have done this 5 to E2 right away.
+And then done the next rule right after it.
+And that would be fine.
+That's another feature of the fact that these are context-free grammars.
+The order here doesn't matter.
+So long as you're applying the rules correctly.
+If you try and turn, like, the whole...
+Like this piece here into an expression, that's, like, cheating.
+It doesn't work in the language.
+So you'll get a different answer.
+But so long as you apply valid rules from the language, you'll always end up in the
+same place.
+Little bit of an asterisk there that we'll cover at the end of the next lecture.
+So importantly, we can't go back up any way that we want.
+Once we have created our system here, we're actually storing more information than I've
+written.
+For example, we would say this step here works so long as...
+Where can I write this?
+So long as E is equal to X plus 2.
+Or 2 plus X.
+And then we can take this next step so long as E1 is equal to...
+Oh, I guess that's what we've said here.
+So E1 equals that.
+And then E2 is equal to 5.
+And then we can take this next step so long as E3 is equal to lambdaX.E1, et cetera.
+So we're encoding that transformation in this backwards process.
+But that's not super important towards the class.
+It's just that that is the way that we're doing it.
+That's brilliant.
+All right.
+Thank you.
+Thank you for that note.
+We will use this for the next stuff on the board.
+Other questions?
+Okay.
+Then try and do this same backwards process that we've done on the second example.
+On this third one, feel free to chat with someone next to you to figure it out.
+But try and get all the way back to sum E.
+All right.
+Let's put it together as a class.
+I've got the expression up here.
+Let's go backwards.
+What's one first step that we could take?
+Yeah.
+We can turn this X plus 1 into an E1, let's say.
+LambdaX.E1.
+Okay.
+And then we keep everything else.
+Cool.
+What's another step that we could take from here?
+We could turn the 3 into an E. Yeah.
+Sure.
+So here we kind of elided that step.
+We turned our X plus 1 all into an E. That's fine.
+We can do the same...
+Over here, I guess we're going to just do the 3, and that's okay.
+So F of E2, lambdaX.E1.
+What else can we do?
+Yeah.
+Behind you.
+Sorry.
+FE2 into E4.
+Yeah.
+We can totally turn that into E4.
+Cool.
+All right.
+So that's good.
+We're good.
+We're good.
+That's fine.
+We can do that.
+All right.
+So let's...
+We can do a class.
+That's fine.
+We're good.
+Let's go back.
+What else can we do?
+Yeah.
+Oh.
+Behind you.
+Sorry.
+FE2 into E4.
+Yeah.
+We can totally turn that into E4, E3.
+And then...
+Yeah.
+One from here.
+Yep.
+Turn that into E5, E3.
+And finally...
+You guys in the back probably can't see all the way down anymore, but...
+Turn the last thing into E6.
+Why not?
+So we're able to go from this complicated expression, step by step, into a simple E6.
+And each of these E's has a different value.
+We've given it some number or some meaning inside of there.
+But we can forget about that at this point.
+The point is we were able to get down to E, which means we have a valid program.
+This is exactly the process that your IDE takes every time it gives you a redline squiggle.
+And it says, hey, your code is bad.
+You forgot to write int at the start of this line.
+Or you forgot the semicolon.
+It's going through this process constantly, trying to figure out where do you fail to
+parse your code?
+That's an error.
+Same exact process in a more complicated language.
+Okay.
+If we wanted to write that one as JavaScript, it might look something like this.
+The first part of your homework is converting JavaScript into lambda calculus.
+And then the second part is lambda calculus into JavaScript.
+So if we wanted to turn a function in JavaScript into lambda calculus, for example, function
+composition, what would function composition look like in JavaScript?
+So this is a function where we're applying f of f of x.
+F of x, instead of fog x.
+What would this look like?
+Yeah?
+Yeah, so the main function body is going to be f of f of x.
+But we're defining a function to do this.
+So we might have some sort of x goes to this result.
+It's a function that takes x and applies f of f of x to it.
+Or we might go a step further and say it's a function that takes a function f and a value
+x and then applies f of f of x.
+That's probably how I would write it in JavaScript.
+Let's see if that's what I wrote over here.
+Yes.
+Basically the same, but I've separated out the parameters.
+Questions on this composition function?
+Before we take it a step further?
+Okay.
+So...
+Oh, yeah.
+That's primarily a preference thing.
+Yeah.
+No.
+No, like, performance or readability for general people, I would assume.
+Some people prefer one way, some would prefer another.
+In some cases it matters.
+But we can talk about that later.
+All right.
+So then let's use this function.
+So the inner part here from f up to these parentheses is the same function that we've
+written already.
+But now we're calling it with two parameters.
+We're calling it with a function that takes in a variable x and returns x plus 1.
+And we're calling it with the number 4.
+Right off the bat, what would you assume this program is going to output?
+What's the return value of this final thing?
+6, right?
+We're going to call x plus 1 on 4 twice.
+So we get 4 plus 1 is 5, plus 1 is 6.
+Okay.
+So this is how we would write and then use function composition.
+In JavaScript.
+Let's do it in lambda calculus.
+Here we've seen this, like, application before, where we're passing things in.
+I guess we've done that over here.
+But the 5 is the argument.
+So what this would look like is something like lambda f dot lambda x dot f of f of x.
+And what we've done, if we look at it as a transformation, I guess I've put in these
+extra parentheses.
+We don't need to.
+In JavaScript, we had our parameters on the left-hand side of this equal sign.
+In lambda calc, we have our parameters, x and f, on the left-hand side of these periods.
+Of the DOM.
+So x and f are our parameters.
+And our return is f of f of x.
+Which is f of f of x.
+And we could, if we wanted to, put in these extra parentheses, just to make it look more
+similar.
+But that would be kind of anti-lambda calc-y.
+So we'll write it like that much more often.
+Okay.
+If we wanted to then pass in our parameters, lambda x dot� or x goes to x plus 1 and
+4, that would look something like this.
+Where we're turning our x goes to x plus 1 function into lambda x dot x plus 1.
+Once again, notice the x, the parameter on the left-hand side of the equals corresponds
+to the x before the period.
+The right-hand side corresponds to the right-hand side.
+4 is 4.
+We're gonna keep going and see a lot more examples of this.
+So if it's feeling confusing, that's totally fine.
+That's very much expected, even.
+It will get less confusing the more that we look at it.
+Okay.
+And one way that we're gonna do this is just by doing a little, like, figure out is this
+valid, is this not?
+So if we had a term, lambda x plus y dot 3, is that valid?
+Give it a second of thought.
+You can try and go backwards from the final expression to an E, as we've done over here.
+If you get to E, then you're good.
+If you don't get to E, then you're bad.
+Like, I mean, the program is bad, not you.
+You guys are great.
+Thanks for showing up to class.
+But try and figure out, yes or no, is this valid?
+Okay.
+So let's do this.
+So let's do this.
+Okay.
+So let's do this.
+So let's do this.
+Okay.
+How many people are voting yes, valid term?
+How many people are voting no, not a valid term?
+All right.
+The nos have it.
+Why is it not valid?
+What's the problem here?
+Yeah, in the back.
+That's exactly right.
+So we have x plus y on the left-hand side of that dot.
+We have a rule that allows us to use lambda x dot E, but we can't turn x plus y into x.
+We could turn x plus y into E, into another expression, but that's not valid.
+That's not one of our production rules.
+So yep, not valid here.
+What about lambda x dot 3?
+How many people say yes, valid?
+No, not valid.
+All right.
+Yes, valid.
+We can turn 3 into E1, and then lambda x dot E1, we just use that second rule to turn
+it back into E. Great.
+What about lambda x x of x?
+Valid, not valid?
+How many people say valid?
+How many people say not valid?
+All right.
+A majority of valid.
+Yeah, this one is fine.
+So we can turn xx, this inside part, into E1, E2, and then E1, E2 turns into E3, and
+then lambda x E3 turns into E4.
+How about this one?
+Very similar, but we've replaced one of the x's with a y.
+Valid?
+Not valid.
+All right.
+Most people are saying valid here.
+I'm in agreement.
+The one caveat being that I've said E goes to x, so long as x is the set of variables.
+So we can name our variables anything we want.
+In this case, we're naming one of our variables y instead of x, which is fine.
+But we don't know what y is.
+But that's also fine.
+Okay.
+Any questions on any of these problems here?
+Since we're in PL, and PL people are mathematicians, and mathematicians are very tired of writing,
+there is more compact syntax.
+So for example, function application, that is E1, E2, is left associative.
+That means you perform the left application before the right-hand application.
+So E1, E2, E3 is equivalent to E1 applied to E2, the result of that applied to E3.
+So we don't need those parentheses if we don't want to use them.
+Lambdas, on the other hand, that is to say lambda abstraction or functions, bind all
+the way to the right.
+What that means is that when we have lambda x dot lambda y dot lambda z dot E, this outside
+lambda x goes all the way to the end of the E.
+We're going to go into a lot of examples of how to use this rule.
+So I'm not going to get too far into it now.
+But the trick is that you stop the, like, bounds of your lambda when you find an unmatched
+closing parentheses.
+You can think of this as the same algorithm with curly braces.
+When you open a curly brace at the start of a function, that function contains the scope
+of everything until you close the curly brace for it.
+Okay.
+So where do parentheses go in this expression?
+Lambda x dot x, x.
+Do they go around the body, the xx, or around the lambda abstraction?
+Chat with a neighbor.
+Try and come up with an answer.
+And a reason why.
+How many people say A is correct?
+How many people say B is correct?
+All right.
+Why is A correct?
+Who's got a reason for me?
+Yeah.
+Exactly.
+So lambdas bind all the way to the right until an unmatched closing parentheses.
+There are no parentheses.
+So lambdas go all the way.
+That means everything in the body is part of the lambda.
+Is this other...
+Is B a valid expression in lambda calculus?
+Yes?
+No.
+All right.
+Let's do it again.
+Is B a valid term in lambda calculus?
+Yes?
+No.
+All right.
+It is.
+It is valid.
+We could replace lambda x dot x using the second rule into E and turn x into E as well.
+E1, E2.
+So it's valid.
+It's just different.
+It's not what we were saying when we wrote that top term.
+Yeah.
+So if we didn't have...
+Oops.
+If we didn't have these two rules, it would be ambiguous to say...
+To give that term up top.
+We wouldn't know which one this is being represented by.
+But because we have these two rules, we know what that term means.
+Yeah.
+All right.
+What about this one?
+Lambda y dot lambda x, x, x.
+How many people vote A?
+How many people vote B?
+How many people vote C?
+How many people vote...
+We've spent too much time on it.
+All right.
+I mean, you guys all got it.
+This is great.
+Yeah.
+So B here, by the same logic as the previous slide, lambdas go all the way until they find
+a nonmatched closing parenthesis.
+All right.
+I think this is the last one of these.
+Are these two equivalent?
+Yes.
+They are equivalent.
+No.
+They are not equivalent.
+No.
+They are not equivalent.
+Great.
+You guys seem to be getting it.
+This is awesome.
+So the summarized rules...
+Applications are left associative.
+And precedence-wise, application happens before lambda calculus.
+I mean, lambda abstractions, sorry.
+One more way that we can make these things more compact is if we have lambda x dot lambda
+y dot lambda z dot e, we can just say lambda x, y, z.
+We aren't giving it one parameter called x, y, z.
+We're giving it three parameters, x, y, and z.
+So it's kind of the difference between this function over here, where we have two parameters
+at once.
+And if we rewrote that to be taking f, then taking x.
+Yeah?
+If you did just want one parameter called x, y, z, would you just, like, put a parenthesis
+around it?
+You wouldn't really be a mathematician then, would you?
+Honestly, I don't know what the notation...
+Like, the standard thing to do there is.
+People just always use single-letter variable names.
+Which is horrible practice.
+It's, like, exactly what you learn not to do in intro programming.
+Like, give your variables descriptive names.
+But because it's kind of math, it's, like...
+We use x, y much more often.
+I don't know.
+If you wanted, maybe, multi-character names, you could do...
+Then you wouldn't do this.
+You would keep things all separate.
+You would keep it like the left-hand side, perhaps.
+Further questions on syntax?
+Great.
+We're done with syntax.
+Let's get to the exciting thing.
+Let's actually evaluate this.
+Let's get to the semantics.
+So the semantics of lambda calc.
+There's basically one rule.
+We're going to try to reduce a term into another term as often as we can.
+Once we can't reduce it, we're done.
+That's the one rule.
+We're going to reduce a term into another term.
+Once we're done, we're done.
+The way we reduce is by rewriting terms.
+Rewriting terms means that we are doing substitution.
+Oops.
+So now what we're going to look at is what substitution means in lambda calculus.
+This is the one rule of lambda calc.
+It's the one way to do things.
+But there's a lot to it.
+So let's go through.
+So we can go back to our example over here that we had on the board.
+Lambda X dot 2 plus X of 5.
+We could rewrite that to JavaScript.
+And we would expect in JavaScript the answer to be what?
+The output of this expression to be what?
+Not a trick question.
+7.
+I heard muttered.
+So we would get to 7 by substituting X, our parameter, with the value 5.
+Because we were calling the function with the value 5.
+The same thing is going to happen.
+Or I guess...
+Actually, I think we...
+Which one goes next?
+Yeah.
+Okay.
+So in lambda calc, the same thing is going to happen.
+We're going to pass that 5 into the X.
+And we're going to get 2 plus 5, which then reduces to 7.
+So what we've done up above, which I can draw, is that we've passed 5 in for the value X.
+So lambda X dot 2 plus X applied to 5.
+This is a function.
+That's the parameter name.
+We're going to pass 5 in for X.
+And we're gonna get 2 plus 5.
+More specifically, what we would write, as an intermediate stage, is we would say we
+get 2 plus X, where X is equal to 5.
+Then we would get 2 plus 5, 7.
+Okay.
+The more complicated expression.
+In JavaScript, we have our function here with an argument here.
+What we would do is we would pass that function argument in for the value F. So we would replace
+F with the function.
+And then we would pass the 3 in for the X.
+And we'd get an output of 4.
+This is what we would do in JavaScript.
+I hope I've convinced you at this point, lambda calculus, we aren't doing anything different.
+It's the same thing as what we would do in JavaScript.
+We will pass the function argument, lambda X dot X plus 1, in for F.
+So we replace F with that value.
+Then we pass in the 3 for the X.
+Replace X with 3.
+3 plus 1.
+4.
+I'll give you a second to digest that.
+If you have any questions, feel free to ask.
+Yeah?
+It is not F multiplied by 3.
+No.
+So F3, the F space 3 in the center of that body, is...
+If we pattern matched it to our rule, we would be matching that to the E equals E1, E2 rule.
+And this is saying E1 is a function, E2 is the argument to that function.
+So we would be passing the argument 3 to the function F. Yeah.
+Any other questions here?
+Okay.
+Let's keep getting into it.
+Maybe this looks easy for now.
+Maybe it looks hard.
+If it looks hard, that's fine.
+If it looks easy, that's also fine.
+We're gonna make it a little bit trickier, though.
+But the idea that we've done here is we really just replaced the left-hand variable name
+F with the input argument.
+That's all that the substitution was.
+So substitute the term you're applying to the function for the argument variable.
+This isn't quite right, though.
+But if we wanted to use this as, like, a base, which is what we'll do, we could define E1
+with the context X equals E2 to mean replace every occurrence of X in E1 with E2.
+And this is what I've written over here.
+E1 is 2 plus X.
+X equals 5 is our X equals E2.
+So what we're saying is replace every instance of X with the value 5.
+That's like the theory way of writing it.
+Our general rule of reduction, then, would be that lambdaX.E1 being applied to E2 reduces
+to E1 where X equals E2.
+So any time we have a function application, you take the parameter name, set it equal
+to the value E2.
+So function application means rewrite E1 with every instance of X replaced with E2.
+Questions here?
+It's just like function application in other languages.
+And that's actually by design, because function applications all look the same, for the most
+part.
+Okay.
+No questions.
+That means you guys can do them.
+Take a second.
+Or take two minutes.
+Do both of these with your neighbor.
+Let's do the first one.
+What do we get as our next step of evaluation over here?
+With intermediate stages.
+What do we get?
+Yeah.
+Go for it.
+That will be...
+Give me the step right before that.
+Like the intermediate representation, which I've kind of written over there already.
+Yeah.
+Right.
+So same idea.
+2 plus X where X is equal to 5.
+And then that will reduce a second time.
+Where we can do this substitution, where we get 2 plus 5.
+Done.
+Let's do the second one.
+These are so fun.
+What can we do here?
+First of all, what's the order...
+Like, which one of these goes first?
+We got 4, 5, and 6.
+How many people...
+Well, so I guess...
+We want to figure out what goes into X.
+That's our outermost function variable.
+We have three options.
+How many people are gonna vote that it's 4?
+How many people are voting it's 5?
+How many people are voting it's 6?
+Okay.
+So we have mostly 4 with a little bit of 6.
+Why would it be 4?
+Yeah.
+Outside of parentheses, things go left to right.
+Function application is left associative.
+So that means E1, E2, E3 is equivalent to E1, E2 first, then the result of that with
+E3.
+So if we wanted to draw parentheses in here, we would do...
+If we call all of this E1, 4, 5, 6, it would be E1, 4, the result of that, 5, the result
+of that, 6.
+Okay?
+With that knowledge ahead of us, what can we do?
+How can we reduce this?
+Can you just do 1 plus 3 and then...
+You're skipping ahead a little bit.
+Give me all the simple steps in between.
+You got an idea?
+I don't know if it's just simple steps, but the...
+That's what it is.
+What do you mean?
+I mean...
+I might be misunderstanding.
+Oh, yeah, yeah.
+So we could rewrite this X, Y, Z, dot Y plus 3.
+4, 5, 6.
+These are equivalent.
+They're just different notation.
+We'll stick with the top one so that we can go one parameter at a time.
+Very clearly.
+But those are equivalent.
+Yeah?
+If you do Y, Y, dot Y plus 3, dot Y plus 3, where X is equal to 4, and 5, 6...
+Exactly.
+So we can pass just the 4 into our function.
+And what that means is that X is gonna take on the value 4.
+We're gonna be left with still a function, lambda Y, dot lambda Z, dot Y plus 3, with
+the two parameters still being passed in.
+And now we have some state that we've tacked on.
+X is equal to 4.
+What would we do next?
+Yeah?
+And what are we left with over here?
+Yep.
+So we'll keep lambda Z, dot Y plus 3 of 6.
+And now we have a state X is equal to 4.
+And Y is equal to 5.
+Okay?
+Last piece here.
+I know you guys know it.
+Oh!
+Yeah.
+Yep.
+So Y plus 3 is left.
+We have X equals 4, Y equals 5, and Z equals 6.
+We can do the last little step of 5 plus 3, because we know Y is 5.
+And we're done.
+That's what's on the slides.
+We've just done the same exact thing.
+And I've left off the state, but that's not too important.
+All right.
+One more before we finish.
+Actually, we probably don't have time before we finish.
+So we are going to continue on Wednesday doing more semantics of lambda calc.
+This is exactly what you're gonna be doing on the homework, where I will give you lambda
+calculus, you turn it into JavaScript, or I give you JavaScript, you turn it into lambda
+calculus.
+Yeah?
+So I wonder how can we go from here to this expression?
+So which one was this?
+Where we can go...
+So we have...
+What are we starting with?
+Lambda F dot F of 3 being applied to lambda X dot X plus 1.
+Right?
+Yeah.
+So...
+And we're turning them into our E1, E2, right?
+So we can turn 3 into an expression.
+Because that's just a complex expression.
+So we can say lambda F dot F of E1.
+Lambda X dot X plus 1.
+And then because of this rule here, E1, E2, we can turn these into E2, E1.
+Lambda F dot...
+Well, okay.
+I guess we're using this rule to turn F into E.
+Then we use that rule to turn E2, E1 into E3.
+And now we use the middle rule to turn that into E4.
+Yeah, that's right.
+So lambdas bind until they find an unmatched closed parenthesis.
+So this lambda here, if we take these out, this lambda here goes until it finds an unmatched
+closed parenthesis.
+So it's going...
+Unmatched closed parenthesis.
+Because it binds outside.
+So from here, goes and stops here.
+That means this is the body of the lambda.
+So that, like, this here goes all the way to that point.
+Which means we're allowed to then put in these parentheses if we want.
+Make sure you include the dot there.
+Yes.
+Yeah.
+I think it's...
+It's kind of faint there.
+I might have been...
+I might have forgotten it, but it needs to have a dot.
+Yeah.
+The dot needs to stick around.
+Yeah.
+Yep.
+Yep.
+So, like, I did this how I think it should be based on the load.json file.
+But it keeps only giving me a 2 out of 5, so I'm not sure if it's the cache being...
+Yeah.
+It looks like...
+So you need to create your own cache.
+So you want to check, like, after you do work, save that work to the cache so that the next
+time you then check to say if this work is already done in the cache, return whatever
+is in the cache.
+So you're setting cache, but you aren't checking cache.
+I think is one way to think of it.
+So if I have some...
+I'll just write Python, because that's, you know...
+Then what I can do is I can say if x in cache, return cache at x.
+Right?
+So all you need to do is check if obj is already in cache, and then just pass obj back.
+But then the important thing is also how we store that cache at x is equal to...
+Right.
+But yeah.
+So these are, like, the important before and after steps of the compute.
+But I just check first if obj is already in that.
+My hunch is that should resolve your issues.
+And then my other thing is it says that I have to use load.js file, but it's not...
+It doesn't believe that it exists.
+Like, any time I do load.js file, it says that function doesn't exist.
+Is it on...
+Is it, like, exported or something?
+No, because I'm just doing it like this, and it just says that's not...
+So have you...
+Wait.
+So you have a...
+So I believe with this one, you need to be giving it the information that it needs.
+So let me double-check on that.
+But yeah, my...
+So do we define...
+Load.js file is defined in require.
+And it's not exported for you to use somehow?
+Well, we have require saved, but even if I, like, require is as an object.
+Yeah.
+So if I use require, it doesn't exist.
+But it's exported on require.
+Like...
+You mean this?
+Yeah.
+Yeah.
+So you can't require underscore...
+Oh.
+Is load.js exported?
+No, it is not.
+I don't think so.
+Yeah.
+So I think...
+But it's on the loader.
+So the idea is we have some before where we have the normal, like, load function that
+we're running.
+Or loader function.
+And then the goal is that...

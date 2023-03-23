@@ -1,0 +1,901 @@
+All right.
+Let's get going.
+So as I like to do, starting with a little bit of news, is there, like, I sound louder
+to myself.
+Do I sound louder to you guys?
+No?
+Maybe that's just me.
+All right.
+There was an interesting post end of January, so a little bit ago, about Rust in business.
+A lot of people ask, like, okay, we're learning these languages, Haskell, Rust, JavaScript
+I think is pretty easy to justify.
+But do these other languages have an option?
+Especially if I'm going to an established company.
+And the answer is definitely yes.
+So AWS does a lot of Rust.
+If you've heard about Lambda, AWS Lambda, that is run entirely on a Rust service called
+Firecracker.
+Google is using Rust in Android and Chromium, as well as some of their other products.
+Huawei is using it for their operating system stuff as well.
+Facebook is using Rust for blockchain.
+Microsoft is using Rust.
+It's just every big company that you know is now using Rust.
+They're migrating away from languages like C and C++ and using Rust when they can.
+Other kind of also big companies, but maybe less well known, Shopify is huge.
+They're using Rust not as a language for their service, but as a language to compile their
+other language.
+So they use Ruby for everything.
+But they need a good Ruby compiler, so they wrote that in Rust.
+Then there are, like, a bunch of startups using Rust.
+Everybody's using Rust.
+Rust all over the place.
+Great.
+So people are using it.
+It's worth learning.
+It's also worth learning just because it's fun.
+That's the news for the day.
+Some notes.
+PA2.
+There is a deadline extension.
+This is just the programming assignment.
+Homework is still due at the normal time.
+Early deadline is still the same time.
+Programming assignment 2 makes use of ideas that we're gonna be talking about next week.
+So I'm giving you some more time to do it.
+You can probably figure it out, but it'll be easier after Monday's lecture in particular.
+Next Monday's lecture.
+So one week extension on the hard deadline.
+The early deadline is still tomorrow.
+So if you want the bonus points, do it this week.
+But getting 100% is good.
+It's good enough.
+So if you want to wait, wait.
+Either way is fine.
+PA3, though, is still due at the same time.
+So we aren't pushing all programming assignments back.
+It's just this one assignment.
+That means if you don't do PA2 this week, you have to do PA2 and PA3 next week.
+PA3 is also JavaScript.
+Lastly, programming is hard.
+A lot of you might not have worked with JavaScript very much before.
+If you're having trouble, come stop by office hours.
+Start early so that you know what you're not understanding.
+And come ask questions.
+We're here to help.
+The point of this class is not that I'm trying to teach you how to write perfect JavaScript.
+That's the point of the programming assignment.
+So I'm not gonna spend lecture time saying here's how we write JavaScript.
+That's something that you have to figure out.
+And so if you're having a hard time with that, come chat.
+Because that's where we can help you.
+Those are the notes.
+Any other questions...
+Or any questions on this stuff?
+Before we go to LambdaCalc?
+How many people have finished PA2 already?
+Okay.
+A few.
+Not too many.
+How many people have started?
+Oh, almost everybody.
+Great.
+Okay.
+That's much better than UCSD.
+There was a different culture there.
+Okay.
+So we're going to jump into LambdaCalc again.
+We started last time, we looked at syntax.
+And we said what does a LambdaCalculus program look like?
+And then towards the end of class, we started evaluating those programs.
+I want to start right where we left off of saying let's evaluate LambdaCalculus programs.
+So we're going to do these three problems.
+I believe they're new, right?
+We didn't do these three last time.
+This is where we ended.
+All right.
+So take two minutes.
+Try and work these out on your own or with somebody next to you.
+And then we'll go over them as a class.
+All right.
+It sounds pretty quiet, so I think that means that you guys are ready to go.
+Let's start off with this one.
+Who can give me first step?
+What do we want to do to start this problem?
+Yeah.
+Assign 3 to Y.
+So we're taking this 3 and we're passing it into the function LambdaY.2.
+Y is the parameter.
+So we'll have 3.
+Sure.
+So that's going to look something like LambdaX.2, where Y is equal to 3 of 5, right?
+That's what you meant?
+So we're going to say Y is equal to 3, and then we get the body of the function returned.
+What can we do from here?
+Sure.
+We can assign 5 to X.
+So we do the same process.
+Put 5 in for X.
+We get 2, where Y is equal to 3 and X is equal to 5.
+Any questions on the two steps that we've taken here?
+Because we went kind of all at once through it.
+Yeah?
+Can you explain the order of the Lambda function?
+Yeah.
+So we took a specific approach here.
+We passed 3 in for Y first.
+Could we have passed 5 in for X first instead?
+I'm seeing a lot of nodding.
+Yeah, we could have.
+We chose to do 3 goes in for Y, but we could have done it in the other order.
+And what would we have gotten if we went that way?
+It would have been the same thing.
+We would have had different intermediary steps, but we would end up with 2, where Y is 3 and
+X is 5.
+Yeah.
+We'll talk more about order towards the end of class.
+Other questions on this part?
+All right.
+Let's do the other side.
+What should we do here?
+Yeah?
+That second 2, I believe, is a 3 on the 4th.
+I believe you.
+3 gets passed to the X.
+We can look at this whole piece here as a function.
+And the 3 is the argument to the outer part of the function, the X.
+We get lambda Y dot 2, where X is equal to 3, 5.
+What can we do now?
+Pass 5 for the Y.
+And what we get at the end is we have 2 remaining, and X is equal to 3, Y is 5.
+I hate writing 5s.
+I don't know why.
+OK.
+So we get 2, Y is 3, X is 5.
+That leaves us with this last question.
+Are these two equivalent?
+And we can put those up.
+Yes?
+No?
+No.
+Why are they not equivalent?
+Yeah, the variables are different.
+On one side, we had X is 3, Y is 5.
+On the other side, Y is 3, X is 5.
+Our state is different.
+We ended up with the same final expression result, but the state that goes with that
+result is different.
+This is very similar to in closures, or in JavaScript with closures, where two functions
+might look identical, but the state that's going with them is different.
+OK.
+Let's do another one.
+Take a minute.
+Do this on your own.
+The more of these that you do, the better, more efficient, and easily they will come
+to you.
+What is state?
+What is state?
+State is the representation of the environment.
+So when we say, like, solve X plus Y, if you don't tell me what X is or what Y is, I can't
+solve this problem.
+I need some environment, some state, where I say X is 3 and Y is 2 in order to actually
+solve for this equation.
+That's a way of thinking of it.
+You can kind of reframe it as the arguments to the expression.
+But think about when you write code and you assign variables to your...
+As you're writing code, when you execute, those variables accumulate information over
+time.
+They update.
+That's the state of your program.
+Yeah.
+OK.
+Let's reduce this expression here.
+How should we start?
+A is 7.
+Yeah.
+So we'll take this 7 and substitute it in for this parameter A here.
+And we'll be left with lambda X dot X plus A of 4, where A is equal to 7.
+Great.
+What next?
+X is 4.
+We can pass in this 4 for X.
+We'll get X plus A, where our state is A is 7.
+And X is 4.
+Great.
+So when we solve it, we get 11.
+When we actually plug in our variables, we get 11.
+How did this one go?
+Any questions?
+Anything arise as you were solving it?
+Is it wrong to apply the 4 to the X first, and then 7 to A?
+Is it wrong to do 4 goes into X, and then 7 goes into A?
+No.
+No.
+That's totally fine.
+That's the way to solve this problem.
+Will the 2 always result in the same?
+No.
+No.
+But almost always.
+OK.
+Yeah.
+So 4, you'll be able to recognize when they won't.
+So in general, you can always say they will reduce to the same thing.
+Yeah.
+But we'll cover a case where they don't in the end of class.
+So what we could do is we could substitute in the 4 for the X. That's actually the way
+I have it in the slides.
+7 for the A. Get 11.
+All right.
+What about this one?
+I missed a thing here.
+What should we do first here?
+Yeah.
+Why A plus 5 to the X depends on the date that A, one of the A's to a K.
+Let's cover that second part later.
+But yes.
+We're going to apply A plus 5 to X. So we will, following the same algorithm that we've
+been using, X plus A of 7, where X is equal to A plus 5.
+All right.
+Now what do we do?
+A is 7.
+All right.
+So we get X plus A, where X is equal to A plus 5, and A equals 7.
+Now when we try to solve this, we can say, okay, X is equal to A plus 5.
+So A plus 5, gosh.
+Plus A. A is 7.
+So we get 1419.
+Yeah.
+Yeah, so is there no scope?
+This A here is, like, these guys are clearly connected.
+But what's the deal with this A?
+Is that A the same A as this A?
+Does it need to be evaluated first?
+Could we have substituted in the 7 first and then maybe avoided this whole headache?
+If we solve it the alternative way, and we do lambda X dot A plus A dot 7.
+If we plug in 7 first for A, and we get 7 plus X, and then we sub in our A plus 5 for
+X, we get a very different answer than what we got before.
+Instead of 19, which is what we got last time, this time we get 12 plus A.
+Now there was a previous question about, does order matter?
+So here we're seeing order made a difference.
+And my answer before was that it shouldn't make a difference, except in a very specific
+case.
+This is not that specific case.
+Something went wrong here.
+What we wanted to get, what we should get, is 12 plus A.
+But in the other method, going the other way, we got 19.
+A couple of you have already pointed out, maybe this is a scoping issue.
+Maybe it's because we somehow captured the second A in our inner A. And that's the right
+intuition.
+So let's play that out.
+This is...
+We kind of already answered that one.
+So what we find is that substitution is actually a little bit more complicated than what we
+thought.
+It's not just that we can take a term as an argument and pass it in.
+If we do that, we might end up with this case, where we're passing in A plus 5, and then
+somehow it gets lost inside.
+We say that in this case, the A has been captured by an inner scope.
+And we'll come back to the kind of description of this and the notation in a minute.
+Example to do at home.
+Example to do at home.
+All right.
+I like this other one more.
+Let's look at this one.
+So one way to see this same problem is in JavaScript.
+We might have a function that takes a variable X.
+And as the first line of that function, we're going to print out the value A plus 5.
+What is the value of A at the start of that function, when we're printing A plus 5?
+What's the value of A?
+Would it work?
+All right.
+Fair enough.
+Yeah.
+A is undefined at this point.
+Or maybe it is defined, but, you know, it's, like, defined up...
+Can you guys see my cursor?
+No.
+It's, like, defined up top.
+So if we said...
+If we had a...
+If we have somewhere in an outer scope, let A equal something, then we'll use whatever
+value that is.
+When we then create a new function that takes a parameter A, and we log A plus X, and we're
+calling that with the value A plus 5, what are all of these different values of A?
+This A here, this A...
+What's that A?
+Yeah?
+This A?
+Is that the parameter?
+I mean, it's, like, the argument to this function.
+Yeah.
+Yeah, it's the same A that we were initially doing a console log with.
+It's the outer scoped A. Then we have the A as the parameter.
+What's the value of that A?
+I wish these had line numbers.
+On line 4 from the top.
+Yeah?
+The outer scoped A from 5?
+Yeah.
+It'll be whatever the result of this expression is.
+All right?
+And lastly, what is this A?
+Yeah.
+It's the same A that we just talked about.
+The one before the equal sign, which is equal to the value of this A plus 5.
+So we have two different A's here, and we don't want to get them mixed up.
+This inner A is a different A than the outer A.
+The same goes for lambda calculus.
+So this function here has its own scope, and this A is equivalent to this A, but not equivalent
+to this A. This is an outer scoped A that we don't know what its value is.
+This is a defined A. It's a captured A, or bound A.
+So we don't want to mix them up.
+Here's another way to write that same idea.
+The outer function references an A that it doesn't necessarily define itself.
+It's from someone else.
+But then the inner function captures, or binds, the A as its parameter.
+OK.
+How can we fix this?
+Oh, yeah?
+Can't we just use subscripts and be done with it?
+How?
+Yeah, so give this one A1, that one A1, that one A2.
+Yeah, that's a fine idea.
+So what happens if we...
+I wish that this were actual code instead.
+So using the same A1 and A2 to reference A1 and A2.
+What happens if we do this?
+Is that readable?
+Kind of.
+That's good enough.
+So rename them with subscripts.
+What's gonna happen?
+Does it solve our problem?
+Yeah, in fact, A2 is not defined at all.
+We defined A outside, but A2 nobody's talking about.
+That's definitely undefined.
+So we will still run into a different problem when we rename this A to be A2.
+We've done something illegal.
+We've changed the name of a variable we don't control.
+It's definitely fine to call this one A1, because we control that variable.
+We control all the scoped references of it.
+This one we don't control.
+We can't change the name of.
+Which is...
+It leads perfectly into how we will fix this problem.
+So what we're gonna do is we're going to rename our variables.
+But we have to have a rule about which variables we're allowed to rename.
+Because we don't want to end up in the situation where we rename a variable that we didn't
+control and now we can't reference the variable that we wanted to reference.
+So if we have...
+This is the same problem that I was showing with JavaScript, but it's just in Haskell
+instead.
+Which we haven't covered yet.
+But the idea is the same, where we say X is equal to A plus 5, and A is 7 in X plus A.
+So we can do a renaming, a dumb renaming.
+Or a renaming and then the dumb substitution.
+Where we say...
+Okay.
+This A, we control.
+We can change that A without changing the outer A.
+And then once we do the substitution, we get the expected result.
+All right.
+So I'm arguing this will work so long as we know what variables we can and which variables
+we cannot rename.
+The reason we're going to be doing it this way...
+Or I guess...
+What are we exactly doing?
+First of all, we're talking about a variable being bound if the parameter is within the
+scope.
+So when we talk about this A here, this A is bound to this A parameter.
+This X is bound to this X parameter.
+Can we always rename bound variables?
+Yes?
+No?
+No?
+Like ten people voted.
+Think about JavaScript.
+Can we always rename X in this function?
+Or always rename A1 in the other function?
+Yes?
+No?
+Yes!
+We wrote the code.
+We get to decide.
+The parameter name is up to us.
+So we totally can.
+These are just placeholders.
+It's a parameter name.
+So we specifically say that they are equivalent by an alpha rename.
+The character is very small there.
+That is the Greek alpha symbol.
+So we can rename lambdaX.X plus Y to lambdaZ.Z plus Y.
+And what we've already started to get at is can we rename everything?
+We've seen this in JavaScript that we couldn't.
+So what can't we rename?
+Can we rename the Y in lambdaX.X plus Y?
+No.
+We don't know what it's going to be.
+Somebody else defined it, and we are just using that value.
+And what I'm trying to get at here is that you can change the name of your parameters
+and arguments.
+You can't change the name of variables in the outer scope.
+Any questions on this renaming idea?
+Yeah?
+Why do we only have access to part of the codebase?
+Why can't we change the outer A?
+Yeah?
+Yeah, so if it's something that's, like, beyond the code, kind of, it's just the string literal
+that we need to use there, I think that's a fair reason.
+Why else?
+Why else might we not have full control?
+Yeah, definitely.
+So if we were to be using any external library, any external API or other code, we don't necessarily
+control that.
+How many of you have created a file called, like, time.py or math.py in your projects?
+I feel like that's...
+I did that when I was, like, first learning how to code and got an error for, like, half
+an hour trying to figure out what's going on, and it's just because you've overwritten
+the default library for time.
+And so Python gets confused, because there's this name conflict.
+You used time when they've already defined it.
+It's the same exact fundamental problem.
+So we operate and write code in very complicated systems.
+Whether it's an interpreter or just a large codebase that you don't necessarily get to
+control everything.
+So this definitely happens.
+Where you, like, can't control all of your environment.
+Yeah.
+Any other questions on renaming?
+All right.
+We're gonna get a bit more formal, then.
+We've covered informal substitution.
+We have an idea about, okay, we can, like, substitute these things so long as we rename
+some of them sometimes.
+Let's do it in a more formal way.
+So first of all, what is a free variable?
+We've talked about bound variables.
+A variable is not bound.
+Then it is free.
+So any nonbound variable is a free variable.
+We had this expression, lambdaX.X plus Y.
+X was bound.
+Y is free.
+I answered the next question there for you.
+Let's try and solve for these two equations, though.
+So we want to be able to algorithmically find what are the free variables of an expression.
+The free variables of the expression X are X.
+If all that we have is the variable X, we have just, like, nobody's told us anything
+about it.
+It is free.
+What about the free variables of lambdaX.E. Yeah?
+Is it empty?
+That's one idea.
+Yeah?
+Every variable except for X.
+Every variable except X.
+So the, like, all� what would even every variable look like?
+Something like that minus X.
+The set of all variables minus X. Yeah?
+The free variables of E minus X. Okay?
+Any other candidates?
+Yeah?
+Just E. E here is an expression.
+Not a variable.
+Just to be clear.
+But we can leave it up.
+So the expression E. Any other candidates?
+So, okay.
+Let's think about all of these.
+If we have an expression, we can just choose an expression.
+So let's use the expression X plus Y. E equals X plus Y.
+That's been our running example.
+Are the free variables of lambdaX.X plus Y, is that the empty set?
+No.
+We've said that Y is free.
+So we know Y is free, which means the free variables of this expression can't be empty.
+So we can't do that one.
+What about the set of all variables minus the free variable� or minus X?
+We've captured X.
+No.
+Oh, wait.
+We're looking at�
+That's okay?
+Any ideas on this one?
+No, because E might have bound variables.
+E might have bound variables.
+What if we have a different E?
+We could use lambdaZ.Z plus A. Here, Z is bound.
+A is free.
+So when we have the free variables of lambdaX.lambdaZ.Z plus A, it's not actually all variables minus
+X.
+We've also captured Z.
+Yeah?
+Yeah, so Z is bound in here, but it's not bound out here.
+Oh, that's fair.
+Yeah?
+Z, in the context of this whole function, is still free, if it exists.
+So this one doesn't actually disprove all variables minus X.
+Trying to think what a good example would be.
+I think that there actually might not be a great way of showing that this is not true.
+What we can look at is then comparing it with this next one.
+The free variables of E minus X.
+So here, what we would see is...
+I'm too low on this, aren't I?
+What would be an expression that could show that the free variables of E minus X does
+or does not work?
+Yeah?
+Wait.
+No.
+Sure.
+So if we say E is equal to X plus Y, and we look at the free variables of E, this would
+be equal to the set of X and Y.
+When we then subtract out X, we will be left with the set Y, which is what we are looking
+for.
+So this is the answer I have on my slides.
+I think this is also somewhat reasonable.
+The only thing is they aren't, like, defined there.
+Like, Z is not defined in X plus Y.
+Or it's not used in X plus Y.
+That doesn't mean it's not free in X plus Y.
+That one's thrown me for a bit of a loop.
+But the simplest set to represent the free variables of lambdaX.E are the free variables
+of E minus the variable X.
+That we capture the X from within E. Yeah?
+So if we have E is X plus Y, the free variables of E, following� actually, I guess we kind
+of need this one.
+But following this, we can say that X and Y are both free.
+Inside of E.
+So X is only captured as we move out.
+Exactly.
+Yeah.
+So then we work inwards, out.
+You start at the inside and kind of grow out to your expression.
+Find what's free and what's not.
+All right.
+Doing this last one for application.
+What are the free variables of E1 applied to E2?
+Let's give ourselves some examples to see what it should be.
+We could have lambdaX, X plus Y, and Z, for example.
+So E1 is lambdaX, X plus Y, E2 is Z.
+The free variables of E1 are what?
+Y.
+So we have FV of E1 equals Y.
+What are the free variables of E2?
+Z.
+And what would we expect to be the free variables of the full expression?
+Yeah.
+Yeah, we would think they would be Y and Z.
+That in this whole part, we don't know what Z is or what Y is.
+So we have the free variables is equal to, well, here, it's equal to Y, Z, which means
+if we write it out, that it's equal to the free variables of E1 union free variables
+of E2.
+Yeah.
+Oh, oh, yeah, yeah.
+Yeah.
+What are the
+free variables of this full expression?
+X and Y.
+We have this as our equation.
+It's the union of the two sets.
+Here we have Y, here we have X.
+Even though X is bound over here, in the overall expression, X is still free.
+And that's what's going to end up causing us trouble when we try and do substitution,
+if we don't do some sort of subscript to say this one's X1.
+Other questions?
+Right.
+That's right.
+So here, this X and this X are the same.
+This X is different.
+Because it's free, yeah.
+All right.
+So the last bit of formal stuff that we do here is how can we actually define capture
+avoiding substitution?
+That is to say we don't run into our problem with the solution being 19 from earlier.
+What is the value of X where X is equal to E?
+Think of yourself as a computer trying to solve these.
+Or we have to come up with the rules so that a computer could solve these.
+What's the value of X where X is equal to E?
+E. I like it.
+We just replace X with E. That's totally fine.
+What's the value of Y where X is equal to E?
+Y if what?
+Right.
+It will remain Y so long as Y is not X.
+If Y were X, then we would use rule one.
+All right.
+What about E1 applied to E2 where X is equal to E?
+Think recursively.
+We can also do one on the board just to kind of see what happens.
+So, this is E1 applied to E2 where X is equal to 3.
+How would we simplify this expression?
+Yeah, go for it.
+Is it already simplified?
+No.
+No, there's more we can do.
+I want to substitute in this value of X.
+How do I do that?
+Our current two rules, by the way, are just those.
+Yeah?
+Is it X where Y equals X?
+X where Y equals X.
+Ah!
+So, you're, like, doing the substitution.
+So we could, like, kind of continue evaluating.
+But what I want to do, actually, is just clear up our state.
+Give all of our Xs the value 3.
+That's our goal right now.
+How can we do that?
+Would it help if you talked to the person next to you?
+Give it 30 seconds.
+What can we do here?
+Okay.
+What's the, again, algorithmic.
+Like what your computer is going to do when trying to take the next step here to simplify
+the state.
+Yeah.
+All the way in the back.
+I'm sorry.
+What was that?
+Distribute the definition to each expression.
+This is the definition?
+Yeah.
+So we can say that this is equal to lambda Y dot X, where X is equal to three, applied
+to lambda Z dot X plus Z, where X is equal to three.
+We're telling each expression that X is equal to three.
+Then if we wanted to continue, we can, you know, keep substituting, blah, blah, blah.
+But we need to be able to actually give X in each of those two contexts the value three.
+Yeah.
+I'm a little confused, because I thought we could only substitute bounds, or, like, the
+bounds are the same, so why are we assigning them to that?
+Yeah.
+Let me do that.
+Yeah.
+So are these free or bound?
+Is X free or bound in this expression?
+Free?
+Bound?
+It is actually free.
+If we look at the free variables of this expression, we would say X is free, X is free, the union
+of X and X is X.
+How would we have gotten to a state like this, though?
+Maybe it's bound in a larger function?
+It's bound in a larger function, where we've given it value.
+It's like if we go back to our JavaScript, and we have that outer let A equal.
+And we've said A is equal to three.
+Then we know exactly what to do with A. We can substitute it with three.
+So same thing's happening here.
+And one way, if we kind of, like, backstep here, we could pretend that there was a lambda
+X three, right before this step, that we've now substituted in that three for X, and so
+now we have this state, X equals three.
+This step here is very similar to what's called an eta reduction, or an eta conversion.
+But we'll cover that later.
+Yeah?
+So we can't bound it into only free variables?
+We can substitute only free variables.
+Yeah, so that's right.
+If we had, let's see, what can I do here?
+X plus lambda X dot X plus two, it doesn't make any sense anymore, because we're adding
+a function.
+But this X here is bound to this X.
+That means when we substitute X equals three, we don't want to replace this inner X with
+the value three.
+Because it's tied to a different parameter.
+It's scoped to a different parameter.
+That's just like shadowing in, like, traditional programming.
+But we haven't gotten to the lambda one yet.
+We're about to.
+Okay.
+So where we are right now is that with two expressions, we can say the X equals E distributes
+to each expression.
+Now the question that we have over here is what are we supposed to do if we have lambda
+X dot E and X is assigned a value?
+What should we get here with this substitution?
+The simplest case of this would be lambda X dot X where X is equal to two.
+What should that reduce to?
+How many people feel like they have an idea?
+How many people are confused as to what I'm asking?
+A few.
+No, it's fair.
+It's tricky.
+Especially, like, there's math notation in computer science.
+It doesn't happen very often when you're actually, like, coding.
+But some number of you had an idea.
+What are you thinking?
+Go for it.
+Yeah, it's a bound variable.
+So can't we just rename it?
+So what would happen if we say it's equal to ZZ?
+Does this make it easier?
+What should this simplify to?
+Yeah?
+Does it simplify to Z?
+So we aren't passing 2 in as a parameter.
+We have an expression and we have some state as well.
+We can push state inside the function.
+Sure.
+We can get lambdaZ.Z where X is equal to 3 inside of that Z.
+What does that simplify to?
+We can use rule number 2.
+Go for it.
+Is Z equal to X?
+No.
+Z is equal to Z. Z is Z.
+So it's equal to Z. So we can just get rid of this state.
+That's the intuitive thing to do when we're trying to substitute X equals 2 in an expression
+that doesn't use X. We can just ignore X.
+Right?
+Does that feel intuitive?
+Does it...
+Do you have questions about why we can do that?
+We're trying to say X is equal to 2, but we aren't using X.
+So within that scope, we can just ignore the fact that X is equal to 2.
+What that looks like is saying lambdaX.E, where X is equal to E, is just lambdaX.E.
+This problem started, by the way, slightly differently with XX.
+But the point was, because this X is bound to that X parameter, we were able to rename
+it.
+Which is why, then, it was very clear that we could do this.
+We can do it either way, without the rename or with the rename.
+But the rename kind of makes it a little bit clearer as to why we can do that.
+Question?
+Yeah.
+Yeah, so this X in the outer scope that is equal to E, what if this X is in E1?
+Yeah.
+Then it would be bound.
+And it wouldn't be this X. This X cannot exist inside of the scope E1.
+Any Xs inside of E1 are bound to this X or another inner X that is binding them.
+It's never going to be this X. Because that one comes first.
+It's similar to when you're writing code and you say X is equal to 3.
+That X is equal to 3, the outer ones aren't.
+Unless you're, like, doing something weird.
+All right.
+Can we get the last one here?
+What happens lambda Y dot E1 and X is equal to E2?
+Push it inside.
+Yeah.
+Maybe...
+So what we want to say is that it's lambda Y dot E1 where X is equal to E2.
+So basically what we've done is we've dropped the lambda Y as part of the consideration.
+And so then we can take another step based on whatever E1 is where X is equal to E2.
+That's what we would like to say.
+But there are some important caveats here.
+Yeah.
+Yeah.
+So can I read what I just wrote?
+Lambda Y dot E1.
+The expression lambda Y dot E1 where the state X is equal to E2.
+On the next line, we have lambda Y dot E1 where the state is X equals E2.
+So here what I'm saying is that the state is part of this expression only.
+Here what I'm saying is the state is part of the entire expression.
+We might have Y in E2.
+So Y in E2.
+What would happen if we have Y in E2?
+So if E2 is equal to exactly, for example, Y.
+Yeah.
+Yeah.
+Yeah.
+So if E2 is equal to Y, and let's say E1 equals X, then when we perform our replacement based
+on the state, we would get lambda Y dot Y as our result.
+Because E1 is X, and X is equal to E2, and E2 is equal to Y.
+So we would end up with lambda Y dot Y.
+In which case, we have captured the Y.
+Because E2 is not being controlled by this Y here.
+So this Y was free, potentially.
+Well, I guess, no, it's definitely free here.
+And then we've accidentally captured it.
+So if Y is in E2, we have an issue, and we will need to do an alpha rename on this Y.
+This Y and any Y inside of E1.
+The other case is defined by this one here.
+If Y is equal to X, then we would just use this rule instead and drop the state.
+So our expression is that lambda Y dot E1, where X is equal to E2, is equal to lambda
+Y dot E1, where X is equal to E2.
+So long as Y does not equal X, if Y equaled X, we would use this rule here.
+And so long as Y is not in the free variables of E2.
+If Y were in the free variables of E2, then we would be capturing the Y.
+Yeah?
+Just to clarify, between these last two bullet points, does the E inside of the brackets
+having a 2 or not make a difference?
+No.
+OK.
+Yeah, it's just to say that these are different E's.
+These are different E's as well.
+Those are different E's.
+Yeah.
+Yeah?
+So if Y is in the state of the free variable E2, do you just go with X?
+If Y is in the state...
+If Y is in the free variable of E2, then you would just throw away that?
+Ah, yeah.
+So what do we do if Y is in E2 here, in the free variables of E2?
+Then what we need to do is we need to actually alpha rename.
+That's when we do our renaming of this Y here and any Y in E1.
+That's the way to solve that.
+It's not that we just throw away this state.
+We can't ignore the fact that X equals E2 here.
+Because we might be using X inside of E1.
+So we have to actually rename the bound version of Y so that we can do the substitution.
+Yeah?
+Yeah.
+Yeah.
+Yeah.
+Yeah.
+So we need to rewrite the code to do it this way.
+Yeah.
+To rename the parameters.
+Yeah.
+So let's use this one.
+Yeah.
+We have a function and we have a parameter or an argument being passed in to that function.
+Our first step here is...
+Well, actually, the first thing we can do is what are the free variables of this whole
+expression?
+What are the free variables of a union of...
+Or...
+Okay.
+It's the union of an application.
+So what are the free variables of the left-hand side of this application?
+None.
+It's the empty set.
+This X here is bound by this X.
+What are the free variables of the right-hand side of the application?
+Y.
+So the free variables of the whole expression are the union of empty set and Y.
+Which means...
+Y.
+When we perform this substitution, what's the first step that we do?
+Yeah.
+Set X equal Y.
+We're gonna pass Y in for the parameter to X.
+So we're going to get lambda Y dot X, where X is equal to Y.
+What's our next step?
+Go for it.
+How about rename Y in the lambda Y?
+This Y here.
+And why do we have to do that?
+If we take a look at this example here, or this rule here, we are exactly in violation
+of it.
+Where we're trying to do lambda Y dot X, where X is equal to Y.
+And so that means Y is in the free variables of the Y.
+This Y here is in the free variables of that Y there.
+And if we don't do the renaming, then we will end up with lambda Y dot Y, where we've captured
+the Y.
+We've accidentally bound a free variable that started out free, now it's not free.
+If we rename this Y to something like Z, how can we simplify this expression?
+What rule would we use?
+We'll use the last rule, where we're saying, let's pass this state into the expression
+instead of looking at it at the whole level.
+So now we're saying X, where X equals Y.
+How do we substitute that?
+What rule do we use?
+Yeah.
+We have X, where X equals E. E in this case is Y.
+So we can do our substitution.
+We will end up with lambda Z dot Y.
+Y.
+So that's Y, the if.
+Okay.
+This largely speaking covers these first two rules.
+We have alpha rename, where we're saying we can rename any bound variable.
+And we have beta reduction, where we're saying we can actually perform an application.
+We can pass an argument into a function and then reduce it.
+The last one here is the eta conversion, which says that if we have a pattern such as lambda
+X, E of X, that can be reduced to E automatically.
+I'll leave you to figure out exactly how this works.
+I would recommend writing it in JavaScript, and then it becomes kind of apparent.
+But I'm going to stop here.
+We do have some more lambda calculus to do on Monday.
+But you are equipped to solve all of the homework assignment problems.
+Just using basically these first two techniques.
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?
+Hey, what's up?

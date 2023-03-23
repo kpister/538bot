@@ -1,0 +1,1012 @@
+start	end	text
+520	2520	So please get your laptop, please get your notepads,
+3780	6080	please get your laptops, please get your computers, please get
+6080	8080	your tablets, please get your pens and paper.
+18160	20160	So it's a nice major.
+22360	24360	We are trying to make virtual signaling easier on them.
+27300	29300	That's where we had helps a lot.
+30100	32100	But it wasn't there.
+33820	35820	It was more like an ARCO.
+38160	40160	It wasn't really that small of a balloon.
+45980	47980	But we got it bigger.
+49900	51900	And the thing is everything on Panasonic is square.
+52960	54960	So we were finally able to do it.
+56980	58980	But it took us like two weeks to get it up to here.
+60840	62840	All right, folks.
+63720	65720	Let's get started.
+68200	72080	Our bookkeeping before we begin lecture.
+73400	78180	As posted. So solutions for homeworks one and two are posted on Canvas.
+78820	81340	Go ahead and check them out. See how you did.
+82020	84000	Grading is on the way.
+84000	88200	For homework one, we're almost done. For homework two, we'll get there probably this week.
+89200	97200	PA3 and homework three are both posted to Canvas. You should have access.
+99200	102200	Homework three is primarily JavaScript.
+102200	107200	And it will be covered in the end of today's lecture and Wednesday's lecture.
+108200	110200	PA3 is entirely JavaScript as well.
+110200	116200	So over the course of the next two weeks, we're currently talking about lambda calculus.
+116200	119200	We're going to transition back to JavaScript for a little bit.
+119200	123200	And then we're going to power through to Haskell next week.
+123200	127200	We're going to be covering three pretty different languages in two weeks.
+128200	132200	If that feels confusing and hard, stop by office hours.
+132200	137200	In particular, Monday is generally light because the homework was just released.
+137200	143200	So if you want to chat about not just homework, come to my office hours after class today.
+144200	145200	Some general advice.
+145200	150200	There are a lot of people posting, my PA tests are failing on Gradescope.
+150200	153200	But they pass all of the local tests. What am I doing wrong?
+154200	156200	It's not everyone. I recognize that.
+156200	163200	But in general, the tests that I give you locally are not a complete test set.
+163200	168200	It's an idea to make sure you've written some idea of the correct function.
+169200	173200	The goal of Gradescope is to be the exam test.
+173200	179200	So you shouldn't be writing your code, submitting to Gradescope, iterating 500 times.
+179200	185200	It's more of write code so that it's probably done.
+185200	188200	Submit once. You need to fix one or two things.
+188200	193200	Write some more local test cases yourself to try and identify the problem.
+193200	195200	Then resubmit.
+196200	199200	So that's my advice there.
+199200	203200	Write local tests. Local tests, local tests, local tests.
+203200	207200	I don't give you everything. I just give you most things.
+211200	216200	Okay. Any questions for me?
+216200	219200	Anything that we should cover before we start class?
+226200	229200	Okay.
+229200	233200	Then hopefully today's the last lecture on LambdaCalc for a little while.
+233200	235200	So maybe that's good and you like that.
+235200	237200	Maybe that's bad because you've been loving it.
+237200	239200	Either way, we'll be wrapping it up.
+239200	243200	Starting off, we're going to talk about free variables again.
+243200	247200	We have three equations that we built out last time.
+247200	253200	I'd like for you guys to give me these two equations.
+254200	260200	What is the free variables of a complex expression LambdaX.E?
+260200	263200	What are the free variables?
+263200	266200	Who can tell me?
+266200	269200	Yeah.
+269200	276200	Yeah. They are the free variables of E minus X.
+276200	280200	We have bound X as one of the non-free variables.
+280200	282200	It's one of the bound variables.
+282200	290200	And then the free variables of a function application E1, E2 are what?
+290200	293200	Yeah.
+293200	297200	It's the union of what?
+297200	299200	Yeah. Definitely.
+299200	302200	So we find out whatever the free variables of E1 are.
+302200	306200	And then union that with whatever the free variables of E2 are.
+306200	310200	This is one set of equations that we care about in LambdaCalc.
+311200	314200	What are the free variables of our space?
+314200	317200	We did have a question on Wednesday saying,
+317200	319200	isn't it all of the variables?
+319200	321200	All variables ever?
+321200	324200	Not necessarily just the free variables of E.
+324200	330200	And to that, I would say a variable is only a variable if it's being used.
+330200	332200	So just for that point.
+332200	335200	Okay.
+335200	338200	This is our second set of equations.
+338200	342200	So our first set of equations, these ones to calculate the free variables.
+342200	347200	Our second set of equations are about how do we actually do substitution?
+347200	350200	How do we do capture avoiding substitution?
+350200	352200	And what do we do with these?
+352200	358200	What is X where X is E?
+358200	368200	How do we reduce the first statement?
+368200	369200	Who's got an answer?
+369200	371200	Yeah. Go for it.
+371200	372200	Just reduces to E.
+372200	375200	We get to do our replacement as you would expect.
+375200	379200	If X is the value 3, when we see X, we replace it with the value 3.
+379200	381200	For example.
+381200	382200	All right.
+382200	385200	Then we have the variable Y where X is equal to E.
+385200	388200	What's this reduced to?
+388200	394200	Who's got an answer?
+394200	397200	Yeah.
+397200	401200	Y if Y is not equal to X.
+401200	408200	So assuming these are two different variables, then we just get to ignore whatever we set X to be.
+408200	410200	Okay.
+410200	412200	What about E1, E2?
+413200	416200	Also known as a function application.
+416200	420200	E1, E2 where X is equal to E.
+420200	430200	How does this reduce?
+430200	431200	Yeah.
+432200	435200	Yeah.
+435200	439200	So we get to say all occurrences of X are replaced with E.
+439200	447200	But a little bit more generically, we say all occurrences of X in E1, we will replace with E.
+447200	453200	Or we'll continue to recursively substitute inside of E1, X is equal to E.
+453200	460200	And we will recursively substitute in E2, X is equal to E.
+460200	461200	All right.
+461200	464200	And then we have our function, our lambda abstraction.
+464200	468200	Lambda X.E1 where X is equal to E.
+468200	482200	What do we do here?
+482200	484200	Yeah.
+484200	488200	Just E1.
+488200	491200	Who agrees?
+491200	493200	So just E1.
+493200	496200	This is, I think, a common point of confusion.
+496200	502200	If I can find my pen.
+502200	514200	There's a meaningful difference here between lambda X.E1 with the state X is equal to E.
+514200	524200	And lambda X.E1 applied to E.
+524200	532200	This is an application, a function application, where this is an expression and this is an expression.
+532200	536200	This is the parameter to this function.
+536200	539200	Here what I'm saying is I have an expression.
+539200	544200	And I have some state that goes along with that expression.
+544200	556200	Where I can say X is equal to E inside of this expression here.
+556200	562200	So these are two different things that we're talking about.
+562200	565200	I'm looking up here.
+565200	568200	What do we do?
+569200	582200	You already got one.
+582200	587200	Yeah.
+587200	596200	E1 where X is evaluated to E.
+596200	605200	E1 where X is equal to E.
+605200	610200	What we've done here is we've lost this lambda.
+610200	616200	We aren't doing a function application in this expression here.
+616200	618200	There's no function application.
+618200	621200	So we should end up with a function at the end.
+621200	626200	We don't want to substitute in any value into this function.
+626200	629200	Because that's not what we're doing at this point.
+629200	635200	This here is what we would get if we had said, if I had kept the original thing.
+635200	637200	I don't know why I erased it.
+637200	649200	If we kept lambda X.E1, E, this would simplify to E1 where X is equal to E.
+649200	651200	This is our function application.
+651200	654200	E is a parameter to this function.
+654200	659200	So X is equal to E. And we get E1 where X is equal to E.
+659200	661200	Up here, we have an expression.
+661200	665200	And we have state that's going along with it.
+665200	666200	Yeah.
+666200	669200	Right.
+669200	676200	So when we are doing this step here, what we get to do is we get to actually drop our state entirely,
+676200	681200	like you've said, and get just lambda X.E1 out of it.
+681200	687200	Yeah, question.
+687200	689200	That's precisely correct.
+689200	692200	So this X is from an outer statement.
+692200	696200	It's a different X than this X.
+696200	706200	So one way that I personally look at this here, when I see that, I go backwards.
+706200	710200	And I say, how did we get here?
+710200	717200	We got here by having a lambda X.E.
+717200	719200	This is our inner expression.
+719200	722200	This corresponds to this piece.
+722200	723200	E1, sorry.
+723200	728200	And then we had an X, or that's an E.
+728200	740200	An E as a parameter to this outer function where we have X as our parameter name.
+740200	748200	So we can go backwards from this starting point to get to what it might have looked like before.
+749200	750200	Maybe it looked like this.
+750200	753200	Maybe it was more complicated.
+753200	764200	But if we simplify this line here, we would get to this point.
+764200	768200	OK.
+768200	769200	Other questions on this one?
+769200	771200	Because it definitely can be confusing.
+771200	772200	Yeah.
+772200	800200	So it can't be E1 and then E. What do you mean by that?
+800200	801200	Right.
+801200	814200	So why we can't say that this piece here becomes E1 where X is equal to E, or something of this sort, is because this isn't an application.
+814200	818200	We aren't making a function call here.
+818200	822200	We have an expression, and we have state that goes along with it.
+822200	833200	Any time you see square brackets in lambda calculus, we're talking about the state of our kind of world, of our program.
+833200	837200	Parentheses and all of this side, that's all the expression.
+837200	840200	That's the math that we're actually trying to solve.
+840200	843200	This is the accompanying state.
+843200	845200	It's not part of the expression.
+845200	848200	It's not something that we're going to ever substitute in.
+848200	851200	It's just saying this variable is equal to that.
+851200	857200	This variable is equal to that.
+857200	858200	Yeah.
+858200	862200	So basically, that's a bound variable, right?
+862200	863200	X.
+863200	868200	So wouldn't it be more comfortable for reading?
+868200	870200	We could, but we don't need to.
+870200	871200	Yeah.
+871200	884200	Yeah, so we could kind of accumulate as much state as we want.
+884200	890200	We could say X is equal to E, and then we'll replace this one with a Z so that eventually,
+890200	892200	we never rewrite this X.
+892200	893200	We never overwrite it.
+893200	895200	We could do that, but we don't need to.
+895200	896200	Yeah.
+897200	904200	So this next problem is basically the same sort of similar to this problem?
+904200	905200	Yes.
+905200	908200	So now, let's move on to this next one.
+908200	915200	Lambda Y dot E1, where X is equal to E2.
+915200	920200	How do we simplify this?
+920200	931200	First of all, what happens if Y is equal to X?
+931200	934200	Yeah.
+934200	939200	Right, if Y is equal to X, then we just use this rule.
+939200	941200	And we say, OK, Y is equal to X.
+941200	946200	Then we drop this state, and we'll get lambda X dot E1.
+946200	949200	So we can assume Y is not equal to X.
+949200	953200	Y is a different variable than X.
+953200	978200	What do we want to do now?
+979200	982200	Yeah, go for it.
+982200	983200	Drop the state.
+983200	985200	Well, not necessarily.
+985200	987200	What if E1 uses X?
+987200	993200	So I think let's actually take a second and look at what this would look like in JavaScript.
+993200	999200	You can turn this guy around.
+1000200	1010200	If I have a function that returns Y plus X, so there's a function in JavaScript.
+1010200	1011200	It takes in a parameter Y.
+1011200	1015200	It returns Y plus X.
+1015200	1026200	What if I have the state let X equal 3?
+1026200	1045200	What do I do to simplify my function here?
+1045200	1051200	Go for it.
+1051200	1054200	We can apply the state recursively to the expression.
+1054200	1057200	I love that answer for this generic thing.
+1057200	1060200	Yeah, yeah.
+1060200	1062200	So that is exactly how I would phrase it.
+1062200	1064200	I agree.
+1064200	1072200	In this example, what does that look like?
+1072200	1075200	Yeah.
+1075200	1078200	We can replace the X in our function with 3.
+1079200	1085200	So we can simplify our function to be this.
+1085200	1094200	Because we know the value of X, and we're using that variable X.
+1094200	1119200	So I want to argue that this example here is going to be identical to lambda Y dot Y plus X, where X is equal to 3.
+1119200	1122200	Here, what I have is a function that takes a parameter Y.
+1122200	1124200	It returns Y plus X.
+1124200	1130200	And I have some state that is telling me that X is equal to 3.
+1130200	1139200	This expression is equivalent to the JavaScript expression that I just showed you.
+1139200	1148200	So what we want to do is we have lambda Y dot E1, where E1 is Y plus X.
+1149200	1157200	And we have some state that X is equal to E2, where E2 is 3.
+1157200	1168200	Our goal is to get to lambda Y dot Y plus 3.
+1168200	1183200	And the way we do that is, as your classmate said, we recursively apply our substitution of X is equal to E2 inside of E1.
+1183200	1192200	So what that looks like is that we have lambda Y dot E1 with no parentheses, where X is equal to E2.
+1192200	1196200	So long as Y is not equal to X, which we already covered.
+1196200	1212200	And so long as Y is not in the free variables of E2.
+1212200	1216200	That's a confusing line of math code.
+1216200	1221200	And it might take multiple times staring at it to figure it out.
+1221200	1222200	And that's OK.
+1222200	1230200	That's expected.
+1230200	1233200	Questions on it at this point?
+1233200	1234200	Yeah?
+1235200	1245200	Well, because if Y is equal to X, we have a different rule for that, where we say just drop the state entirely.
+1245200	1248200	So we have that part covered somewhere else.
+1248200	1250200	Yeah?
+1250200	1253200	Other questions?
+1253200	1268200	Well, no, because if Y is equal to X, then we have that.
+1268200	1275200	So you would just, it's kind of like a, consider it like a case statement, where you're matching on these patterns.
+1275200	1276200	If it's this, do that.
+1276200	1277200	If it's this, do that.
+1277200	1278200	If it's this, do that.
+1278200	1284200	So maybe you could say this is redundant, because we've previously checked that Y is not equal to X.
+1284200	1301200	That's not too important to us.
+1301200	1308200	Yeah, so why don't we have this same check for this second-to-last expression?
+1308200	1311200	The reason is because we're entirely dropping the state.
+1311200	1317200	So we're never going to accidentally capture by substituting in E2.
+1317200	1319200	E2 is just kind of erased.
+1319200	1322200	Or E, in this case, is just erased.
+1322200	1324200	Yeah?
+1324200	1329200	Yeah?
+1329200	1330200	Ah, no, these are rules.
+1330200	1332200	Yes, yeah, good question.
+1332200	1335200	These are rules, not examples.
+1335200	1348200	This is the entire rule description of how we do substitution in lambda calculus.
+1348200	1350200	If it was or wasn't?
+1350200	1351200	If it was, yeah.
+1351200	1362200	So what if X is equal to, let's say, 3 plus Y?
+1362200	1370200	So now we have a complicated expression for X.
+1371200	1378200	If we perform the substitution without caring about the fact that, well, actually, first,
+1378200	1383200	is this Y free or is it bound?
+1383200	1384200	This is a free Y.
+1384200	1388200	This is a different Y than this Y.
+1388200	1390200	These two are the same Y.
+1390200	1391200	That's a different Y.
+1391200	1392200	This is a free Y.
+1392200	1395200	These are bound.
+1395200	1402200	So if we do our substitution without checking the free variables, then what we would get
+1402200	1410200	is we would get Y plus X, where X is 3 plus Y.
+1410200	1418200	And now when we look at this expression, which of these Y's is free?
+1418200	1419200	None of them.
+1419200	1420200	They're all bound.
+1420200	1423200	Or they're both bound to this Y.
+1423200	1427200	We've lost that free variable.
+1427200	1430200	And you can see this in JavaScript as well.
+1436200	1445200	If we said that X is equal to Y plus 3, this Y here is different than this Y, very clearly.
+1445200	1450200	We would have to have said somewhere else, let Y equal 7 or whatever we want.
+1450200	1458200	But if we tried to do the substitution that we did here and we said that it's instead equal to Y plus 3,
+1458200	1462200	now we've run into that same problem that we saw with lambda calculus.
+1462200	1467200	This Y is the same as this Y, even though it wasn't the same previously.
+1472200	1475200	So that's why we do this check.
+1475200	1480200	If we didn't, we would capture variables around us.
+1484200	1485200	Yeah, question.
+1499200	1503200	Yeah, no, we don't need to because it's being overwritten.
+1503200	1509200	So it's kind of what we can show this example as well with JavaScript,
+1509200	1513200	where we can say, let Y equal 3.
+1513200	1519200	And now we have a function with the parameter name Y goes to Y plus X.
+1519200	1526200	Inside of this function expression, we don't care that Y was previously equal to 3.
+1526200	1529200	We have shadowed that with our parameter name.
+1530200	1537200	So we get to ignore this previous state when we are evaluating this expression.
+1539200	1542200	That's what the second to last one is saying.
+1542200	1543200	Yeah.
+1549200	1552200	Does this make things more clear, seeing it with JavaScript?
+1552200	1554200	Is this a...
+1554200	1555200	OK, I'm seeing a lot of nods.
+1555200	1557200	That's good.
+1557200	1562200	Because I felt like Wednesday's lecture wasn't quite getting there.
+1562200	1565200	So, all right.
+1565200	1568200	At this point, we've covered the basics of LambdaCalc.
+1568200	1570200	That's everything.
+1570200	1571200	We have free variables.
+1571200	1573200	We have substitution.
+1573200	1574200	Great.
+1574200	1575200	Now, what can we do with it?
+1575200	1579200	Why did I spend two and a half lectures talking about all of this?
+1581200	1584200	Well, I guess, so first of all, the kind of specifics,
+1584200	1587200	we have the ability to do alpha renaming.
+1587200	1590200	Beta reduction is what we just defined.
+1590200	1593200	And then we have this last one, eta conversion,
+1593200	1596200	which is definitely the kind of like weird one.
+1599200	1604200	The way I think of it is, once again, with JavaScript,
+1606200	1611200	that if we have a function that takes in a variable X
+1611200	1614200	and it calls f of X,
+1616200	1619200	so if I have a function that looks like this,
+1619200	1622200	why didn't I just use f?
+1626200	1630200	Because all that I did was create a wrapper around my function f
+1630200	1633200	that took one parameter and passed it right into f.
+1633200	1637200	And I could have instead just used f.
+1637200	1640200	These are equivalent.
+1640200	1643200	That's exactly what the eta conversion is saying.
+1643200	1650200	That if we have a function that takes a single parameter
+1650200	1653200	and it has some complicated expression,
+1653200	1656200	but all that's happening is it takes in one parameter
+1656200	1659200	and passes it along to that expression,
+1659200	1665200	we can simplify that to the expression itself.
+1666200	1671200	This is not a huge thing to worry about.
+1671200	1676200	It's minorly convenient in some cases.
+1676200	1679200	So if it doesn't make full sense, that's fine.
+1679200	1683200	I would recommend just trying to play around with it a little bit,
+1683200	1686200	and that'll probably help.
+1686200	1689200	Okay.
+1689200	1692200	We did this example forever ago.
+1692200	1694200	Well, we can...
+1694200	1696200	Yeah, we can look at it again.
+1696200	1698200	So when we did this example before,
+1698200	1703200	what we found was that the A in the A plus 5
+1703200	1706200	went in for the X,
+1706200	1708200	and then we got into this problem
+1708200	1715200	where the A outside that's free was captured by the A inside.
+1715200	1719200	So what should we have done?
+1723200	1725200	What's our first step?
+1725200	1728200	Who knows?
+1728200	1731200	I heard it from someone.
+1731200	1733200	Raise your hand.
+1733200	1734200	Who was it?
+1734200	1736200	Yeah.
+1736200	1738200	We'll do an alpha rename.
+1738200	1741200	Yeah, an alpha rename of what?
+1741200	1743200	Exactly.
+1743200	1745200	We'll do an inner A,
+1745200	1747200	and we'll name it something else.
+1747200	1749200	In this case, I've called it B.
+1749200	1753200	So we just rename that inner A to be a B.
+1753200	1756200	Then we can do our substitution like normal,
+1756200	1760200	and we can pass in A plus 5 for X,
+1760200	1763200	and we can continue to beta substitute with the 7,
+1763200	1770200	and we'll end up with A plus 12.
+1770200	1777200	So that's what we should have done earlier.
+1777200	1778200	Okay.
+1778200	1781200	There's some more for the ones that,
+1781200	1785200	if you want to do them at home, feel free to.
+1785200	1790200	But that covers formal substitution,
+1790200	1793200	which leaves us with the fun part of LambdaCalc,
+1793200	1796200	why we actually talk about it.
+1796200	1798200	Well, one of the reasons that we actually talk about it
+1798200	1803200	is that we can use it to show off language paradigms.
+1803200	1816200	For example, evaluation order.
+1816200	1821200	This is a question for you guys.
+1821200	1836200	What should we reduce first in this expression?
+1836200	1839200	Yeah.
+1839200	1841200	What's that?
+1841200	1842200	The inner term.
+1842200	1843200	A.
+1843200	1845200	Who votes for A?
+1845200	1849200	Who votes for B?
+1850200	1852200	Like, mostly you guys didn't vote.
+1852200	1857200	It was like a lot of left-hand side voted for A.
+1857200	1859200	What's the reason?
+1859200	1861200	Somebody who voted,
+1861200	1868200	what's your reason for making the choice that you made?
+1868200	1870200	Did you want a third choice?
+1870200	1873200	Who wanted a third choice?
+1873200	1877200	Okay, a decent number of people wanted a third choice.
+1877200	1882200	Somebody back up your claim, whether it's A, B, or C.
+1882200	1890200	Why?
+1890200	1903200	Yeah.
+1903200	1904200	Yeah, sure.
+1904200	1907200	So one thing that we can do is we can actually solve it.
+1907200	1910200	If we take the first approach, the inner term,
+1910200	1913200	we pass z in for y.
+1913200	1915200	That reduces to z.
+1915200	1917200	Then we pass that into lambda x dot x,
+1917200	1919200	so that reduces to z.
+1919200	1921200	If we do it the other way,
+1921200	1925200	we'll pass lambda y dot yz into x,
+1925200	1927200	which gives us lambda y dot yz,
+1927200	1930200	which, when we reduce that one, also gives us z.
+1930200	1933200	They gave us the same thing either way.
+1933200	1938200	So does that mean that it doesn't matter?
+1938200	1940200	I'm seeing some nods.
+1940200	1941200	Yeah, I'm with you.
+1941200	1942200	It doesn't matter.
+1942200	1944200	They both reduce to z.
+1944200	1945200	We got the same thing.
+1945200	1950200	This is formally proved that all expressions
+1950200	1953200	will reduce to the same thing
+1953200	1962200	so long as they reduce to the same thing.
+1963200	1967200	More formally, if you reduce to a normal form,
+1967200	1977200	it doesn't matter what order you do your reductions in.
+1977200	1978200	Okay.
+1978200	1983200	So does that mean the reduction order doesn't matter?
+1983200	1984200	Yeah.
+1984200	1995200	All right.
+1995200	1998200	We have a vote for no.
+1998200	2000200	Anybody else vote for no?
+2000200	2001200	Oh, wait.
+2001200	2002200	That was a...
+2002200	2004200	Does it mean the reduction order...
+2004200	2007200	That was a vote for yes, it does matter.
+2007200	2011200	Who else votes for yes, it does matter?
+2011200	2014200	Who votes for no, it doesn't matter?
+2014200	2016200	Okay, we actually have a little bit of split.
+2016200	2018200	I do want you...
+2018200	2020200	I'll give you the answer.
+2020200	2021200	It does matter.
+2021200	2024200	No, it doesn't not matter.
+2024200	2025200	I don't know.
+2025200	2027200	It does matter.
+2027200	2028200	Why?
+2028200	2029200	You have an idea.
+2029200	2031200	Chat with the people next to you.
+2031200	2035200	Try and come up with a program that it does matter for,
+2035200	2038200	where you get a different result
+2038200	2042200	depending on how you evaluate your code.
+2042200	2043200	Chat with the people next to you.
+2043200	2058200	I'll give you like two or three minutes.
+2058200	2060200	I'm sorry to cut you off.
+2060200	2062200	You clearly have the right idea.
+2062200	2065200	I know the one, I just can't remember the exact formula.
+2065200	2067200	It's like the Y combinator.
+2067200	2068200	Yep, that's one.
+2068200	2071200	Yep, we'll cover those in a minute though.
+2097200	2110200	Okay, quieted down a bit.
+2110200	2112200	Does anybody have a good program?
+2112200	2122200	Something they want to try out?
+2122200	2124200	Who's got an idea?
+2124200	2126200	What can we try?
+2126200	2135200	For a program where it matters, what order are we going?
+2135200	2153200	You were pretty chatty 30 seconds ago.
+2154200	2168200	Something like that?
+2168200	2172200	Okay, how does evaluation order matter here?
+2172200	2188200	Ah, so let's, we're going to do proper substitution.
+2188200	2191200	So we will rename anything that we're supposed to rename.
+2191200	2194200	But definitely true that if we aren't doing proper substitution,
+2195200	2205200	we could get different results one way or the other.
+2205200	2209200	Any other ideas?
+2209200	2210200	Yeah.
+2210200	2226200	Yep.
+2226200	2230200	Yeah, so I like where you're starting here.
+2230200	2234200	The theorem there says, if you reduce to a normal form.
+2234200	2238200	So our goal is going to be trying to construct a function
+2238200	2241200	which is not reduced to a normal form.
+2241200	2243200	Not quite sure what you mean by the input-output though.
+2243200	2256200	What's, like, where they're independent?
+2256200	2258200	Won't that do what you're saying?
+2258200	2261200	But this actually is a normal form.
+2261200	2264200	Okay, so I think it's, to be honest,
+2264200	2267200	I wasn't fully expecting anyone to come up with an answer.
+2267200	2269200	But it's because it's kind of mind-boggling
+2269200	2272200	how you could come up with something
+2272200	2275200	that doesn't reduce to a normal form.
+2275200	2280200	So let's chat about a program that does this.
+2280200	2283200	The program is called Omega.
+2283200	2288200	And Omega is defined as an application of two expressions.
+2288200	2292200	You have the left-hand side, lambda x dot xx.
+2292200	2297200	And the right-hand side, lambda x dot xx.
+2297200	2308200	So what would be our first step in reducing this?
+2308200	2311200	Yeah.
+2311200	2313200	Sure, let's do an alpha rename.
+2313200	2319200	So we have lambda x, xx.
+2319200	2321200	What do you want to rename?
+2321200	2325200	I would basically give, I would number them 1, 2, 4.
+2325200	2328200	Ah, 1, 2, 3, 4.
+2328200	2329200	Yes.
+2329200	2334200	Can we do that?
+2334200	2338200	Which x is this bound by?
+2338200	2339200	The first x.
+2339200	2340200	The first x.
+2340200	2341200	Which x is this bound by?
+2341200	2342200	The first.
+2342200	2343200	Also the first one.
+2343200	2345200	So are these two x's the same?
+2345200	2346200	Yes.
+2346200	2347200	Yes.
+2347200	2351200	So we could rename these, but they have to be called the same thing.
+2351200	2352200	Yeah.
+2352200	2355200	So we could call this one x1, x1, x1.
+2355200	2358200	This one x2, x2, x2.
+2358200	2359200	Sure.
+2359200	2371200	Now what do we want to do?
+2371200	2372200	Beta reduce.
+2372200	2386200	What does beta look like?
+2386200	2392200	Yeah, so x1 is the parameter name where x1 is equal to this whole thing.
+2392200	2395200	So we will get x1, x1.
+2395200	2398200	That's our inner expression.
+2399200	2409200	x1 is equal to lambda x2 dot x2 x2.
+2409200	2423200	How do we simplify this?
+2423200	2424200	Yeah.
+2424200	2425200	Go back to where we started?
+2425200	2427200	We go back to where we started.
+2427200	2433200	Because x1 and x1 become lambda x2 dot x2 x2.
+2433200	2437200	Which we're back to the alpha renaming step again.
+2437200	2442200	Exactly.
+2442200	2452200	So if we replace this x1 with what x1 is, and we replace that x1 with what x1 is, what we end up with is this expression here.
+2452200	2463200	Which if we alpha rename, removing these numbers, is lambda x dot xx applied to lambda x dot xx.
+2463200	2469200	Which is precisely where we started.
+2469200	2477200	So if we simplify this, we end up back at omega.
+2477200	2480200	That means omega has no normal form.
+2480200	2489200	If you can beta reduce it as much as you want, you'll never end up done.
+2489200	2497200	So when we return to this question of does evaluation order matter, what if we had a function that ignores the input?
+2497200	2500200	And this is kind of what you were getting at, I feel like.
+2500200	2503200	Where we can just toss away the input.
+2503200	2505200	Lambda x dot y.
+2505200	2512200	What happens if we have lambda x dot y where the parameter is omega?
+2512200	2519200	What options do we have for reducing this expression here?
+2520200	2538200	What's one option that we have?
+2538200	2543200	Yeah.
+2543200	2549200	We could pass omega in for x and then return the result, which is y.
+2549200	2550200	We know the value.
+2550200	2551200	We're done.
+2551200	2553200	Y is the result.
+2553200	2556200	So we could return y.
+2556200	2558200	What else could we do?
+2558200	2560200	What's a different way of simplifying this problem?
+2560200	2564200	Yeah.
+2564200	2565200	Right.
+2565200	2566200	We could try and reduce omega.
+2566200	2569200	We could take a beta reduction on omega.
+2569200	2575200	What would that look like?
+2575200	2577200	We'll get the same thing.
+2577200	2581200	Reducing omega gives you omega back.
+2581200	2584200	OK, so now we're here.
+2584200	2589200	What could we do?
+2589200	2592200	What options do we have?
+2592200	2594200	The same thing.
+2594200	2601200	Once again, return y by passing omega in for x, and then ignoring x and returning y.
+2601200	2605200	Or we could try and reduce it again, and again, and again, and again.
+2605200	2607200	At each stage, we have a choice to make.
+2607200	2613200	If you're familiar with non-determinism in Turing machines, this might look pretty familiar.
+2613200	2621200	Where it's like we could take that jump, or we could just stay where we are and kind of sit doing nothing with our epsilon.
+2622200	2627200	So, does it matter?
+2627200	2628200	Yes.
+2628200	2631200	Does it not matter?
+2631200	2632200	No.
+2632200	2634200	It does matter.
+2634200	2636200	But it only matters sometimes.
+2636200	2640200	And most of the time, we can say whatever.
+2640200	2644200	Sometimes, in lambda calc, we have to be pretty precise.
+2644200	2647200	So we can come up with a few different strategies.
+2648200	2652200	The first of which is called call by value.
+2652200	2657200	This is JavaScript's and most languages' approach.
+2657200	2662200	Where we have a function application, E1, E2.
+2662200	2666200	What we will do is first reduce the function.
+2666200	2669200	Then reduce the arguments.
+2669200	2671200	Then apply.
+2671200	2682200	So, any time you're doing a function application, you simplify both sides before applying the actual function call.
+2682200	2691200	We can think of this as...
+2691200	2700200	If we have JavaScript goes to X plus 3, whatever.
+2700200	2702200	So, we have some function.
+2702200	2707200	And we're going to call it with 3 plus 4.
+2707200	2711200	We will simplify our function, which we can't do.
+2711200	2713200	There's no simplification to be made.
+2713200	2715200	Then we simplify the arguments.
+2715200	2718200	And we figure out that this is 7.
+2718200	2723200	Then we pass 7 in for X.
+2723200	2729200	We could instead pass the expression 3 plus 4 in for X.
+2729200	2731200	We would get the same thing here.
+2731200	2733200	But that's a different route that we could take.
+2733200	2736200	JavaScript says reduce the arguments.
+2736200	2738200	Then apply.
+2738200	2741200	So, if we...
+2741200	2744200	You know, like, following that, we simplify the red.
+2744200	2746200	Then we simplify the blue.
+2746200	2751200	Then we apply the thing.
+2751200	2754200	So, if we look at this JavaScript function.
+2755200	2759200	X goes to 33 with this parameter as input.
+2759200	2767200	What are we going to get as our result?
+2767200	2779200	You have to turn on your visual debugger.
+2779200	2785200	What do we get?
+2785200	2788200	Who's got an idea?
+2788200	2789200	One person.
+2789200	2791200	Chat with somebody next to you.
+2791200	2792200	Figure out.
+2792200	2802200	What does this give us?
+2823200	2829200	How many of you said this?
+2829200	2833200	Range error maximum call stack exceeded.
+2833200	2834200	Why?
+2834200	2836200	What happened here?
+2836200	2838200	Where did we go wrong?
+2838200	2844200	Yeah?
+2844200	2845200	Exactly.
+2845200	2846200	No, no, no.
+2846200	2850200	So, we're trying to reduce the right-hand side value in blue.
+2850200	2852200	And this is a recursive function.
+2852200	2856200	What is this function?
+2856200	2858200	What's another name for the blue part?
+2858200	2859200	Yeah.
+2859200	2861200	Omega.
+2861200	2863200	That's what we just saw.
+2863200	2865200	In lambda calculus.
+2865200	2866200	That's omega.
+2866200	2870200	In JavaScript.
+2870200	2873200	Yeah, so it's not gonna work.
+2873200	2876200	What if we wanted it to work?
+2876200	2882200	Haskell, which we will start studying soon, takes a different approach.
+2882200	2885200	That's more similar to call by name.
+2885200	2888200	Where what we do is we reduce the function.
+2888200	2891200	And then we apply.
+2891200	2899200	The only thing that's different than call by value is that we aren't reducing the argument.
+2899200	2901200	You don't reduce the argument ever.
+2901200	2903200	You only ever reduce the function.
+2904200	2910200	And what that means is we will only use a value if it's being used.
+2910200	2918200	To go to our example over here, which was bad JavaScript.
+2918200	2930200	If we have a function X goes to 3, and we pass in 3 plus 4, but we aren't using X, why would you evaluate 3 plus 4?
+2930200	2932200	We didn't need that.
+2932200	2935200	Wasted computation.
+2935200	2938200	Ice caps are melting and all that, you know?
+2938200	2941200	This 3 plus 4 is the fault.
+2941200	2945200	So we can just toss it out instead because it's never used.
+2945200	2950200	Never evaluate something if it's not gonna be used.
+2950200	2956200	So this is your first, for some of you, your first time ever seeing Haskell.
+2956200	2960200	But it looks surprisingly similar to lambda calculus.
+2960200	2971200	Where we have lambda X dot 33, lambda X dot XX, lambda X dot XX.
+2971200	2974200	What will this program evaluate to?
+2974200	2978200	If you know nothing about Haskell except for what I've just said up above.
+2978200	2979200	Yeah?
+2979200	2980200	33.
+2980200	2989200	Because we don't use our parameter X, this piece here being omega, we'll never reduce omega.
+2989200	2999200	Which means we'll never try to go into this infinite loop, and we'll end up with the value 33.
+2999200	3003200	Now you guys know Haskell.
+3003200	3005200	That wasn't so hard.
+3005200	3006200	All right.
+3006200	3007200	Questions?
+3007200	3009200	Is there any of this?
+3009200	3010200	Yeah.
+3010200	3011200	No.
+3011200	3012200	That's...
+3012200	3013200	Yeah?
+3013200	3014200	Yeah.
+3014200	3015200	No.
+3015200	3029640	So it'll do the beta reduction to pass this all in for X.
+3029640	3032040	And then it won't need to use X.
+3032040	3035360	So it will never evaluate that state.
+3035360	3040700	So up above what you can see, only the pointer worked.
+3040700	3044300	We evaluate the left-hand side, the red.
+3044300	3046420	Simplify that as much as we can.
+3046420	3054060	And then the beauty of it is that we get to this E1 prime 33, where X is equal to this
+3054060	3055620	omega.
+3055620	3060140	And since we never use X, we can just toss away the state.
+3060140	3061140	And we'll return 33.
+3061140	3062140	Yeah?
+3062140	3063140	What do you mean by sharing?
+3063140	3065460	Oh, yeah, yeah.
+3065460	3072600	So what if...
+3072600	3079060	What if we have a function that takes X and returns X plus X?
+3079060	3082520	Then it's great to precompute 3 plus 4.
+3082520	3085420	Now we're saving the polarized caps.
+3085420	3091620	Because we're doing 7 plus 7 instead of 3 plus 4 plus 3 plus 4.
+3091620	3097740	And if you do 3 plus 4 plus 3 plus 4, you've duplicated your computation.
+3097740	3100620	Which might seem trivial, but I promise you it's not.
+3100620	3105780	This is exactly what compilers are doing all the time to optimize your code.
+3105780	3111040	So what Haskell does is it says, until you need something, don't evaluate it.
+3111040	3114580	As soon as you need it, store it.
+3114580	3117420	So we're gonna compute 3 plus 4 for X.
+3117420	3120420	And then we're just gonna use that same value a second time.
+3120420	3122360	We don't need to recompute it.
+3122360	3124540	So that's what the sharing means.
+3124540	3125540	Yeah?
+3125540	3139040	So, no, that's part of the runtime environment.
+3139040	3144260	But well, to the extent it can do these things at compile time, it will.
+3144260	3148260	But it can't do everything.
+3149100	3157100	Other questions?
+3157100	3159660	Cool.
+3159660	3168700	So in summary, you can have the technical term redexes or some terms that can reduce.
+3168700	3175620	Your evaluation strategy tells you which term to evaluate and reduce.
+3175620	3178580	You aren't guaranteed to find a normal form.
+3178580	3181020	These are two different ways that you could...
+3181020	3189020	Two different strategies to solve lambda expressions.
+3189020	3196700	All right.
+3196700	3199820	That concludes lambda calc.
+3199820	3207100	However, in the slide deck, there are about 15 more slides about more fun things you can
+3207100	3213540	do with lambda calculus, such as creating booleans, creating numbers, creating functions
+3213540	3225460	we've already done, doing tuples, structs, and in particular, recursion, which is not
+3225460	3238020	required for the course and will not be part of standard exam points.
+3238020	3239340	There's some fun slides on it, too.
+3239340	3245020	We talked about the Y Combinator, but not the VC firm.
+3245020	3250500	So I would encourage you, if you have at all enjoyed lambda calc, or if it's just at all
+3250500	3253740	interesting to check it out.
+3253740	3256420	Those last few slides.
+3256420	3265100	But otherwise, we're going to be leaving lambda calc in its place and use it as a way of talking
+3265100	3271660	about some of these other ideas.
+3271660	3275940	So any lingering questions on lambda calc?
+3275940	3278260	Yeah.
+3278260	3294740	So what should you take away from lambda calc?
+3294740	3297860	I think it's a fair question.
+3297860	3302900	First of all, for the exam, but also more broadly speaking, the goal of a lot of the
+3302900	3308620	parts of this class are to improve your visual debugger, as I mentioned� as I brought up
+3308620	3309620	earlier.
+3309620	3314940	Where it's not necessarily that you're ever going to write lambda calc.
+3314940	3318980	But you will look at a lot of functions as software engineers.
+3318980	3319980	That's something that you will do.
+3319980	3325340	And being able to spot how they work and what they're doing and how things will evaluate
+3325340	3327860	is very important.
+3327860	3336780	With respect to your grade, you need to be able to evaluate a lambda calc expression.
+3336780	3340300	And say what are the free variables of this expression?
+3340300	3341860	What will it reduce to?
+3341860	3342900	Will it reduce?
+3342900	3345100	Or will it not reduce?
+3345100	3348660	That sort of thing.
+3348660	3353900	Or write a lambda calc expression that does X, Y, Z.
+3353900	3358780	That's the sum of it.
+3358780	3360100	Other last questions?
+3360100	3364340	Otherwise, feel free to bring up any other stuff during office hours as well.
+3364340	3365340	Yeah?
+3365340	3375620	In general, is it easier to start from the expression you go out?
+3375620	3378780	It really depends on the expression.
+3378780	3380780	Yeah.
+3380780	3385420	The fact that JavaScript does it one way and Haskell does it another way is kind of indicative
+3385420	3387060	of there's no right answer.
+3387060	3390340	It's not that one of the two of them is smarter and better.
+3390340	3392500	It's that they're different approaches.
+3392500	3399380	Either one might be better.
+3399380	3402420	Okay.
+3402420	3408380	So what we have been talking about is lambda calculus's substitution model.
+3408380	3414080	Where we said we could have a function with a function application and we can beta reduce
+3414080	3421220	it to some other expression.
+3421220	3425860	In JavaScript, that above function looks something like this.
+3425860	3434220	And why we care about it is because we can do this beta reduction at compile time.
+3434220	3436700	That's not a runtime evaluation.
+3436700	3439740	That's a compile time simplification of your code.
+3439740	3445260	So that at runtime, we don't need to compute it.
+3445260	3451660	And if you're gonna do this over and over, then compile once, run ten times, it's highly
+3451660	3459220	effective to beta reduce.
+3459220	3462500	But why would you not want to do that?
+3462500	3467740	If we tried to do beta reduction on� these slides are on Canvas, by the way, already.
+3467740	3473720	So if you do that and follow along, they are already up there.
+3473720	3480180	Why would you not want to do a beta reduction in a real language like JavaScript?
+3480180	3489420	Where we're trying to say set X equal to some parameter for all X in some scope.
+3489420	3492420	What can go wrong?
+3492420	3494420	Yeah.
+3494420	3496420	Yeah.
+3496420	3502820	In JavaScript, we can update the value of X.
+3502820	3507140	X might be something at the start of a function and change to be something else at the end
+3507140	3511020	of the function.
+3511020	3515860	We've been working with JavaScript that looks like this, but that's not actually all of
+3515860	3517940	JavaScript's power.
+3517940	3523100	We could say X equals X plus 1 on the second line of this function.
+3523100	3531160	And then if we've substituted everything, we're kind of, like, in a limbo land.
+3531160	3533180	It can also slow things down.
+3533180	3535660	We don't need to get into that.
+3535660	3544300	But to point out this idea of change and mutation in JavaScript, if we had a relatively simple
+3544300	3552220	function, let Y equal 1, Z equal 0, Z plus plus, log Z, what do we expect to be the output
+3552220	3553220	of console.log?
+3553220	3554220	1.
+3554220	3555220	1.
+3555220	3556220	Right?
+3556220	3565100	We've started Z as 0, we incremented Z, and then we output Z.
+3565100	3572260	If we did a beta reduction of all Z is equal to 0, then when we get to this log, we log
+3572260	3585060	0.
+3585060	3592300	So most languages support this idea of mutation.
+3592300	3593660	Variables are not static.
+3593660	3594660	They change.
+3594660	3597540	They're called variable for a reason.
+3597540	3602380	Pascal has a different idea and says variables aren't variable.
+3602380	3604140	They are static.
+3604140	3613200	And part of the reason for that is so that they can do more substitution.
+3613200	3615500	So what can we do about this?
+3615500	3621840	We're going to spend the next lecture and a half talking about how to translate from
+3621840	3628880	the kind of mathematician ivory tower of lambda calculus, not quite all the way down
+3628880	3635240	to the machine model, but talk about the environment model of JavaScript somewhere in between.
+3635240	3640240	Where we get some of the benefits of lambda calculus, but we aren't all the way in the
+3640240	3645840	nuts and bolts of things.
+3645840	3646840	It'll look like this.
+3646840	3649380	This is what we're going to kind of be covering.
+3649380	3651100	What does scope look like?
+3651100	3655060	How do first order functions� yeah.
+3655060	3656420	First order functions to start.
+3656420	3658220	How do those work with scope?
+3658220	3660300	How do free variables play into this?
+3660300	3666740	And then finally, how do high order functions work with scope?
+3666740	3672660	So to start, what is a scope?
+3672660	3678660	What's the point of a scope?
+3678660	3687220	What do you use it for?
+3687220	3690180	You guys have a lot of answers.
+3690180	3698940	Someone who hasn't brought something up.
+3698940	3701180	I do appreciate it, just to be clear.
+3701180	3711300	It's not bad that you guys answer a lot of questions.
+3711300	3712300	What's the point of a scope?
+3712300	3714140	You guys use these all the time.
+3714140	3716340	When was the last time you wrote code?
+3716340	3717340	It's like yesterday.
+3717340	3718340	Right?
+3718340	3720120	There was a PA.
+3720120	3721620	You had to use a scope in the PA.
+3721620	3722620	Yeah?
+3722620	3738620	No, definitely.
+3738620	3744100	So to make variables easier to use, I think, is a pretty concise summary of what's the
+3744100	3745800	point of a scope.
+3745800	3752120	We want to encapsulate and hide these variables live here.
+3752120	3755880	It doesn't care about, like, these variables don't matter anywhere else.
+3755880	3760240	Don't use the same X that I've defined here in some other place.
+3760240	3761600	Yeah?
+3761600	3769720	PA is due next week.
+3769720	3772280	PA2 should be due this Sunday.
+3772280	3776080	Is that not what grade scope says?
+3776080	3777080	I'll fix that.
+3777080	3778360	It should be this Sunday.
+3778360	3784560	PA2 and 3 are due, like, this upcoming Sunday.
+3784560	3785560	Not yesterday.
+3785560	3786560	No.
+3786560	3787560	Oh, yeah.
+3787560	3788560	I guess I did just say...
+3788560	3789560	Yeah, no.
+3789560	3790680	Some of you might have been writing code.
+3790680	3791680	I don't know.
+3791680	3792680	Whatever.
+3792680	3796920	You guys should probably be writing more code than you are currently writing.
+3796920	3799040	That's definitely true.
+3799040	3804040	For probably 99 of you.
+3804040	3807600	But PA is due in six days or something like that.
+3807600	3808600	Yep.
+3808600	3812440	Don't worry if you didn't submit it.
+3812440	3814440	Okay.
+3814440	3815640	So scopes.
+3815640	3822520	The point of them is to encapsulate state specific to the area of code that we're working
+3822520	3823520	on.
+3823520	3824520	Right?
+3824520	3830560	If we're saying X here is equal to this thing, this is where I'm gonna use X with this value.
+3830560	3833000	Not elsewhere in, like, a different library.
+3833000	3836080	I don't want that other implementation of X.
+3836080	3840000	I want my version of X.
+3840000	3843280	So how are we gonna capture that?
+3843280	3844780	We are...
+3844780	3846360	We're not going here.
+3846360	3849640	But we are gonna be somewhere in the middle here, where we're talking about, like, what
+3849640	3855320	do we need to actually use a scope?
+3855320	3864520	If we wanted to track this idea of the environment of our program over time, we're gonna need
+3864840	3866280	some information.
+3866280	3873280	So going to the previous example, we're going to create environments, which I call activation
+3873280	3876960	records of whatever we are currently executing.
+3876960	3882620	When we are inside of one scope, we want information about that scope.
+3882620	3885760	It's doing X in this scope.
+3885760	3890660	And we're going to contain all of our variables in this environment.
+3890660	3894300	And then we're also going to contain some extra information.
+3894300	3900780	If you've taken kind of lower level classes, where you've done Spark or MIPS or X86 or
+3900780	3906340	whatever, you have to keep track of things like the stack pointer, the return address,
+3906340	3908460	the frame pointer.
+3908460	3915740	This is environmental information about what we're currently executing.
+3915740	3921980	So what we might do is, for the current snippet, we could have our environment pointer point
+3921980	3929460	to this area of memory, where we've said Y is equal to 1, Z is equal to 0.
+3929460	3930780	This is our state.
+3930780	3934460	It's our square brackets from lambda calculus.
+3934460	3953620	As opposed to the code, the expressions that we're going to execute.
+3953620	3965500	Depends on the setup.
+3965500	3970340	Okay.
+3970340	3976340	One minor piece of this that we kind of ignore after this one slide.
+3976340	3982420	But there's the canonical idea of R values and L values.
+3982420	3989140	R values are true expressions where we can treat them like lambda calculus.
+3989140	3990500	They're very mathematical.
+3990500	3993060	We can simplify as much as we want.
+3993060	3996700	There's no backing environment to them.
+3996700	4000780	And L values are pointers to R values.
+4000780	4007700	They're like the buckets that you learn about with variables.
+4007700	4013260	So L values point to R value information.
+4013260	4022180	And when we look at something like plus plus, when we say Z plus plus or plus plus Z, we
+4022180	4029580	can't plus plus an R value, because plus plus is mutating the state.
+4029580	4035500	So you can only plus plus an L value so that it can update itself.
+4035500	4044860	So in our thing over here, the left-hand side, the YZ, those are our L values that
+4044860	4047900	are pointing to R values on the right-hand side.
+4047900	4053500	We can plus plus Z. You can't plus plus 0.
+4053500	4057060	Because plus plus 0, it's like, what does that even mean?
+4057060	4058760	Maybe it returns 1.
+4058760	4059760	Maybe it doesn't.
+4059760	4064060	But it certainly doesn't update the number 0 to be 1.
+4064060	4065060	That would be really weird.
+4065620	4068620	If later, you then, like, use 0 and got 1.
+4073620	4074620	Goodness.
+4074620	4075620	OK.
+4075620	4081180	So that's L values, R values, whatever.
+4081180	4088380	When we want to execute console.log Z, we will go look at our environment and say, what
+4088380	4092140	context are we evaluating console.log Z in?
+4092140	4093780	Oh, sorry.
+4093780	4095500	We're looking at the Z plus plus first.
+4095500	4100340	When we execute Z plus plus, we say, what environment are we executing that in?
+4100340	4103260	Our environment is the little square.
+4103260	4105900	We go look up the value of Z. Z is 0.
+4105900	4109460	We increment it to 1.
+4109460	4111420	So we find our environment.
+4111420	4113820	We check to see if we're inside of the environment.
+4113820	4116220	And then we use the environment.
+4116220	4120020	When we log Z, the process is the same.
+4120020	4124980	We find what our current environment is, which is whatever our environment pointer
+4124980	4126620	points to.
+4126620	4133700	We look up the value of Z. What's the value of Z?
+4133700	4134700	What's the value of Z?
+4134700	4135700	1.
+4135700	4136700	1.
+4136700	4137700	Yeah.
+4137700	4140900	It's in the table right there.
+4140900	4146700	So we print out 1.
+4146700	4150700	This algorithm sounds a little slow.
+4150700	4152500	That's because it is.
+4152500	4156820	It's not very convenient to continually look up the environment pointer, check what my
+4156820	4158180	variables are.
+4158180	4159300	Is my variable there?
+4159300	4163700	If it's not, go find it somewhere else.
+4163700	4166580	That's partially because we're not in the machine model.
+4166580	4169580	We aren't talking about x86 or Spark.
+4169580	4173300	But it's also just a kind of necessary evil.
+4173300	4176740	You have to be able to find what is my environment.
+4176740	4181500	So we can come up with kind of, like, speedy hacks around it.
+4181500	4184980	But at the end of the day, we have to do this approach.
+4184980	4189340	Anytime we're executing code, we have to know what environment are we executing that code
+4189340	4190340	in.
+4190340	4195980	Because it's very different to log Z here than in a totally different program where
+4195980	4197860	you said Z is 100.
+4197860	4198860	Or Z is omega.
+4198860	4200660	Or, you know, whatever.
+4200660	4205780	Those mean different things depending on the environment.
+4205780	4210020	OK.
+4210020	4214340	That's the anatomy of a scope.
+4214340	4217300	Which is not, like, it's not crazy.
+4217300	4220860	It's not supposed to be something totally new.
+4220860	4221940	Scopes are scopes.
+4221940	4226660	Scopes store variables.
+4226660	4231300	Right?
+4231300	4233660	When do we create environments?
+4233660	4239660	When do we create scopes?
+4239660	4241020	Chat with someone next to you.
+4241020	4242660	When do we need to do these?
+4242660	4248660	A, B, A and B, or never?
+4278660	4294860	How many people vote A?
+4294860	4297260	Every time we create a new block scope.
+4297260	4299820	Or every time we enter a new block scope.
+4299820	4301500	How many people vote B?
+4301500	4305020	Every time we enter a new function scope.
+4305020	4307060	How many people vote A and B?
+4308060	4309060	All right.
+4309060	4310060	We got a majority there.
+4310060	4312060	Anybody say we don't need new environments?
+4312060	4313060	OK.
+4313060	4314060	Nobody's really...
+4314060	4317180	Oh, maybe we have a jokester.
+4317180	4322540	There are some worlds where you might have a language that doesn't create new environments.
+4322540	4324700	It's not unreasonable.
+4324700	4330240	And there was a version of JavaScript where you didn't have new block scopes.
+4330240	4332820	Or new scope on a block scope.
+4332820	4335380	Because we only really cared about function scope.
+4335380	4342180	Nowadays, it's A and B. Whenever you create a new block scope or a new function scope.
+4342180	4345900	Then we create a new environment.
+4345900	4350900	So the approach we're gonna take, and we're gonna spend a lot of time drawing these diagrams,
+4350900	4357460	and this is basically what the homework looks like, is we will have a function.
+4357460	4360100	We will call that function.
+4360100	4366860	And then we're going to keep track of the environment as we execute that code.
+4366860	4372920	And one of the main points of this chunk of class is so that you can look at this code
+4372920	4373920	and say...
+4373920	4375500	I know what that's gonna do.
+4375500	4376500	Here it's pretty obvious.
+4376500	4377500	It's factorial.
+4377500	4379900	We called it fact.
+4379900	4381260	That's not always the case.
+4381260	4383300	Sometimes you're presented with code that looks like...
+4383300	4384820	What the heck is this doing?
+4384820	4390420	Being able to trace through it and understand what state is looking like as you are tracing
+4390420	4392780	through it is extremely valuable.
+4392780	4394700	It saves you a lot of time.
+4394700	4400140	Rather than having to put a bunch of console.log inside of the code and then run it and run
+4400140	4401140	it.
+4401140	4402740	Or put a breakpoint and run it and run it.
+4402740	4405720	So we're finishing up with class now.
+4405720	4413300	We're gonna pick up on Wednesday diving into how can we track environment as we run JavaScript
+4413580	4415580	code.
+4415580	4417900	Feel free to drop by office hours.
+4417900	4419620	Otherwise, have a good week.
+4713300	4714300	Bye.
+4714300	4715300	Bye.
+4715300	4716300	Bye.
+4716300	4717300	Bye.
+4717300	4717300	
+4743300	4744300	Bye.
+4744300	4745300	Bye.
+4745300	4745300	
+4773300	4774300	Bye.
+4774300	4775300	Bye.
+4775300	4775300	

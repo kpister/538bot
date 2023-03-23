@@ -1,0 +1,4516 @@
+1
+00:01:30,000 --> 00:01:36,800
+All right, folks.
+
+2
+00:01:36,800 --> 00:01:39,760
+Let's get started.
+
+3
+00:01:39,760 --> 00:01:42,160
+Anybody have any notes?
+
+4
+00:01:42,160 --> 00:01:43,160
+I do not.
+
+5
+00:01:43,160 --> 00:01:47,160
+I think everything's going well from my side.
+
+6
+00:01:47,160 --> 00:01:51,000
+Anything on your side that's not going well?
+
+7
+00:01:51,000 --> 00:01:55,000
+All right.
+
+8
+00:01:55,000 --> 00:01:58,000
+Things are going well.
+
+9
+00:01:58,000 --> 00:02:02,840
+Interesting, like, news item for the day.
+
+10
+00:02:02,840 --> 00:02:10,640
+This is a graph representing the amount of time it takes to run a linter on the CPython
+
+11
+00:02:10,640 --> 00:02:13,780
+codebase from scratch.
+
+12
+00:02:13,780 --> 00:02:17,400
+The top line is a service called Ruff.
+
+13
+00:02:17,400 --> 00:02:22,640
+Down below, autoflake, flake8, pyflakes, pycode-style, pylint.
+
+14
+00:02:22,640 --> 00:02:27,900
+For those of you who don't know, a linter is something that goes through a codebase
+
+15
+00:02:27,900 --> 00:02:37,260
+or it parses code to find idiosyncratic usages of the language.
+
+16
+00:02:37,260 --> 00:02:42,000
+So it will alert you in JavaScript if you have forgotten your semicolon.
+
+17
+00:02:42,000 --> 00:02:44,280
+And it suggests maybe you want a semicolon.
+
+18
+00:02:44,280 --> 00:02:48,980
+Even though it's not needed, it's purely a cosmetic improvement.
+
+19
+00:02:48,980 --> 00:02:50,360
+But somebody's got to do it.
+
+20
+00:02:50,360 --> 00:02:53,640
+So Ruff is a new service that does this.
+
+21
+00:02:53,640 --> 00:03:00,440
+And it does it in .3 seconds, compared to the next fastest in 6 seconds.
+
+22
+00:03:00,440 --> 00:03:04,260
+Which is 20 times faster than the next fastest competitor.
+
+23
+00:03:04,260 --> 00:03:08,420
+The only difference between the first one and the bottom five...
+
+24
+00:03:08,420 --> 00:03:10,460
+The first one is written in Rust.
+
+25
+00:03:10,460 --> 00:03:14,300
+The bottom five are all written in Python.
+
+26
+00:03:14,300 --> 00:03:15,920
+They implement the same features.
+
+27
+00:03:15,920 --> 00:03:18,500
+They're doing the exact same thing.
+
+28
+00:03:18,500 --> 00:03:22,000
+The people who wrote these bottom five weren't dumb.
+
+29
+00:03:22,000 --> 00:03:24,940
+They're often the maintainers of Python.
+
+30
+00:03:24,940 --> 00:03:26,840
+They're very intelligent people.
+
+31
+00:03:26,840 --> 00:03:32,000
+But if you write it in Rust, it'll be 20 times faster.
+
+32
+00:03:32,000 --> 00:03:34,000
+Kind of interesting.
+
+33
+00:03:34,000 --> 00:03:37,240
+All right.
+
+34
+00:03:37,240 --> 00:03:40,080
+Let's do an activity.
+
+35
+00:03:40,080 --> 00:03:45,600
+Because I like activities.
+
+36
+00:03:45,600 --> 00:03:54,820
+You guys can see this.
+
+37
+00:03:54,820 --> 00:03:57,260
+Can everybody read this code?
+
+38
+00:03:57,260 --> 00:03:59,740
+Is that big enough for everyone in the back?
+
+39
+00:03:59,740 --> 00:04:00,740
+Cool.
+
+40
+00:04:00,740 --> 00:04:01,740
+All right.
+
+41
+00:04:01,740 --> 00:04:03,780
+This is from the midterm.
+
+42
+00:04:03,780 --> 00:04:04,820
+This is the assignment.
+
+43
+00:04:04,820 --> 00:04:08,360
+This is a problem that I gave on the midterm last semester.
+
+44
+00:04:08,360 --> 00:04:15,820
+I asked the students from last semester to tell me what the output of running this program
+
+45
+00:04:15,820 --> 00:04:18,000
+is.
+
+46
+00:04:18,000 --> 00:04:22,600
+So I think let's start class by trying to solve that.
+
+47
+00:04:22,600 --> 00:04:28,480
+And hopefully what we'll find is it's a little tricky to solve with our current knowledge.
+
+48
+00:04:28,480 --> 00:04:33,100
+But through today's lecture, we'll develop some tools to help us solve it more consistently.
+
+49
+00:04:33,100 --> 00:04:38,220
+So my task for you is chatting with two or three people around you.
+
+50
+00:04:39,080 --> 00:04:43,800
+Try and figure out what is printed on line 14 to console.
+
+51
+00:04:43,800 --> 00:04:49,720
+You can use scratch notes or any paper that you want.
+
+52
+00:04:49,720 --> 00:04:51,040
+But try and figure it out.
+
+53
+00:04:51,040 --> 00:04:54,800
+What's the output of the last line?
+
+54
+00:04:54,800 --> 00:04:56,560
+If you can do it all in your head, great.
+
+55
+00:04:56,560 --> 00:04:57,560
+That's fine.
+
+56
+00:04:57,560 --> 00:04:58,560
+You don't need to.
+
+57
+00:04:58,560 --> 00:05:00,560
+Because computers don't.
+
+58
+00:05:00,560 --> 00:05:03,080
+So all right.
+
+59
+00:05:03,080 --> 00:05:04,120
+Chat with people next to you.
+
+60
+00:05:04,120 --> 00:05:06,140
+Figure out what it is.
+
+61
+00:05:34,120 --> 00:05:36,140
+All right.
+
+62
+00:06:04,120 --> 00:06:06,140
+All right.
+
+63
+00:06:34,120 --> 00:06:56,120
+What do you guys think it is?
+
+64
+00:06:56,120 --> 00:06:57,120
+35?
+
+65
+00:06:57,120 --> 00:06:58,120
+25?
+
+66
+00:06:58,120 --> 00:06:59,120
+You got an idea?
+
+67
+00:06:59,120 --> 00:07:00,120
+Still working through it?
+
+68
+00:07:00,120 --> 00:07:01,120
+What are you thinking so far?
+
+69
+00:07:02,120 --> 00:07:03,120
+20 does become the Y.
+
+70
+00:07:03,120 --> 00:07:04,120
+Okay.
+
+71
+00:07:04,120 --> 00:07:05,120
+Why would it?
+
+72
+00:07:05,120 --> 00:07:06,120
+Or why wouldn't it?
+
+73
+00:07:06,120 --> 00:07:07,120
+Uh-huh.
+
+74
+00:07:07,120 --> 00:07:08,120
+I think it does.
+
+75
+00:07:08,120 --> 00:07:09,120
+Okay.
+
+76
+00:07:09,120 --> 00:07:10,120
+Yeah.
+
+77
+00:07:10,120 --> 00:07:11,120
+I like the idea that it does.
+
+78
+00:07:11,120 --> 00:07:12,120
+Yeah.
+
+79
+00:07:12,120 --> 00:07:38,120
+And then what's G?
+
+80
+00:07:39,120 --> 00:07:46,120
+I'll let you keep working through it.
+
+81
+00:07:46,120 --> 00:07:50,120
+It sounds like you're on the right path, though.
+
+82
+00:07:50,120 --> 00:07:53,120
+How's it going over here?
+
+83
+00:07:53,120 --> 00:07:54,120
+You guys have an idea?
+
+84
+00:07:54,120 --> 00:07:55,120
+Nine.
+
+85
+00:07:55,120 --> 00:07:56,120
+Nine?
+
+86
+00:07:56,120 --> 00:07:57,120
+Why is?
+
+87
+00:07:57,120 --> 00:07:58,120
+It's a closure problem, right?
+
+88
+00:07:58,120 --> 00:07:59,120
+It is a closure problem.
+
+89
+00:07:59,120 --> 00:08:02,120
+And is it related to F not being graphed as like another
+
+90
+00:08:02,120 --> 00:08:04,120
+anomalous function?
+
+91
+00:08:04,120 --> 00:08:06,120
+We give the other answer.
+
+92
+00:08:06,120 --> 00:08:14,120
+What's the other answer?
+
+93
+00:08:14,120 --> 00:08:15,120
+Right.
+
+94
+00:08:15,120 --> 00:08:16,120
+Yeah.
+
+95
+00:08:16,120 --> 00:08:17,120
+Yeah.
+
+96
+00:08:17,120 --> 00:08:19,120
+Like, should A be updated or should it not?
+
+97
+00:08:19,120 --> 00:08:20,120
+Yeah.
+
+98
+00:08:20,120 --> 00:08:23,120
+Sounds like you guys have the right idea, though.
+
+99
+00:08:23,120 --> 00:08:25,120
+So that's good.
+
+100
+00:08:25,120 --> 00:08:28,120
+How's it going over here?
+
+101
+00:08:28,120 --> 00:08:30,120
+Struggling?
+
+102
+00:08:30,120 --> 00:08:32,120
+Well, what's the value of H?
+
+103
+00:08:32,120 --> 00:08:35,120
+That's maybe where to start.
+
+104
+00:08:35,120 --> 00:08:44,120
+You have an idea for what H is?
+
+105
+00:08:44,120 --> 00:08:45,120
+Not quite.
+
+106
+00:08:45,120 --> 00:08:46,120
+Okay.
+
+107
+00:08:46,120 --> 00:08:47,120
+Yeah.
+
+108
+00:08:47,120 --> 00:08:49,120
+So we're equal to calling F, right?
+
+109
+00:08:49,120 --> 00:08:51,120
+We call F.
+
+110
+00:08:51,120 --> 00:08:52,120
+And what is F?
+
+111
+00:08:52,120 --> 00:08:54,120
+F is that, like, whole function, right?
+
+112
+00:08:54,120 --> 00:08:58,120
+It's from line one all the way down to line 12.
+
+113
+00:08:58,120 --> 00:09:03,120
+And so we want to figure out what's the result of running
+
+114
+00:09:03,120 --> 00:09:04,120
+that function.
+
+115
+00:09:04,120 --> 00:09:06,120
+So F is the big function.
+
+116
+00:09:06,120 --> 00:09:08,120
+And so what is F returning?
+
+117
+00:09:08,120 --> 00:09:11,120
+If we kind of ignore all the middle part of F,
+
+118
+00:09:11,120 --> 00:09:15,120
+what's the last line say?
+
+119
+00:09:15,120 --> 00:09:17,120
+We're, exactly, returning G.
+
+120
+00:09:17,120 --> 00:09:20,120
+So H is going to be equal to whatever G is.
+
+121
+00:09:20,120 --> 00:09:22,120
+And then we've got to go backwards and say, like,
+
+122
+00:09:22,120 --> 00:09:24,120
+okay, well, what is G?
+
+123
+00:09:24,120 --> 00:09:28,120
+But that's how I would start with this one.
+
+124
+00:09:28,120 --> 00:09:33,120
+I'm assuming we're comparing the 20 input as Y.
+
+125
+00:09:33,120 --> 00:09:35,120
+So I kind of understood that part.
+
+126
+00:09:35,120 --> 00:09:40,120
+I'm just having a tough time seeing how to start.
+
+127
+00:09:40,120 --> 00:09:41,120
+I think I've got a good idea.
+
+128
+00:09:41,120 --> 00:09:42,120
+All right.
+
+129
+00:09:42,120 --> 00:09:43,120
+All right.
+
+130
+00:09:43,120 --> 00:09:44,120
+For sure.
+
+131
+00:09:44,120 --> 00:09:45,120
+For sure.
+
+132
+00:09:45,120 --> 00:09:52,120
+All right.
+
+133
+00:09:52,120 --> 00:09:54,120
+Let's come back together.
+
+134
+00:09:54,120 --> 00:09:56,120
+I heard a couple of different answers
+
+135
+00:09:56,120 --> 00:09:58,120
+as I was wandering the room.
+
+136
+00:09:58,120 --> 00:10:02,120
+Can I get some brave individuals to suggest
+
+137
+00:10:02,120 --> 00:10:04,120
+what they think the result is?
+
+138
+00:10:04,120 --> 00:10:07,120
+How many people feel like they came to a result, actually?
+
+139
+00:10:07,120 --> 00:10:08,120
+Okay.
+
+140
+00:10:08,120 --> 00:10:09,120
+Wow.
+
+141
+00:10:09,120 --> 00:10:10,120
+Okay.
+
+142
+00:10:10,120 --> 00:10:11,120
+Everybody.
+
+143
+00:10:11,120 --> 00:10:12,120
+Or almost everybody.
+
+144
+00:10:12,120 --> 00:10:13,120
+So what are some of the ideas?
+
+145
+00:10:13,120 --> 00:10:15,120
+I'll write them down.
+
+146
+00:10:15,120 --> 00:10:16,120
+I heard different ones.
+
+147
+00:10:16,120 --> 00:10:18,120
+So we aren't all at the same place.
+
+148
+00:10:18,120 --> 00:10:19,120
+Yeah.
+
+149
+00:10:19,120 --> 00:10:22,120
+We have nine as an option.
+
+150
+00:10:22,120 --> 00:10:26,120
+Anybody else?
+
+151
+00:10:26,120 --> 00:10:31,120
+Nobody else has another idea for the answer?
+
+152
+00:10:31,120 --> 00:10:32,120
+Everybody?
+
+153
+00:10:32,120 --> 00:10:35,120
+Who votes nine?
+
+154
+00:10:35,120 --> 00:10:37,120
+All right.
+
+155
+00:10:37,120 --> 00:10:38,120
+All right.
+
+156
+00:10:38,120 --> 00:10:39,120
+All right.
+
+157
+00:10:39,120 --> 00:10:41,120
+So what you're saying is the midterm needs
+
+158
+00:10:41,120 --> 00:10:44,120
+a little bit more of an interesting problem this year.
+
+159
+00:10:44,120 --> 00:10:49,120
+No?
+
+160
+00:10:49,120 --> 00:10:50,120
+Okay.
+
+161
+00:10:50,120 --> 00:10:51,120
+So the answer is nine.
+
+162
+00:10:51,120 --> 00:10:54,120
+How did we get there, though?
+
+163
+00:10:54,120 --> 00:11:00,120
+Because this is 14 lines of weird obfuscated code
+
+164
+00:11:00,120 --> 00:11:02,120
+where we kind of go in and then pop back out
+
+165
+00:11:02,120 --> 00:11:04,120
+and then update the thing and come back.
+
+166
+00:11:04,120 --> 00:11:05,120
+Yeah.
+
+167
+00:11:05,120 --> 00:11:06,120
+Question?
+
+168
+00:11:06,120 --> 00:11:07,120
+Oh.
+
+169
+00:11:07,120 --> 00:11:09,120
+You have an answer for how we get there?
+
+170
+00:11:40,120 --> 00:11:45,120
+I liked almost everything that you said
+
+171
+00:11:45,120 --> 00:11:47,120
+except for the first line.
+
+172
+00:11:47,120 --> 00:11:49,120
+Everything else, I'm with you on it,
+
+173
+00:11:49,120 --> 00:11:51,120
+and we'll go over it explicitly.
+
+174
+00:11:51,120 --> 00:11:52,120
+But yeah.
+
+175
+00:11:52,120 --> 00:11:53,120
+Yeah.
+
+176
+00:11:53,120 --> 00:11:54,120
+What's your question?
+
+177
+00:11:54,120 --> 00:12:05,120
+That's exactly my question for your fellow student as well.
+
+178
+00:12:05,120 --> 00:12:06,120
+Yeah.
+
+179
+00:12:07,120 --> 00:12:11,120
+The thing that you said is that y is 20 because we're
+
+180
+00:12:11,120 --> 00:12:16,120
+calling h of 20, h is f, so y gets the value 20.
+
+181
+00:12:16,120 --> 00:12:18,120
+And that's not quite right.
+
+182
+00:12:18,120 --> 00:12:20,120
+Who can change that?
+
+183
+00:12:20,120 --> 00:12:21,120
+Yeah.
+
+184
+00:12:21,120 --> 00:12:47,120
+Yeah.
+
+185
+00:12:47,120 --> 00:12:48,120
+All right.
+
+186
+00:12:48,120 --> 00:12:50,120
+This is the converse for you.
+
+187
+00:12:50,120 --> 00:12:52,120
+I like exactly how you started.
+
+188
+00:12:52,120 --> 00:12:54,120
+Didn't like quite where it went, though.
+
+189
+00:12:54,120 --> 00:12:56,120
+But your first line, totally with you.
+
+190
+00:12:56,120 --> 00:13:00,120
+Let's start, actually, with line 13
+
+191
+00:13:00,120 --> 00:13:03,120
+and say h is equal to the result of f.
+
+192
+00:13:03,120 --> 00:13:04,120
+Yeah.
+
+193
+00:13:04,120 --> 00:13:24,120
+Exactly.
+
+194
+00:13:24,120 --> 00:13:29,120
+So let's start here and say h is equal to the result
+
+195
+00:13:29,120 --> 00:13:31,120
+of executing f.
+
+196
+00:13:31,120 --> 00:13:32,120
+f is a function.
+
+197
+00:13:32,120 --> 00:13:35,120
+It's going to return back something.
+
+198
+00:13:35,120 --> 00:13:38,120
+Whatever it returns, h is going to store it.
+
+199
+00:13:38,120 --> 00:13:40,120
+If we look at what f is returning,
+
+200
+00:13:40,120 --> 00:13:42,120
+it's the line right here.
+
+201
+00:13:42,120 --> 00:13:45,120
+We have to kind of scan through the whole function.
+
+202
+00:13:45,120 --> 00:13:47,120
+f returns g.
+
+203
+00:13:47,120 --> 00:13:50,120
+And indentation is your friend here.
+
+204
+00:13:50,120 --> 00:13:52,120
+It's not guaranteed to be your friend.
+
+205
+00:13:52,120 --> 00:13:55,120
+Braces are the real thing that you need to be looking at.
+
+206
+00:13:55,120 --> 00:13:58,120
+But indentation kind of shows you the return g
+
+207
+00:13:58,120 --> 00:14:01,120
+is the last return of f.
+
+208
+00:14:01,120 --> 00:14:04,120
+It's the only return of f.
+
+209
+00:14:04,120 --> 00:14:07,120
+So h is going to be equal to g.
+
+210
+00:14:07,120 --> 00:14:10,120
+So when we execute h of 20, we can think of it
+
+211
+00:14:10,120 --> 00:14:14,120
+as executing g of 20.
+
+212
+00:14:14,120 --> 00:14:18,120
+But it's not only that h is equal to the code of g.
+
+213
+00:14:18,120 --> 00:14:22,120
+It's also equal to the environment around g.
+
+214
+00:14:22,120 --> 00:14:27,120
+And around g, we have this a equals 5.
+
+215
+00:14:27,120 --> 00:14:32,120
+So we're going to call g of 20, where a is equal to 5.
+
+216
+00:14:32,120 --> 00:14:34,120
+So 20 goes in for y.
+
+217
+00:14:34,120 --> 00:14:37,120
+And this is, as one of you mentioned, 20 is equal to y.
+
+218
+00:14:37,120 --> 00:14:39,120
+20 is greater than 10.
+
+219
+00:14:39,120 --> 00:14:41,120
+a equals a minus 1.
+
+220
+00:14:41,120 --> 00:14:43,120
+And this is where we're updating our environment
+
+221
+00:14:43,120 --> 00:14:45,120
+for the function that we're calling.
+
+222
+00:14:45,120 --> 00:14:49,120
+So we update a from being 5 to 4.
+
+223
+00:14:49,120 --> 00:14:52,120
+Return g, where g is the code that we have,
+
+224
+00:14:52,120 --> 00:14:55,120
+with the environment a is 4.
+
+225
+00:14:55,620 --> 00:14:59,920
+Of 5, blah, blah, blah, blah, return 9.
+
+226
+00:14:59,920 --> 00:15:03,120
+That's a lot to do in your head and to process.
+
+227
+00:15:03,120 --> 00:15:05,620
+Computers are cheating, because they have all of this memory
+
+228
+00:15:05,620 --> 00:15:08,120
+that they're keeping track of everything as it's going.
+
+229
+00:15:08,120 --> 00:15:11,120
+We, as humans, don't have that.
+
+230
+00:15:11,120 --> 00:15:13,620
+So how can we still look at this code
+
+231
+00:15:13,620 --> 00:15:16,120
+and easily figure out what's going to happen
+
+232
+00:15:16,120 --> 00:15:17,120
+and in what order?
+
+233
+00:15:17,120 --> 00:15:21,120
+Some of you have already heard me say this many, many times
+
+234
+00:15:21,120 --> 00:15:22,120
+in office hours.
+
+235
+00:15:22,120 --> 00:15:24,120
+When does the code execute?
+
+236
+00:15:24,120 --> 00:15:28,120
+When does this line of code or this expression execute?
+
+237
+00:15:28,120 --> 00:15:30,120
+That's the key question you want to ask
+
+238
+00:15:30,120 --> 00:15:34,120
+every time you're staring at JavaScript like this.
+
+239
+00:15:34,120 --> 00:15:38,120
+When does this line of code execute?
+
+240
+00:15:38,120 --> 00:15:41,120
+Not until we get to it.
+
+241
+00:15:41,120 --> 00:15:46,120
+It doesn't happen when we parse line 9 or line 8.
+
+242
+00:15:46,120 --> 00:15:49,620
+It happens when we've called h of 20,
+
+243
+00:15:49,620 --> 00:15:56,620
+which then calls g of 5, which then returns y plus a.
+
+244
+00:15:56,620 --> 00:15:58,620
+Being able to follow that is tricky.
+
+245
+00:15:58,620 --> 00:16:02,620
+So let's make it easier.
+
+246
+00:16:02,620 --> 00:16:05,620
+And this is where, at the end of the last lecture,
+
+247
+00:16:05,620 --> 00:16:09,620
+we started bringing in this idea of a diagram
+
+248
+00:16:09,620 --> 00:16:11,620
+to represent our environment.
+
+249
+00:16:20,620 --> 00:16:25,620
+What do we want to keep track of in our environment?
+
+250
+00:16:25,620 --> 00:16:30,620
+Whenever I call a function, what were we keeping track of?
+
+251
+00:16:30,620 --> 00:16:35,620
+Or what do we want to keep track of?
+
+252
+00:16:35,620 --> 00:16:36,620
+Yeah?
+
+253
+00:16:36,620 --> 00:16:39,620
+The parameters.
+
+254
+00:16:39,620 --> 00:16:40,620
+Definitely.
+
+255
+00:16:40,620 --> 00:16:46,620
+So in our example over here, we have� we're working
+
+256
+00:16:46,620 --> 00:16:49,620
+with the factorial function.
+
+257
+00:16:49,620 --> 00:16:53,620
+So we would have a parameter, n.
+
+258
+00:16:53,620 --> 00:16:57,620
+What's the value of n?
+
+259
+00:16:57,620 --> 00:17:01,620
+We're going to just start from the beginning.
+
+260
+00:17:01,620 --> 00:17:03,620
+What's the value of n?
+
+261
+00:17:03,620 --> 00:17:04,620
+Yeah.
+
+262
+00:17:04,620 --> 00:17:05,620
+3.
+
+263
+00:17:05,620 --> 00:17:06,620
+Yeah.
+
+264
+00:17:06,620 --> 00:17:07,620
+Okay.
+
+265
+00:17:07,620 --> 00:17:14,620
+What else do we want to keep track of?
+
+266
+00:17:15,620 --> 00:17:17,620
+Yeah?
+
+267
+00:17:17,620 --> 00:17:19,620
+Variables declared within the function.
+
+268
+00:17:19,620 --> 00:17:21,620
+In this case, we don't have any.
+
+269
+00:17:21,620 --> 00:17:22,620
+But, yes, we do.
+
+270
+00:17:22,620 --> 00:17:26,620
+If we had said, like, let x equal 5,
+
+271
+00:17:26,620 --> 00:17:29,620
+we would want to store x in our scope.
+
+272
+00:17:29,620 --> 00:17:33,620
+What else?
+
+273
+00:17:33,620 --> 00:17:34,620
+Recursive calls.
+
+274
+00:17:34,620 --> 00:17:35,620
+What about them?
+
+275
+00:17:35,620 --> 00:17:37,620
+What do we need to store?
+
+276
+00:17:38,620 --> 00:17:46,620
+Yeah.
+
+277
+00:17:46,620 --> 00:17:49,620
+And I think I want to generalize that to say,
+
+278
+00:17:49,620 --> 00:17:52,620
+we care about what we are returning.
+
+279
+00:17:52,620 --> 00:17:56,620
+So here, we're returning n times something.
+
+280
+00:17:56,620 --> 00:17:57,620
+That's something.
+
+281
+00:17:57,620 --> 00:18:01,620
+We could store it as kind of its own private variable.
+
+282
+00:18:01,620 --> 00:18:04,620
+Or we could just call it the return value.
+
+283
+00:18:05,620 --> 00:18:11,620
+So we have some return value that we will be storing.
+
+284
+00:18:11,620 --> 00:18:21,620
+What else?
+
+285
+00:18:21,620 --> 00:18:26,620
+What do I need to keep track of when I'm inside of a function
+
+286
+00:18:26,620 --> 00:18:30,620
+for when I'm done?
+
+287
+00:18:30,620 --> 00:18:43,620
+Other than the return value.
+
+288
+00:18:43,620 --> 00:18:47,620
+We call that the control pointer.
+
+289
+00:18:47,620 --> 00:18:51,620
+You also need to know where are you supposed to return to
+
+290
+00:18:51,620 --> 00:18:55,620
+in code to continue execution.
+
+291
+00:18:55,620 --> 00:18:59,620
+So, when we finish calling fact 3,
+
+292
+00:18:59,620 --> 00:19:03,620
+jump back to this next line, whatever it is.
+
+293
+00:19:03,620 --> 00:19:06,620
+That's also called the instruction pointer.
+
+294
+00:19:06,620 --> 00:19:09,620
+In various assembly languages.
+
+295
+00:19:09,620 --> 00:19:11,620
+Cool.
+
+296
+00:19:11,620 --> 00:19:15,620
+So now we know what we came in with.
+
+297
+00:19:15,620 --> 00:19:17,620
+What we are returning with.
+
+298
+00:19:17,620 --> 00:19:20,620
+And where we return it to.
+
+299
+00:19:20,620 --> 00:19:23,620
+And then if we had any more local state,
+
+300
+00:19:23,620 --> 00:19:25,620
+we could store that here as well.
+
+301
+00:19:25,620 --> 00:19:28,620
+This is similar to your stack frame.
+
+302
+00:19:28,620 --> 00:19:30,620
+It's almost identical to your stack frame
+
+303
+00:19:30,620 --> 00:19:38,620
+when you're thinking about stack frames in assembly or C.
+
+304
+00:19:38,620 --> 00:19:44,620
+So, I've put those in here.
+
+305
+00:19:44,620 --> 00:19:47,620
+And what I've represented is the return.
+
+306
+00:19:47,620 --> 00:19:49,620
+I'm just calling ret.
+
+307
+00:19:49,620 --> 00:19:51,620
+And then control, the control pointer.
+
+308
+00:19:51,620 --> 00:19:53,620
+I'm saying return control back to global.
+
+309
+00:19:53,620 --> 00:19:58,620
+Which just means return it back to where we were before.
+
+310
+00:19:58,620 --> 00:20:01,620
+If we were nested deep inside of a recursive call,
+
+311
+00:20:01,620 --> 00:20:07,620
+we would be pointing back to the start instead.
+
+312
+00:20:07,620 --> 00:20:14,620
+Okay.
+
+313
+00:20:14,620 --> 00:20:17,620
+So, to formalize some of these things,
+
+314
+00:20:17,620 --> 00:20:23,620
+the control link records where we return the environment pointer to
+
+315
+00:20:23,620 --> 00:20:26,620
+when we are done with our current scope.
+
+316
+00:20:26,620 --> 00:20:32,620
+When we finish our current function, where do we return?
+
+317
+00:20:32,620 --> 00:20:42,620
+Do we need that for block scopes?
+
+318
+00:20:42,620 --> 00:20:44,620
+Yes?
+
+319
+00:20:44,620 --> 00:20:45,620
+No.
+
+320
+00:20:45,620 --> 00:20:48,620
+I don't know.
+
+321
+00:20:48,620 --> 00:20:54,620
+I don't know is always a valid answer.
+
+322
+00:20:54,620 --> 00:20:59,620
+Somebody who says yes, why?
+
+323
+00:20:59,620 --> 00:21:01,620
+There were a few of you.
+
+324
+00:21:01,620 --> 00:21:02,620
+Yeah?
+
+325
+00:21:02,620 --> 00:21:14,620
+No, exactly.
+
+326
+00:21:14,620 --> 00:21:21,620
+We wouldn't want to duplicate all of the information of the outside world into our block scope.
+
+327
+00:21:21,620 --> 00:21:28,620
+So, let's treat a block scope as a completely almost identical to our function scope.
+
+328
+00:21:28,620 --> 00:21:30,620
+And it will have a control pointer.
+
+329
+00:21:30,620 --> 00:21:31,620
+It's always gonna be pretty obvious.
+
+330
+00:21:31,620 --> 00:21:32,620
+You can kind of look.
+
+331
+00:21:32,620 --> 00:21:36,620
+It's just directly back to where it came from.
+
+332
+00:21:36,620 --> 00:21:39,620
+Whereas functions can be a little bit more complicated.
+
+333
+00:21:39,620 --> 00:21:42,620
+But just because it's obvious doesn't mean we shouldn't do it.
+
+334
+00:21:42,620 --> 00:21:47,620
+So, yeah.
+
+335
+00:21:47,620 --> 00:21:49,620
+Okay.
+
+336
+00:21:49,620 --> 00:21:51,620
+In terms of these other things,
+
+337
+00:21:51,620 --> 00:21:53,620
+This is where the L value, R value comes in.
+
+338
+00:21:53,620 --> 00:22:04,620
+Not the most important.
+
+339
+00:22:04,620 --> 00:22:14,620
+Do we need anything else besides the control link?
+
+340
+00:22:14,620 --> 00:22:16,620
+This is a bit of a trick question.
+
+341
+00:22:16,620 --> 00:22:19,620
+Because I conflated these two.
+
+342
+00:22:19,620 --> 00:22:24,620
+So, the control link specifically talks about the environment pointer.
+
+343
+00:22:24,620 --> 00:22:31,620
+I'm also calling the control link the return address, where you are returning execution to.
+
+344
+00:22:31,620 --> 00:22:33,620
+They're effectively one and the same.
+
+345
+00:22:33,620 --> 00:22:40,620
+We talk more about returning to code addresses later, especially in a security context.
+
+346
+00:22:40,620 --> 00:22:44,620
+So, we'll get to the fun stuff there in a future lecture.
+
+347
+00:22:44,620 --> 00:22:46,620
+All the way at the end of class.
+
+348
+00:22:46,620 --> 00:22:47,620
+Okay.
+
+349
+00:22:47,620 --> 00:22:51,620
+So, let's actually do this.
+
+350
+00:22:51,620 --> 00:22:55,620
+We start with fact 3.
+
+351
+00:22:55,620 --> 00:23:02,620
+And when we call the function fact 3, we're going to immediately create an activation record.
+
+352
+00:23:02,620 --> 00:23:04,620
+That looks like this.
+
+353
+00:23:04,620 --> 00:23:06,620
+Where we say n is 3.
+
+354
+00:23:06,620 --> 00:23:08,620
+Return we don't know yet.
+
+355
+00:23:08,620 --> 00:23:14,620
+And control is going to global.
+
+356
+00:23:14,620 --> 00:23:17,620
+When we're done, we come back to the global scope.
+
+357
+00:23:17,620 --> 00:23:28,620
+What happens inside of fact 3?
+
+358
+00:23:29,620 --> 00:23:47,620
+What do we do next?
+
+359
+00:23:47,620 --> 00:23:48,620
+Yep.
+
+360
+00:23:48,620 --> 00:23:54,620
+Which branch of the conditional do we take?
+
+361
+00:23:54,620 --> 00:23:55,620
+We'll go into the else.
+
+362
+00:23:55,620 --> 00:23:56,620
+Great.
+
+363
+00:23:57,620 --> 00:24:05,620
+Return n times 3 times what?
+
+364
+00:24:05,620 --> 00:24:08,620
+Yep.
+
+365
+00:24:08,620 --> 00:24:10,620
+Factorial of 2.
+
+366
+00:24:10,620 --> 00:24:17,620
+How do we figure out the result of factorial 2?
+
+367
+00:24:17,620 --> 00:24:20,620
+We're going to create another activation record.
+
+368
+00:24:20,620 --> 00:24:24,620
+And I've drawn this one a little big, but we can fit it in over here.
+
+369
+00:24:24,620 --> 00:24:30,620
+What is going to be inside of our activation record?
+
+370
+00:24:30,620 --> 00:24:32,620
+Yeah.
+
+371
+00:24:32,620 --> 00:24:34,620
+n is 2.
+
+372
+00:24:34,620 --> 00:24:36,620
+What else do we have?
+
+373
+00:24:36,620 --> 00:24:46,620
+Yeah.
+
+374
+00:24:46,620 --> 00:24:47,620
+Definitely.
+
+375
+00:24:47,620 --> 00:24:48,620
+Yeah.
+
+376
+00:24:48,620 --> 00:24:51,620
+So, control is going to point back to our first activation record.
+
+377
+00:24:51,620 --> 00:24:57,620
+Which is saying, once we're done with this one, go back over here.
+
+378
+00:24:57,620 --> 00:24:58,620
+Okay?
+
+379
+00:24:58,620 --> 00:25:02,620
+And then what's the last thing that we have?
+
+380
+00:25:02,620 --> 00:25:05,620
+As a class?
+
+381
+00:25:05,620 --> 00:25:07,620
+Return.
+
+382
+00:25:07,620 --> 00:25:13,620
+And what's the value?
+
+383
+00:25:13,620 --> 00:25:17,620
+2 times what?
+
+384
+00:25:17,620 --> 00:25:22,620
+Yet another activation record.
+
+385
+00:25:22,620 --> 00:25:27,620
+What goes in this one?
+
+386
+00:25:27,620 --> 00:25:35,620
+Someone knew.
+
+387
+00:25:35,620 --> 00:25:37,620
+Yeah.
+
+388
+00:25:37,620 --> 00:25:38,620
+n equals 1.
+
+389
+00:25:38,620 --> 00:25:42,620
+What else?
+
+390
+00:25:42,620 --> 00:25:44,620
+Yeah.
+
+391
+00:25:44,620 --> 00:25:46,620
+Return 1.
+
+392
+00:25:46,620 --> 00:25:50,620
+And where are we returning to?
+
+393
+00:25:50,620 --> 00:25:56,620
+Yeah.
+
+394
+00:25:56,620 --> 00:26:02,620
+Our CTL is going up to activation record number 2.
+
+395
+00:26:02,620 --> 00:26:03,620
+Okay.
+
+396
+00:26:03,620 --> 00:26:05,620
+So, we finished executing.
+
+397
+00:26:05,620 --> 00:26:07,620
+We know what we are returning.
+
+398
+00:26:07,620 --> 00:26:12,620
+Where do we go?
+
+399
+00:26:12,620 --> 00:26:14,620
+Where do we go?
+
+400
+00:26:14,620 --> 00:26:15,620
+Back to 2.
+
+401
+00:26:15,620 --> 00:26:19,620
+We follow our control pointer to say, go back to 2.
+
+402
+00:26:19,620 --> 00:26:23,620
+We were right in the middle of executing this return statement.
+
+403
+00:26:23,620 --> 00:26:26,620
+So, it's 2 times 1.
+
+404
+00:26:26,620 --> 00:26:28,620
+We've now finished this one.
+
+405
+00:26:28,620 --> 00:26:38,620
+Where do we go from here?
+
+406
+00:26:38,620 --> 00:26:39,620
+Back to the first one.
+
+407
+00:26:39,620 --> 00:26:40,620
+Back to this one.
+
+408
+00:26:40,620 --> 00:26:43,620
+And we know that we are returning the value 2.
+
+409
+00:26:43,620 --> 00:26:44,620
+All right.
+
+410
+00:26:44,620 --> 00:26:46,620
+Now we're done with this.
+
+411
+00:26:46,620 --> 00:26:52,620
+Where do we go from here?
+
+412
+00:26:52,620 --> 00:26:53,620
+Global.
+
+413
+00:26:53,620 --> 00:26:54,620
+We'll go to global with the value 6.
+
+414
+00:26:54,620 --> 00:26:56,620
+And we're going to return 6.
+
+415
+00:26:56,620 --> 00:27:00,620
+This might feel very rote and mechanical.
+
+416
+00:27:00,620 --> 00:27:03,620
+That is exactly by design.
+
+417
+00:27:03,620 --> 00:27:07,620
+This is what the compiler or interpreter does.
+
+418
+00:27:07,620 --> 00:27:08,620
+It needs to be mechanical.
+
+419
+00:27:08,620 --> 00:27:10,620
+There's no creativity here.
+
+420
+00:27:10,620 --> 00:27:13,620
+Because if there were, the computer couldn't do it.
+
+421
+00:27:13,620 --> 00:27:16,620
+It's algorithmic for a reason.
+
+422
+00:27:16,620 --> 00:27:19,620
+Because it's an algorithm.
+
+423
+00:27:19,620 --> 00:27:22,620
+So, if it feels boring, I apologize.
+
+424
+00:27:22,620 --> 00:27:24,620
+It'll make you a better coder.
+
+425
+00:27:24,620 --> 00:27:25,620
+So, do it anyway.
+
+426
+00:27:25,620 --> 00:27:27,620
+So, okay.
+
+427
+00:27:27,620 --> 00:27:29,620
+We can put these up.
+
+428
+00:27:29,620 --> 00:27:35,620
+At each point, as we are executing the activation record, we will update our environment pointer
+
+429
+00:27:35,620 --> 00:27:37,620
+to say we're now executing this one.
+
+430
+00:27:37,620 --> 00:27:39,620
+We're now executing this one.
+
+431
+00:27:39,620 --> 00:27:41,620
+We're now executing this one.
+
+432
+00:27:41,620 --> 00:27:47,620
+And then as we pop back up, we get to move our environment pointer to wherever our control
+
+433
+00:27:47,620 --> 00:27:51,620
+pointer says.
+
+434
+00:27:51,620 --> 00:27:54,620
+Okay.
+
+435
+00:27:54,620 --> 00:27:56,620
+I've got a question for you here.
+
+436
+00:27:56,620 --> 00:28:01,620
+Do we keep the activation records on the stack after evaluation?
+
+437
+00:28:01,620 --> 00:28:09,620
+Once we have finished returning from this activation record, do we keep it on the stack?
+
+438
+00:28:09,620 --> 00:28:12,620
+Or do we pop it off?
+
+439
+00:28:12,620 --> 00:28:14,620
+Chat with your neighbor.
+
+440
+00:28:14,620 --> 00:28:16,620
+Try and convince them of your opinion.
+
+441
+00:28:31,620 --> 00:28:56,620
+What do you guys think?
+
+442
+00:28:56,620 --> 00:28:58,620
+No?
+
+443
+00:28:59,620 --> 00:29:02,620
+Oh.
+
+444
+00:29:02,620 --> 00:29:04,620
+That's clever.
+
+445
+00:29:05,620 --> 00:29:29,620
+All right.
+
+446
+00:29:29,620 --> 00:29:32,620
+Let's take a vote.
+
+447
+00:29:32,620 --> 00:29:34,620
+Who says yes?
+
+448
+00:29:34,620 --> 00:29:39,620
+We need to keep them on the stack after evaluation.
+
+449
+00:29:39,620 --> 00:29:40,620
+Who says no?
+
+450
+00:29:40,620 --> 00:29:42,620
+We do not need to keep them on the stack.
+
+451
+00:29:42,620 --> 00:29:43,620
+Okay.
+
+452
+00:29:43,620 --> 00:29:46,620
+I saw one yes and everyone else no, basically.
+
+453
+00:29:46,620 --> 00:29:48,620
+I want to know why.
+
+454
+00:29:48,620 --> 00:29:49,620
+From either of you.
+
+455
+00:29:49,620 --> 00:29:51,620
+Anybody who says no or yes.
+
+456
+00:29:51,620 --> 00:29:52,620
+Yes?
+
+457
+00:29:52,620 --> 00:30:11,620
+Yeah, that's a great idea.
+
+458
+00:30:11,620 --> 00:30:17,620
+So, in the first example that we did the activity with, we had to keep that function around,
+
+459
+00:30:18,620 --> 00:30:22,620
+the activation record around, where we had stored the value A is 5.
+
+460
+00:30:22,620 --> 00:30:27,620
+So then when we decremented it to get A is 4, we could use that value of A is 4.
+
+461
+00:30:27,620 --> 00:30:31,620
+If we had garbage collected that, we would have been done for.
+
+462
+00:30:31,620 --> 00:30:34,620
+We would have gotten like a variable undefined.
+
+463
+00:30:34,620 --> 00:30:35,620
+Yeah?
+
+464
+00:30:35,620 --> 00:30:42,620
+Wouldn't it be easier just to store it in static memory instead so that you can keep
+
+465
+00:30:42,620 --> 00:30:43,620
+the...
+
+466
+00:30:43,620 --> 00:30:49,620
+Otherwise, you'd just be copying it in a separate case?
+
+467
+00:30:49,620 --> 00:30:53,620
+Wouldn't it be easier to store it in static memory instead?
+
+468
+00:30:53,620 --> 00:30:57,620
+Just the stuff that you would need to store for each call.
+
+469
+00:30:57,620 --> 00:31:04,620
+So, if you could, at compile time, know what you needed to store, then yes.
+
+470
+00:31:04,620 --> 00:31:09,620
+But you don't normally.
+
+471
+00:31:09,620 --> 00:31:12,620
+But I don't know how many of these I might generate.
+
+472
+00:31:12,620 --> 00:31:13,620
+Right.
+
+473
+00:31:13,620 --> 00:31:18,620
+No, it's a great idea when you have knowledge about the system.
+
+474
+00:31:18,620 --> 00:31:19,620
+But you don't always.
+
+475
+00:31:19,620 --> 00:31:21,620
+So, yeah.
+
+476
+00:31:21,620 --> 00:31:26,620
+So, if we have closures, then maybe we can't always pop these off.
+
+477
+00:31:26,620 --> 00:31:30,620
+However, 95% of you said no.
+
+478
+00:31:30,620 --> 00:31:37,620
+Why did you say no?
+
+479
+00:31:37,620 --> 00:31:41,620
+Yeah.
+
+480
+00:31:41,620 --> 00:31:42,620
+Because these are not closures.
+
+481
+00:31:42,620 --> 00:31:44,620
+So, you can just pop them off.
+
+482
+00:31:44,620 --> 00:31:47,620
+Is that true?
+
+483
+00:31:47,620 --> 00:31:50,620
+No, I'm gonna say no on that one.
+
+484
+00:31:50,620 --> 00:31:54,620
+Every function in JavaScript creates a closure.
+
+485
+00:31:54,620 --> 00:31:58,620
+It doesn't matter how it's used, where it's used, what's going on.
+
+486
+00:31:58,620 --> 00:32:00,620
+It is a closure.
+
+487
+00:32:00,620 --> 00:32:01,620
+Yeah.
+
+488
+00:32:01,620 --> 00:32:07,620
+It's an empty closure, so you don't need it anymore.
+
+489
+00:32:07,620 --> 00:32:10,620
+Kind of.
+
+490
+00:32:10,620 --> 00:32:17,620
+I'd say it's a specific case of the fact that it's an empty closure that we don't need anymore.
+
+491
+00:32:17,620 --> 00:32:21,620
+And the key term is that it's tail recursive.
+
+492
+00:32:21,620 --> 00:32:26,620
+Here, what we are doing is we are recursing in the tail position.
+
+493
+00:32:27,620 --> 00:32:32,620
+Which means it's impossible for us to ever return to that closure.
+
+494
+00:32:32,620 --> 00:32:34,620
+We're never going back to it.
+
+495
+00:32:34,620 --> 00:32:37,620
+So, it's safe to clear.
+
+496
+00:32:37,620 --> 00:32:42,620
+Generally speaking, we do need to keep activation records on the stack.
+
+497
+00:32:42,620 --> 00:32:44,620
+Because they are closures.
+
+498
+00:32:44,620 --> 00:32:46,620
+And we might need to reference them again.
+
+499
+00:32:46,620 --> 00:32:49,620
+In this specific case, we don't.
+
+500
+00:32:49,620 --> 00:32:52,620
+Okay.
+
+501
+00:32:52,620 --> 00:32:58,620
+So, this process here is what we are going to continue working with for a little bit.
+
+502
+00:32:58,620 --> 00:33:03,620
+But we're going to get some more interesting use cases.
+
+503
+00:33:03,620 --> 00:33:10,620
+Starting with free variables, and then hopefully getting to high order functions.
+
+504
+00:33:10,620 --> 00:33:12,620
+Okay.
+
+505
+00:33:12,620 --> 00:33:14,620
+Let X equal 1.
+
+506
+00:33:14,620 --> 00:33:18,620
+F is a function that logs X.
+
+507
+00:33:18,620 --> 00:33:21,620
+Execute F.
+
+508
+00:33:21,620 --> 00:33:25,620
+Question?
+
+509
+00:33:25,620 --> 00:33:27,620
+Tail recursion.
+
+510
+00:33:27,620 --> 00:33:35,620
+So, tail recursion is when we recurse in the last step of a function.
+
+511
+00:33:35,620 --> 00:33:39,620
+So, when we are returning a recursive call.
+
+512
+00:33:39,620 --> 00:33:40,620
+That is tail recursion.
+
+513
+00:33:40,620 --> 00:33:46,620
+If we had written this code where we call factorial of N minus 1 as the first step.
+
+514
+00:33:47,620 --> 00:33:52,620
+And then we do a check to say was N greater than or something of that sort.
+
+515
+00:33:52,620 --> 00:33:54,620
+That would not be tail recursive.
+
+516
+00:33:54,620 --> 00:33:58,620
+Yeah.
+
+517
+00:33:58,620 --> 00:33:59,620
+Okay.
+
+518
+00:33:59,620 --> 00:34:07,620
+Going back to this little code step.
+
+519
+00:34:07,620 --> 00:34:14,620
+So, we have some activation record where our global state, that's the top box, has X as 1.
+
+520
+00:34:14,620 --> 00:34:21,620
+And then F, when we execute it, creates an activation record with a control link back to global.
+
+521
+00:34:21,620 --> 00:34:22,620
+And a return value.
+
+522
+00:34:22,620 --> 00:34:24,620
+It's going to return nothing.
+
+523
+00:34:24,620 --> 00:34:31,620
+What are we going to print out here?
+
+524
+00:34:31,620 --> 00:34:38,620
+What's printed to screen?
+
+525
+00:34:38,620 --> 00:34:48,620
+You don't have a lot of options.
+
+526
+00:34:48,620 --> 00:34:50,620
+What is it?
+
+527
+00:34:50,620 --> 00:34:51,620
+1.
+
+528
+00:34:51,620 --> 00:34:52,620
+Yeah.
+
+529
+00:34:52,620 --> 00:34:55,620
+We know the value of X.
+
+530
+00:34:55,620 --> 00:34:58,620
+I feel like most of you guys knew that, but you just don't want to answer.
+
+531
+00:34:58,620 --> 00:34:59,620
+It's fine to answer.
+
+532
+00:34:59,620 --> 00:35:00,620
+Just raise your hand.
+
+533
+00:35:00,620 --> 00:35:01,620
+Answer.
+
+534
+00:35:01,620 --> 00:35:02,620
+We print out X.
+
+535
+00:35:02,620 --> 00:35:04,620
+X is 1.
+
+536
+00:35:04,620 --> 00:35:06,620
+So, we get the value 1.
+
+537
+00:35:06,620 --> 00:35:07,620
+No tricks here.
+
+538
+00:35:07,620 --> 00:35:09,620
+That's what we expect.
+
+539
+00:35:09,620 --> 00:35:13,620
+How did we find X?
+
+540
+00:35:13,620 --> 00:35:26,620
+Did we look it up via the control link?
+
+541
+00:35:26,620 --> 00:35:36,620
+Give it a second to thought.
+
+542
+00:35:36,620 --> 00:35:37,620
+Yeah.
+
+543
+00:35:37,620 --> 00:35:38,620
+Go for it.
+
+544
+00:35:38,620 --> 00:35:39,620
+Yes.
+
+545
+00:35:39,620 --> 00:35:40,620
+Why?
+
+546
+00:35:40,620 --> 00:35:41,620
+Yeah.
+
+547
+00:35:41,620 --> 00:35:55,620
+So, we had access with our control to the global environment.
+
+548
+00:35:55,620 --> 00:35:57,620
+And that's where X was.
+
+549
+00:35:57,620 --> 00:36:00,620
+So, maybe yes.
+
+550
+00:36:00,620 --> 00:36:03,620
+Any other ideas on it?
+
+551
+00:36:03,620 --> 00:36:05,620
+Yeah.
+
+552
+00:36:05,620 --> 00:36:06,620
+Yeah.
+
+553
+00:36:06,620 --> 00:36:19,620
+So, maybe there's some concept of global that we can just use.
+
+554
+00:36:19,620 --> 00:36:21,620
+But to that, I would say...
+
+555
+00:36:21,620 --> 00:36:23,620
+Well, I won't write it out.
+
+556
+00:36:23,620 --> 00:36:30,620
+But what if we just wrap this entire thing inside of a function?
+
+557
+00:36:30,620 --> 00:36:32,620
+We would still get the value 1.
+
+558
+00:36:32,620 --> 00:36:41,620
+So, it's not that global is unique.
+
+559
+00:36:41,620 --> 00:36:43,620
+How many people are voting yes?
+
+560
+00:36:43,620 --> 00:36:45,620
+Look it up via control link.
+
+561
+00:36:45,620 --> 00:36:47,620
+How many people are voting no?
+
+562
+00:36:47,620 --> 00:36:49,620
+Don't look it up via control link.
+
+563
+00:36:49,620 --> 00:36:50,620
+Okay.
+
+564
+00:36:50,620 --> 00:36:51,620
+So, there's like a 50-50 split.
+
+565
+00:36:51,620 --> 00:36:53,620
+Why not?
+
+566
+00:36:53,620 --> 00:36:54,620
+We had two arguments for yes.
+
+567
+00:36:54,620 --> 00:36:55,620
+Yeah.
+
+568
+00:36:56,620 --> 00:37:13,620
+I'm not quite sure I'm following.
+
+569
+00:37:13,620 --> 00:37:14,620
+Yep.
+
+570
+00:37:14,620 --> 00:37:15,620
+Yeah.
+
+571
+00:37:15,620 --> 00:37:24,380
+Yeah, yeah, so I'm not saying that we would be moving to the outer scope or the control
+
+572
+00:37:24,380 --> 00:37:29,380
+scope for execution, but just to look up a variable.
+
+573
+00:37:29,380 --> 00:37:38,580
+So we'd be looking up the value X in the outer scope via the control link.
+
+574
+00:37:38,580 --> 00:37:42,420
+Not that we would be going to the outer scope to execute things.
+
+575
+00:37:42,420 --> 00:37:45,540
+So we won't get this kind of ping-pong.
+
+576
+00:37:45,540 --> 00:37:47,980
+Yeah.
+
+577
+00:37:47,980 --> 00:37:51,860
+Any other ideas?
+
+578
+00:37:51,860 --> 00:37:58,660
+All right.
+
+579
+00:37:58,660 --> 00:38:02,340
+My vote is no.
+
+580
+00:38:02,340 --> 00:38:09,020
+And I have an example to show it.
+
+581
+00:38:10,020 --> 00:38:21,020
+Well, this is going to be inconvenient.
+
+582
+00:38:21,020 --> 00:38:41,620
+Is this big enough to read in the back?
+
+583
+00:38:41,620 --> 00:38:45,620
+OK, cool.
+
+584
+00:38:45,620 --> 00:39:05,460
+Although, now it's probably harder to read.
+
+585
+00:39:05,460 --> 00:39:08,020
+Especially going all the way to the bottom there.
+
+586
+00:39:08,020 --> 00:39:09,020
+But...
+
+587
+00:39:09,020 --> 00:39:12,340
+All right.
+
+588
+00:39:12,340 --> 00:39:15,100
+X is equal to 1.
+
+589
+00:39:15,100 --> 00:39:19,900
+F is a function that prints out X.
+
+590
+00:39:19,900 --> 00:39:24,540
+G is a function that sets X equal to 2.
+
+591
+00:39:24,540 --> 00:39:32,220
+And then calls F. Execute G.
+
+592
+00:39:32,220 --> 00:39:33,540
+That was someone next to you.
+
+593
+00:39:33,540 --> 00:39:47,540
+What does this print out?
+
+594
+00:40:47,540 --> 00:41:05,220
+All right.
+
+595
+00:41:05,220 --> 00:41:06,220
+What are we going to draw?
+
+596
+00:41:06,220 --> 00:41:07,220
+Actually, starting.
+
+597
+00:41:07,220 --> 00:41:12,700
+What does it print?
+
+598
+00:41:12,700 --> 00:41:16,500
+What are the options?
+
+599
+00:41:16,500 --> 00:41:19,180
+What are reasonable outputs for this program?
+
+600
+00:41:19,180 --> 00:41:20,180
+Yeah.
+
+601
+00:41:20,180 --> 00:41:21,460
+One or two.
+
+602
+00:41:21,460 --> 00:41:22,700
+I like both of those options.
+
+603
+00:41:22,700 --> 00:41:26,620
+Does anybody have any other options that are reasonable for it to print?
+
+604
+00:41:26,620 --> 00:41:27,620
+No.
+
+605
+00:41:27,620 --> 00:41:28,620
+OK.
+
+606
+00:41:28,620 --> 00:41:29,620
+Those are the reasonable options.
+
+607
+00:41:29,620 --> 00:41:31,500
+Which one is it?
+
+608
+00:41:31,500 --> 00:41:33,580
+How many people vote 1?
+
+609
+00:41:33,580 --> 00:41:35,340
+How many people vote 2?
+
+610
+00:41:35,340 --> 00:41:36,340
+OK.
+
+611
+00:41:36,340 --> 00:41:37,980
+We have a little bit of dissent.
+
+612
+00:41:37,980 --> 00:41:43,060
+But the vast majority look at this code and say this should print out 1.
+
+613
+00:41:43,060 --> 00:41:45,340
+How?
+
+614
+00:41:45,340 --> 00:41:47,660
+Let's draw our diagrams.
+
+615
+00:41:47,660 --> 00:41:50,140
+And see what happens.
+
+616
+00:41:50,140 --> 00:41:52,740
+We'll start with global state.
+
+617
+00:41:52,740 --> 00:42:00,460
+What do we have in global state?
+
+618
+00:42:00,460 --> 00:42:01,460
+X equals 1.
+
+619
+00:42:01,460 --> 00:42:02,980
+Great.
+
+620
+00:42:02,980 --> 00:42:09,420
+What's next?
+
+621
+00:42:09,420 --> 00:42:10,420
+What's next?
+
+622
+00:42:10,420 --> 00:42:11,420
+Yeah?
+
+623
+00:42:12,420 --> 00:42:14,620
+Oh, yep.
+
+624
+00:42:14,620 --> 00:42:18,660
+We have a function f.
+
+625
+00:42:18,660 --> 00:42:23,420
+This f is a variable in our global state.
+
+626
+00:42:23,420 --> 00:42:25,340
+And this is a function.
+
+627
+00:42:25,340 --> 00:42:28,580
+And we're going to figure out what we're going to point to.
+
+628
+00:42:28,580 --> 00:42:31,940
+But it points to something.
+
+629
+00:42:31,940 --> 00:42:33,940
+What else do we have?
+
+630
+00:42:33,940 --> 00:42:37,420
+Come on, guys.
+
+631
+00:42:37,420 --> 00:42:38,420
+Yeah?
+
+632
+00:42:38,420 --> 00:42:40,060
+We have a g.
+
+633
+00:42:40,140 --> 00:42:41,580
+G is also a function.
+
+634
+00:42:41,580 --> 00:42:43,580
+Excellent.
+
+635
+00:42:43,580 --> 00:42:52,020
+Now what?
+
+636
+00:42:52,020 --> 00:42:53,020
+We're going to call g.
+
+637
+00:42:53,020 --> 00:42:56,540
+What happens when we call g?
+
+638
+00:42:56,540 --> 00:43:02,620
+Yeah?
+
+639
+00:43:02,620 --> 00:43:04,940
+We're going to create an activation record.
+
+640
+00:43:04,940 --> 00:43:07,460
+And this will be the g activation record.
+
+641
+00:43:07,460 --> 00:43:10,300
+Or the execution of g activation record.
+
+642
+00:43:10,300 --> 00:43:19,500
+What's going in this one?
+
+643
+00:43:19,500 --> 00:43:20,540
+X equals 2.
+
+644
+00:43:20,540 --> 00:43:21,660
+We're going to call f.
+
+645
+00:43:21,660 --> 00:43:31,300
+But before we get there, what else is in here?
+
+646
+00:43:31,300 --> 00:43:35,980
+Return and?
+
+647
+00:43:35,980 --> 00:43:40,300
+Pointer to what?
+
+648
+00:43:40,300 --> 00:43:41,300
+Pointer to global.
+
+649
+00:43:41,300 --> 00:43:44,460
+And what do we call it?
+
+650
+00:43:44,460 --> 00:43:47,180
+The control pointer.
+
+651
+00:43:47,180 --> 00:43:50,740
+And this is pointing over to global.
+
+652
+00:43:50,740 --> 00:43:52,420
+Okay.
+
+653
+00:43:52,420 --> 00:43:53,780
+Now we are executing f.
+
+654
+00:43:53,780 --> 00:43:58,940
+What happens when we execute f?
+
+655
+00:43:58,940 --> 00:44:07,220
+New activation record.
+
+656
+00:44:07,220 --> 00:44:08,220
+Excellent.
+
+657
+00:44:08,220 --> 00:44:15,220
+Actually, before we execute f, where is f?
+
+658
+00:44:15,220 --> 00:44:17,380
+Because we're looking at this activation record.
+
+659
+00:44:17,380 --> 00:44:19,500
+And we don't know where f is.
+
+660
+00:44:19,500 --> 00:44:21,420
+Or what f is here.
+
+661
+00:44:21,420 --> 00:44:27,460
+So if we operate under the assumption we look up the control link, we would follow the control
+
+662
+00:44:27,460 --> 00:44:30,460
+link back over here and say what is f?
+
+663
+00:44:30,460 --> 00:44:31,620
+F is a function.
+
+664
+00:44:31,620 --> 00:44:32,620
+Great.
+
+665
+00:44:32,620 --> 00:44:33,620
+Now we found f.
+
+666
+00:44:33,620 --> 00:44:34,620
+We get to execute f.
+
+667
+00:44:34,620 --> 00:44:37,740
+We get to create our activation record for it.
+
+668
+00:44:37,740 --> 00:44:39,220
+And what do we do?
+
+669
+00:44:39,220 --> 00:44:48,220
+What's inside of our activation record?
+
+670
+00:44:48,220 --> 00:44:49,260
+Control link.
+
+671
+00:44:49,260 --> 00:44:58,340
+What does the control point to?
+
+672
+00:44:58,340 --> 00:45:01,180
+Control link points to g, because we were called from g.
+
+673
+00:45:01,180 --> 00:45:04,380
+100% correct.
+
+674
+00:45:04,380 --> 00:45:07,460
+That's how we establish the control link.
+
+675
+00:45:07,460 --> 00:45:14,100
+What else do we have?
+
+676
+00:45:15,100 --> 00:45:17,100
+Return.
+
+677
+00:45:17,100 --> 00:45:20,020
+All right.
+
+678
+00:45:20,020 --> 00:45:22,260
+Now we are printing out...
+
+679
+00:45:22,260 --> 00:45:23,260
+Where is it?
+
+680
+00:45:23,260 --> 00:45:25,120
+We are printing out x.
+
+681
+00:45:25,120 --> 00:45:37,620
+What is the value of x inside of this context?
+
+682
+00:45:37,620 --> 00:45:40,420
+One is what we want it to be.
+
+683
+00:45:40,420 --> 00:45:43,060
+X doesn't exist here, though.
+
+684
+00:45:43,060 --> 00:45:47,640
+So we have to look it up somehow.
+
+685
+00:45:47,640 --> 00:45:53,060
+If we followed the control link, we would go look it up here, and we would find that
+
+686
+00:45:53,060 --> 00:45:54,820
+x is equal to 2.
+
+687
+00:45:54,820 --> 00:46:01,180
+Now 90% of you had the intuition that that's wrong.
+
+688
+00:46:01,180 --> 00:46:06,900
+Which means we can't follow the control link, or else everyone's intuition is wrong.
+
+689
+00:46:06,900 --> 00:46:11,340
+Your intuition is that way because you've seen it work that way every single time you've
+
+690
+00:46:11,340 --> 00:46:14,340
+run code, unless you've worked with Lisp.
+
+691
+00:46:14,340 --> 00:46:17,840
+In which case, you've seen it work this way.
+
+692
+00:46:17,840 --> 00:46:22,820
+So we can't use the control link, because we would find the value 2.
+
+693
+00:46:22,820 --> 00:46:27,380
+Which means we need something else.
+
+694
+00:46:27,380 --> 00:46:29,800
+Let me put this down.
+
+695
+00:46:29,800 --> 00:46:36,700
+So if we were following the control link, we would find x is equal to 2.
+
+696
+00:46:36,700 --> 00:46:42,700
+And what we would have just done is invent what's called dynamic scoping.
+
+697
+00:46:42,700 --> 00:46:49,740
+Where you can override the scoping of what would be expected of the function.
+
+698
+00:46:49,740 --> 00:46:51,600
+But that's not what we want.
+
+699
+00:46:51,600 --> 00:46:54,020
+This is not how normal languages function.
+
+700
+00:46:54,020 --> 00:46:55,540
+This is how Lisp functions.
+
+701
+00:46:55,540 --> 00:46:57,440
+It's really weird.
+
+702
+00:46:57,440 --> 00:46:59,680
+And can be quite annoying.
+
+703
+00:46:59,680 --> 00:47:02,180
+So how can we fix it?
+
+704
+00:47:02,180 --> 00:47:06,780
+There's one more thing that we track in our activation records.
+
+705
+00:47:06,780 --> 00:47:11,540
+And this is what's called the access link.
+
+706
+00:47:11,540 --> 00:47:23,540
+The access link tracks the enclosing lexical scope.
+
+707
+00:47:23,540 --> 00:47:29,320
+And our algorithm will be updated to first find whatever environment we are currently
+
+708
+00:47:29,320 --> 00:47:30,980
+in.
+
+709
+00:47:30,980 --> 00:47:35,460
+We check to see if the variable is in our environment.
+
+710
+00:47:35,460 --> 00:47:44,300
+If it's not, follow our access link and repeat.
+
+711
+00:47:44,300 --> 00:47:52,380
+So if we go back to our example, we start where x is equal to 1.
+
+712
+00:47:52,380 --> 00:47:54,740
+We call g.
+
+713
+00:47:54,740 --> 00:47:56,740
+We say x is equal to 2.
+
+714
+00:47:56,740 --> 00:48:02,560
+But notice in addition to the control link, we are also storing an access link.
+
+715
+00:48:02,560 --> 00:48:07,420
+And this access link is from where we were defined.
+
+716
+00:48:07,420 --> 00:48:12,080
+G was defined in the global scope.
+
+717
+00:48:12,080 --> 00:48:17,340
+Which means our access link points to the global scope.
+
+718
+00:48:17,340 --> 00:48:18,340
+Then we call f.
+
+719
+00:48:18,340 --> 00:48:26,460
+F was also defined in the global scope, which means its access link points to the global
+
+720
+00:48:27,180 --> 00:48:28,180
+scope.
+
+721
+00:48:28,180 --> 00:48:30,860
+The control link still points to g.
+
+722
+00:48:30,860 --> 00:48:33,620
+Because we still want to return to g.
+
+723
+00:48:33,620 --> 00:48:39,140
+But when we look up a variable, we will follow the access link and find that it's 1.
+
+724
+00:48:39,140 --> 00:48:40,140
+Yeah?
+
+725
+00:48:40,140 --> 00:48:48,580
+If x was never defined in the global environment, would it know the control link for x?
+
+726
+00:48:48,580 --> 00:48:49,580
+No.
+
+727
+00:48:49,580 --> 00:48:50,580
+So, yeah.
+
+728
+00:48:50,580 --> 00:48:51,580
+Good question.
+
+729
+00:48:51,580 --> 00:48:54,980
+If we hadn't run this line of code, what happens?
+
+730
+00:48:54,980 --> 00:49:05,700
+What's output?
+
+731
+00:49:05,700 --> 00:49:09,700
+In JavaScript, we call that undefined.
+
+732
+00:49:09,700 --> 00:49:13,380
+We would not have been able to find x.
+
+733
+00:49:13,380 --> 00:49:15,340
+We would search here for x.
+
+734
+00:49:15,340 --> 00:49:16,700
+It doesn't exist.
+
+735
+00:49:16,700 --> 00:49:18,960
+Then we would search global for x.
+
+736
+00:49:18,960 --> 00:49:20,460
+It doesn't exist.
+
+737
+00:49:20,460 --> 00:49:24,620
+We would actually search the interpreter for x.
+
+738
+00:49:24,620 --> 00:49:28,940
+And the interpreter would say, hey, you're looking in a place that you aren't supposed
+
+739
+00:49:28,940 --> 00:49:29,940
+to look.
+
+740
+00:49:29,940 --> 00:49:31,620
+That means you have undefined.
+
+741
+00:49:31,620 --> 00:49:40,700
+And it would tell the log that x is undefined.
+
+742
+00:49:40,700 --> 00:49:48,060
+Okay.
+
+743
+00:49:48,060 --> 00:49:53,260
+So how do we know how to wire up the access links?
+
+744
+00:49:53,260 --> 00:50:04,700
+How can we figure out that f and g both have access links back to global?
+
+745
+00:50:04,700 --> 00:50:13,620
+And this is what I put these arrows in for.
+
+746
+00:50:13,620 --> 00:50:21,020
+When we create a function, we're defining the function f.
+
+747
+00:50:21,020 --> 00:50:29,000
+We're going to create with it what I represent as a closure object.
+
+748
+00:50:29,000 --> 00:50:34,860
+Which is two boxes.
+
+749
+00:50:34,860 --> 00:50:43,100
+I forget which order I do these in.
+
+750
+00:50:43,100 --> 00:50:50,140
+The left-hand box represents the access link for f.
+
+751
+00:50:50,140 --> 00:50:59,260
+And it will point back to wherever f was defined.
+
+752
+00:50:59,260 --> 00:51:07,760
+The right-hand box is the code for the function f.
+
+753
+00:51:07,760 --> 00:51:14,760
+So that we know what to execute when we are executing things.
+
+754
+00:51:14,760 --> 00:51:18,560
+So what does g look like?
+
+755
+00:51:18,560 --> 00:51:21,640
+By this same design?
+
+756
+00:51:21,640 --> 00:51:26,800
+What's the left-hand box of g?
+
+757
+00:51:26,800 --> 00:51:34,440
+Yeah?
+
+758
+00:51:34,440 --> 00:51:37,600
+An access link back to the global scope.
+
+759
+00:51:37,600 --> 00:51:42,880
+So maybe I should be a little bit more generic when drawing these.
+
+760
+00:51:42,880 --> 00:51:46,760
+It's not that it's pointing back to the variable g and f here.
+
+761
+00:51:46,760 --> 00:51:54,120
+It's that it points to whatever scope it was created inside of.
+
+762
+00:51:54,120 --> 00:52:04,040
+So that when we then later call f and g, we have an access link.
+
+763
+00:52:04,040 --> 00:52:10,920
+Can we go look up what their access link was from their closure?
+
+764
+00:52:10,920 --> 00:52:16,320
+So here, both of them are global.
+
+765
+00:52:16,320 --> 00:52:17,320
+Global there.
+
+766
+00:52:17,320 --> 00:52:19,920
+And global here.
+
+767
+00:52:19,920 --> 00:52:29,140
+Apologies for the messy arrows.
+
+768
+00:52:29,140 --> 00:52:32,040
+Any questions on access links?
+
+769
+00:52:32,040 --> 00:52:39,600
+That's exactly right.
+
+770
+00:52:39,600 --> 00:52:45,320
+So we set up these pieces when we create the function.
+
+771
+00:52:45,320 --> 00:52:51,520
+And then we use them when we execute the function.
+
+772
+00:52:51,520 --> 00:52:53,160
+It's two phases.
+
+773
+00:52:53,160 --> 00:52:54,160
+There's the creation.
+
+774
+00:52:54,160 --> 00:52:55,160
+And then there's the usage.
+
+775
+00:52:55,160 --> 00:52:56,160
+Yeah?
+
+776
+00:52:56,160 --> 00:53:16,280
+Great question.
+
+777
+00:53:16,280 --> 00:53:23,160
+So this is, it goes back to our algorithm here.
+
+778
+00:53:23,160 --> 00:53:31,000
+Our lookup algorithm for a variable is first what environment are we in?
+
+779
+00:53:31,000 --> 00:53:34,760
+Then is the variable in our environment?
+
+780
+00:53:34,760 --> 00:53:37,000
+If it is, we're done.
+
+781
+00:53:37,000 --> 00:53:43,200
+If it's not, recursively apply this algorithm on the access link.
+
+782
+00:53:43,200 --> 00:53:46,080
+So we will just keep going until we find it.
+
+783
+00:53:46,080 --> 00:53:48,500
+And we'll take the first one that we find.
+
+784
+00:53:48,500 --> 00:54:02,260
+We can't access an X from an outer scope if we have an X in our scope.
+
+785
+00:54:02,260 --> 00:54:10,100
+Other questions on access links?
+
+786
+00:54:10,100 --> 00:54:14,700
+Okay.
+
+787
+00:54:14,700 --> 00:54:18,380
+So I've represented that over here.
+
+788
+00:54:18,460 --> 00:54:21,140
+This looks very similar to what I had on the board.
+
+789
+00:54:21,140 --> 00:54:25,840
+Where what we're saying is the left-hand side points to the global scope.
+
+790
+00:54:25,840 --> 00:54:31,700
+The right-hand side is pointing to the literal code that we will execute when we run this
+
+791
+00:54:31,700 --> 00:54:35,460
+function.
+
+792
+00:54:35,460 --> 00:54:45,420
+Because functions are just a piece of data.
+
+793
+00:54:45,420 --> 00:54:47,340
+I think this is all just the same thing.
+
+794
+00:54:47,340 --> 00:54:48,340
+Yep.
+
+795
+00:54:49,060 --> 00:54:55,060
+Environment and code.
+
+796
+00:54:55,060 --> 00:54:58,060
+That is how we will handle free variables.
+
+797
+00:54:58,060 --> 00:55:03,860
+Aka variables we don't have a definition for.
+
+798
+00:55:03,860 --> 00:55:09,100
+All right.
+
+799
+00:55:09,100 --> 00:55:14,340
+I want to pause for a minute to give you time to think of any questions you might have before
+
+800
+00:55:14,340 --> 00:55:22,060
+we get into the last section of this module.
+
+801
+00:55:22,060 --> 00:55:25,060
+So take a second.
+
+802
+00:55:25,060 --> 00:55:27,740
+Think of any questions that might be lingering.
+
+803
+00:55:27,740 --> 00:55:30,740
+Because it's only getting more complicated.
+
+804
+00:55:30,740 --> 00:55:31,740
+Yeah.
+
+805
+00:55:31,740 --> 00:55:33,740
+Oh, wait.
+
+806
+00:55:33,740 --> 00:55:34,740
+Actually...
+
+807
+00:55:34,740 --> 00:55:35,740
+Once...
+
+808
+00:55:35,740 --> 00:55:36,740
+Keep thinking.
+
+809
+00:55:36,740 --> 00:55:42,740
+Then I'll get you.
+
+810
+00:55:43,140 --> 00:55:46,140
+Okay.
+
+811
+00:55:46,140 --> 00:55:49,140
+Questions.
+
+812
+00:55:49,140 --> 00:55:55,140
+You had one.
+
+813
+00:55:55,140 --> 00:55:58,140
+Yeah.
+
+814
+00:55:58,140 --> 00:56:19,060
+That's actually what we're about to cover.
+
+815
+00:56:19,060 --> 00:56:21,300
+That is called a high-order function.
+
+816
+00:56:21,300 --> 00:56:22,300
+Yep.
+
+817
+00:56:22,300 --> 00:56:25,420
+So we will get to that.
+
+818
+00:56:25,420 --> 00:56:32,580
+Other questions?
+
+819
+00:56:32,580 --> 00:56:40,140
+The access link is the thing that most students make the mistake on when solving these problems.
+
+820
+00:56:40,140 --> 00:56:43,860
+It's figuring out what's the access link and how do I use it?
+
+821
+00:56:43,860 --> 00:56:46,540
+So make sure that feels clear.
+
+822
+00:56:46,540 --> 00:56:50,780
+Because that's the easiest part to get tripped up on.
+
+823
+00:56:50,780 --> 00:56:54,560
+All right.
+
+824
+00:56:54,560 --> 00:57:00,160
+Now we have a high-order function.
+
+825
+00:57:00,160 --> 00:57:15,800
+Make counter.
+
+826
+00:57:15,800 --> 00:57:18,120
+Somebody walk me through this.
+
+827
+00:57:18,120 --> 00:57:19,520
+Step one.
+
+828
+00:57:19,520 --> 00:57:23,620
+I have global environment.
+
+829
+00:57:23,680 --> 00:57:29,180
+What is in my global environment?
+
+830
+00:57:29,180 --> 00:57:32,500
+X.
+
+831
+00:57:32,500 --> 00:57:36,500
+What is X?
+
+832
+00:57:36,500 --> 00:57:43,260
+Actually, we're ahead of ourselves by starting with X.
+
+833
+00:57:43,260 --> 00:57:46,860
+What comes before X?
+
+834
+00:57:46,860 --> 00:57:50,940
+Yeah.
+
+835
+00:57:50,940 --> 00:57:57,260
+Make counter.
+
+836
+00:57:57,260 --> 00:58:12,180
+What is make counter?
+
+837
+00:58:12,180 --> 00:58:19,340
+If you don't have an answer for what is make counter, that's something that we need to
+
+838
+00:58:19,340 --> 00:58:20,420
+address.
+
+839
+00:58:20,420 --> 00:58:22,260
+So if this doesn't feel...
+
+840
+00:58:22,260 --> 00:58:23,860
+It might feel obvious.
+
+841
+00:58:23,860 --> 00:58:27,580
+You guys don't always answer my questions, even when you know the answer.
+
+842
+00:58:27,580 --> 00:58:28,900
+Which is fine.
+
+843
+00:58:28,900 --> 00:58:29,940
+You should.
+
+844
+00:58:29,940 --> 00:58:35,920
+But if it doesn't make sense, what I'm going to draw right here, that's an indicating factor
+
+845
+00:58:35,920 --> 00:58:38,620
+that you should ask me questions.
+
+846
+00:58:38,620 --> 00:58:42,860
+Because it's very important that you know exactly what this is.
+
+847
+00:58:42,860 --> 00:58:45,220
+So I won't call on anyone.
+
+848
+00:58:45,220 --> 00:58:50,020
+But how many of you feel like you know what I'm about to put over here?
+
+849
+00:58:50,020 --> 00:58:53,900
+How many of you would like me to slow down a little bit and spend a little bit more time
+
+850
+00:58:53,900 --> 00:58:55,180
+on it?
+
+851
+00:58:55,180 --> 00:58:56,180
+Okay.
+
+852
+00:58:56,180 --> 00:59:02,100
+Now that I know that you guys are following along and just being difficult...
+
+853
+00:59:02,100 --> 00:59:04,260
+What goes over here?
+
+854
+00:59:04,260 --> 00:59:05,260
+Yeah.
+
+855
+00:59:05,260 --> 00:59:07,780
+Go for it.
+
+856
+00:59:07,780 --> 00:59:08,860
+A closure object.
+
+857
+00:59:08,860 --> 00:59:15,900
+And what does it look like?
+
+858
+00:59:15,900 --> 00:59:17,140
+Access link and code.
+
+859
+00:59:17,140 --> 00:59:19,940
+What does the access link point to?
+
+860
+00:59:19,940 --> 00:59:23,140
+Yeah.
+
+861
+00:59:23,140 --> 00:59:24,620
+Global scope.
+
+862
+00:59:24,620 --> 00:59:29,020
+And the code points to which lines?
+
+863
+00:59:29,020 --> 00:59:42,700
+Yeah, it's the three lines...
+
+864
+00:59:42,700 --> 00:59:46,580
+Like the return, open parentheses, equals, right?
+
+865
+00:59:46,580 --> 00:59:49,740
+All the way down to the close with the semicolon.
+
+866
+00:59:49,740 --> 00:59:52,260
+So it's those three lines.
+
+867
+00:59:52,260 --> 00:59:54,320
+Okay?
+
+868
+00:59:54,320 --> 00:59:55,320
+Now what?
+
+869
+00:59:56,080 --> 01:00:00,480
+Established make counter.
+
+870
+01:00:00,480 --> 01:00:10,640
+What else do we do?
+
+871
+01:00:10,640 --> 01:00:12,720
+We have a variable X.
+
+872
+01:00:12,720 --> 01:00:22,120
+What is X equal to?
+
+873
+01:00:22,120 --> 01:00:23,720
+The result of make counter zero.
+
+874
+01:00:23,720 --> 01:00:24,720
+All right.
+
+875
+01:00:24,720 --> 01:00:25,720
+We got to figure out what that is.
+
+876
+01:00:25,720 --> 01:00:34,320
+How do we figure out what make counter zero is?
+
+877
+01:00:34,320 --> 01:00:35,320
+How do we do that?
+
+878
+01:00:35,320 --> 01:00:36,320
+I agree.
+
+879
+01:00:36,320 --> 01:00:38,120
+We want to go into make counter.
+
+880
+01:00:38,120 --> 01:00:41,120
+That's a very English way of describing it.
+
+881
+01:00:41,120 --> 01:00:43,120
+Exactly.
+
+882
+01:00:43,120 --> 01:00:51,120
+So we're executing a function, which means we create an activation record for our make
+
+883
+01:00:51,120 --> 01:00:52,280
+counter.
+
+884
+01:00:52,280 --> 01:01:00,440
+So we can call this one make counter zero.
+
+885
+01:01:00,440 --> 01:01:01,960
+Just so that it has a name.
+
+886
+01:01:01,960 --> 01:01:06,280
+What's going inside of this activation record?
+
+887
+01:01:06,280 --> 01:01:12,600
+Yeah.
+
+888
+01:01:12,600 --> 01:01:13,940
+C is equal to zero.
+
+889
+01:01:13,940 --> 01:01:15,640
+That's our parameter.
+
+890
+01:01:15,640 --> 01:01:17,920
+What else do we have?
+
+891
+01:01:17,920 --> 01:01:19,980
+Return.
+
+892
+01:01:19,980 --> 01:01:23,460
+We don't know what the value is yet, but we have it.
+
+893
+01:01:23,460 --> 01:01:26,980
+What else do we have?
+
+894
+01:01:26,980 --> 01:01:28,980
+Yeah.
+
+895
+01:01:28,980 --> 01:01:30,980
+Control.
+
+896
+01:01:30,980 --> 01:01:41,860
+What does that point to?
+
+897
+01:01:41,860 --> 01:01:43,400
+It points to global.
+
+898
+01:01:43,400 --> 01:01:49,080
+And if we wanted to be precise, we could say it, like, points to this line of global.
+
+899
+01:01:49,080 --> 01:01:50,680
+But the line number doesn't really matter.
+
+900
+01:01:50,680 --> 01:01:52,680
+It points to global.
+
+901
+01:01:52,680 --> 01:01:53,680
+Global.
+
+902
+01:01:53,680 --> 01:01:54,680
+Great.
+
+903
+01:01:54,680 --> 01:01:57,200
+What else do we have?
+
+904
+01:01:57,200 --> 01:01:58,760
+Yeah.
+
+905
+01:01:58,760 --> 01:01:59,760
+Access link.
+
+906
+01:01:59,760 --> 01:02:01,240
+And what does that point to?
+
+907
+01:02:01,240 --> 01:02:02,440
+Global.
+
+908
+01:02:02,440 --> 01:02:06,600
+And how do we know that it points to global?
+
+909
+01:02:06,600 --> 01:02:08,080
+It was defined in global.
+
+910
+01:02:08,080 --> 01:02:10,980
+We go look up the function that we're executing.
+
+911
+01:02:10,980 --> 01:02:13,560
+The function we are executing is make counter.
+
+912
+01:02:13,560 --> 01:02:18,920
+Make counter is a closure that has an access link pointing to global.
+
+913
+01:02:19,760 --> 01:02:21,760
+So we set it equal to global.
+
+914
+01:02:21,760 --> 01:02:25,120
+Great.
+
+915
+01:02:25,120 --> 01:02:31,720
+Now what?
+
+916
+01:02:31,720 --> 01:02:39,440
+These are so fun.
+
+917
+01:02:39,440 --> 01:02:42,520
+What do we do now that we have called make counter zero?
+
+918
+01:02:42,520 --> 01:02:45,560
+We've created the activation record for it.
+
+919
+01:02:45,560 --> 01:02:47,560
+What next?
+
+920
+01:02:59,800 --> 01:03:00,920
+Exactly.
+
+921
+01:03:00,920 --> 01:03:08,280
+So we are actually executing our code inside of make counter.
+
+922
+01:03:08,280 --> 01:03:09,880
+We've set C equal to zero.
+
+923
+01:03:09,880 --> 01:03:13,160
+We're on line 2, where we're returning something.
+
+924
+01:03:13,160 --> 01:03:18,280
+And what we are returning is an anonymous function.
+
+925
+01:03:18,280 --> 01:03:19,760
+Functions are closures.
+
+926
+01:03:19,760 --> 01:03:30,200
+So what does this return look like?
+
+927
+01:03:30,200 --> 01:03:32,280
+Another closure.
+
+928
+01:03:32,280 --> 01:03:37,280
+So let me just draw this out a bit more precisely.
+
+929
+01:03:37,280 --> 01:03:40,400
+All right.
+
+930
+01:03:40,400 --> 01:03:45,960
+So it's equal to a closure.
+
+931
+01:03:45,960 --> 01:03:59,120
+What are the left and right-hand sides of this closure?
+
+932
+01:03:59,120 --> 01:04:00,480
+Someone knew.
+
+933
+01:04:00,480 --> 01:04:02,200
+You three have done a lot.
+
+934
+01:04:02,200 --> 01:04:06,400
+I appreciate it.
+
+935
+01:04:06,400 --> 01:04:09,040
+Yeah.
+
+936
+01:04:09,040 --> 01:04:12,040
+Yeah.
+
+937
+01:04:12,040 --> 01:04:19,000
+Yeah.
+
+938
+01:04:19,000 --> 01:04:25,000
+So access link points back to the activation record where it was defined.
+
+939
+01:04:25,000 --> 01:04:28,200
+It was defined inside of make counter.
+
+940
+01:04:28,200 --> 01:04:29,600
+So it's this one.
+
+941
+01:04:29,600 --> 01:04:30,600
+Yep.
+
+942
+01:04:30,600 --> 01:04:31,600
+Great.
+
+943
+01:04:31,600 --> 01:04:33,600
+And what's the right-hand side?
+
+944
+01:04:33,600 --> 01:04:34,600
+Yeah.
+
+945
+01:04:34,600 --> 01:04:35,600
+Exactly.
+
+946
+01:04:35,600 --> 01:04:39,360
+It's just that little snippet of code.
+
+947
+01:04:39,360 --> 01:04:40,360
+Return C++.
+
+948
+01:04:40,360 --> 01:04:42,240
+So I'll just leave it there.
+
+949
+01:04:42,240 --> 01:04:44,440
+But it's the little snippet.
+
+950
+01:04:44,440 --> 01:04:45,680
+Great.
+
+951
+01:04:45,680 --> 01:05:00,600
+Now what?
+
+952
+01:05:00,600 --> 01:05:05,040
+We want to get to make counter 2, but we have to finish out what we were in the middle
+
+953
+01:05:05,480 --> 01:05:06,480
+of.
+
+954
+01:05:06,480 --> 01:05:12,720
+We're done with this activation record, which means we return back, and we set x equal to
+
+955
+01:05:12,720 --> 01:05:15,400
+the returned value.
+
+956
+01:05:15,400 --> 01:05:25,040
+That means we're just going to have x point down to the same closure that was returned.
+
+957
+01:05:25,040 --> 01:05:31,800
+Yeah.
+
+958
+01:05:31,800 --> 01:05:39,680
+So x, if we wanted to look up the value of C with respect to executing x, we have captured
+
+959
+01:05:39,680 --> 01:05:42,280
+it inside of this activation record.
+
+960
+01:05:42,280 --> 01:05:43,960
+That is exactly correct.
+
+961
+01:05:43,960 --> 01:05:50,600
+So when we go ahead and execute x, we'll see what happens.
+
+962
+01:05:50,600 --> 01:05:52,720
+Let's get on to the next line, though.
+
+963
+01:05:52,720 --> 01:05:55,400
+We're on to y equals make counter 2.
+
+964
+01:05:55,400 --> 01:05:56,400
+What does that look like?
+
+965
+01:05:56,400 --> 01:06:05,920
+Pretty much exactly like make counter 0, but C is 2.
+
+966
+01:06:05,920 --> 01:06:06,920
+All right.
+
+967
+01:06:06,920 --> 01:06:10,800
+Pretty much exactly like make counter 0, but C is 2.
+
+968
+01:06:10,800 --> 01:06:14,000
+I accept this.
+
+969
+01:06:14,000 --> 01:06:17,720
+The important point is we aren't updating this one.
+
+970
+01:06:17,720 --> 01:06:20,600
+We aren't going to change this activation record.
+
+971
+01:06:20,600 --> 01:06:28,200
+We're going to create an entirely new make counter 2 activation record.
+
+972
+01:06:28,200 --> 01:06:30,360
+And this one will look almost identical.
+
+973
+01:06:30,360 --> 01:06:43,520
+We'll say C is 2, return, we'll figure out, control is global, access is still global.
+
+974
+01:06:43,520 --> 01:06:51,800
+And then the return here is to yet another new closure where the access points to that
+
+975
+01:06:51,800 --> 01:06:58,400
+and the code is the C++ code.
+
+976
+01:06:58,400 --> 01:07:04,600
+And then y is going to be pointing to this closure.
+
+977
+01:07:04,600 --> 01:07:07,000
+Which will be hard to draw.
+
+978
+01:07:07,000 --> 01:07:11,080
+So we'll name this one number 3.
+
+979
+01:07:11,080 --> 01:07:12,440
+Closure number 3.
+
+980
+01:07:12,440 --> 01:07:14,480
+And just say that it's number 3.
+
+981
+01:07:14,480 --> 01:07:15,480
+Yeah?
+
+982
+01:07:15,480 --> 01:07:37,540
+Yeah.
+
+983
+01:07:37,540 --> 01:07:41,320
+So these are new activation records.
+
+984
+01:07:41,320 --> 01:07:47,400
+They get their access link from how we defined make counter before.
+
+985
+01:07:47,400 --> 01:07:48,880
+Yeah.
+
+986
+01:07:48,880 --> 01:07:58,600
+And then I think let's execute X and follow that logic to see, like, what this leads to.
+
+987
+01:07:58,600 --> 01:08:04,120
+So we get to the point of our code where we're trying to log X.
+
+988
+01:08:04,120 --> 01:08:07,080
+Or log execution of X.
+
+989
+01:08:07,080 --> 01:08:08,520
+What is X?
+
+990
+01:08:08,520 --> 01:08:10,300
+We're in the global scope.
+
+991
+01:08:10,300 --> 01:08:11,300
+What is X?
+
+992
+01:08:11,300 --> 01:08:12,300
+Yeah?
+
+993
+01:08:12,300 --> 01:08:33,460
+X is a pointer to a closure.
+
+994
+01:08:33,460 --> 01:08:34,580
+X is a closure.
+
+995
+01:08:34,580 --> 01:08:38,620
+It's specifically this one.
+
+996
+01:08:38,620 --> 01:08:41,900
+What code is inside of that closure?
+
+997
+01:08:41,900 --> 01:08:43,620
+Yeah.
+
+998
+01:08:43,620 --> 01:08:45,140
+C++.
+
+999
+01:08:45,140 --> 01:08:50,700
+So we want to execute the code C++.
+
+1000
+01:08:50,700 --> 01:08:54,340
+What is the value of C?
+
+1001
+01:08:54,340 --> 01:08:58,300
+So we're gonna create our closure here.
+
+1002
+01:08:58,300 --> 01:09:05,700
+X has a return, a CTL, and an access.
+
+1003
+01:09:05,700 --> 01:09:08,540
+What are the values of these three things?
+
+1004
+01:09:08,540 --> 01:09:10,220
+Let's start with control.
+
+1005
+01:09:10,220 --> 01:09:16,260
+What's the control pointer point to?
+
+1006
+01:09:16,260 --> 01:09:22,260
+Yeah.
+
+1007
+01:09:22,260 --> 01:09:24,820
+The make counter activation record.
+
+1008
+01:09:24,820 --> 01:09:27,780
+Over here.
+
+1009
+01:09:27,780 --> 01:09:31,540
+So control tells us where did we come from.
+
+1010
+01:09:31,540 --> 01:09:34,060
+Where are we coming from here?
+
+1011
+01:09:34,060 --> 01:09:35,780
+We're coming from global.
+
+1012
+01:09:35,780 --> 01:09:43,660
+We executed inside of global, which means control points to global.
+
+1013
+01:09:43,660 --> 01:09:48,620
+The access link, though, tells us where were we defined.
+
+1014
+01:09:48,620 --> 01:09:56,420
+And when we look at X, this closure was defined inside of make counter 0.
+
+1015
+01:09:56,420 --> 01:10:01,900
+Which means that the access link will point over to make counter 0.
+
+1016
+01:10:01,900 --> 01:10:05,740
+Which we'll just say MKC 0.
+
+1017
+01:10:11,140 --> 01:10:17,700
+So when we look up the value of C for our return, how do we find it?
+
+1018
+01:10:20,380 --> 01:10:22,940
+Is C in our current activation record?
+
+1019
+01:10:28,620 --> 01:10:30,220
+Yes?
+
+1020
+01:10:30,220 --> 01:10:32,060
+No.
+
+1021
+01:10:32,060 --> 01:10:33,100
+No, it's not.
+
+1022
+01:10:33,100 --> 01:10:35,380
+All we have is return control access.
+
+1023
+01:10:35,380 --> 01:10:36,260
+So we don't have it.
+
+1024
+01:10:36,260 --> 01:10:37,260
+Where do we go?
+
+1025
+01:10:37,260 --> 01:10:38,580
+Do we go to global?
+
+1026
+01:10:38,580 --> 01:10:40,540
+Or do we go to make counter 0?
+
+1027
+01:10:47,940 --> 01:10:50,900
+Follow the access link back to make counter 0.
+
+1028
+01:10:50,900 --> 01:10:54,300
+We do have C defined here.
+
+1029
+01:10:54,300 --> 01:10:59,580
+We're going to update the value of C, because we called C++
+
+1030
+01:10:59,580 --> 01:11:01,500
+to be 1.
+
+1031
+01:11:01,500 --> 01:11:04,260
+And then we return.
+
+1032
+01:11:04,260 --> 01:11:05,500
+And what is printed out?
+
+1033
+01:11:11,860 --> 01:11:14,340
+What's printed out?
+
+1034
+01:11:14,340 --> 01:11:15,540
+Tricked you.
+
+1035
+01:11:15,540 --> 01:11:20,260
+It's plus plus, not plus plus C. Prints out 0.
+
+1036
+01:11:20,260 --> 01:11:21,660
+But C will be 1.
+
+1037
+01:11:22,380 --> 01:11:27,100
+OK.
+
+1038
+01:11:27,100 --> 01:11:30,980
+So the slides for this are all up.
+
+1039
+01:11:30,980 --> 01:11:38,020
+You can, like, follow exactly the same logic that we took here.
+
+1040
+01:11:38,020 --> 01:11:40,660
+But that covers the complexity of high-order functions.
+
+1041
+01:11:40,660 --> 01:11:41,660
+Yeah?
+
+1042
+01:11:41,660 --> 01:11:45,860
+Why was there no activation record for the anonymous function?
+
+1043
+01:11:45,860 --> 01:11:47,980
+No activation record for the anonymous function.
+
+1044
+01:11:47,980 --> 01:11:49,300
+There is.
+
+1045
+01:11:49,300 --> 01:11:51,260
+This is the anonymous function.
+
+1046
+01:11:51,260 --> 01:11:54,260
+The one, the function that was defined inside.
+
+1047
+01:11:54,260 --> 01:11:57,740
+Why don't we make an activation record for that?
+
+1048
+01:11:57,740 --> 01:12:00,220
+Yeah.
+
+1049
+01:12:00,220 --> 01:12:00,740
+Wait.
+
+1050
+01:12:00,740 --> 01:12:01,340
+Hold on, guys.
+
+1051
+01:12:01,340 --> 01:12:01,820
+Hold on.
+
+1052
+01:12:01,820 --> 01:12:02,340
+Pay attention.
+
+1053
+01:12:02,340 --> 01:12:03,740
+This is an important question.
+
+1054
+01:12:03,740 --> 01:12:06,740
+Why did we not create an activation record
+
+1055
+01:12:06,740 --> 01:12:09,980
+when we were inside of make counter 0,
+
+1056
+01:12:09,980 --> 01:12:14,060
+and we were executing line 1 of make counter 0?
+
+1057
+01:12:14,060 --> 01:12:17,220
+Why did we not create an activation record
+
+1058
+01:12:17,260 --> 01:12:18,660
+for this anonymous function?
+
+1059
+01:12:22,460 --> 01:12:23,860
+Give it 30 seconds of thought.
+
+1060
+01:12:23,860 --> 01:12:27,260
+I want you to have an answer to that.
+
+1061
+01:12:27,260 --> 01:12:31,420
+Why did we not create an activation record
+
+1062
+01:12:31,420 --> 01:12:34,500
+when we were inside of make counter 0,
+
+1063
+01:12:34,500 --> 01:12:37,060
+when we were executing here?
+
+1064
+01:12:37,060 --> 01:12:39,740
+Why did we not create an activation record
+
+1065
+01:12:39,740 --> 01:12:40,900
+for the anonymous function?
+
+1066
+01:12:44,420 --> 01:12:45,720
+Give it 30 seconds of thought.
+
+1067
+01:12:45,720 --> 01:12:47,760
+We still have like three minutes left of class.
+
+1068
+01:12:47,760 --> 01:12:48,760
+Just a quick question.
+
+1069
+01:12:48,760 --> 01:12:51,240
+There is an activation record.
+
+1070
+01:12:51,240 --> 01:12:51,740
+All right.
+
+1071
+01:12:51,740 --> 01:12:53,200
+So I'll just do the final one.
+
+1072
+01:12:53,200 --> 01:12:53,700
+Yeah.
+
+1073
+01:12:53,700 --> 01:12:55,680
+So I'm actually going to call it a function.
+
+1074
+01:12:55,680 --> 01:12:57,160
+I'm going to call the function.
+
+1075
+01:12:57,160 --> 01:12:58,160
+It's still a function.
+
+1076
+01:12:58,160 --> 01:12:58,660
+Yeah.
+
+1077
+01:12:58,660 --> 01:13:01,640
+I'm on your side.
+
+1078
+01:13:01,640 --> 01:13:02,120
+Oops.
+
+1079
+01:13:02,120 --> 01:13:03,600
+I'm just going to put it down.
+
+1080
+01:13:03,600 --> 01:13:04,100
+OK.
+
+1081
+01:13:04,100 --> 01:13:07,000
+So I'm going to call it a statement.
+
+1082
+01:13:07,000 --> 01:13:07,560
+All right.
+
+1083
+01:13:07,560 --> 01:13:09,020
+How many people feel like they have
+
+1084
+01:13:09,020 --> 01:13:14,640
+a solid answer for why we did not create an activation record?
+
+1085
+01:13:14,640 --> 01:13:15,920
+Not enough of you.
+
+1086
+01:13:15,920 --> 01:13:18,400
+This is a very important question.
+
+1087
+01:13:18,400 --> 01:13:21,160
+So I heard the answer.
+
+1088
+01:13:21,160 --> 01:13:23,080
+I think you said it perfectly.
+
+1089
+01:13:23,080 --> 01:13:25,680
+So I want to broadcast to the class.
+
+1090
+01:13:25,680 --> 01:13:29,160
+Why did we not do this?
+
+1091
+01:13:29,160 --> 01:13:32,340
+Activation records are created when we call a function.
+
+1092
+01:13:32,340 --> 01:13:37,360
+Activation records are created when you call a function.
+
+1093
+01:13:37,360 --> 01:13:42,600
+Inside of make counter, we define an anonymous function,
+
+1094
+01:13:42,600 --> 01:13:44,560
+but we do not execute it.
+
+1095
+01:13:44,560 --> 01:13:46,800
+We do not call it, which means we don't
+
+1096
+01:13:46,800 --> 01:13:49,000
+create an activation record.
+
+1097
+01:13:49,000 --> 01:13:53,720
+Later, we execute x, and that's what actually
+
+1098
+01:13:53,720 --> 01:13:57,880
+creates the activation record for that anonymous function.
+
+1099
+01:13:57,880 --> 01:14:01,560
+Prior to that point, we never created.
+
+1100
+01:14:01,560 --> 01:14:06,000
+So understanding when code actually gets executed
+
+1101
+01:14:06,000 --> 01:14:08,720
+is hard and extremely important.
+
+1102
+01:14:08,720 --> 01:14:12,240
+That's like at least 50% of the things on Piazza
+
+1103
+01:14:12,240 --> 01:14:15,800
+where people are like, this JavaScript code isn't working.
+
+1104
+01:14:15,800 --> 01:14:18,840
+It's pretty often the case that it's just,
+
+1105
+01:14:18,840 --> 01:14:21,840
+when is that thing being executed?
+
+1106
+01:14:21,840 --> 01:14:23,800
+So great question.
+
+1107
+01:14:23,800 --> 01:14:27,540
+Any other last questions on this stuff?
+
+1108
+01:14:27,540 --> 01:14:28,040
+Yeah.
+
+1109
+01:14:28,040 --> 01:14:29,000
+What is being returned?
+
+1110
+01:14:29,000 --> 01:14:31,560
+Is it a pointer return?
+
+1111
+01:14:31,560 --> 01:14:35,160
+Yeah, so what is being returned is a closure.
+
+1112
+01:14:35,160 --> 01:14:40,040
+It's this whole object here.
+
+1113
+01:14:40,040 --> 01:14:44,120
+And we represent that as like a pointer in our diagrams.
+
+1114
+01:14:44,120 --> 01:14:46,600
+And JavaScript does the same thing.
+
+1115
+01:14:46,600 --> 01:14:48,280
+Yeah.
+
+1116
+01:14:48,280 --> 01:14:52,200
+Other questions on these diagrams?
+
+1117
+01:14:52,200 --> 01:14:54,480
+You have two of these on the homework.
+
+1118
+01:14:54,480 --> 01:14:58,240
+So they should make sense.
+
+1119
+01:14:58,240 --> 01:15:01,080
+If not, stop by office hours.
+
+1120
+01:15:10,040 --> 01:15:11,600
+Thank you.
+
+1121
+01:15:40,040 --> 01:15:41,600
+Thank you.
+
+1122
+01:16:10,040 --> 01:16:11,600
+Thank you.
+
+1123
+01:16:40,040 --> 01:16:41,600
+Thank you.
+
+1124
+01:17:10,040 --> 01:17:11,600
+Thank you.
+
+1125
+01:17:40,040 --> 01:17:41,600
+Thank you.
+
+1126
+01:18:10,040 --> 01:18:11,600
+Thank you.
+
+1127
+01:18:40,040 --> 01:18:41,600
+Thank you.
+
+1128
+01:19:10,040 --> 01:19:11,600
+Thank you.
+
+1129
+01:19:40,040 --> 01:19:41,600
+Thank you.
+

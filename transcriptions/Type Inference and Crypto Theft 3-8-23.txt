@@ -1,0 +1,1073 @@
+This is a course on the principles and paradigms of programming languages.
+This is a course on the principles and paradigms of programming languages.
+This is a course on the principles and paradigms of programming languages.
+Is there a fourth option?
+Is that what you said?
+Yeah, really hard.
+Really hard.
+This is anonymous, just so you guys know.
+I'm not recording what you say.
+Can you guys see two questions, by the way?
+Or just one?
+You see two?
+Great.
+Thank you.
+I'm taking an exam.
+I'm trying to figure out, like, what is it?
+Are we going to do, like, a couple of them?
+Yeah.
+I don't know that.
+Like, I feel like we're going to do a couple of those.
+Yeah, professor, really hard.
+They do this every day, right?
+And then they're like, I don't know.
+So I'm like, you're really weird.
+I'm like, I don't know.
+I'm like, I don't know.
+I'm like, I don't know.
+I'm like, I don't know.
+I think my answer to that is I'm like, I'm not great.
+I'm like, I don't know.
+I'm like, I don't know.
+I'm like, I don't know.
+I'm like, I don't know.
+Fair enough.
+Yeah.
+Can we get participation points from participating in class, or is that only in class?
+Yes.
+In class matters, but a lot of it is, like, if I can know your name.
+I have a photo of everyone, and I match it with your name, and then based on how well
+I remember you participating in class.
+So it's a little bit of a loose system.
+But it kind of works.
+Bring a name tag.
+It might work.
+It might help.
+All right, guys.
+We have 27 responses here, so I think we are gonna close it out, because it looks like
+there are roughly 30 people.
+Those of you in the back, you should scoot forward.
+Why not?
+You know?
+Come on up a little bit.
+We will be looking at some code on the screen, and the code is a little bit small, so the
+closer up you are, the better.
+Can I show you the responses?
+Responses.
+Okay.
+That sounds good.
+So harder than it was medium, and definitely not easy.
+And then in terms of fairness-ish.
+All right.
+So compared to last semester, maybe a bit harder.
+Good to know.
+I will take that into account as we go forward.
+Thank you for your feedback.
+Don't forget, we do drop the lowest midterm, so if that's this one, great.
+If it's not this one, also great.
+Up to you.
+All right.
+Welcome to a fun lecture in CS538.
+I try and add these as much as I can, because I like to talk about things that aren't just
+the stuff that's on the ACM, like, requirements for what principles and paradigms of programming
+languages is.
+Before we get into the fun stuff, some notes.
+The PA and the homework are not going to be released.
+If you already have a copy somehow, because you stole them while they were halfway released
+or something, ignore them.
+They are not released.
+You don't have to do them until after spring break.
+Have a fun spring break.
+Midterms will be graded soon-ish.
+I have them all scanned.
+The TA and I will be grading them.
+We will get those back to you hopefully within a week, and then once that is done, I will
+be able to update Canvas with your current grade.
+This will be unscaled, so it won't be – if there is a curve, there's no curve on this
+grade, but it will have your 10% bonus for submitting early.
+It will have the individual weighting of each assignment versus the other assignments.
+This should be a pretty accurate reflection of what your grade will be at this point in
+time.
+I'm hoping that that will be done before spring break ends.
+It takes a while, so please be patient.
+I have a coding project that is school-related, so it's not work, it's not industry stuff.
+It's a coding project.
+If somebody is a very proficient Python coder and interested in hacking on something, come
+chat with me either after class or in office hours or send me an email.
+It might be hard.
+I don't know.
+We'll figure it out.
+There is a course eval that is the midterm course eval.
+You got it from the school.
+They ask you to fill it out.
+Please do.
+I appreciate it, because I take that information into all of the rest of my teaching.
+Let me know if I'm doing anything poorly or well, and I will try and fix or stay the course.
+Those are my notes.
+There were a lot of them.
+Any notes from you guys?
+It's a fun lecture, so we can talk about anything.
+Anything on your mind?
+Yeah?
+These lecture slides are called static analysis.
+They are on Canvas.
+Yep.
+Yep.
+I will post the solutions to the midterm.
+I don't typically go over them, but we can do that in office hours if you want to stop
+by.
+Anything else?
+All right.
+Today's lecture is loosely based...
+It was going to be something totally different.
+And then I read this article this morning called fixing the next 10,000 aliasing bugs.
+And just from the title, you know that's gonna be super exciting.
+I was like, yes!
+This is the thing I want to spend an hour and a half chatting about.
+No, not actually.
+It's a really boring looking title, and only a real PL nerd would get excited about that.
+But that's because they missed out on the real title.
+Which is using type inference to make $150.
+Minor correction.
+To steal $150 million.
+So the algorithm that we have been covering, Hindley-Milner type inference, loosely can
+be used to describe an attack that took place two years ago and resulted in somebody literally
+stealing $150 million.
+All of the material, or almost all of the material, comes from this blog post, the one
+that I showed at the start there.
+All the animations are my own.
+All right.
+So let's take a look at Java.
+I'm certainly not proficient in Java, but I have a little piece of Java for you.
+If you have your computer with you, feel free to go to my GitHub, to the CS538 snippets
+repo and take a look at the code that is there.
+Otherwise, I'm gonna put the code up on the screen so we can all look at it as a class.
+But if you want it so you can play around with it, do so.
+All right.
+All right.
+So in that folder, you should have a bug.java, if you can find it.
+And when we look at this...
+All right.
+I can go one bigger, two bigger, three bigger.
+Yeah.
+Is that readable?
+If it's not readable, there are plenty of seats up front.
+So please do come up front.
+All right.
+We have Java code.
+I have not written Java code since probably my sophomore year of college.
+So even getting this to compile was like, what is going on?
+But I did.
+So that's good.
+We have a class called MyList.
+This might come out from you having to write a data structure in one of your intro CS classes.
+You're told, write a data structure for a list in Java.
+This list should be able to add items of arbitrary length.
+So even though it started out as an array of ten items, once I add the eleventh item,
+it should be able to restructure and become an array of length 11.
+Or 20.
+Or 100.
+So it should be a dynamically lengthed list.
+But we have to stick within Java, so we're going to use an array to do that.
+And every time we go past our bounds, we will reallocate a new array, copy over all
+the old elements, and be good to go.
+Great.
+So we have some code.
+My challenge to you is identify the bug.
+And I'll give you five to ten minutes to do so.
+If you have code on your computer, feel free to download it, compile it, run it, and figure
+out what's going on.
+If you don't have code, talk to somebody next to you.
+Or stare at this for a little while.
+There is one piece at the very bottom that's not being shown.
+All that is is the main function, where I create a list S, I create a list T, add elements,
+and then, like, concatenate the two lists together.
+All right.
+So...
+Find the bug.
+I'll wander around and chat with you guys individually to see what you come up with.
+But give it five or ten minutes of debugging.
+And I'll see you guys later.
+Bye.
+
+Bye.
+
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Okay.
+So what did we come up with?
+Who's got some ideas?
+I heard a lot of different ideas floating around.
+Did anybody get an actual error?
+Was anybody able to compile this and run it with some sort of main?
+Like changing this at all and getting an actual error?
+Okay.
+Fair enough.
+Did anybody come up with something that might be going wrong?
+All right.
+I'd like to poll the class.
+You have four functions, if you include the constructor as a function.
+Where is the bug?
+Could be based on your gut or just...
+I don't know.
+Something else.
+But I'm curious.
+Where do you think the bug is?
+Choose one of the four functions.
+The constructor.
+My list.
+Ensure capacity.
+Add.
+Add all.
+Okay.
+We got about a 50-50 split.
+Add all and ensure capacity.
+So which one is it?
+First of all, let's double check that I haven't, like,
+just cheated the whole time, and we can actually compile this thing.
+Compiles, it gives us a warning for our types, but that's fine.
+And then if we actually run it, we do actually run it.
+So there's no bug.
+That's gonna be annoying.
+In this main.
+In this version of main, where we create a list, we create a second list,
+we add an element to the first list, or to the second list,
+add an element to the second list, and then add them together.
+This part's fine.
+No bugs.
+Compiles.
+Runs.
+Without issue.
+I'm gonna make a one-character change.
+That's all that we're gonna change.
+This is what it was.
+This is what I'm changing it to.
+What happens?
+What we are saying now is that we're taking a list S
+and add all the elements from S to that list.
+So what's gonna happen?
+Yeah.
+There's gonna be a problem with ensure capacity.
+Let's run through it and see if there is.
+So we hit add all.
+Our parameter C is the list S.
+We are in the scope of S itself.
+So when we call ensure capacity, we're using the S version of ensure capacity,
+with the length of S and the length of S.
+So 2 times S.
+When we call ensure capacity with 2 times the length of S,
+which in this case is length 1, so it's a value of 2,
+we would check to see is min capacity 2 greater than array.length?
+Yes.
+Array.length is 1.
+So then we're going to set the new capacity equal to 2.
+The max of 2 and 2.
+Create a new list of length 2 and copy the old list into the new list.
+Is there a bug there?
+Did anything break?
+I don't think anything did break.
+And yet, so if we recompile and we rerun, we crash.
+So ensure capacity did not have any issue,
+but making this change did break something.
+That leaves the second group.
+The group that had the intuition that the issue is in add all.
+Something has gone wrong in add all after our ensure capacity check.
+What is it?
+Yeah.
+Right.
+So in Java, we are referencing this S, the length variable on that S,
+which we are incrementing inside of this for loop.
+However, our for loop check is saying until we are less than the length of C.length.
+While we are less than C.length.
+C is S. And we are incrementing the value of S's length.
+So we will continue going through this for loop over and over and over
+until we actually hit the bounds of the entire loop,
+which is when we get our final array index out of bounds exception.
+So I've got some slides to make this a bit more step by step.
+Let's go to those.
+The thing that we have, actually, let's go back.
+Let's do this backwards.
+We start with add all.
+And our first step of add all is saying let's ensure the capacity of the current list
+is greater than the old list with the new list combined.
+So make sure that we have enough space for whatever we're doing.
+And this is the, like, we're calling this the correct way.
+On the first iteration, I is zero, length of our list is two,
+length of C.length, or C.length is one.
+We execute the body of the loop, incrementing our length.
+And then setting C.length, or C.length is still one.
+Loop back through, am I on the right one?
+I am on the right one.
+We go back to the top.
+We check is I less than C.length.
+It's no longer.
+So we're done.
+This is if we ran it with the correct inputs, like not passing S. We don't run into any
+issue because C.length has remained constant.
+On the other hand, if we pass in S as our parameter, first we do that same ensure capacity
+check.
+Then we say I is equal to zero, length is equal to two, C.length is equal to two.
+When we get to our length++, we increment not only our length, but also C.length.
+Because C.length is the same as our length.
+Which means that C.length increments with our own length.
+We go back up to the next time, increment I. I is less than C.length.
+And this will continue forever and ever and ever until we actually index into the array
+at an invalid location.
+So this is the bug that we have found.
+Questions on the bug?
+It's a bit involved.
+I recognize that.
+So if we go back to what went wrong, we had this implicit invariant.
+And it was that the length of the input list does not change between the ensure capacity
+call and the for loop.
+Outside of our add list, or add all function, our input list length does not change.
+And you might look at that and say, that's safe, so long as we aren't multithreading.
+It makes sense that if we're multithreading, maybe somebody updated the list in between.
+But if we aren't multithreading, maybe we're safe.
+What we found is that no, that's not true.
+If we pass in the same object itself, when we increment length, we're incrementing the
+input length as well.
+Which means we've broken our invariant.
+Sound good?
+Questions?
+All right.
+So how does this turn into $150 million?
+How many of you are familiar with DAOs?
+Some number of you.
+Follow, like, news and whatnot.
+So before we talk about what a DAO is, we should take a second to say, what is a smart
+contract?
+How many of you know what smart contracts are?
+Very few.
+How many of you have written a smart contract?
+All right.
+One or two.
+So a smart contract is a small piece of public code, very similar to an API endpoint.
+However, different than an API endpoint is that it's run on a distributed cloud.
+Typically associated with what's called a blockchain.
+And the way that you purchase credits so that you can run code on this distributed
+cloud is that you pay with a digital currency.
+Such as Doge.
+What this code is, though, is effectively anything.
+We can write whatever web app we want and run it on a distributed cloud.
+For example, ETH.
+Or I guess Doge doesn't actually have smart contracts, but that's beside the point.
+So there are languages designed to write smart contracts.
+One of them, for example, is called Solidity.
+Solidity looks something like this.
+We create a contract and we give it a name.
+And it has some stored data.
+And then we define functions on that contract.
+Set and get, for example.
+Someone can then call these functions and provided they pay the gas to make them happen,
+they will execute that code.
+This is a really convenient model compared to the idea of having to spin up your own
+EC2 box, where you're running all of your functions and having it all handled there.
+You just deploy your code and pay other people to run it for you when you want it to be run.
+Very cool.
+In theory, crypto and Web3 have kind of spiraled into insanity at this point.
+But fundamentally, cool idea.
+You guys like seeing real code?
+So this is a smart contract that I wrote that creates, like, NFTs of those audio snippets
+that I showed you from before.
+So not only do you put one line of HTML and I turn your web page into a podcast, I also
+mint an NFT that you can then put on OpenSea.
+This feature never deployed.
+It was just more of a meme.
+And then to show investors and be like, hey, yeah, we're Web3.
+Anyway, back to the DAO.
+So what is a DAO?
+The original DAO was this relatively reasonable idea that we could build a smart contract
+and have it be used as a distributed investment fund.
+Remove the idea of a hedge fund.
+Remove big banks.
+They suck.
+They only help the very wealthy.
+Let's have a distributed hedge fund, effectively.
+The functionality is very simple.
+You put money in.
+The money grows over time.
+You vote on what the fund should invest in.
+And you vote...
+Your weight of your vote is corresponding to your percent ownership of the DAO.
+And then obviously you get to pull money out.
+Once it has grown and accumulated value.
+Power to the people.
+Distribute finances.
+It's great.
+Oops.
+So...
+It's a great idea.
+But now we're starting to put real money in code where what if there's a bug in your code
+and you can never pull out your money again?
+This is an abbreviated version of the real DAO smart contract where you would be able
+to withdraw money.
+So when you had put in your money and it had grown and you decided it's time to pull this
+money out so I can use it again, you would call this function and you would say...
+Here's my ID.
+This is how much money I want to withdraw.
+And simplified, it would boil down...
+The function boils down to roughly this.
+Step one.
+Calculate how many funds, how much of the money that you have in the DAO do you want
+to remove?
+Do you want to remove 5 ETH?
+Do you want to remove 10 ETH?
+0.1 ETH?
+So calculate how much money you want to move.
+Step two.
+Prepare to move that money.
+And check to see if there's an error when you remove that money.
+So if they're trying to move more money than they have, for example, check.
+If they are, don't do it.
+Don't let somebody withdraw 10 ETH when they only have 5 ETH in their bank.
+So that's what this if error or if no error, then withdraw the actual money.
+They're asking for their money.
+Give them the money.
+Finally, zero the user's balance.
+All right.
+What goes wrong?
+Yeah?
+What if they're not withdrawing all their money?
+Yep.
+What do you mean?
+At the bottom, that would be zero, right?
+Oh, sure.
+Yeah.
+That's me simplifying code.
+We set it to be whatever is remaining.
+Or we could pretend this is full withdrawal.
+Yeah.
+Either way.
+Yeah.
+This createToken.value is basically our check to say,
+will this thing, when we withdraw this amount of money,
+will it cause an error?
+What it's really doing is it's preparing a separate coin
+for that user under the hood and all of this
+that we will transfer to that user.
+So there's a bit more complexity hidden behind there.
+But we can think of it as an error check.
+We're checking to validate, is this thing OK to do?
+Yeah?
+Yeah?
+What's a HashMap?
+It's a dictionary.
+HashMap, whatever you want to call it.
+Consider that we're on a distributed cloud.
+It's one of the actual main purposes of smart contracts.
+Yeah?
+Does that do something with atomic operations
+in parallel?
+Sure.
+So what does that mean?
+What part of this is not atomic?
+What part of it would you want to be atomic?
+Yeah?
+Or something?
+That is exactly what these guys exploited.
+If we have multiple of these processes running
+at the same time, and they check that they're
+valid all at the same time, before we
+have set our actual value to zero,
+then they will all say, you have 5 ETH in your bank.
+Then when we withdraw 5 ETH from five different processes
+running the same thing, you get 25 ETH.
+While at the end, you're only ever set down to zero.
+You can't have negative 20 ETH in your account.
+So because these are not atomic in this check withdraw set,
+we're running into this concurrency problem
+where the attackers were able to literally withdraw
+$150 million.
+So what's going wrong?
+Once again, we have this implied invariant
+that at all times, the balance for a user
+matches the actual money that they are owed.
+And we're trying to approximate that by saying, if no error,
+throw, and then withdraw.
+But because that's not atomic, we don't actually
+have that invariant for the two lines of code
+that it really matters.
+So just like in the MyList example,
+we are temporarily invalidating our invariant
+while our function is running.
+Once we've finished running, our invariant's back and restored,
+and we're fine, unless somebody was able to exploit it
+in the meantime.
+So atomic to the rescue?
+Can we just wrap all of our code in mutexes
+and basically check, lock this piece, unlock this piece?
+The idea here would be to take learnings
+from databases or operating systems
+where we do this all the time.
+And maybe atomic actions will fix this.
+But not quite.
+So Uber published a lengthy blog post
+roughly talking about all of this.
+Uber does a ton of their development
+in the language Golang, which is very similar to C,
+but has a lot better guarantees, generally.
+And what we're doing here is we want to take,
+we can think of it very similar.
+The square brackets are lists.
+Effectively, they're called slices in Go.
+No big deal.
+They're basically just lists.
+So we have a list of strings.
+And then we have a safe append function.
+And that function is going to lock our,
+set our locks so that we can update the my results slice,
+which is technically, or it's technically a slice,
+but it looks like a list.
+So we're only going to write to our list with the lock.
+And then we can set up multiple threads.
+One of the amazing things about Go
+is that you can just say Go function,
+and then it will spin up a thread
+to run that function for you asynchronously.
+So we can set 10 threads going all at once to take our string
+and split it up and append it to our list of strings.
+But what's going to go wrong is that even though we only
+can write one at a time to safe atomic,
+we can read concurrently.
+And so we might be halfway through a write
+and then start reading.
+And because we've only written half of the content,
+we might not have copied the correct length,
+or we might not have grabbed the entire list.
+Any number of things could go wrong.
+So when we do the read right here,
+and we request my results, this is undetermined.
+It could be any value within reason.
+So maybe what we could do is we could wrap literally everything
+in mutexes, but now we're in single-threaded land,
+and that kind of sucks for its own reasons.
+Nobody wants to write single-threaded code.
+It's super slow, especially with the death of Moore's law.
+So the shared issue here, we have
+this idea of invariance being violated repeatedly
+to multiple aliased references.
+Aliasing means we have multiple references to the same memory.
+Here, we have multiple references of my results
+up here and in the append.
+In this place, we have multiple references
+to the actual balances feature that stores our information.
+And the last one, we have multiple references
+to our length, or to our array, which has the length variable.
+So we have aliases of the same important memory.
+Question?
+Yeah, this might not be relevant,
+but regarding the mutex and any distributed system,
+how does a mutex work with something
+that's like a blockchain distributed system?
+Oh, it certainly wouldn't.
+So you can't do, like, mutexes as far as possible
+to contribute it?
+So mutex needs to operate at the underlying level for it to work.
+You need to have some sort of supervisor saying,
+lock this thing, and then unlock this thing.
+And if you don't have something like that, it's not going to work.
+If you could build that into your chain,
+you could make something like it work.
+But by default in ETH, you'd probably
+have some trouble with that.
+All right, lots of things.
+All right, so our invariants have been violated by multiple.
+Did I say inviolated?
+Invariants are violated by multiple aliased references.
+An alias is when we have multiple references to the same memory.
+Let's try and fix that.
+So to the original title of the blog post,
+solving the next or fixing the next 10,000 aliasing bugs,
+or whatever it was.
+The author makes the point that this is not new.
+Tony Hoare gave a presentation about 10 years ago
+called Null References, the Billion Dollar Mistake,
+where he talks about, in ALGOL, the language
+that he developed in the 60s, he included
+the idea of a null reference.
+And every other language since then
+has said, null is a good idea.
+Let's also have null.
+But how many bugs come up because of null?
+Maybe a billion dollars worth of bugs.
+Maybe more.
+Maybe it's even crazier.
+So over the last 20 years, people
+have started saying, how can we fix null pointers?
+The issue fundamentally is that every variable can be null.
+Developers then have what options?
+What can a developer do to handle null?
+You're writing C code.
+What do you do when you're worried
+about this sort of stuff?
+Yeah.
+Put if statements everywhere.
+That is the first one.
+Excellent.
+Good order.
+We can always do a null check and say, if the thing is null,
+do this.
+Otherwise, do whatever else.
+What else can we do?
+Yeah.
+We can use union types in C.
+OK, I haven't used union types in C.
+In other languages, definitely.
+And that's what I will talk about on the next slide.
+What else can we do?
+Yeah.
+Exception handling.
+C doesn't have exceptions.
+Right?
+Am I wrong?
+New versions of C might.
+I don't think C has exceptions.
+But in other languages, we have exception handling.
+We can capture null pointers.
+Sure.
+We can also just be very careful and try not to mess up.
+And I would say the last option is segfile.
+But these are antiquated ideas.
+You should not have to do any one of these.
+You shouldn't have to do null checks.
+You shouldn't have to be very careful.
+And you shouldn't be segfaulting.
+And instead, what we should do is
+we should fix it at the language level
+with things like union types, which I guess are in C,
+but are only more recently in C for sure.
+Either way.
+But a ton of other languages have this idea
+that things, you can tag them as either being never null
+or possibly null.
+So you have something like TypeScript,
+where you put this little question mark
+after your variable name.
+And what you're saying there is, this thing is a number, maybe.
+It also might be null.
+And whenever you use it, you should check to see is it null.
+But if it doesn't have a question mark,
+the name property is never null.
+And you never have to worry that that thing
+might be uninitialized.
+So a bunch of languages are doing this.
+TypeScript does it.
+You can do front-end or back-end dev with that.
+Rust does it.
+You can do systems dev with that.
+Swift does it.
+You can write iOS apps with that.
+Kotlin does it.
+I don't know if anybody uses Kotlin.
+So that's null pointers that have been
+addressed at the compiler level.
+These languages now solve this problem for you.
+When you accidentally use a possibly null value
+and don't check if it's null, the compiler
+will tell you that's an error.
+Don't do that.
+Can we treat aliasing the same way?
+Oh, yeah.
+Yeah.
+So in SQL, I think they have something like some.
+Oh, SQL's a nightmare with null.
+Yeah, but no, it's interesting.
+SQL has null, but it also has empty and other very weird
+states that it can be in.
+But it also depends on the variant in SQL.
+So SQL has some null handling, but then it also
+has some not null handling that gets into issues.
+Other questions or ideas about null pointers?
+Yeah.
+Why are null pointers bad?
+Why are null pointers good and bad?
+Sometimes, they're useful, but not always.
+They have some use, right?
+Sometimes, they're not.
+Sometimes, they're not always.
+Sometimes, they're not always.
+Yeah.
+So why are null pointers bad?
+And I think that's, to some extent,
+a philosophical question.
+Should you ever use a null pointer?
+But it's also very much just an engineering problem.
+When you are trying to learn C, you run into a lot of segfaults.
+When you are trying to learn JavaScript,
+you run into a lot of undefined is not a function.
+You guys have probably hit that one a lot in this class.
+When you try and learn a language like Python, though,
+I guess you also still get none can't be used like that.
+But you can't ever call a non-function.
+You can't ever reference something and use something
+if it's a null pointer.
+You're not getting segfaults.
+Or if you're in TypeScript, even better,
+you're being forced to handle null.
+So it's not that you don't have null.
+It's that you only have to think about it on the things
+where it's relevant.
+I can still initialize my thing to be empty.
+But in doing so, I have to specify
+that it can be empty, which means everybody else knows
+that's potentially empty.
+But not everything is empty.
+Name is always going to be a string.
+And I never have to put an if statement
+to check, is name undefined?
+Which leads to cleaner code, and it leads to fewer mistakes.
+Fewer bugs.
+Cool.
+So what can we do about aliasing?
+Because we found this issue that aliasing presents bugs
+in our code as well.
+It's not just null pointers.
+It's aliasing, too.
+Well, inherently, in most languages,
+every reference is implicitly aliasable.
+We can always say x equals y and create an alias of y with x
+so that x and y both point to the same thing.
+No language outside of the one that we're about to discuss
+prevents you from being able to do that.
+What this means is that what developers
+can do to prevent aliasing is what?
+How can we stop aliasing bugs, such as the ones
+that we've just seen?
+Yeah?
+If we only have an immutable copy of something,
+wouldn't that, like, start to do, like, a bad thing?
+If we only have an immutable copy,
+what would stop me from saying x equals y?
+It's best practice to say x equals set y.
+Yeah, so I think that definitely gets to the right idea.
+Have you written Rust?
+Yeah, OK.
+So in JavaScript, we started using the immutable list
+library, where we couldn't update any of the variables.
+But that didn't actually stop us from having two references
+to those immutable lists.
+So there's nothing inherent in immutability
+that says we can't have multiple references, which
+is why there's nothing here.
+There's not really any way for the developer
+to prevent aliasing of memory that they think
+that they exclusively own.
+Because maybe somebody else is also copying it.
+But what if we were able to create a fixed language where
+we can flag references as being exclusive,
+meaning they have no aliasing allowed,
+or they could be shared, which means
+they can be aliased as normal.
+So shared memory, shared references
+would be just like every other variable you've ever used.
+Exclusive references, you would not
+be able to have two pointers to that same memory.
+So for example, we might say foo is an exclusive XCL,
+exclusive new foo.
+And then if we tried to say bar is
+equal to foo, which would create two references to that memory,
+we would get a compile error.
+Well, I guess we'd get a compile error here
+when we tried to use foo.
+Because foo is no longer a reference to our thing,
+we've transferred the reference.
+So what we're doing is we're adding a new alias type
+modifier to all of our variables.
+Our variables are now either shared or they're exclusive.
+And we can use the compiler to perform type inference
+on our code and say, are we misusing exclusive pointers
+or misusing shared pointers in any of our places?
+We will run type inference and type checking
+to find those sorts of bugs.
+So if we wrote a slightly larger function, increment,
+it could take a parameter x, which is exclusive.
+So x is an exclusive non-zero number.
+Then we could convert it to an int.
+We could increment it.
+We can do whatever we want.
+Anything inside of our increment function,
+we have exclusive control over x.
+Nobody else is going to be updating x.
+And the compiler will tell us that based on the types
+that we've annotated the rest of our code with.
+So the xcl flag guarantees that no one else
+is accessing the variable.
+And we can safely invalidate our invariants.
+If we had something like this in Solidity or in Java
+or, what was the other one, in Go,
+we could prevent the errors that we were seeing before.
+And the reveal of all of this is that this
+isn't some crazy new concept.
+This is what Rust does with its borrow checker.
+Rust checks to make sure that you're
+treating your exclusive variables as exclusive
+and your shared variables as shared.
+And so it has the borrow checker,
+not just for memory management.
+It also does aliasing.
+All right.
+Questions on any of those last slides?
+Borrow checker, Rust, things of this nature, exclusive?
+Even with that fix in Rust, to go back to the dowel example,
+that doesn't fix that issue, does it?
+In the exact solution, does it?
+Because that's a problem with parallel operations
+on not one central piece.
+Right.
+So you would need your underlying system
+to be written in Rust and to have these sorts of things
+be part of your exclusive memory.
+So nobody else should be able to access balance
+while I am accessing balance.
+Inside of this function, where I'm running this,
+no one else should be able to run that function while I
+am running this function.
+And my smart contract, if it were written in Rust,
+should prevent other people running the same smart
+contract.
+Because we're all trying to update.
+The issue is that we're updating balances.
+We're checking balances and updating balances.
+If we make that exclusive, we should be fine.
+You can make that exclusive across distributed
+and correct?
+Right.
+How does that component come into play?
+So there's, I'm blanking on the term, for consistency.
+That is a problem for consistency
+of distributed systems.
+I mean, the heart of all of crypto stuff
+is built on consensus algorithms, such as like Paxos
+or what's the cool one?
+Blanking on that as well.
+It's been too long since I've done distributed.
+But there are protocols that allow
+you to achieve consistency for your data store, which
+is the blockchain.
+So the blockchain is always consistent.
+So you just need a language on top of it where you can say,
+no one should be updating this part of the blockchain
+at the same time as me.
+Yeah?
+So what's the difference between a mutex on balances
+versus a reference on mutex on balances?
+So the difference between a mutex on balances
+here is addressing this at the application level,
+where I'm saying, no one can be running inside of my scope
+this same stuff.
+You would want a mutex for the entire protocol,
+for the entire blockchain, to do that.
+And that would be probably prohibitively slow
+on the chain.
+Because you'd say, no one else can, like,
+operate on the chain while I am operating on the chain.
+Does that make sense?
+Yeah.
+What is the reference on the reference here?
+I'm not quite sure how you would bring in the exclusive reference
+here.
+But it would have to be at a more fundamental layer
+than this piece.
+Yeah.
+I don't know what the reference is.
+I don't know what the reference is in that.
+But I think it's similar to the reference
+that was used for graphing the data.
+No.
+So this is part of the language.
+This is a new feature for the language
+that the compiler is going to be enforcing.
+There's no actual runtime implication of exclusive.
+Oh, OK.
+This is a piece that's saying, I'm going to check your code
+and make sure no one else can operate on this thing
+while you are operating on this thing.
+Here, with mutexes, we have very much runtime implication,
+and checks, and stuff of that sort.
+So you still want to have mutexes in a world
+where you'd have exclusive references.
+I could see that still playing a part.
+Other questions?
+Yeah.
+If you're not writing in Rust, you're
+risking that problem?
+Even if you're writing in Rust, sometimes
+you're risking that problem.
+But yeah.
+No.
+I mean, actually, while we're on this slide,
+this is a reasonable piece of Go code,
+where the whole point of me writing code in Go
+is because I want to distribute all of my tasks concurrently
+and just say, everyone go do this thing,
+and come back and tell me once it's done.
+So the idea of writing a for loop,
+where I'm running a bunch of threads
+in parallel across some shared memory,
+that probably happens all the time.
+And you would run into, potentially, this problem,
+even if you're trying to solve it with mutexes.
+Yeah.
+Do you get the couple when you do the product?
+Like, are you doing the product?
+But then, do you get any parallelism?
+Like, you don't get any benefit of all of the cores
+on your CPU, if you put read-write locks everywhere
+on here.
+But yeah, you can.
+It's just then you kind of lose out.
+Yeah.
+So what's it exactly like that I'm going to use the mute?
+Like, if you were in Rust, is that
+the type-checking you're doing when you're doing
+do-able registers and non-do-able registers?
+Or is there something else that you're not doing?
+So in Rust, if we say, let x equal mem,
+we allocate some space on the heap.
+We say x is equal to that mem.
+And then we say y equal x, or let y equal x.
+Then we try to access y.
+We're good to go.
+If we try to access x, all right,
+I've chosen a poor letter, we are not good to go.
+We run into an issue.
+And this is a compile issue that says, hey,
+you don't have access to x anymore.
+And that's just the default behavior.
+That's what the borrow checker will ensure for any memory
+that you create.
+Then you can create mutable references and stuff
+on top of that.
+But that's kind of a layer above.
+We will all start working on Rust quite soon.
+I think PA6.
+So it'll be in two weeks, or two weeks after spring break,
+where you'll write your first Rust code,
+if you haven't before.
+With some intro to it, so don't worry too much.
+Any other questions?
+Yeah?
+But this way, you're kind of pushing the problem
+to the compiler side.
+So you probably have a lot of errors
+showing up about concurrency issues,
+what you do to it in general.
+Definitely.
+This is now the compiler's job to tell you
+when you are right and wrong.
+And just like comparing JavaScript
+to a language like Java, with types,
+sometimes JavaScript works, even though the types are weird.
+And you're trying to call an integer
+as though it were a function.
+So long as you never use that piece of code,
+it's not going to crash.
+But Java would say, hey, that's a type error.
+You can't do that.
+Here, Rust is going to give you compile errors
+for all of the places where you're doing something
+potentially wrong, even if it wouldn't have caused
+a problem in the first place.
+So it's more restrictive.
+But as a result, it's always safe,
+unless you specifically say unsafe.
+Then it's not always safe.
+Yeah?
+So is it like, at compile time, I
+should be able to figure out how should I
+access the concurrency as a shared memory?
+Rather than dedicate that problem to the compile time,
+where if I don't, I don't need it.
+Exactly.
+So the big benefit here is that now we're
+able to do this stuff at compile time.
+And what we are doing is effectively type inference,
+where we're saying, track the type,
+the exclusive or shared type of this variable,
+and infer it as it goes along.
+Anytime we run into a conflict, raise an error.
+So wouldn't that reduce the parallelism even more?
+Because in the new text, it kind of
+allows being optimistic about it.
+And you just let all the threads run.
+And no matter who gets the, yeah,
+you can use runtime checks to do that.
+But at compile time, you're preemptively
+forcing the order of threads getting used to it.
+I think that's a fair argument.
+Is this not potentially slower?
+But counter-argument, right?
+So it is more restrictive in what you can write.
+What that means is either you have to write,
+what you end up is with something slower,
+or you have to write the code correct
+so that it's equally fast, or potentially faster,
+and you're never going to get cycles.
+Yeah.
+But it's maybe harder to write that mid-tier
+where it's fast sometimes, and it crashes sometimes.
+But that's probably a good thing.
+Yeah.
+I'm going back to the slow example.
+Was there a reason for that?
+Or is it all coming down to power?
+Is that the fact that it's high performance?
+Do I have to make it?
+I would have to think about it.
+We can think about it in Office Hours together, if you want.
+If you want to learn more about the piece
+that we were just talking about, considerations on code
+crafting, finding the next 10,000 aliasing bugs.
+I'll post it on Piazza as well, if you want to read it.
+They basically walk through a lot of the same ideas.
+I did not generate all of these ideas myself.
+Mostly I read about them this morning.
+So they go into more about the types,
+if you want to look at that.
+And the idea of permissions with exclusive types.
+Things of this nature.
+All right.
+From there, though, I think we will call it a day.
+Seven minutes early.
+Feel free to drop by Office Hours.
+If you want to write some Python code.
+Yeah, yeah, yeah.
+Let me.
+I'll do it.
+I'll do it.
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+26, 27, 28, 29, 30, 31, 32, 33, 34, 34, 35, 36, 37,
+38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+52, 53, 54, 55, 56, 57, 58, 59, 60.
+59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 78,
+79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 93, 94, 94, 93, 94,

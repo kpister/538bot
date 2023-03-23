@@ -1,0 +1,1112 @@
+start	end	text
+30000	42680	All right, welcome to class.
+42680	46760	Let's get started.
+46760	50360	So some of you may have seen some cool news today.
+50360	52120	Let me hit the lights.
+52120	60760	Google, or the CEO of Google, just put this out.
+60760	63680	An important next step for our AI journey.
+63680	70640	Some of you have probably been following GPT-3 and 3.5, chat GPT, that sort of stuff.
+70640	78280	Google has an AI model similar to GPT-3 that's literally three times larger.
+78280	79280	And they've had it forever.
+79280	81680	They just haven't been letting anybody use it.
+81680	88720	They announced today what they're calling BARD, which is effectively chat GPT, but Google
+88720	89720	branded.
+89720	90920	It's their version.
+90920	93920	With potentially a model that's significantly more powerful.
+93920	97160	So some fun stuff in the news today.
+97160	100460	We don't get access to it for a little bit longer, but that's Google for you.
+100460	108360	So just thought I'd give you that update in case you haven't seen it.
+108360	109360	Today...
+109360	110360	Oh, yeah?
+110360	112920	What do companies do keeping it internal?
+112920	115040	What do companies do keeping it internal?
+115040	116040	What do you mean?
+116040	117040	So something like chat GPT.
+117040	118040	I know it's not making any money for Microsoft just yet.
+118040	119040	But it's, like, good marketing.
+119040	120040	Right?
+120040	121040	But unless Google is integrating this into one of their services, what is the point of
+121040	134040	keeping it on your laptop?
+134040	135040	Yeah.
+135040	136640	So what's the point of keeping...
+136640	141040	As a business, what's the point of keeping a service that you've created internal and
+141040	144520	not allowing kind of open access to it?
+144520	146720	I think the first thing is...
+146720	149060	Why allow open access to something?
+149060	150760	The pro is...
+150760	151920	You might make money.
+151920	153840	You can potentially sell the service.
+153840	154880	That's great.
+154880	158080	The con is that people are gonna be messing around with your service.
+158080	161040	And maybe they're gonna be able to do things that you aren't expecting them to do.
+161040	164920	You might get really bad PR, especially.
+164920	168440	Google is very conscious of their PR.
+168440	173560	When it comes to AI, they don't want to be too scary.
+173560	179120	So keeping things internal keeps their PR presence contained.
+179120	187160	It means that when chat GPT says something racist or very out there and problematic,
+187160	188520	that's on open AI.
+188520	191000	Open AI has released that model.
+191000	192240	Anybody can use it.
+192240	196720	Google doesn't have that problem, because Google has not released their model.
+196720	201520	The benefits of keeping something internal, though, go beyond just having something internal.
+201520	203800	They can still use it.
+203800	207840	Open AI has built something that a lot of engineers are using now.
+207840	212840	So Copilot is something done by open AI that's great and useful.
+212840	218080	But beyond that, their GPT model is useful for all sorts of data processing.
+218080	224400	Google definitely uses Lambda, their GPT equivalent, internally to do data processing.
+224400	225400	Yeah.
+225400	229040	So there's a lot of benefit to having it.
+229040	233640	Even if it's not directly generating funds.
+233640	234960	That's not what we're talking about today.
+234960	237480	That's a future lecture, if we have time.
+237480	244400	Today, what we're talking about is fundamentals of Lambda calculus.
+244400	253680	Today, what we're talking about is fundamentals of Lambda calculus.
+253680	257000	Before we get started, a couple of quick notes.
+257000	259560	Homework 2 and PA2 are released.
+259560	263000	Homework 2 is decently harder than Homework 1.
+263000	264000	It's longer.
+264000	265080	There are more questions on it.
+265080	269600	Homework 1 had seven pretty short questions that you could kind of just throw into Node
+269600	271240	and see what happens.
+271240	275480	Homework 2 has, I think, four times as many questions.
+275480	276480	Start earlier.
+276480	279000	PA2, though, is a bit easier.
+279000	283920	It's just got, like, three or four functions that you have to implement.
+283920	285640	Video recordings seem to be a success.
+285640	287000	I have another one going now.
+287000	293200	So hopefully you'll always be able to watch these recordings as you study later.
+293200	296680	Any questions on those two before the third one?
+296680	301480	Oh, yeah.
+301480	302480	That's me.
+302480	303480	Sorry.
+303480	304840	I normally turn that off at the start of class.
+304840	308080	I got excited by this Google announcement.
+308080	309720	It's really cool.
+309720	314920	It's three times bigger than OpenAI.
+314920	315920	Not necessarily.
+315920	316920	No.
+316920	322680	It is likely better, but it's not guaranteed to be.
+322680	323960	Whole different training regimen.
+323960	324960	So...
+324960	325960	Could be anything.
+325960	326960	Questions.
+326960	327960	Questions.
+327960	328960	Questions.
+328960	329960	Okay.
+329960	334840	Then the form here that I have is a quick...
+334840	337360	Like it should take two minutes.
+337360	340480	It's a form that I have hosted on my website.
+340480	348240	If you go to uw.pister.dev...
+348240	351240	There's this DEIB form here.
+351240	358200	It'll take you to a Google form where I'm asking a simple set of questions.
+358200	359200	It's not...
+359200	360200	Oh.
+360200	361200	Okay.
+361200	362200	It apparently needs you to log in.
+362200	365480	It does not collect your email or anything of the sort.
+365480	366720	It's completely anonymous.
+366720	369600	I am not recording names or anything like that.
+369600	375080	But this is part of the micro grant that I received where I'm trying to figure out how
+375080	378760	to engage best for your learning.
+378760	382400	So if you could answer those questions as honestly as you can.
+382400	387120	If you don't have a computer with you today, I mean, you could probably do it on your phone,
+387120	388320	because it's a Google form.
+388320	391720	But the slides are up with the links, so please do it later.
+391720	397280	I'll give you guys two to three minutes right now, though, just to fill it out.
+397280	398520	Don't spend...
+398520	400060	You don't need to put a lot of effort.
+400060	402440	Just whatever first comes to mind.
+402440	403440	Yeah.
+403440	404440	Yeah.
+404600	407600	The link is...
+407600	410600	Somewhere.
+423240	424240	Is it working?
+424240	425240	You guys can access it?
+425240	426240	Okay.
+434440	437440	Okay.
+464440	467440	Okay.
+494440	497440	Okay.
+524440	528440	Okay.
+554440	574440	All right.
+574440	576320	If you were able to fill out the form, thank you.
+576320	578000	I appreciate your input.
+578000	580960	It will improve my teaching down the line.
+580960	583640	If you weren't able to fill out the form, either you need more time or you didn't have
+583640	587060	your computer, please find time later tonight to do that.
+587060	590000	It really just takes, like, two minutes.
+590000	593880	Now we're going to move on to LambdaCalc, though.
+593880	596880	So I did a sign reading.
+596880	597880	A sign reading.
+597880	602800	I uploaded, like, a few photos from my phone of a book.
+602800	607160	How many of you were able to read the PDF that I uploaded?
+607160	608400	Okay.
+608400	609400	Decent number of you.
+610200	615600	Then some decent number of you understand what this line of code means.
+615600	620200	But we're going to dive into it pretty explicitly.
+620200	631360	So what I'm saying here is an expression can become a variable X, or it can become a function
+631360	639320	that takes a parameter X and has an expression for a body, or it can become an expression
+639320	643320	with another expression passed in as an argument.
+643320	649740	That's the English way of reading this line of code.
+649740	654480	So how can we use that?
+654480	656160	If we wanted to...
+656160	657160	This is...
+657160	658160	Sorry.
+658160	659160	Backing up a step.
+659160	663080	This is the grammar for LambdaCalculus.
+663080	668360	This is the CFG, the context-free grammar, for the language LambdaCalculus.
+668360	669960	That's all that you need.
+669960	678800	So what this means is that we can start from E and turn this into a valid LambdaCalculus
+678800	680320	program.
+680320	686760	That's one step that we could take from E to generate a valid LambdaCalculus program.
+686760	700120	Yeah, so we can use E goes to an X and turn this into the variable X.
+700120	703080	X is a LambdaCalculus program.
+703080	706400	All it is is a variable called X.
+706400	707880	That's the program.
+707880	709840	Pretty simple.
+709840	712720	What if we wanted a slightly more complex program?
+712720	720980	What's a different step that we could take right here that would lead us down that path?
+720980	733120	What else could we do?
+733120	734400	Apply E to itself.
+734400	746080	So we can use this third rule to turn E into E1, E2, where these are different Es.
+746080	750080	What's another step that we can take from this program?
+750080	751840	This is a partial program.
+751840	754360	It's not complete.
+754360	755360	What can we do to this one?
+755360	756360	To E1, E2?
+756360	774360	Yeah, so let's turn this...
+774360	775360	Either one.
+775360	776360	Either one or both.
+776360	777680	We could turn into X.
+777680	784200	So we could say that this E1 becomes an X, and then we still have our E2.
+785040	789960	So E1, by this production rule, we could turn E into X.
+789960	791960	So we've turned E into X.
+791960	794120	We've turned E1 into X specifically.
+794120	796560	We still have E2.
+796560	802040	What else can we do to continue simplifying or turning this into a real program?
+802040	820200	Yeah, so let's turn this E2, using the second rule, into lambdaX.E.
+820200	826200	So this would turn into X, lambdaX.E.
+826200	834320	I'm putting parentheses just to keep that together, because this one E, E2, turned into
+834320	839000	lambdaX.E by our second production rule.
+839000	840000	But it's still not done.
+840000	841440	We have an E in here.
+841440	842440	What can we do?
+842440	851640	Yeah, sure, we could turn this E into an X, using the first rule.
+851640	858680	And our final result here would be X, lambdaX.X.
+858680	864240	This is another valid program in lambda calculus.
+864240	867320	I don't know what it means or what it does.
+867320	870200	Right now, we don't actually care.
+870200	875240	But we know that it's valid, because we used the syntax, the grammar that we've been given,
+875240	881560	to generate it.
+881560	886160	We're gonna spend a little bit more time with the slides, like, diving into what's valid,
+886160	887480	what's not valid.
+887480	894000	But these steps that we take here are the fundamental steps of developing a program
+894000	895720	from a grammar.
+895720	898160	You do it with everything that you do.
+898160	904040	When you write code, JavaScript has a grammar that's way more complicated than this, but
+904040	906680	it fundamentally turns into something like that.
+907080	912720	English as well has a grammar where we start from expressions and build things out with
+912720	918520	noun phrases and replace the noun in the noun phrase with this or that.
+918520	923280	So context-free grammars have applications everywhere.
+923280	926360	Here what we're using them for is to generate valid programs.
+926360	927360	Yeah?
+927360	938280	Yeah, so what's the deal with these 1, 2?
+938280	940520	Why doesn't this one have one?
+940520	942240	The numbers here are arbitrary.
+942240	943920	We could give them any name we wanted.
+943920	953700	We could say that this is E1, and E1 turns into E2, E3, which turns into XE3, which turns
+953700	956320	into E4.
+956920	962720	So each of these are their own expression, independent of the other expressions.
+962720	966760	That's what the context-free part of context-free grammar means.
+966760	967760	Yeah?
+967760	975280	Yeah, so what's the deal with this X?
+975280	978320	Or this X or this X, right?
+978320	979560	Or even this X.
+979560	983000	So all of these are variables in our language.
+983000	988840	They're just like in JavaScript when we say let X equal 3.
+988840	990760	This X here.
+990760	993640	They're the variables that are gonna capture some meaning.
+993640	996840	We can actually use whatever we want here.
+996840	1001400	So we could say this is actually the variable Y.
+1001400	1002480	You know, use a different name.
+1002480	1005000	I've just put X to keep things simple.
+1005000	1006840	We can name it whatever we want.
+1006840	1009400	Just don't name it E, because E is our expression.
+1009400	1016600	I think for clarity, could you explain the difference between the X, which is a variable,
+1016600	1019800	and an expression, which is E, right?
+1019800	1020800	Right.
+1020800	1029720	So what's the difference between this and this?
+1029720	1037600	The key difference, E has somewhere to go.
+1037600	1039360	It is non-terminal.
+1039360	1044600	E can turn into one of these three things.
+1044600	1048040	X is what's called a terminal.
+1048040	1050320	There's nowhere that X can go.
+1050320	1052980	It can't turn into anything else.
+1052980	1060720	We don't have a rule that says X is equal to, I don't know, what would even make sense
+1060720	1061720	here.
+1061720	1064480	Let's say X is equal to 3.
+1064480	1072080	If we had a rule like this, that means when we're generating our program, we have to turn
+1072080	1078520	these Xs into their corresponding value, in this case, 3.
+1078520	1087200	Because we don't have a production rule with X in it, X is a terminal value, and that's
+1087200	1088200	just part of our language.
+1088200	1094640	It's a feature of our language.
+1094640	1097160	So this is the syntax.
+1097160	1098160	It's the grammar.
+1098160	1099160	Do you have another question?
+1099160	1100160	Yeah.
+1100160	1103160	Again, could you also just explain what lambda is?
+1103160	1105600	Ah, yeah, sure.
+1105600	1107400	What is lambda?
+1107400	1108800	What is dot?
+1108800	1110160	What do these things mean?
+1110160	1111720	At this point, it doesn't matter.
+1111720	1114840	We're talking not about meaning.
+1114840	1119080	We're just talking about what is valid and what's not valid.
+1119080	1121880	What programs can exist?
+1121880	1125760	The meaning is something that we're going to dive into of, like, what does each of these
+1125760	1127720	characters represent?
+1127720	1129880	But that's semantics.
+1129880	1134440	This is syntax.
+1134440	1138200	And I want those two to be pretty separate in your mind.
+1138200	1141620	What is a valid thing in lambda calculus?
+1141620	1151060	And then once I know that it's valid, what does that valid thing mean?
+1151060	1157980	The one thing that I've put in here that's not actually in our grammar is these parentheses.
+1157980	1162180	Parentheses help us just to associate things together, just like we would do in math, where
+1162180	1167460	you say, like, multiply these two things first, then do the division.
+1167460	1174100	So any time we turn E into one of these three, we're effectively putting parentheses around
+1174100	1175100	it.
+1175100	1181060	And we could, if we wanted, put parentheses around each of those production rules.
+1181060	1182060	Yeah?
+1182060	1190900	Shouldn't it just start by, like, readability, which is, like, names, and stuff like that?
+1190900	1191900	Well, so...
+1191900	1192900	Do they actually change the...?
+1192900	1193900	Right.
+1193900	1194900	Yes and no.
+1195220	1198020	And this, our equivalent...
+1198020	1200180	In this case, it is just readability.
+1200180	1203100	At some points, parentheses will matter.
+1203100	1208220	So having them helps from the start.
+1208220	1210940	But they will matter.
+1210940	1213500	Yeah.
+1213500	1216140	Okay.
+1216140	1225500	Any other questions on syntax here?
+1225500	1231620	If this is the first time you've seen context-free grammars, I recognize it's tricky.
+1231620	1232620	They're different.
+1232620	1235700	And it's a new way of expressing language.
+1235700	1238580	Read the chapter that I uploaded to Piazza.
+1238580	1239780	It's ten pages.
+1239780	1240780	It's not...
+1240780	1242780	And it's a small book.
+1242780	1246580	So it will probably take 15, 20 minutes tops.
+1246580	1248580	And it will hopefully clarify some of this.
+1248580	1249580	Yeah?
+1249580	1260580	Does the X in front of the root get the statement that's kind of part of the head, or is the
+1260580	1261580	head just the lambda X?
+1261580	1262580	The head.
+1262580	1263580	I guess, I don't know.
+1263580	1264580	I'm just trying to figure out the format of it.
+1264580	1271580	I'm trying to figure out the format of it so I can read something that says that the
+1271580	1272580	head is the lambda...
+1272580	1273580	Oh!
+1273580	1274580	In lambda calculus, you mean.
+1274580	1275580	Yeah, yeah, yeah.
+1275580	1277140	So there's...
+1277140	1278880	This is its own expression.
+1278880	1279880	This X.
+1279880	1282140	You're asking about this piece, right?
+1282140	1283140	Yeah.
+1283140	1290260	So this piece here, this lambda X dot, which corresponds to this piece here, that's what
+1290260	1292980	we're going to dive into with semantics.
+1292980	1294980	Yeah.
+1294980	1296980	Okay.
+1296980	1307620	So let's start talking about semantics.
+1307620	1310140	Because that's what you guys keep asking about.
+1310140	1311140	Which is fair.
+1311140	1316980	Because that's what the language actually is.
+1316980	1321020	Okay.
+1321020	1323700	So we've seen this grammar.
+1323700	1326100	That's what I just had up on the board.
+1326100	1331260	E can turn into a variable, which we could call X, Y, Z, whatever we wanted.
+1331260	1337400	It can turn into a function that takes a parameter named X and returns an expression E. Or it
+1337400	1343020	can turn into a function application of E1 onto E2.
+1343020	1347140	So we have variables, such as X, Y, Z.
+1347220	1352140	We have functions, or lambda abstractions is another way of saying that.
+1352140	1356340	I'm going to dive into that part next.
+1356340	1364220	But the way to, like, just very straightforwardly think of it is lambda X dot E is equivalent
+1364220	1368500	to X arrow E in JavaScript.
+1368500	1372060	We've just started working with arrow syntax.
+1372060	1376420	But if you're getting more familiar with it, that might help.
+1376420	1380300	And then the last thing that we have is function application.
+1380300	1387180	Which in JavaScript looks like E1 is the function, where E2 is the argument.
+1387180	1392420	So these are the JavaScript conversion rules.
+1392420	1397380	Okay.
+1397380	1400920	We're sticking with syntax just for a second.
+1400920	1408480	One term that we might have is something like lambda X dot 2 plus X.
+1408480	1410840	And immediately you might say, hey, wait.
+1410840	1412000	You've lied to me.
+1412000	1413000	What is 2?
+1413000	1414220	What is plus?
+1414220	1415840	We don't have those things in our language.
+1415840	1419280	We only have X, lambda X, E1, E2.
+1419280	1420460	And that's fair.
+1420460	1428220	But you can't actually represent numbers and addition with these terms alone.
+1428220	1430980	We will do that at the end of next lecture, I believe.
+1430980	1432300	So for now, just bear with me.
+1432300	1437620	We can pretend that they exist in our language as normal entities.
+1437620	1444660	So lambda X dot 2 plus X would be the equivalent of a JavaScript function that takes a variable
+1444660	1451260	X and it returns 2 plus X.
+1451260	1458940	If we wanted to call that function with the value 5, that would look something like this.
+1458940	1465540	Lambda X dot 2 plus X applied to the value 5.
+1465540	1471460	So if we looked at it in JavaScript, that would look something like X arrow 2 plus X
+1471460	1479260	with the input value of 5.
+1479260	1481540	Before we get to this complicated one...
+1481540	1482900	Oh, no?
+1482900	1483900	Okay.
+1483900	1487300	I hit it too many times.
+1487300	1494540	I want to take a step and go backwards from what we're looking at there.
+1494540	1497220	Which is hard, because they don't give us much whiteboard space.
+1497220	1499100	But we'll make it work.
+1499100	1508920	So we have lambda X dot 2 plus X applied to 5.
+1508920	1511360	They have one more set of parentheses.
+1511360	1514960	That's fine.
+1514960	1521120	So I want to use the syntax that we have, our grammar that we've defined, and break
+1521120	1525440	this apart into the rules that we have.
+1525440	1530300	Using X, lambda X dot E, and E1, E2.
+1530300	1541220	How can we reverse engineer this statement into the expressions that it's composed of?
+1541220	1546340	What would be the steps to do that?
+1546340	1550620	Yeah.
+1550620	1556480	Let's do a little bit of a simpler one.
+1556480	1567640	If we have lambda X dot X, we can go backwards from this state to our expression by saying
+1567640	1575280	this is equivalent to lambda X dot E, where we've turned E into X.
+1575280	1578120	So we're reversing our production rule.
+1578120	1585560	And then this is equivalent to E. Where E is using the production rule, E turns into
+1585560	1592880	lambda X dot E. Using the production rule, E turns into X.
+1592880	1598360	So if we started with E, we could take this step and then take that step using our production
+1598360	1601400	rules.
+1601400	1606560	I want to do that same process on this more complicated term.
+1606560	1608400	Yeah.
+1608400	1619840	Yeah, so let's turn 2 plus X into E. That's a reasonable thing to do here.
+1619840	1625400	I guess we don't need this second parenthesis anymore.
+1625400	1632560	So what we've done here is, say, we have some complicated expression, 2 plus X.
+1632560	1637840	Let's turn that into E. You know, for whatever E is.
+1637840	1641160	Then we have this step here.
+1641160	1648200	What's another backward step we can take?
+1648200	1650240	Turn 5 into E. Yeah, sure.
+1650240	1654600	This 5 can be a different E. We'll give this one a new name.
+1654600	1657400	We'll call this one E2.
+1657400	1659200	Lambda X dot E1.
+1659200	1660640	So just to keep them separate.
+1660640	1664560	They aren't the same variable E. They're a different expression.
+1664560	1666080	Yeah.
+1667080	1672160	Yeah, so this lambda X E1, we can call that E3.
+1672160	1675240	And then we still have E2.
+1675240	1679080	What's our last step?
+1679080	1690480	We know that E1, E2 is one of the productions of E. So we can generate some E4.
+1690480	1698080	So what we've done here is, we've stepped backwards from a final term, a program, into
+1698080	1699580	the base expression.
+1699580	1703600	Which means that we have a valid program in lambda calculus.
+1703600	1705960	We were able to backward step here.
+1705960	1706960	All the way to E. Yeah?
+1706960	1722120	Yeah.
+1722120	1729640	So what if...
+1729640	1739600	In JavaScript, or in any language, really, we can do something like F of 3 times 2.
+1739600	1745640	Where we have a complicated expression as a parameter to a function.
+1745640	1753280	This is an E. But it's an E in the same exact way that F of 3 is.
+1753280	1757360	Both of those are expressions that have a value.
+1757360	1761000	That we want to, you know, backwards figure out.
+1761000	1769240	Now, the specifics of how we can turn 5, which we're kind of hand waving as being part of
+1769240	1773480	our language, into E is fair.
+1773480	1776520	What I would say is...
+1776520	1782460	We can write this as a full, long lambda expression.
+1782460	1784800	But 5 is just shorter.
+1784800	1785800	To do that.
+1785800	1786800	Yeah.
+1786800	1790840	But it would look kind of like 3 times 2.
+1790840	1796880	When you write it all out.
+1796880	1809600	Other questions about this backwards process that we've taken?
+1809600	1810600	Yeah.
+1810600	1814840	The three production rules that I gave you are the three rules of lambda calculus.
+1814840	1816380	That's all that there is.
+1816380	1821040	People put more rules on top of it to create variants of lambda calculus.
+1821040	1825920	Things like typed lambda calculus or lambda calculus with objects.
+1825960	1834240	But the base lambda calculus only has those three rules.
+1834240	1836840	Other questions?
+1836840	1840120	Okay.
+1840120	1843000	In that case...
+1843000	1846640	We have another example term here.
+1846640	1853680	Lambda F dot F of 3 applied to lambda X dot X plus 1.
+1853680	1854680	Yeah?
+1855080	1856080	Yeah.
+1856080	1871200	Yeah, so we went in a very specific order here.
+1871200	1872720	Does that order matter?
+1872720	1874560	Could we have gone in another order?
+1874560	1883000	And would it have still worked?
+1883000	1884000	You are nodding.
+1884000	1885000	Right.
+1885000	1886000	Exactly.
+1886000	1903400	So we could have swapped some of these things around and done them in a different order.
+1903400	1906280	We could have done this 5 to E2 right away.
+1906280	1908320	And then done the next rule right after it.
+1908320	1910120	And that would be fine.
+1910120	1914760	That's another feature of the fact that these are context-free grammars.
+1914760	1916720	The order here doesn't matter.
+1916720	1919560	So long as you're applying the rules correctly.
+1919560	1923520	If you try and turn, like, the whole...
+1923520	1929240	Like this piece here into an expression, that's, like, cheating.
+1929240	1930900	It doesn't work in the language.
+1930900	1933080	So you'll get a different answer.
+1933080	1937760	But so long as you apply valid rules from the language, you'll always end up in the
+1937760	1940880	same place.
+1940880	1965320	Little bit of an asterisk there that we'll cover at the end of the next lecture.
+1965320	1972720	So importantly, we can't go back up any way that we want.
+1972720	1979280	Once we have created our system here, we're actually storing more information than I've
+1979280	1980520	written.
+1980520	1987640	For example, we would say this step here works so long as...
+1987640	1989020	Where can I write this?
+1989020	1994980	So long as E is equal to X plus 2.
+1994980	1996340	Or 2 plus X.
+1996340	2001540	And then we can take this next step so long as E1 is equal to...
+2001540	2004820	Oh, I guess that's what we've said here.
+2004820	2006460	So E1 equals that.
+2006460	2010840	And then E2 is equal to 5.
+2010840	2018500	And then we can take this next step so long as E3 is equal to lambdaX.E1, et cetera.
+2018500	2023300	So we're encoding that transformation in this backwards process.
+2023300	2027780	But that's not super important towards the class.
+2027780	2034380	It's just that that is the way that we're doing it.
+2034380	2035380	That's brilliant.
+2035380	2036380	All right.
+2036380	2037380	Thank you.
+2037380	2038380	Thank you for that note.
+2038380	2046380	We will use this for the next stuff on the board.
+2046380	2048860	Other questions?
+2048860	2051220	Okay.
+2051220	2058280	Then try and do this same backwards process that we've done on the second example.
+2058280	2063540	On this third one, feel free to chat with someone next to you to figure it out.
+2063540	2065740	But try and get all the way back to sum E.
+2155740	2164740	All right.
+2164740	2168700	Let's put it together as a class.
+2168700	2172400	I've got the expression up here.
+2172400	2173620	Let's go backwards.
+2173620	2177380	What's one first step that we could take?
+2177380	2182420	Yeah.
+2182420	2187900	We can turn this X plus 1 into an E1, let's say.
+2187900	2188900	LambdaX.E1.
+2188900	2189900	Okay.
+2189900	2193260	And then we keep everything else.
+2193260	2196460	Cool.
+2196460	2204220	What's another step that we could take from here?
+2204220	2206860	We could turn the 3 into an E. Yeah.
+2206860	2207860	Sure.
+2207860	2210020	So here we kind of elided that step.
+2210020	2213900	We turned our X plus 1 all into an E. That's fine.
+2213900	2217000	We can do the same...
+2217000	2221100	Over here, I guess we're going to just do the 3, and that's okay.
+2221100	2230220	So F of E2, lambdaX.E1.
+2230220	2231220	What else can we do?
+2231220	2232220	Yeah.
+2232220	2233220	Behind you.
+2233220	2234220	Sorry.
+2234220	2235220	FE2 into E4.
+2235220	2236220	Yeah.
+2236220	2237220	We can totally turn that into E4.
+2237220	2238220	Cool.
+2238220	2239220	All right.
+2239220	2240220	So that's good.
+2240220	2241220	We're good.
+2241220	2242220	We're good.
+2242220	2243220	That's fine.
+2243220	2244220	We can do that.
+2244220	2245220	All right.
+2245220	2246220	So let's...
+2246220	2247220	We can do a class.
+2247220	2248220	That's fine.
+2248220	2249220	We're good.
+2249220	2250220	Let's go back.
+2250220	2251220	What else can we do?
+2251220	2252220	Yeah.
+2252220	2253220	Oh.
+2253220	2254220	Behind you.
+2254220	2255220	Sorry.
+2255220	2256220	FE2 into E4.
+2256220	2258580	Yeah.
+2258580	2264140	We can totally turn that into E4, E3.
+2264140	2265140	And then...
+2265140	2266140	Yeah.
+2266140	2267140	One from here.
+2267140	2268140	Yep.
+2268140	2273980	Turn that into E5, E3.
+2273980	2275740	And finally...
+2275740	2280620	You guys in the back probably can't see all the way down anymore, but...
+2280620	2282700	Turn the last thing into E6.
+2282700	2284280	Why not?
+2284280	2293800	So we're able to go from this complicated expression, step by step, into a simple E6.
+2293800	2296320	And each of these E's has a different value.
+2296320	2301400	We've given it some number or some meaning inside of there.
+2301400	2305240	But we can forget about that at this point.
+2305240	2311880	The point is we were able to get down to E, which means we have a valid program.
+2311880	2318320	This is exactly the process that your IDE takes every time it gives you a redline squiggle.
+2318320	2321080	And it says, hey, your code is bad.
+2321080	2324040	You forgot to write int at the start of this line.
+2324040	2325680	Or you forgot the semicolon.
+2325680	2330160	It's going through this process constantly, trying to figure out where do you fail to
+2330160	2332640	parse your code?
+2332640	2336600	That's an error.
+2336600	2341880	Same exact process in a more complicated language.
+2341880	2345600	Okay.
+2345600	2353040	If we wanted to write that one as JavaScript, it might look something like this.
+2353040	2360520	The first part of your homework is converting JavaScript into lambda calculus.
+2360520	2366640	And then the second part is lambda calculus into JavaScript.
+2366640	2374820	So if we wanted to turn a function in JavaScript into lambda calculus, for example, function
+2374820	2385880	composition, what would function composition look like in JavaScript?
+2385880	2393760	So this is a function where we're applying f of f of x.
+2393760	2398060	F of x, instead of fog x.
+2398060	2401920	What would this look like?
+2401920	2404920	Yeah?
+2404920	2420820	Yeah, so the main function body is going to be f of f of x.
+2420820	2423600	But we're defining a function to do this.
+2423600	2432160	So we might have some sort of x goes to this result.
+2432160	2436840	It's a function that takes x and applies f of f of x to it.
+2436840	2445000	Or we might go a step further and say it's a function that takes a function f and a value
+2445000	2451720	x and then applies f of f of x.
+2451720	2454200	That's probably how I would write it in JavaScript.
+2454200	2457280	Let's see if that's what I wrote over here.
+2457280	2458960	Yes.
+2458960	2467040	Basically the same, but I've separated out the parameters.
+2467040	2470120	Questions on this composition function?
+2470120	2473920	Before we take it a step further?
+2473920	2475920	Okay.
+2475920	2477920	So...
+2477920	2480920	Oh, yeah.
+2480920	2499760	That's primarily a preference thing.
+2499760	2500760	Yeah.
+2500760	2501760	No.
+2501760	2508440	No, like, performance or readability for general people, I would assume.
+2508440	2512000	Some people prefer one way, some would prefer another.
+2512000	2513480	In some cases it matters.
+2513480	2516160	But we can talk about that later.
+2516160	2517800	All right.
+2517800	2522880	So then let's use this function.
+2522880	2530600	So the inner part here from f up to these parentheses is the same function that we've
+2530600	2532040	written already.
+2532040	2535360	But now we're calling it with two parameters.
+2535360	2541560	We're calling it with a function that takes in a variable x and returns x plus 1.
+2541560	2545400	And we're calling it with the number 4.
+2545400	2549800	Right off the bat, what would you assume this program is going to output?
+2549800	2554760	What's the return value of this final thing?
+2554760	2557340	6, right?
+2557340	2561280	We're going to call x plus 1 on 4 twice.
+2561280	2566720	So we get 4 plus 1 is 5, plus 1 is 6.
+2566720	2567720	Okay.
+2567720	2573280	So this is how we would write and then use function composition.
+2573280	2575720	In JavaScript.
+2575720	2580120	Let's do it in lambda calculus.
+2580120	2588400	Here we've seen this, like, application before, where we're passing things in.
+2588400	2590300	I guess we've done that over here.
+2590300	2594560	But the 5 is the argument.
+2594560	2613140	So what this would look like is something like lambda f dot lambda x dot f of f of x.
+2613140	2626380	And what we've done, if we look at it as a transformation, I guess I've put in these
+2626380	2627380	extra parentheses.
+2627380	2631300	We don't need to.
+2631300	2637900	In JavaScript, we had our parameters on the left-hand side of this equal sign.
+2637900	2646140	In lambda calc, we have our parameters, x and f, on the left-hand side of these periods.
+2646140	2648340	Of the DOM.
+2648340	2652000	So x and f are our parameters.
+2652000	2656460	And our return is f of f of x.
+2656460	2659340	Which is f of f of x.
+2659340	2665460	And we could, if we wanted to, put in these extra parentheses, just to make it look more
+2665460	2666460	similar.
+2666460	2670900	But that would be kind of anti-lambda calc-y.
+2670900	2677620	So we'll write it like that much more often.
+2677620	2683200	Okay.
+2683200	2690500	If we wanted to then pass in our parameters, lambda x dot� or x goes to x plus 1 and
+2690500	2696180	4, that would look something like this.
+2696180	2704700	Where we're turning our x goes to x plus 1 function into lambda x dot x plus 1.
+2704700	2709700	Once again, notice the x, the parameter on the left-hand side of the equals corresponds
+2709700	2712500	to the x before the period.
+2712500	2716940	The right-hand side corresponds to the right-hand side.
+2716940	2736980	4 is 4.
+2736980	2740140	We're gonna keep going and see a lot more examples of this.
+2740140	2743820	So if it's feeling confusing, that's totally fine.
+2743820	2746760	That's very much expected, even.
+2747580	2750960	It will get less confusing the more that we look at it.
+2750960	2752960	Okay.
+2752960	2759800	And one way that we're gonna do this is just by doing a little, like, figure out is this
+2759800	2762440	valid, is this not?
+2762440	2770880	So if we had a term, lambda x plus y dot 3, is that valid?
+2770880	2773440	Give it a second of thought.
+2773440	2781840	You can try and go backwards from the final expression to an E, as we've done over here.
+2781840	2784180	If you get to E, then you're good.
+2784180	2786680	If you don't get to E, then you're bad.
+2786680	2790960	Like, I mean, the program is bad, not you.
+2790960	2791960	You guys are great.
+2791960	2794760	Thanks for showing up to class.
+2794760	2799760	But try and figure out, yes or no, is this valid?
+2799760	2800760	Okay.
+2800760	2801760	So let's do this.
+2801760	2802760	So let's do this.
+2802760	2803760	Okay.
+2803760	2804760	So let's do this.
+2804760	2805760	So let's do this.
+2805760	2829320	Okay.
+2829320	2833800	How many people are voting yes, valid term?
+2833840	2836440	How many people are voting no, not a valid term?
+2836440	2837440	All right.
+2837440	2838800	The nos have it.
+2838800	2840200	Why is it not valid?
+2840200	2841800	What's the problem here?
+2841800	2849120	Yeah, in the back.
+2849120	2850120	That's exactly right.
+2850120	2853720	So we have x plus y on the left-hand side of that dot.
+2853720	2862120	We have a rule that allows us to use lambda x dot E, but we can't turn x plus y into x.
+2862240	2867360	We could turn x plus y into E, into another expression, but that's not valid.
+2867360	2869560	That's not one of our production rules.
+2869560	2872920	So yep, not valid here.
+2872920	2884720	What about lambda x dot 3?
+2884720	2887360	How many people say yes, valid?
+2887360	2888600	No, not valid.
+2888600	2890000	All right.
+2890000	2891620	Yes, valid.
+2891620	2898180	We can turn 3 into E1, and then lambda x dot E1, we just use that second rule to turn
+2898180	2900300	it back into E. Great.
+2900300	2904260	What about lambda x x of x?
+2904260	2907580	Valid, not valid?
+2907580	2911060	How many people say valid?
+2911060	2912620	How many people say not valid?
+2912620	2913980	All right.
+2913980	2915740	A majority of valid.
+2915740	2917300	Yeah, this one is fine.
+2917300	2926260	So we can turn xx, this inside part, into E1, E2, and then E1, E2 turns into E3, and
+2926260	2931420	then lambda x E3 turns into E4.
+2931420	2934140	How about this one?
+2934140	2936580	Very similar, but we've replaced one of the x's with a y.
+2936580	2945820	Valid?
+2945820	2947260	Not valid.
+2947260	2949540	All right.
+2949540	2951340	Most people are saying valid here.
+2951340	2952660	I'm in agreement.
+2952660	2960420	The one caveat being that I've said E goes to x, so long as x is the set of variables.
+2960420	2963880	So we can name our variables anything we want.
+2963880	2971220	In this case, we're naming one of our variables y instead of x, which is fine.
+2971220	2972220	But we don't know what y is.
+2972220	2974540	But that's also fine.
+2974540	2977380	Okay.
+2977380	2991780	Any questions on any of these problems here?
+2991780	2999180	Since we're in PL, and PL people are mathematicians, and mathematicians are very tired of writing,
+2999180	3003020	there is more compact syntax.
+3003020	3009900	So for example, function application, that is E1, E2, is left associative.
+3009900	3016200	That means you perform the left application before the right-hand application.
+3016200	3024620	So E1, E2, E3 is equivalent to E1 applied to E2, the result of that applied to E3.
+3024620	3029860	So we don't need those parentheses if we don't want to use them.
+3030060	3037980	Lambdas, on the other hand, that is to say lambda abstraction or functions, bind all
+3037980	3041260	the way to the right.
+3041260	3050260	What that means is that when we have lambda x dot lambda y dot lambda z dot E, this outside
+3050260	3056220	lambda x goes all the way to the end of the E.
+3056220	3059700	We're going to go into a lot of examples of how to use this rule.
+3059700	3064260	So I'm not going to get too far into it now.
+3064260	3071740	But the trick is that you stop the, like, bounds of your lambda when you find an unmatched
+3071740	3073540	closing parentheses.
+3073540	3078500	You can think of this as the same algorithm with curly braces.
+3078500	3084620	When you open a curly brace at the start of a function, that function contains the scope
+3084620	3092740	of everything until you close the curly brace for it.
+3092740	3096580	Okay.
+3096580	3103500	So where do parentheses go in this expression?
+3103500	3107060	Lambda x dot x, x.
+3107060	3116780	Do they go around the body, the xx, or around the lambda abstraction?
+3116780	3118140	Chat with a neighbor.
+3118140	3119340	Try and come up with an answer.
+3119340	3133340	And a reason why.
+3163340	3178860	How many people say A is correct?
+3178860	3181740	How many people say B is correct?
+3181740	3183420	All right.
+3183420	3187420	Why is A correct?
+3187420	3189340	Who's got a reason for me?
+3189340	3190340	Yeah.
+3190340	3195500	Exactly.
+3195500	3199960	So lambdas bind all the way to the right until an unmatched closing parentheses.
+3199960	3201440	There are no parentheses.
+3201440	3203200	So lambdas go all the way.
+3203200	3207660	That means everything in the body is part of the lambda.
+3207660	3208700	Is this other...
+3208700	3212380	Is B a valid expression in lambda calculus?
+3212380	3213820	Yes?
+3213820	3215140	No.
+3215140	3218820	All right.
+3218820	3219820	Let's do it again.
+3220300	3223300	Is B a valid term in lambda calculus?
+3223300	3224300	Yes?
+3224300	3225300	No.
+3225300	3226300	All right.
+3226300	3227300	It is.
+3227300	3229460	It is valid.
+3229460	3236420	We could replace lambda x dot x using the second rule into E and turn x into E as well.
+3236420	3237540	E1, E2.
+3237540	3238540	So it's valid.
+3238540	3240460	It's just different.
+3240460	3243300	It's not what we were saying when we wrote that top term.
+3243300	3249140	Yeah.
+3249140	3252500	So if we didn't have...
+3252500	3255180	Oops.
+3255180	3261100	If we didn't have these two rules, it would be ambiguous to say...
+3261100	3262860	To give that term up top.
+3262860	3266540	We wouldn't know which one this is being represented by.
+3266540	3271900	But because we have these two rules, we know what that term means.
+3271900	3272900	Yeah.
+3272900	3273900	All right.
+3273900	3276860	What about this one?
+3276860	3292940	Lambda y dot lambda x, x, x.
+3292940	3295940	How many people vote A?
+3295940	3298180	How many people vote B?
+3298180	3300500	How many people vote C?
+3300500	3301500	How many people vote...
+3301500	3302740	We've spent too much time on it.
+3302740	3303740	All right.
+3303740	3304740	I mean, you guys all got it.
+3304740	3305740	This is great.
+3305740	3306740	Yeah.
+3306740	3312420	So B here, by the same logic as the previous slide, lambdas go all the way until they find
+3312420	3314740	a nonmatched closing parenthesis.
+3314740	3317180	All right.
+3317180	3319620	I think this is the last one of these.
+3319620	3325620	Are these two equivalent?
+3326620	3333620	Yes.
+3333620	3334620	They are equivalent.
+3334620	3335620	No.
+3335620	3336620	They are not equivalent.
+3336620	3337620	No.
+3337620	3338620	They are not equivalent.
+3338620	3339620	Great.
+3339620	3341300	You guys seem to be getting it.
+3341300	3343020	This is awesome.
+3343020	3346500	So the summarized rules...
+3346500	3348460	Applications are left associative.
+3348460	3352460	And precedence-wise, application happens before lambda calculus.
+3352980	3358660	I mean, lambda abstractions, sorry.
+3358660	3363940	One more way that we can make these things more compact is if we have lambda x dot lambda
+3363940	3368680	y dot lambda z dot e, we can just say lambda x, y, z.
+3368680	3372940	We aren't giving it one parameter called x, y, z.
+3372940	3377580	We're giving it three parameters, x, y, and z.
+3377580	3383660	So it's kind of the difference between this function over here, where we have two parameters
+3383660	3384900	at once.
+3384900	3388500	And if we rewrote that to be taking f, then taking x.
+3388500	3389500	Yeah?
+3389500	3399500	If you did just want one parameter called x, y, z, would you just, like, put a parenthesis
+3399500	3400500	around it?
+3400500	3403460	You wouldn't really be a mathematician then, would you?
+3403980	3406380	Honestly, I don't know what the notation...
+3406380	3409300	Like, the standard thing to do there is.
+3409300	3413660	People just always use single-letter variable names.
+3413660	3414660	Which is horrible practice.
+3414660	3418140	It's, like, exactly what you learn not to do in intro programming.
+3418140	3421020	Like, give your variables descriptive names.
+3421020	3423720	But because it's kind of math, it's, like...
+3423720	3427020	We use x, y much more often.
+3427020	3429380	I don't know.
+3429380	3434580	If you wanted, maybe, multi-character names, you could do...
+3434580	3435820	Then you wouldn't do this.
+3435820	3437280	You would keep things all separate.
+3437280	3446420	You would keep it like the left-hand side, perhaps.
+3446420	3453420	Further questions on syntax?
+3453420	3460820	Great.
+3460820	3461820	We're done with syntax.
+3461820	3463660	Let's get to the exciting thing.
+3463660	3465840	Let's actually evaluate this.
+3465840	3469180	Let's get to the semantics.
+3469180	3472020	So the semantics of lambda calc.
+3472020	3475540	There's basically one rule.
+3475540	3483180	We're going to try to reduce a term into another term as often as we can.
+3483180	3488660	Once we can't reduce it, we're done.
+3488660	3490300	That's the one rule.
+3490300	3496020	We're going to reduce a term into another term.
+3496020	3499060	Once we're done, we're done.
+3499060	3505140	The way we reduce is by rewriting terms.
+3505140	3509620	Rewriting terms means that we are doing substitution.
+3509620	3512220	Oops.
+3512220	3519060	So now what we're going to look at is what substitution means in lambda calculus.
+3519060	3522500	This is the one rule of lambda calc.
+3522500	3526500	It's the one way to do things.
+3526500	3528140	But there's a lot to it.
+3528140	3530020	So let's go through.
+3530020	3534740	So we can go back to our example over here that we had on the board.
+3534740	3538780	Lambda X dot 2 plus X of 5.
+3538780	3541380	We could rewrite that to JavaScript.
+3541380	3544980	And we would expect in JavaScript the answer to be what?
+3544980	3552980	The output of this expression to be what?
+3552980	3553980	Not a trick question.
+3553980	3554980	7.
+3554980	3558220	I heard muttered.
+3558220	3564980	So we would get to 7 by substituting X, our parameter, with the value 5.
+3564980	3568860	Because we were calling the function with the value 5.
+3568860	3571140	The same thing is going to happen.
+3571140	3572140	Or I guess...
+3572140	3573460	Actually, I think we...
+3573460	3574940	Which one goes next?
+3574940	3575940	Yeah.
+3575940	3576940	Okay.
+3576940	3579300	So in lambda calc, the same thing is going to happen.
+3579300	3582900	We're going to pass that 5 into the X.
+3583060	3588860	And we're going to get 2 plus 5, which then reduces to 7.
+3588860	3607900	So what we've done up above, which I can draw, is that we've passed 5 in for the value X.
+3607900	3612740	So lambda X dot 2 plus X applied to 5.
+3612740	3613900	This is a function.
+3613900	3615900	That's the parameter name.
+3615900	3618980	We're going to pass 5 in for X.
+3618980	3623800	And we're gonna get 2 plus 5.
+3623800	3628340	More specifically, what we would write, as an intermediate stage, is we would say we
+3628340	3634880	get 2 plus X, where X is equal to 5.
+3634880	3644320	Then we would get 2 plus 5, 7.
+3644320	3651120	Okay.
+3651120	3654040	The more complicated expression.
+3654040	3662920	In JavaScript, we have our function here with an argument here.
+3662960	3670920	What we would do is we would pass that function argument in for the value F. So we would replace
+3670920	3674320	F with the function.
+3674320	3678320	And then we would pass the 3 in for the X.
+3678320	3680200	And we'd get an output of 4.
+3680200	3684920	This is what we would do in JavaScript.
+3684920	3689480	I hope I've convinced you at this point, lambda calculus, we aren't doing anything different.
+3689480	3692460	It's the same thing as what we would do in JavaScript.
+3692500	3700000	We will pass the function argument, lambda X dot X plus 1, in for F.
+3700000	3703620	So we replace F with that value.
+3703620	3706700	Then we pass in the 3 for the X.
+3706700	3708740	Replace X with 3.
+3708740	3709740	3 plus 1.
+3709740	3710740	4.
+3710740	3721740	I'll give you a second to digest that.
+3722420	3729420	If you have any questions, feel free to ask.
+3729420	3736420	Yeah?
+3736420	3754140	It is not F multiplied by 3.
+3754140	3755140	No.
+3755140	3760700	So F3, the F space 3 in the center of that body, is...
+3760740	3772060	If we pattern matched it to our rule, we would be matching that to the E equals E1, E2 rule.
+3772060	3778500	And this is saying E1 is a function, E2 is the argument to that function.
+3778500	3794220	So we would be passing the argument 3 to the function F. Yeah.
+3794220	3798940	Any other questions here?
+3798940	3803280	Okay.
+3803280	3805940	Let's keep getting into it.
+3805940	3807520	Maybe this looks easy for now.
+3807520	3808800	Maybe it looks hard.
+3808800	3810520	If it looks hard, that's fine.
+3810520	3812120	If it looks easy, that's also fine.
+3812120	3815240	We're gonna make it a little bit trickier, though.
+3815240	3821600	But the idea that we've done here is we really just replaced the left-hand variable name
+3821600	3825880	F with the input argument.
+3825880	3827600	That's all that the substitution was.
+3827600	3834340	So substitute the term you're applying to the function for the argument variable.
+3834340	3836600	This isn't quite right, though.
+3836680	3844620	But if we wanted to use this as, like, a base, which is what we'll do, we could define E1
+3844620	3854620	with the context X equals E2 to mean replace every occurrence of X in E1 with E2.
+3854620	3856720	And this is what I've written over here.
+3856720	3859740	E1 is 2 plus X.
+3859740	3863480	X equals 5 is our X equals E2.
+3863480	3872260	So what we're saying is replace every instance of X with the value 5.
+3872260	3878780	That's like the theory way of writing it.
+3878780	3887240	Our general rule of reduction, then, would be that lambdaX.E1 being applied to E2 reduces
+3887240	3891680	to E1 where X equals E2.
+3891680	3897120	So any time we have a function application, you take the parameter name, set it equal
+3897120	3905420	to the value E2.
+3905420	3924660	So function application means rewrite E1 with every instance of X replaced with E2.
+3924660	3929220	Questions here?
+3929220	3933820	It's just like function application in other languages.
+3933820	3941860	And that's actually by design, because function applications all look the same, for the most
+3941860	3942860	part.
+3942860	3943860	Okay.
+3943860	3944860	No questions.
+3944860	3949980	That means you guys can do them.
+3949980	3950980	Take a second.
+3950980	3952400	Or take two minutes.
+3952400	3954620	Do both of these with your neighbor.
+4044620	4059500	Let's do the first one.
+4059500	4064780	What do we get as our next step of evaluation over here?
+4064780	4066740	With intermediate stages.
+4066740	4067740	What do we get?
+4067740	4068740	Yeah.
+4068740	4069740	Go for it.
+4069740	4078780	That will be...
+4078780	4080380	Give me the step right before that.
+4080380	4085500	Like the intermediate representation, which I've kind of written over there already.
+4085500	4086500	Yeah.
+4086500	4087500	Right.
+4087500	4088500	So same idea.
+4088500	4093140	2 plus X where X is equal to 5.
+4093140	4096540	And then that will reduce a second time.
+4096540	4104660	Where we can do this substitution, where we get 2 plus 5.
+4104660	4109020	Done.
+4109020	4111540	Let's do the second one.
+4111540	4115420	These are so fun.
+4115420	4119460	What can we do here?
+4119460	4123260	First of all, what's the order...
+4123260	4127700	Like, which one of these goes first?
+4127700	4130460	We got 4, 5, and 6.
+4130460	4131460	How many people...
+4131460	4133660	Well, so I guess...
+4133660	4136940	We want to figure out what goes into X.
+4136940	4140340	That's our outermost function variable.
+4140340	4142940	We have three options.
+4142940	4145860	How many people are gonna vote that it's 4?
+4145860	4148200	How many people are voting it's 5?
+4148200	4150560	How many people are voting it's 6?
+4150560	4151560	Okay.
+4151560	4155600	So we have mostly 4 with a little bit of 6.
+4155600	4158040	Why would it be 4?
+4158040	4159440	Yeah.
+4159440	4166920	Outside of parentheses, things go left to right.
+4166920	4170320	Function application is left associative.
+4170320	4181640	So that means E1, E2, E3 is equivalent to E1, E2 first, then the result of that with
+4181640	4183800	E3.
+4183800	4189220	So if we wanted to draw parentheses in here, we would do...
+4189220	4202780	If we call all of this E1, 4, 5, 6, it would be E1, 4, the result of that, 5, the result
+4202780	4207820	of that, 6.
+4207820	4210280	Okay?
+4210280	4222000	With that knowledge ahead of us, what can we do?
+4222000	4223480	How can we reduce this?
+4223480	4231480	Can you just do 1 plus 3 and then...
+4231480	4233520	You're skipping ahead a little bit.
+4233520	4237520	Give me all the simple steps in between.
+4237520	4238520	You got an idea?
+4238520	4247720	I don't know if it's just simple steps, but the...
+4247720	4250040	That's what it is.
+4250040	4251040	What do you mean?
+4251040	4252040	I mean...
+4252040	4254040	I might be misunderstanding.
+4254040	4256120	Oh, yeah, yeah.
+4256120	4261000	So we could rewrite this X, Y, Z, dot Y plus 3.
+4261000	4264520	4, 5, 6.
+4264520	4266120	These are equivalent.
+4266120	4267920	They're just different notation.
+4267920	4272520	We'll stick with the top one so that we can go one parameter at a time.
+4272520	4273960	Very clearly.
+4273960	4274960	But those are equivalent.
+4274960	4275960	Yeah?
+4275960	4292240	If you do Y, Y, dot Y plus 3, dot Y plus 3, where X is equal to 4, and 5, 6...
+4292240	4293240	Exactly.
+4293240	4296600	So we can pass just the 4 into our function.
+4296600	4300160	And what that means is that X is gonna take on the value 4.
+4300160	4306600	We're gonna be left with still a function, lambda Y, dot lambda Z, dot Y plus 3, with
+4306600	4309160	the two parameters still being passed in.
+4309160	4311880	And now we have some state that we've tacked on.
+4311880	4313600	X is equal to 4.
+4313600	4317600	What would we do next?
+4317600	4320600	Yeah?
+4320600	4328600	And what are we left with over here?
+4328600	4332120	Yep.
+4332120	4336000	So we'll keep lambda Z, dot Y plus 3 of 6.
+4336000	4338880	And now we have a state X is equal to 4.
+4338880	4342600	And Y is equal to 5.
+4342600	4345840	Okay?
+4345840	4357560	Last piece here.
+4357560	4358560	I know you guys know it.
+4358560	4359560	Oh!
+4359560	4360560	Yeah.
+4360560	4365320	Yep.
+4365320	4367320	So Y plus 3 is left.
+4367320	4373360	We have X equals 4, Y equals 5, and Z equals 6.
+4373360	4381200	We can do the last little step of 5 plus 3, because we know Y is 5.
+4381200	4386320	And we're done.
+4386320	4387600	That's what's on the slides.
+4387600	4389700	We've just done the same exact thing.
+4389700	4395440	And I've left off the state, but that's not too important.
+4395440	4397640	All right.
+4397640	4400640	One more before we finish.
+4400920	4406200	Actually, we probably don't have time before we finish.
+4406200	4413260	So we are going to continue on Wednesday doing more semantics of lambda calc.
+4413260	4417160	This is exactly what you're gonna be doing on the homework, where I will give you lambda
+4417160	4422520	calculus, you turn it into JavaScript, or I give you JavaScript, you turn it into lambda
+4422520	4425520	calculus.
+4425520	4428600	Yeah?
+4428600	4450120	So I wonder how can we go from here to this expression?
+4450120	4452440	So which one was this?
+4452440	4457080	Where we can go...
+4457080	4458080	So we have...
+4458080	4461960	What are we starting with?
+4461960	4470520	Lambda F dot F of 3 being applied to lambda X dot X plus 1.
+4470520	4471520	Right?
+4471520	4472520	Yeah.
+4472520	4473520	So...
+4473520	4476720	And we're turning them into our E1, E2, right?
+4476720	4481680	So we can turn 3 into an expression.
+4481680	4483840	Because that's just a complex expression.
+4483840	4488360	So we can say lambda F dot F of E1.
+4488360	4491800	Lambda X dot X plus 1.
+4491800	4502920	And then because of this rule here, E1, E2, we can turn these into E2, E1.
+4502920	4505840	Lambda F dot...
+4505840	4509040	Well, okay.
+4509040	4512800	I guess we're using this rule to turn F into E.
+4512800	4519920	Then we use that rule to turn E2, E1 into E3.
+4519920	4524920	And now we use the middle rule to turn that into E4.
+4524920	4535120	Yeah, that's right.
+4535120	4539940	So lambdas bind until they find an unmatched closed parenthesis.
+4539940	4546640	So this lambda here, if we take these out, this lambda here goes until it finds an unmatched
+4546640	4547880	closed parenthesis.
+4547880	4549920	So it's going...
+4549920	4550920	Unmatched closed parenthesis.
+4550920	4552640	Because it binds outside.
+4552640	4556000	So from here, goes and stops here.
+4556000	4559920	That means this is the body of the lambda.
+4559920	4574680	So that, like, this here goes all the way to that point.
+4574680	4604080	Which means we're allowed to then put in these parentheses if we want.
+4604080	4606320	Make sure you include the dot there.
+4606320	4607320	Yes.
+4607320	4608320	Yeah.
+4608320	4613520	I think it's...
+4613520	4614520	It's kind of faint there.
+4614520	4615560	I might have been...
+4615560	4618600	I might have forgotten it, but it needs to have a dot.
+4618600	4619600	Yeah.
+4619600	4620600	The dot needs to stick around.
+4620600	4621600	Yeah.
+4621600	4622600	Yep.
+4622600	4623600	Yep.
+4623600	4632720	So, like, I did this how I think it should be based on the load.json file.
+4632720	4638280	But it keeps only giving me a 2 out of 5, so I'm not sure if it's the cache being...
+4638280	4639280	Yeah.
+4639280	4640280	It looks like...
+4640280	4644080	So you need to create your own cache.
+4644080	4650480	So you want to check, like, after you do work, save that work to the cache so that the next
+4650480	4656160	time you then check to say if this work is already done in the cache, return whatever
+4656160	4658560	is in the cache.
+4658560	4661360	So you're setting cache, but you aren't checking cache.
+4661360	4666000	I think is one way to think of it.
+4666000	4670720	So if I have some...
+4670720	4674040	I'll just write Python, because that's, you know...
+4674040	4683000	Then what I can do is I can say if x in cache, return cache at x.
+4683000	4684000	Right?
+4684000	4689160	So all you need to do is check if obj is already in cache, and then just pass obj back.
+4689160	4699400	But then the important thing is also how we store that cache at x is equal to...
+4699400	4700400	Right.
+4700400	4701400	But yeah.
+4701400	4705960	So these are, like, the important before and after steps of the compute.
+4705960	4709040	But I just check first if obj is already in that.
+4709040	4711200	My hunch is that should resolve your issues.
+4711200	4715760	And then my other thing is it says that I have to use load.js file, but it's not...
+4715760	4716760	It doesn't believe that it exists.
+4716760	4726320	Like, any time I do load.js file, it says that function doesn't exist.
+4726320	4727920	Is it on...
+4727920	4730240	Is it, like, exported or something?
+4730240	4734360	No, because I'm just doing it like this, and it just says that's not...
+4734360	4735360	So have you...
+4735360	4736360	Wait.
+4736360	4740520	So you have a...
+4740520	4750520	So I believe with this one, you need to be giving it the information that it needs.
+4750520	4755320	So let me double-check on that.
+4755320	4756680	But yeah, my...
+4756680	4757680	So do we define...
+4757680	4760840	Load.js file is defined in require.
+4760840	4763440	And it's not exported for you to use somehow?
+4763440	4767560	Well, we have require saved, but even if I, like, require is as an object.
+4767560	4768560	Yeah.
+4768560	4770880	So if I use require, it doesn't exist.
+4770880	4771880	But it's exported on require.
+4771880	4772880	Like...
+4772880	4773880	You mean this?
+4773880	4774880	Yeah.
+4774880	4775880	Yeah.
+4775880	4776880	So you can't require underscore...
+4776880	4777880	Oh.
+4777880	4778880	Is load.js exported?
+4778880	4779880	No, it is not.
+4779880	4780880	I don't think so.
+4780880	4781880	Yeah.
+4781880	4784400	So I think...
+4784400	4786080	But it's on the loader.
+4786080	4796520	So the idea is we have some before where we have the normal, like, load function that
+4796520	4797520	we're running.
+4797520	4798720	Or loader function.
+4798720	4799720	And then the goal is that...

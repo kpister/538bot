@@ -1,0 +1,1129 @@
+All right, folks.
+Let's get started.
+Anybody have any notes?
+I do not.
+I think everything's going well from my side.
+Anything on your side that's not going well?
+All right.
+Things are going well.
+Interesting, like, news item for the day.
+This is a graph representing the amount of time it takes to run a linter on the CPython
+codebase from scratch.
+The top line is a service called Ruff.
+Down below, autoflake, flake8, pyflakes, pycode-style, pylint.
+For those of you who don't know, a linter is something that goes through a codebase
+or it parses code to find idiosyncratic usages of the language.
+So it will alert you in JavaScript if you have forgotten your semicolon.
+And it suggests maybe you want a semicolon.
+Even though it's not needed, it's purely a cosmetic improvement.
+But somebody's got to do it.
+So Ruff is a new service that does this.
+And it does it in .3 seconds, compared to the next fastest in 6 seconds.
+Which is 20 times faster than the next fastest competitor.
+The only difference between the first one and the bottom five...
+The first one is written in Rust.
+The bottom five are all written in Python.
+They implement the same features.
+They're doing the exact same thing.
+The people who wrote these bottom five weren't dumb.
+They're often the maintainers of Python.
+They're very intelligent people.
+But if you write it in Rust, it'll be 20 times faster.
+Kind of interesting.
+All right.
+Let's do an activity.
+Because I like activities.
+You guys can see this.
+Can everybody read this code?
+Is that big enough for everyone in the back?
+Cool.
+All right.
+This is from the midterm.
+This is the assignment.
+This is a problem that I gave on the midterm last semester.
+I asked the students from last semester to tell me what the output of running this program
+is.
+So I think let's start class by trying to solve that.
+And hopefully what we'll find is it's a little tricky to solve with our current knowledge.
+But through today's lecture, we'll develop some tools to help us solve it more consistently.
+So my task for you is chatting with two or three people around you.
+Try and figure out what is printed on line 14 to console.
+You can use scratch notes or any paper that you want.
+But try and figure it out.
+What's the output of the last line?
+If you can do it all in your head, great.
+That's fine.
+You don't need to.
+Because computers don't.
+So all right.
+Chat with people next to you.
+Figure out what it is.
+All right.
+All right.
+What do you guys think it is?
+35?
+25?
+You got an idea?
+Still working through it?
+What are you thinking so far?
+20 does become the Y.
+Okay.
+Why would it?
+Or why wouldn't it?
+Uh-huh.
+I think it does.
+Okay.
+Yeah.
+I like the idea that it does.
+Yeah.
+And then what's G?
+I'll let you keep working through it.
+It sounds like you're on the right path, though.
+How's it going over here?
+You guys have an idea?
+Nine.
+Nine?
+Why is?
+It's a closure problem, right?
+It is a closure problem.
+And is it related to F not being graphed as like another
+anomalous function?
+We give the other answer.
+What's the other answer?
+Right.
+Yeah.
+Yeah.
+Like, should A be updated or should it not?
+Yeah.
+Sounds like you guys have the right idea, though.
+So that's good.
+How's it going over here?
+Struggling?
+Well, what's the value of H?
+That's maybe where to start.
+You have an idea for what H is?
+Not quite.
+Okay.
+Yeah.
+So we're equal to calling F, right?
+We call F.
+And what is F?
+F is that, like, whole function, right?
+It's from line one all the way down to line 12.
+And so we want to figure out what's the result of running
+that function.
+So F is the big function.
+And so what is F returning?
+If we kind of ignore all the middle part of F,
+what's the last line say?
+We're, exactly, returning G.
+So H is going to be equal to whatever G is.
+And then we've got to go backwards and say, like,
+okay, well, what is G?
+But that's how I would start with this one.
+I'm assuming we're comparing the 20 input as Y.
+So I kind of understood that part.
+I'm just having a tough time seeing how to start.
+I think I've got a good idea.
+All right.
+All right.
+For sure.
+For sure.
+All right.
+Let's come back together.
+I heard a couple of different answers
+as I was wandering the room.
+Can I get some brave individuals to suggest
+what they think the result is?
+How many people feel like they came to a result, actually?
+Okay.
+Wow.
+Okay.
+Everybody.
+Or almost everybody.
+So what are some of the ideas?
+I'll write them down.
+I heard different ones.
+So we aren't all at the same place.
+Yeah.
+We have nine as an option.
+Anybody else?
+Nobody else has another idea for the answer?
+Everybody?
+Who votes nine?
+All right.
+All right.
+All right.
+So what you're saying is the midterm needs
+a little bit more of an interesting problem this year.
+No?
+Okay.
+So the answer is nine.
+How did we get there, though?
+Because this is 14 lines of weird obfuscated code
+where we kind of go in and then pop back out
+and then update the thing and come back.
+Yeah.
+Question?
+Oh.
+You have an answer for how we get there?
+I liked almost everything that you said
+except for the first line.
+Everything else, I'm with you on it,
+and we'll go over it explicitly.
+But yeah.
+Yeah.
+What's your question?
+That's exactly my question for your fellow student as well.
+Yeah.
+The thing that you said is that y is 20 because we're
+calling h of 20, h is f, so y gets the value 20.
+And that's not quite right.
+Who can change that?
+Yeah.
+Yeah.
+All right.
+This is the converse for you.
+I like exactly how you started.
+Didn't like quite where it went, though.
+But your first line, totally with you.
+Let's start, actually, with line 13
+and say h is equal to the result of f.
+Yeah.
+Exactly.
+So let's start here and say h is equal to the result
+of executing f.
+f is a function.
+It's going to return back something.
+Whatever it returns, h is going to store it.
+If we look at what f is returning,
+it's the line right here.
+We have to kind of scan through the whole function.
+f returns g.
+And indentation is your friend here.
+It's not guaranteed to be your friend.
+Braces are the real thing that you need to be looking at.
+But indentation kind of shows you the return g
+is the last return of f.
+It's the only return of f.
+So h is going to be equal to g.
+So when we execute h of 20, we can think of it
+as executing g of 20.
+But it's not only that h is equal to the code of g.
+It's also equal to the environment around g.
+And around g, we have this a equals 5.
+So we're going to call g of 20, where a is equal to 5.
+So 20 goes in for y.
+And this is, as one of you mentioned, 20 is equal to y.
+20 is greater than 10.
+a equals a minus 1.
+And this is where we're updating our environment
+for the function that we're calling.
+So we update a from being 5 to 4.
+Return g, where g is the code that we have,
+with the environment a is 4.
+Of 5, blah, blah, blah, blah, return 9.
+That's a lot to do in your head and to process.
+Computers are cheating, because they have all of this memory
+that they're keeping track of everything as it's going.
+We, as humans, don't have that.
+So how can we still look at this code
+and easily figure out what's going to happen
+and in what order?
+Some of you have already heard me say this many, many times
+in office hours.
+When does the code execute?
+When does this line of code or this expression execute?
+That's the key question you want to ask
+every time you're staring at JavaScript like this.
+When does this line of code execute?
+Not until we get to it.
+It doesn't happen when we parse line 9 or line 8.
+It happens when we've called h of 20,
+which then calls g of 5, which then returns y plus a.
+Being able to follow that is tricky.
+So let's make it easier.
+And this is where, at the end of the last lecture,
+we started bringing in this idea of a diagram
+to represent our environment.
+What do we want to keep track of in our environment?
+Whenever I call a function, what were we keeping track of?
+Or what do we want to keep track of?
+Yeah?
+The parameters.
+Definitely.
+So in our example over here, we have� we're working
+with the factorial function.
+So we would have a parameter, n.
+What's the value of n?
+We're going to just start from the beginning.
+What's the value of n?
+Yeah.
+3.
+Yeah.
+Okay.
+What else do we want to keep track of?
+Yeah?
+Variables declared within the function.
+In this case, we don't have any.
+But, yes, we do.
+If we had said, like, let x equal 5,
+we would want to store x in our scope.
+What else?
+Recursive calls.
+What about them?
+What do we need to store?
+Yeah.
+And I think I want to generalize that to say,
+we care about what we are returning.
+So here, we're returning n times something.
+That's something.
+We could store it as kind of its own private variable.
+Or we could just call it the return value.
+So we have some return value that we will be storing.
+What else?
+What do I need to keep track of when I'm inside of a function
+for when I'm done?
+Other than the return value.
+We call that the control pointer.
+You also need to know where are you supposed to return to
+in code to continue execution.
+So, when we finish calling fact 3,
+jump back to this next line, whatever it is.
+That's also called the instruction pointer.
+In various assembly languages.
+Cool.
+So now we know what we came in with.
+What we are returning with.
+And where we return it to.
+And then if we had any more local state,
+we could store that here as well.
+This is similar to your stack frame.
+It's almost identical to your stack frame
+when you're thinking about stack frames in assembly or C.
+So, I've put those in here.
+And what I've represented is the return.
+I'm just calling ret.
+And then control, the control pointer.
+I'm saying return control back to global.
+Which just means return it back to where we were before.
+If we were nested deep inside of a recursive call,
+we would be pointing back to the start instead.
+Okay.
+So, to formalize some of these things,
+the control link records where we return the environment pointer to
+when we are done with our current scope.
+When we finish our current function, where do we return?
+Do we need that for block scopes?
+Yes?
+No.
+I don't know.
+I don't know is always a valid answer.
+Somebody who says yes, why?
+There were a few of you.
+Yeah?
+No, exactly.
+We wouldn't want to duplicate all of the information of the outside world into our block scope.
+So, let's treat a block scope as a completely almost identical to our function scope.
+And it will have a control pointer.
+It's always gonna be pretty obvious.
+You can kind of look.
+It's just directly back to where it came from.
+Whereas functions can be a little bit more complicated.
+But just because it's obvious doesn't mean we shouldn't do it.
+So, yeah.
+Okay.
+In terms of these other things,
+This is where the L value, R value comes in.
+Not the most important.
+Do we need anything else besides the control link?
+This is a bit of a trick question.
+Because I conflated these two.
+So, the control link specifically talks about the environment pointer.
+I'm also calling the control link the return address, where you are returning execution to.
+They're effectively one and the same.
+We talk more about returning to code addresses later, especially in a security context.
+So, we'll get to the fun stuff there in a future lecture.
+All the way at the end of class.
+Okay.
+So, let's actually do this.
+We start with fact 3.
+And when we call the function fact 3, we're going to immediately create an activation record.
+That looks like this.
+Where we say n is 3.
+Return we don't know yet.
+And control is going to global.
+When we're done, we come back to the global scope.
+What happens inside of fact 3?
+What do we do next?
+Yep.
+Which branch of the conditional do we take?
+We'll go into the else.
+Great.
+Return n times 3 times what?
+Yep.
+Factorial of 2.
+How do we figure out the result of factorial 2?
+We're going to create another activation record.
+And I've drawn this one a little big, but we can fit it in over here.
+What is going to be inside of our activation record?
+Yeah.
+n is 2.
+What else do we have?
+Yeah.
+Definitely.
+Yeah.
+So, control is going to point back to our first activation record.
+Which is saying, once we're done with this one, go back over here.
+Okay?
+And then what's the last thing that we have?
+As a class?
+Return.
+And what's the value?
+2 times what?
+Yet another activation record.
+What goes in this one?
+Someone knew.
+Yeah.
+n equals 1.
+What else?
+Yeah.
+Return 1.
+And where are we returning to?
+Yeah.
+Our CTL is going up to activation record number 2.
+Okay.
+So, we finished executing.
+We know what we are returning.
+Where do we go?
+Where do we go?
+Back to 2.
+We follow our control pointer to say, go back to 2.
+We were right in the middle of executing this return statement.
+So, it's 2 times 1.
+We've now finished this one.
+Where do we go from here?
+Back to the first one.
+Back to this one.
+And we know that we are returning the value 2.
+All right.
+Now we're done with this.
+Where do we go from here?
+Global.
+We'll go to global with the value 6.
+And we're going to return 6.
+This might feel very rote and mechanical.
+That is exactly by design.
+This is what the compiler or interpreter does.
+It needs to be mechanical.
+There's no creativity here.
+Because if there were, the computer couldn't do it.
+It's algorithmic for a reason.
+Because it's an algorithm.
+So, if it feels boring, I apologize.
+It'll make you a better coder.
+So, do it anyway.
+So, okay.
+We can put these up.
+At each point, as we are executing the activation record, we will update our environment pointer
+to say we're now executing this one.
+We're now executing this one.
+We're now executing this one.
+And then as we pop back up, we get to move our environment pointer to wherever our control
+pointer says.
+Okay.
+I've got a question for you here.
+Do we keep the activation records on the stack after evaluation?
+Once we have finished returning from this activation record, do we keep it on the stack?
+Or do we pop it off?
+Chat with your neighbor.
+Try and convince them of your opinion.
+What do you guys think?
+No?
+Oh.
+That's clever.
+All right.
+Let's take a vote.
+Who says yes?
+We need to keep them on the stack after evaluation.
+Who says no?
+We do not need to keep them on the stack.
+Okay.
+I saw one yes and everyone else no, basically.
+I want to know why.
+From either of you.
+Anybody who says no or yes.
+Yes?
+Yeah, that's a great idea.
+So, in the first example that we did the activity with, we had to keep that function around,
+the activation record around, where we had stored the value A is 5.
+So then when we decremented it to get A is 4, we could use that value of A is 4.
+If we had garbage collected that, we would have been done for.
+We would have gotten like a variable undefined.
+Yeah?
+Wouldn't it be easier just to store it in static memory instead so that you can keep
+the...
+Otherwise, you'd just be copying it in a separate case?
+Wouldn't it be easier to store it in static memory instead?
+Just the stuff that you would need to store for each call.
+So, if you could, at compile time, know what you needed to store, then yes.
+But you don't normally.
+But I don't know how many of these I might generate.
+Right.
+No, it's a great idea when you have knowledge about the system.
+But you don't always.
+So, yeah.
+So, if we have closures, then maybe we can't always pop these off.
+However, 95% of you said no.
+Why did you say no?
+Yeah.
+Because these are not closures.
+So, you can just pop them off.
+Is that true?
+No, I'm gonna say no on that one.
+Every function in JavaScript creates a closure.
+It doesn't matter how it's used, where it's used, what's going on.
+It is a closure.
+Yeah.
+It's an empty closure, so you don't need it anymore.
+Kind of.
+I'd say it's a specific case of the fact that it's an empty closure that we don't need anymore.
+And the key term is that it's tail recursive.
+Here, what we are doing is we are recursing in the tail position.
+Which means it's impossible for us to ever return to that closure.
+We're never going back to it.
+So, it's safe to clear.
+Generally speaking, we do need to keep activation records on the stack.
+Because they are closures.
+And we might need to reference them again.
+In this specific case, we don't.
+Okay.
+So, this process here is what we are going to continue working with for a little bit.
+But we're going to get some more interesting use cases.
+Starting with free variables, and then hopefully getting to high order functions.
+Okay.
+Let X equal 1.
+F is a function that logs X.
+Execute F.
+Question?
+Tail recursion.
+So, tail recursion is when we recurse in the last step of a function.
+So, when we are returning a recursive call.
+That is tail recursion.
+If we had written this code where we call factorial of N minus 1 as the first step.
+And then we do a check to say was N greater than or something of that sort.
+That would not be tail recursive.
+Yeah.
+Okay.
+Going back to this little code step.
+So, we have some activation record where our global state, that's the top box, has X as 1.
+And then F, when we execute it, creates an activation record with a control link back to global.
+And a return value.
+It's going to return nothing.
+What are we going to print out here?
+What's printed to screen?
+You don't have a lot of options.
+What is it?
+1.
+Yeah.
+We know the value of X.
+I feel like most of you guys knew that, but you just don't want to answer.
+It's fine to answer.
+Just raise your hand.
+Answer.
+We print out X.
+X is 1.
+So, we get the value 1.
+No tricks here.
+That's what we expect.
+How did we find X?
+Did we look it up via the control link?
+Give it a second to thought.
+Yeah.
+Go for it.
+Yes.
+Why?
+Yeah.
+So, we had access with our control to the global environment.
+And that's where X was.
+So, maybe yes.
+Any other ideas on it?
+Yeah.
+Yeah.
+So, maybe there's some concept of global that we can just use.
+But to that, I would say...
+Well, I won't write it out.
+But what if we just wrap this entire thing inside of a function?
+We would still get the value 1.
+So, it's not that global is unique.
+How many people are voting yes?
+Look it up via control link.
+How many people are voting no?
+Don't look it up via control link.
+Okay.
+So, there's like a 50-50 split.
+Why not?
+We had two arguments for yes.
+Yeah.
+I'm not quite sure I'm following.
+Yep.
+Yeah.
+Yeah, yeah, so I'm not saying that we would be moving to the outer scope or the control
+scope for execution, but just to look up a variable.
+So we'd be looking up the value X in the outer scope via the control link.
+Not that we would be going to the outer scope to execute things.
+So we won't get this kind of ping-pong.
+Yeah.
+Any other ideas?
+All right.
+My vote is no.
+And I have an example to show it.
+Well, this is going to be inconvenient.
+Is this big enough to read in the back?
+OK, cool.
+Although, now it's probably harder to read.
+Especially going all the way to the bottom there.
+But...
+All right.
+X is equal to 1.
+F is a function that prints out X.
+G is a function that sets X equal to 2.
+And then calls F. Execute G.
+That was someone next to you.
+What does this print out?
+All right.
+What are we going to draw?
+Actually, starting.
+What does it print?
+What are the options?
+What are reasonable outputs for this program?
+Yeah.
+One or two.
+I like both of those options.
+Does anybody have any other options that are reasonable for it to print?
+No.
+OK.
+Those are the reasonable options.
+Which one is it?
+How many people vote 1?
+How many people vote 2?
+OK.
+We have a little bit of dissent.
+But the vast majority look at this code and say this should print out 1.
+How?
+Let's draw our diagrams.
+And see what happens.
+We'll start with global state.
+What do we have in global state?
+X equals 1.
+Great.
+What's next?
+What's next?
+Yeah?
+Oh, yep.
+We have a function f.
+This f is a variable in our global state.
+And this is a function.
+And we're going to figure out what we're going to point to.
+But it points to something.
+What else do we have?
+Come on, guys.
+Yeah?
+We have a g.
+G is also a function.
+Excellent.
+Now what?
+We're going to call g.
+What happens when we call g?
+Yeah?
+We're going to create an activation record.
+And this will be the g activation record.
+Or the execution of g activation record.
+What's going in this one?
+X equals 2.
+We're going to call f.
+But before we get there, what else is in here?
+Return and?
+Pointer to what?
+Pointer to global.
+And what do we call it?
+The control pointer.
+And this is pointing over to global.
+Okay.
+Now we are executing f.
+What happens when we execute f?
+New activation record.
+Excellent.
+Actually, before we execute f, where is f?
+Because we're looking at this activation record.
+And we don't know where f is.
+Or what f is here.
+So if we operate under the assumption we look up the control link, we would follow the control
+link back over here and say what is f?
+F is a function.
+Great.
+Now we found f.
+We get to execute f.
+We get to create our activation record for it.
+And what do we do?
+What's inside of our activation record?
+Control link.
+What does the control point to?
+Control link points to g, because we were called from g.
+100% correct.
+That's how we establish the control link.
+What else do we have?
+Return.
+All right.
+Now we are printing out...
+Where is it?
+We are printing out x.
+What is the value of x inside of this context?
+One is what we want it to be.
+X doesn't exist here, though.
+So we have to look it up somehow.
+If we followed the control link, we would go look it up here, and we would find that
+x is equal to 2.
+Now 90% of you had the intuition that that's wrong.
+Which means we can't follow the control link, or else everyone's intuition is wrong.
+Your intuition is that way because you've seen it work that way every single time you've
+run code, unless you've worked with Lisp.
+In which case, you've seen it work this way.
+So we can't use the control link, because we would find the value 2.
+Which means we need something else.
+Let me put this down.
+So if we were following the control link, we would find x is equal to 2.
+And what we would have just done is invent what's called dynamic scoping.
+Where you can override the scoping of what would be expected of the function.
+But that's not what we want.
+This is not how normal languages function.
+This is how Lisp functions.
+It's really weird.
+And can be quite annoying.
+So how can we fix it?
+There's one more thing that we track in our activation records.
+And this is what's called the access link.
+The access link tracks the enclosing lexical scope.
+And our algorithm will be updated to first find whatever environment we are currently
+in.
+We check to see if the variable is in our environment.
+If it's not, follow our access link and repeat.
+So if we go back to our example, we start where x is equal to 1.
+We call g.
+We say x is equal to 2.
+But notice in addition to the control link, we are also storing an access link.
+And this access link is from where we were defined.
+G was defined in the global scope.
+Which means our access link points to the global scope.
+Then we call f.
+F was also defined in the global scope, which means its access link points to the global
+scope.
+The control link still points to g.
+Because we still want to return to g.
+But when we look up a variable, we will follow the access link and find that it's 1.
+Yeah?
+If x was never defined in the global environment, would it know the control link for x?
+No.
+So, yeah.
+Good question.
+If we hadn't run this line of code, what happens?
+What's output?
+In JavaScript, we call that undefined.
+We would not have been able to find x.
+We would search here for x.
+It doesn't exist.
+Then we would search global for x.
+It doesn't exist.
+We would actually search the interpreter for x.
+And the interpreter would say, hey, you're looking in a place that you aren't supposed
+to look.
+That means you have undefined.
+And it would tell the log that x is undefined.
+Okay.
+So how do we know how to wire up the access links?
+How can we figure out that f and g both have access links back to global?
+And this is what I put these arrows in for.
+When we create a function, we're defining the function f.
+We're going to create with it what I represent as a closure object.
+Which is two boxes.
+I forget which order I do these in.
+The left-hand box represents the access link for f.
+And it will point back to wherever f was defined.
+The right-hand box is the code for the function f.
+So that we know what to execute when we are executing things.
+So what does g look like?
+By this same design?
+What's the left-hand box of g?
+Yeah?
+An access link back to the global scope.
+So maybe I should be a little bit more generic when drawing these.
+It's not that it's pointing back to the variable g and f here.
+It's that it points to whatever scope it was created inside of.
+So that when we then later call f and g, we have an access link.
+Can we go look up what their access link was from their closure?
+So here, both of them are global.
+Global there.
+And global here.
+Apologies for the messy arrows.
+Any questions on access links?
+That's exactly right.
+So we set up these pieces when we create the function.
+And then we use them when we execute the function.
+It's two phases.
+There's the creation.
+And then there's the usage.
+Yeah?
+Great question.
+So this is, it goes back to our algorithm here.
+Our lookup algorithm for a variable is first what environment are we in?
+Then is the variable in our environment?
+If it is, we're done.
+If it's not, recursively apply this algorithm on the access link.
+So we will just keep going until we find it.
+And we'll take the first one that we find.
+We can't access an X from an outer scope if we have an X in our scope.
+Other questions on access links?
+Okay.
+So I've represented that over here.
+This looks very similar to what I had on the board.
+Where what we're saying is the left-hand side points to the global scope.
+The right-hand side is pointing to the literal code that we will execute when we run this
+function.
+Because functions are just a piece of data.
+I think this is all just the same thing.
+Yep.
+Environment and code.
+That is how we will handle free variables.
+Aka variables we don't have a definition for.
+All right.
+I want to pause for a minute to give you time to think of any questions you might have before
+we get into the last section of this module.
+So take a second.
+Think of any questions that might be lingering.
+Because it's only getting more complicated.
+Yeah.
+Oh, wait.
+Actually...
+Once...
+Keep thinking.
+Then I'll get you.
+Okay.
+Questions.
+You had one.
+Yeah.
+That's actually what we're about to cover.
+That is called a high-order function.
+Yep.
+So we will get to that.
+Other questions?
+The access link is the thing that most students make the mistake on when solving these problems.
+It's figuring out what's the access link and how do I use it?
+So make sure that feels clear.
+Because that's the easiest part to get tripped up on.
+All right.
+Now we have a high-order function.
+Make counter.
+Somebody walk me through this.
+Step one.
+I have global environment.
+What is in my global environment?
+X.
+What is X?
+Actually, we're ahead of ourselves by starting with X.
+What comes before X?
+Yeah.
+Make counter.
+What is make counter?
+If you don't have an answer for what is make counter, that's something that we need to
+address.
+So if this doesn't feel...
+It might feel obvious.
+You guys don't always answer my questions, even when you know the answer.
+Which is fine.
+You should.
+But if it doesn't make sense, what I'm going to draw right here, that's an indicating factor
+that you should ask me questions.
+Because it's very important that you know exactly what this is.
+So I won't call on anyone.
+But how many of you feel like you know what I'm about to put over here?
+How many of you would like me to slow down a little bit and spend a little bit more time
+on it?
+Okay.
+Now that I know that you guys are following along and just being difficult...
+What goes over here?
+Yeah.
+Go for it.
+A closure object.
+And what does it look like?
+Access link and code.
+What does the access link point to?
+Yeah.
+Global scope.
+And the code points to which lines?
+Yeah, it's the three lines...
+Like the return, open parentheses, equals, right?
+All the way down to the close with the semicolon.
+So it's those three lines.
+Okay?
+Now what?
+Established make counter.
+What else do we do?
+We have a variable X.
+What is X equal to?
+The result of make counter zero.
+All right.
+We got to figure out what that is.
+How do we figure out what make counter zero is?
+How do we do that?
+I agree.
+We want to go into make counter.
+That's a very English way of describing it.
+Exactly.
+So we're executing a function, which means we create an activation record for our make
+counter.
+So we can call this one make counter zero.
+Just so that it has a name.
+What's going inside of this activation record?
+Yeah.
+C is equal to zero.
+That's our parameter.
+What else do we have?
+Return.
+We don't know what the value is yet, but we have it.
+What else do we have?
+Yeah.
+Control.
+What does that point to?
+It points to global.
+And if we wanted to be precise, we could say it, like, points to this line of global.
+But the line number doesn't really matter.
+It points to global.
+Global.
+Great.
+What else do we have?
+Yeah.
+Access link.
+And what does that point to?
+Global.
+And how do we know that it points to global?
+It was defined in global.
+We go look up the function that we're executing.
+The function we are executing is make counter.
+Make counter is a closure that has an access link pointing to global.
+So we set it equal to global.
+Great.
+Now what?
+These are so fun.
+What do we do now that we have called make counter zero?
+We've created the activation record for it.
+What next?
+Exactly.
+So we are actually executing our code inside of make counter.
+We've set C equal to zero.
+We're on line 2, where we're returning something.
+And what we are returning is an anonymous function.
+Functions are closures.
+So what does this return look like?
+Another closure.
+So let me just draw this out a bit more precisely.
+All right.
+So it's equal to a closure.
+What are the left and right-hand sides of this closure?
+Someone knew.
+You three have done a lot.
+I appreciate it.
+Yeah.
+Yeah.
+Yeah.
+So access link points back to the activation record where it was defined.
+It was defined inside of make counter.
+So it's this one.
+Yep.
+Great.
+And what's the right-hand side?
+Yeah.
+Exactly.
+It's just that little snippet of code.
+Return C++.
+So I'll just leave it there.
+But it's the little snippet.
+Great.
+Now what?
+We want to get to make counter 2, but we have to finish out what we were in the middle
+of.
+We're done with this activation record, which means we return back, and we set x equal to
+the returned value.
+That means we're just going to have x point down to the same closure that was returned.
+Yeah.
+So x, if we wanted to look up the value of C with respect to executing x, we have captured
+it inside of this activation record.
+That is exactly correct.
+So when we go ahead and execute x, we'll see what happens.
+Let's get on to the next line, though.
+We're on to y equals make counter 2.
+What does that look like?
+Pretty much exactly like make counter 0, but C is 2.
+All right.
+Pretty much exactly like make counter 0, but C is 2.
+I accept this.
+The important point is we aren't updating this one.
+We aren't going to change this activation record.
+We're going to create an entirely new make counter 2 activation record.
+And this one will look almost identical.
+We'll say C is 2, return, we'll figure out, control is global, access is still global.
+And then the return here is to yet another new closure where the access points to that
+and the code is the C++ code.
+And then y is going to be pointing to this closure.
+Which will be hard to draw.
+So we'll name this one number 3.
+Closure number 3.
+And just say that it's number 3.
+Yeah?
+Yeah.
+So these are new activation records.
+They get their access link from how we defined make counter before.
+Yeah.
+And then I think let's execute X and follow that logic to see, like, what this leads to.
+So we get to the point of our code where we're trying to log X.
+Or log execution of X.
+What is X?
+We're in the global scope.
+What is X?
+Yeah?
+X is a pointer to a closure.
+X is a closure.
+It's specifically this one.
+What code is inside of that closure?
+Yeah.
+C++.
+So we want to execute the code C++.
+What is the value of C?
+So we're gonna create our closure here.
+X has a return, a CTL, and an access.
+What are the values of these three things?
+Let's start with control.
+What's the control pointer point to?
+Yeah.
+The make counter activation record.
+Over here.
+So control tells us where did we come from.
+Where are we coming from here?
+We're coming from global.
+We executed inside of global, which means control points to global.
+The access link, though, tells us where were we defined.
+And when we look at X, this closure was defined inside of make counter 0.
+Which means that the access link will point over to make counter 0.
+Which we'll just say MKC 0.
+So when we look up the value of C for our return, how do we find it?
+Is C in our current activation record?
+Yes?
+No.
+No, it's not.
+All we have is return control access.
+So we don't have it.
+Where do we go?
+Do we go to global?
+Or do we go to make counter 0?
+Follow the access link back to make counter 0.
+We do have C defined here.
+We're going to update the value of C, because we called C++
+to be 1.
+And then we return.
+And what is printed out?
+What's printed out?
+Tricked you.
+It's plus plus, not plus plus C. Prints out 0.
+But C will be 1.
+OK.
+So the slides for this are all up.
+You can, like, follow exactly the same logic that we took here.
+But that covers the complexity of high-order functions.
+Yeah?
+Why was there no activation record for the anonymous function?
+No activation record for the anonymous function.
+There is.
+This is the anonymous function.
+The one, the function that was defined inside.
+Why don't we make an activation record for that?
+Yeah.
+Wait.
+Hold on, guys.
+Hold on.
+Pay attention.
+This is an important question.
+Why did we not create an activation record
+when we were inside of make counter 0,
+and we were executing line 1 of make counter 0?
+Why did we not create an activation record
+for this anonymous function?
+Give it 30 seconds of thought.
+I want you to have an answer to that.
+Why did we not create an activation record
+when we were inside of make counter 0,
+when we were executing here?
+Why did we not create an activation record
+for the anonymous function?
+Give it 30 seconds of thought.
+We still have like three minutes left of class.
+Just a quick question.
+There is an activation record.
+All right.
+So I'll just do the final one.
+Yeah.
+So I'm actually going to call it a function.
+I'm going to call the function.
+It's still a function.
+Yeah.
+I'm on your side.
+Oops.
+I'm just going to put it down.
+OK.
+So I'm going to call it a statement.
+All right.
+How many people feel like they have
+a solid answer for why we did not create an activation record?
+Not enough of you.
+This is a very important question.
+So I heard the answer.
+I think you said it perfectly.
+So I want to broadcast to the class.
+Why did we not do this?
+Activation records are created when we call a function.
+Activation records are created when you call a function.
+Inside of make counter, we define an anonymous function,
+but we do not execute it.
+We do not call it, which means we don't
+create an activation record.
+Later, we execute x, and that's what actually
+creates the activation record for that anonymous function.
+Prior to that point, we never created.
+So understanding when code actually gets executed
+is hard and extremely important.
+That's like at least 50% of the things on Piazza
+where people are like, this JavaScript code isn't working.
+It's pretty often the case that it's just,
+when is that thing being executed?
+So great question.
+Any other last questions on this stuff?
+Yeah.
+What is being returned?
+Is it a pointer return?
+Yeah, so what is being returned is a closure.
+It's this whole object here.
+And we represent that as like a pointer in our diagrams.
+And JavaScript does the same thing.
+Yeah.
+Other questions on these diagrams?
+You have two of these on the homework.
+So they should make sense.
+If not, stop by office hours.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.
+Thank you.

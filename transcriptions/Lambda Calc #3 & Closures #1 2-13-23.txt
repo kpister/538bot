@@ -1,0 +1,1011 @@
+So please get your laptop, please get your notepads,
+please get your laptops, please get your computers, please get
+your tablets, please get your pens and paper.
+So it's a nice major.
+We are trying to make virtual signaling easier on them.
+That's where we had helps a lot.
+But it wasn't there.
+It was more like an ARCO.
+It wasn't really that small of a balloon.
+But we got it bigger.
+And the thing is everything on Panasonic is square.
+So we were finally able to do it.
+But it took us like two weeks to get it up to here.
+All right, folks.
+Let's get started.
+Our bookkeeping before we begin lecture.
+As posted. So solutions for homeworks one and two are posted on Canvas.
+Go ahead and check them out. See how you did.
+Grading is on the way.
+For homework one, we're almost done. For homework two, we'll get there probably this week.
+PA3 and homework three are both posted to Canvas. You should have access.
+Homework three is primarily JavaScript.
+And it will be covered in the end of today's lecture and Wednesday's lecture.
+PA3 is entirely JavaScript as well.
+So over the course of the next two weeks, we're currently talking about lambda calculus.
+We're going to transition back to JavaScript for a little bit.
+And then we're going to power through to Haskell next week.
+We're going to be covering three pretty different languages in two weeks.
+If that feels confusing and hard, stop by office hours.
+In particular, Monday is generally light because the homework was just released.
+So if you want to chat about not just homework, come to my office hours after class today.
+Some general advice.
+There are a lot of people posting, my PA tests are failing on Gradescope.
+But they pass all of the local tests. What am I doing wrong?
+It's not everyone. I recognize that.
+But in general, the tests that I give you locally are not a complete test set.
+It's an idea to make sure you've written some idea of the correct function.
+The goal of Gradescope is to be the exam test.
+So you shouldn't be writing your code, submitting to Gradescope, iterating 500 times.
+It's more of write code so that it's probably done.
+Submit once. You need to fix one or two things.
+Write some more local test cases yourself to try and identify the problem.
+Then resubmit.
+So that's my advice there.
+Write local tests. Local tests, local tests, local tests.
+I don't give you everything. I just give you most things.
+Okay. Any questions for me?
+Anything that we should cover before we start class?
+Okay.
+Then hopefully today's the last lecture on LambdaCalc for a little while.
+So maybe that's good and you like that.
+Maybe that's bad because you've been loving it.
+Either way, we'll be wrapping it up.
+Starting off, we're going to talk about free variables again.
+We have three equations that we built out last time.
+I'd like for you guys to give me these two equations.
+What is the free variables of a complex expression LambdaX.E?
+What are the free variables?
+Who can tell me?
+Yeah.
+Yeah. They are the free variables of E minus X.
+We have bound X as one of the non-free variables.
+It's one of the bound variables.
+And then the free variables of a function application E1, E2 are what?
+Yeah.
+It's the union of what?
+Yeah. Definitely.
+So we find out whatever the free variables of E1 are.
+And then union that with whatever the free variables of E2 are.
+This is one set of equations that we care about in LambdaCalc.
+What are the free variables of our space?
+We did have a question on Wednesday saying,
+isn't it all of the variables?
+All variables ever?
+Not necessarily just the free variables of E.
+And to that, I would say a variable is only a variable if it's being used.
+So just for that point.
+Okay.
+This is our second set of equations.
+So our first set of equations, these ones to calculate the free variables.
+Our second set of equations are about how do we actually do substitution?
+How do we do capture avoiding substitution?
+And what do we do with these?
+What is X where X is E?
+How do we reduce the first statement?
+Who's got an answer?
+Yeah. Go for it.
+Just reduces to E.
+We get to do our replacement as you would expect.
+If X is the value 3, when we see X, we replace it with the value 3.
+For example.
+All right.
+Then we have the variable Y where X is equal to E.
+What's this reduced to?
+Who's got an answer?
+Yeah.
+Y if Y is not equal to X.
+So assuming these are two different variables, then we just get to ignore whatever we set X to be.
+Okay.
+What about E1, E2?
+Also known as a function application.
+E1, E2 where X is equal to E.
+How does this reduce?
+Yeah.
+Yeah.
+So we get to say all occurrences of X are replaced with E.
+But a little bit more generically, we say all occurrences of X in E1, we will replace with E.
+Or we'll continue to recursively substitute inside of E1, X is equal to E.
+And we will recursively substitute in E2, X is equal to E.
+All right.
+And then we have our function, our lambda abstraction.
+Lambda X.E1 where X is equal to E.
+What do we do here?
+Yeah.
+Just E1.
+Who agrees?
+So just E1.
+This is, I think, a common point of confusion.
+If I can find my pen.
+There's a meaningful difference here between lambda X.E1 with the state X is equal to E.
+And lambda X.E1 applied to E.
+This is an application, a function application, where this is an expression and this is an expression.
+This is the parameter to this function.
+Here what I'm saying is I have an expression.
+And I have some state that goes along with that expression.
+Where I can say X is equal to E inside of this expression here.
+So these are two different things that we're talking about.
+I'm looking up here.
+What do we do?
+You already got one.
+Yeah.
+E1 where X is evaluated to E.
+E1 where X is equal to E.
+What we've done here is we've lost this lambda.
+We aren't doing a function application in this expression here.
+There's no function application.
+So we should end up with a function at the end.
+We don't want to substitute in any value into this function.
+Because that's not what we're doing at this point.
+This here is what we would get if we had said, if I had kept the original thing.
+I don't know why I erased it.
+If we kept lambda X.E1, E, this would simplify to E1 where X is equal to E.
+This is our function application.
+E is a parameter to this function.
+So X is equal to E. And we get E1 where X is equal to E.
+Up here, we have an expression.
+And we have state that's going along with it.
+Yeah.
+Right.
+So when we are doing this step here, what we get to do is we get to actually drop our state entirely,
+like you've said, and get just lambda X.E1 out of it.
+Yeah, question.
+That's precisely correct.
+So this X is from an outer statement.
+It's a different X than this X.
+So one way that I personally look at this here, when I see that, I go backwards.
+And I say, how did we get here?
+We got here by having a lambda X.E.
+This is our inner expression.
+This corresponds to this piece.
+E1, sorry.
+And then we had an X, or that's an E.
+An E as a parameter to this outer function where we have X as our parameter name.
+So we can go backwards from this starting point to get to what it might have looked like before.
+Maybe it looked like this.
+Maybe it was more complicated.
+But if we simplify this line here, we would get to this point.
+OK.
+Other questions on this one?
+Because it definitely can be confusing.
+Yeah.
+So it can't be E1 and then E. What do you mean by that?
+Right.
+So why we can't say that this piece here becomes E1 where X is equal to E, or something of this sort, is because this isn't an application.
+We aren't making a function call here.
+We have an expression, and we have state that goes along with it.
+Any time you see square brackets in lambda calculus, we're talking about the state of our kind of world, of our program.
+Parentheses and all of this side, that's all the expression.
+That's the math that we're actually trying to solve.
+This is the accompanying state.
+It's not part of the expression.
+It's not something that we're going to ever substitute in.
+It's just saying this variable is equal to that.
+This variable is equal to that.
+Yeah.
+So basically, that's a bound variable, right?
+X.
+So wouldn't it be more comfortable for reading?
+We could, but we don't need to.
+Yeah.
+Yeah, so we could kind of accumulate as much state as we want.
+We could say X is equal to E, and then we'll replace this one with a Z so that eventually,
+we never rewrite this X.
+We never overwrite it.
+We could do that, but we don't need to.
+Yeah.
+So this next problem is basically the same sort of similar to this problem?
+Yes.
+So now, let's move on to this next one.
+Lambda Y dot E1, where X is equal to E2.
+How do we simplify this?
+First of all, what happens if Y is equal to X?
+Yeah.
+Right, if Y is equal to X, then we just use this rule.
+And we say, OK, Y is equal to X.
+Then we drop this state, and we'll get lambda X dot E1.
+So we can assume Y is not equal to X.
+Y is a different variable than X.
+What do we want to do now?
+Yeah, go for it.
+Drop the state.
+Well, not necessarily.
+What if E1 uses X?
+So I think let's actually take a second and look at what this would look like in JavaScript.
+You can turn this guy around.
+If I have a function that returns Y plus X, so there's a function in JavaScript.
+It takes in a parameter Y.
+It returns Y plus X.
+What if I have the state let X equal 3?
+What do I do to simplify my function here?
+Go for it.
+We can apply the state recursively to the expression.
+I love that answer for this generic thing.
+Yeah, yeah.
+So that is exactly how I would phrase it.
+I agree.
+In this example, what does that look like?
+Yeah.
+We can replace the X in our function with 3.
+So we can simplify our function to be this.
+Because we know the value of X, and we're using that variable X.
+So I want to argue that this example here is going to be identical to lambda Y dot Y plus X, where X is equal to 3.
+Here, what I have is a function that takes a parameter Y.
+It returns Y plus X.
+And I have some state that is telling me that X is equal to 3.
+This expression is equivalent to the JavaScript expression that I just showed you.
+So what we want to do is we have lambda Y dot E1, where E1 is Y plus X.
+And we have some state that X is equal to E2, where E2 is 3.
+Our goal is to get to lambda Y dot Y plus 3.
+And the way we do that is, as your classmate said, we recursively apply our substitution of X is equal to E2 inside of E1.
+So what that looks like is that we have lambda Y dot E1 with no parentheses, where X is equal to E2.
+So long as Y is not equal to X, which we already covered.
+And so long as Y is not in the free variables of E2.
+That's a confusing line of math code.
+And it might take multiple times staring at it to figure it out.
+And that's OK.
+That's expected.
+Questions on it at this point?
+Yeah?
+Well, because if Y is equal to X, we have a different rule for that, where we say just drop the state entirely.
+So we have that part covered somewhere else.
+Yeah?
+Other questions?
+Well, no, because if Y is equal to X, then we have that.
+So you would just, it's kind of like a, consider it like a case statement, where you're matching on these patterns.
+If it's this, do that.
+If it's this, do that.
+If it's this, do that.
+So maybe you could say this is redundant, because we've previously checked that Y is not equal to X.
+That's not too important to us.
+Yeah, so why don't we have this same check for this second-to-last expression?
+The reason is because we're entirely dropping the state.
+So we're never going to accidentally capture by substituting in E2.
+E2 is just kind of erased.
+Or E, in this case, is just erased.
+Yeah?
+Yeah?
+Ah, no, these are rules.
+Yes, yeah, good question.
+These are rules, not examples.
+This is the entire rule description of how we do substitution in lambda calculus.
+If it was or wasn't?
+If it was, yeah.
+So what if X is equal to, let's say, 3 plus Y?
+So now we have a complicated expression for X.
+If we perform the substitution without caring about the fact that, well, actually, first,
+is this Y free or is it bound?
+This is a free Y.
+This is a different Y than this Y.
+These two are the same Y.
+That's a different Y.
+This is a free Y.
+These are bound.
+So if we do our substitution without checking the free variables, then what we would get
+is we would get Y plus X, where X is 3 plus Y.
+And now when we look at this expression, which of these Y's is free?
+None of them.
+They're all bound.
+Or they're both bound to this Y.
+We've lost that free variable.
+And you can see this in JavaScript as well.
+If we said that X is equal to Y plus 3, this Y here is different than this Y, very clearly.
+We would have to have said somewhere else, let Y equal 7 or whatever we want.
+But if we tried to do the substitution that we did here and we said that it's instead equal to Y plus 3,
+now we've run into that same problem that we saw with lambda calculus.
+This Y is the same as this Y, even though it wasn't the same previously.
+So that's why we do this check.
+If we didn't, we would capture variables around us.
+Yeah, question.
+Yeah, no, we don't need to because it's being overwritten.
+So it's kind of what we can show this example as well with JavaScript,
+where we can say, let Y equal 3.
+And now we have a function with the parameter name Y goes to Y plus X.
+Inside of this function expression, we don't care that Y was previously equal to 3.
+We have shadowed that with our parameter name.
+So we get to ignore this previous state when we are evaluating this expression.
+That's what the second to last one is saying.
+Yeah.
+Does this make things more clear, seeing it with JavaScript?
+Is this a...
+OK, I'm seeing a lot of nods.
+That's good.
+Because I felt like Wednesday's lecture wasn't quite getting there.
+So, all right.
+At this point, we've covered the basics of LambdaCalc.
+That's everything.
+We have free variables.
+We have substitution.
+Great.
+Now, what can we do with it?
+Why did I spend two and a half lectures talking about all of this?
+Well, I guess, so first of all, the kind of specifics,
+we have the ability to do alpha renaming.
+Beta reduction is what we just defined.
+And then we have this last one, eta conversion,
+which is definitely the kind of like weird one.
+The way I think of it is, once again, with JavaScript,
+that if we have a function that takes in a variable X
+and it calls f of X,
+so if I have a function that looks like this,
+why didn't I just use f?
+Because all that I did was create a wrapper around my function f
+that took one parameter and passed it right into f.
+And I could have instead just used f.
+These are equivalent.
+That's exactly what the eta conversion is saying.
+That if we have a function that takes a single parameter
+and it has some complicated expression,
+but all that's happening is it takes in one parameter
+and passes it along to that expression,
+we can simplify that to the expression itself.
+This is not a huge thing to worry about.
+It's minorly convenient in some cases.
+So if it doesn't make full sense, that's fine.
+I would recommend just trying to play around with it a little bit,
+and that'll probably help.
+Okay.
+We did this example forever ago.
+Well, we can...
+Yeah, we can look at it again.
+So when we did this example before,
+what we found was that the A in the A plus 5
+went in for the X,
+and then we got into this problem
+where the A outside that's free was captured by the A inside.
+So what should we have done?
+What's our first step?
+Who knows?
+I heard it from someone.
+Raise your hand.
+Who was it?
+Yeah.
+We'll do an alpha rename.
+Yeah, an alpha rename of what?
+Exactly.
+We'll do an inner A,
+and we'll name it something else.
+In this case, I've called it B.
+So we just rename that inner A to be a B.
+Then we can do our substitution like normal,
+and we can pass in A plus 5 for X,
+and we can continue to beta substitute with the 7,
+and we'll end up with A plus 12.
+So that's what we should have done earlier.
+Okay.
+There's some more for the ones that,
+if you want to do them at home, feel free to.
+But that covers formal substitution,
+which leaves us with the fun part of LambdaCalc,
+why we actually talk about it.
+Well, one of the reasons that we actually talk about it
+is that we can use it to show off language paradigms.
+For example, evaluation order.
+This is a question for you guys.
+What should we reduce first in this expression?
+Yeah.
+What's that?
+The inner term.
+A.
+Who votes for A?
+Who votes for B?
+Like, mostly you guys didn't vote.
+It was like a lot of left-hand side voted for A.
+What's the reason?
+Somebody who voted,
+what's your reason for making the choice that you made?
+Did you want a third choice?
+Who wanted a third choice?
+Okay, a decent number of people wanted a third choice.
+Somebody back up your claim, whether it's A, B, or C.
+Why?
+Yeah.
+Yeah, sure.
+So one thing that we can do is we can actually solve it.
+If we take the first approach, the inner term,
+we pass z in for y.
+That reduces to z.
+Then we pass that into lambda x dot x,
+so that reduces to z.
+If we do it the other way,
+we'll pass lambda y dot yz into x,
+which gives us lambda y dot yz,
+which, when we reduce that one, also gives us z.
+They gave us the same thing either way.
+So does that mean that it doesn't matter?
+I'm seeing some nods.
+Yeah, I'm with you.
+It doesn't matter.
+They both reduce to z.
+We got the same thing.
+This is formally proved that all expressions
+will reduce to the same thing
+so long as they reduce to the same thing.
+More formally, if you reduce to a normal form,
+it doesn't matter what order you do your reductions in.
+Okay.
+So does that mean the reduction order doesn't matter?
+Yeah.
+All right.
+We have a vote for no.
+Anybody else vote for no?
+Oh, wait.
+That was a...
+Does it mean the reduction order...
+That was a vote for yes, it does matter.
+Who else votes for yes, it does matter?
+Who votes for no, it doesn't matter?
+Okay, we actually have a little bit of split.
+I do want you...
+I'll give you the answer.
+It does matter.
+No, it doesn't not matter.
+I don't know.
+It does matter.
+Why?
+You have an idea.
+Chat with the people next to you.
+Try and come up with a program that it does matter for,
+where you get a different result
+depending on how you evaluate your code.
+Chat with the people next to you.
+I'll give you like two or three minutes.
+I'm sorry to cut you off.
+You clearly have the right idea.
+I know the one, I just can't remember the exact formula.
+It's like the Y combinator.
+Yep, that's one.
+Yep, we'll cover those in a minute though.
+Okay, quieted down a bit.
+Does anybody have a good program?
+Something they want to try out?
+Who's got an idea?
+What can we try?
+For a program where it matters, what order are we going?
+You were pretty chatty 30 seconds ago.
+Something like that?
+Okay, how does evaluation order matter here?
+Ah, so let's, we're going to do proper substitution.
+So we will rename anything that we're supposed to rename.
+But definitely true that if we aren't doing proper substitution,
+we could get different results one way or the other.
+Any other ideas?
+Yeah.
+Yep.
+Yeah, so I like where you're starting here.
+The theorem there says, if you reduce to a normal form.
+So our goal is going to be trying to construct a function
+which is not reduced to a normal form.
+Not quite sure what you mean by the input-output though.
+What's, like, where they're independent?
+Won't that do what you're saying?
+But this actually is a normal form.
+Okay, so I think it's, to be honest,
+I wasn't fully expecting anyone to come up with an answer.
+But it's because it's kind of mind-boggling
+how you could come up with something
+that doesn't reduce to a normal form.
+So let's chat about a program that does this.
+The program is called Omega.
+And Omega is defined as an application of two expressions.
+You have the left-hand side, lambda x dot xx.
+And the right-hand side, lambda x dot xx.
+So what would be our first step in reducing this?
+Yeah.
+Sure, let's do an alpha rename.
+So we have lambda x, xx.
+What do you want to rename?
+I would basically give, I would number them 1, 2, 4.
+Ah, 1, 2, 3, 4.
+Yes.
+Can we do that?
+Which x is this bound by?
+The first x.
+The first x.
+Which x is this bound by?
+The first.
+Also the first one.
+So are these two x's the same?
+Yes.
+Yes.
+So we could rename these, but they have to be called the same thing.
+Yeah.
+So we could call this one x1, x1, x1.
+This one x2, x2, x2.
+Sure.
+Now what do we want to do?
+Beta reduce.
+What does beta look like?
+Yeah, so x1 is the parameter name where x1 is equal to this whole thing.
+So we will get x1, x1.
+That's our inner expression.
+x1 is equal to lambda x2 dot x2 x2.
+How do we simplify this?
+Yeah.
+Go back to where we started?
+We go back to where we started.
+Because x1 and x1 become lambda x2 dot x2 x2.
+Which we're back to the alpha renaming step again.
+Exactly.
+So if we replace this x1 with what x1 is, and we replace that x1 with what x1 is, what we end up with is this expression here.
+Which if we alpha rename, removing these numbers, is lambda x dot xx applied to lambda x dot xx.
+Which is precisely where we started.
+So if we simplify this, we end up back at omega.
+That means omega has no normal form.
+If you can beta reduce it as much as you want, you'll never end up done.
+So when we return to this question of does evaluation order matter, what if we had a function that ignores the input?
+And this is kind of what you were getting at, I feel like.
+Where we can just toss away the input.
+Lambda x dot y.
+What happens if we have lambda x dot y where the parameter is omega?
+What options do we have for reducing this expression here?
+What's one option that we have?
+Yeah.
+We could pass omega in for x and then return the result, which is y.
+We know the value.
+We're done.
+Y is the result.
+So we could return y.
+What else could we do?
+What's a different way of simplifying this problem?
+Yeah.
+Right.
+We could try and reduce omega.
+We could take a beta reduction on omega.
+What would that look like?
+We'll get the same thing.
+Reducing omega gives you omega back.
+OK, so now we're here.
+What could we do?
+What options do we have?
+The same thing.
+Once again, return y by passing omega in for x, and then ignoring x and returning y.
+Or we could try and reduce it again, and again, and again, and again.
+At each stage, we have a choice to make.
+If you're familiar with non-determinism in Turing machines, this might look pretty familiar.
+Where it's like we could take that jump, or we could just stay where we are and kind of sit doing nothing with our epsilon.
+So, does it matter?
+Yes.
+Does it not matter?
+No.
+It does matter.
+But it only matters sometimes.
+And most of the time, we can say whatever.
+Sometimes, in lambda calc, we have to be pretty precise.
+So we can come up with a few different strategies.
+The first of which is called call by value.
+This is JavaScript's and most languages' approach.
+Where we have a function application, E1, E2.
+What we will do is first reduce the function.
+Then reduce the arguments.
+Then apply.
+So, any time you're doing a function application, you simplify both sides before applying the actual function call.
+We can think of this as...
+If we have JavaScript goes to X plus 3, whatever.
+So, we have some function.
+And we're going to call it with 3 plus 4.
+We will simplify our function, which we can't do.
+There's no simplification to be made.
+Then we simplify the arguments.
+And we figure out that this is 7.
+Then we pass 7 in for X.
+We could instead pass the expression 3 plus 4 in for X.
+We would get the same thing here.
+But that's a different route that we could take.
+JavaScript says reduce the arguments.
+Then apply.
+So, if we...
+You know, like, following that, we simplify the red.
+Then we simplify the blue.
+Then we apply the thing.
+So, if we look at this JavaScript function.
+X goes to 33 with this parameter as input.
+What are we going to get as our result?
+You have to turn on your visual debugger.
+What do we get?
+Who's got an idea?
+One person.
+Chat with somebody next to you.
+Figure out.
+What does this give us?
+How many of you said this?
+Range error maximum call stack exceeded.
+Why?
+What happened here?
+Where did we go wrong?
+Yeah?
+Exactly.
+No, no, no.
+So, we're trying to reduce the right-hand side value in blue.
+And this is a recursive function.
+What is this function?
+What's another name for the blue part?
+Yeah.
+Omega.
+That's what we just saw.
+In lambda calculus.
+That's omega.
+In JavaScript.
+Yeah, so it's not gonna work.
+What if we wanted it to work?
+Haskell, which we will start studying soon, takes a different approach.
+That's more similar to call by name.
+Where what we do is we reduce the function.
+And then we apply.
+The only thing that's different than call by value is that we aren't reducing the argument.
+You don't reduce the argument ever.
+You only ever reduce the function.
+And what that means is we will only use a value if it's being used.
+To go to our example over here, which was bad JavaScript.
+If we have a function X goes to 3, and we pass in 3 plus 4, but we aren't using X, why would you evaluate 3 plus 4?
+We didn't need that.
+Wasted computation.
+Ice caps are melting and all that, you know?
+This 3 plus 4 is the fault.
+So we can just toss it out instead because it's never used.
+Never evaluate something if it's not gonna be used.
+So this is your first, for some of you, your first time ever seeing Haskell.
+But it looks surprisingly similar to lambda calculus.
+Where we have lambda X dot 33, lambda X dot XX, lambda X dot XX.
+What will this program evaluate to?
+If you know nothing about Haskell except for what I've just said up above.
+Yeah?
+33.
+Because we don't use our parameter X, this piece here being omega, we'll never reduce omega.
+Which means we'll never try to go into this infinite loop, and we'll end up with the value 33.
+Now you guys know Haskell.
+That wasn't so hard.
+All right.
+Questions?
+Is there any of this?
+Yeah.
+No.
+That's...
+Yeah?
+Yeah.
+No.
+So it'll do the beta reduction to pass this all in for X.
+And then it won't need to use X.
+So it will never evaluate that state.
+So up above what you can see, only the pointer worked.
+We evaluate the left-hand side, the red.
+Simplify that as much as we can.
+And then the beauty of it is that we get to this E1 prime 33, where X is equal to this
+omega.
+And since we never use X, we can just toss away the state.
+And we'll return 33.
+Yeah?
+What do you mean by sharing?
+Oh, yeah, yeah.
+So what if...
+What if we have a function that takes X and returns X plus X?
+Then it's great to precompute 3 plus 4.
+Now we're saving the polarized caps.
+Because we're doing 7 plus 7 instead of 3 plus 4 plus 3 plus 4.
+And if you do 3 plus 4 plus 3 plus 4, you've duplicated your computation.
+Which might seem trivial, but I promise you it's not.
+This is exactly what compilers are doing all the time to optimize your code.
+So what Haskell does is it says, until you need something, don't evaluate it.
+As soon as you need it, store it.
+So we're gonna compute 3 plus 4 for X.
+And then we're just gonna use that same value a second time.
+We don't need to recompute it.
+So that's what the sharing means.
+Yeah?
+So, no, that's part of the runtime environment.
+But well, to the extent it can do these things at compile time, it will.
+But it can't do everything.
+Other questions?
+Cool.
+So in summary, you can have the technical term redexes or some terms that can reduce.
+Your evaluation strategy tells you which term to evaluate and reduce.
+You aren't guaranteed to find a normal form.
+These are two different ways that you could...
+Two different strategies to solve lambda expressions.
+All right.
+That concludes lambda calc.
+However, in the slide deck, there are about 15 more slides about more fun things you can
+do with lambda calculus, such as creating booleans, creating numbers, creating functions
+we've already done, doing tuples, structs, and in particular, recursion, which is not
+required for the course and will not be part of standard exam points.
+There's some fun slides on it, too.
+We talked about the Y Combinator, but not the VC firm.
+So I would encourage you, if you have at all enjoyed lambda calc, or if it's just at all
+interesting to check it out.
+Those last few slides.
+But otherwise, we're going to be leaving lambda calc in its place and use it as a way of talking
+about some of these other ideas.
+So any lingering questions on lambda calc?
+Yeah.
+So what should you take away from lambda calc?
+I think it's a fair question.
+First of all, for the exam, but also more broadly speaking, the goal of a lot of the
+parts of this class are to improve your visual debugger, as I mentioned� as I brought up
+earlier.
+Where it's not necessarily that you're ever going to write lambda calc.
+But you will look at a lot of functions as software engineers.
+That's something that you will do.
+And being able to spot how they work and what they're doing and how things will evaluate
+is very important.
+With respect to your grade, you need to be able to evaluate a lambda calc expression.
+And say what are the free variables of this expression?
+What will it reduce to?
+Will it reduce?
+Or will it not reduce?
+That sort of thing.
+Or write a lambda calc expression that does X, Y, Z.
+That's the sum of it.
+Other last questions?
+Otherwise, feel free to bring up any other stuff during office hours as well.
+Yeah?
+In general, is it easier to start from the expression you go out?
+It really depends on the expression.
+Yeah.
+The fact that JavaScript does it one way and Haskell does it another way is kind of indicative
+of there's no right answer.
+It's not that one of the two of them is smarter and better.
+It's that they're different approaches.
+Either one might be better.
+Okay.
+So what we have been talking about is lambda calculus's substitution model.
+Where we said we could have a function with a function application and we can beta reduce
+it to some other expression.
+In JavaScript, that above function looks something like this.
+And why we care about it is because we can do this beta reduction at compile time.
+That's not a runtime evaluation.
+That's a compile time simplification of your code.
+So that at runtime, we don't need to compute it.
+And if you're gonna do this over and over, then compile once, run ten times, it's highly
+effective to beta reduce.
+But why would you not want to do that?
+If we tried to do beta reduction on� these slides are on Canvas, by the way, already.
+So if you do that and follow along, they are already up there.
+Why would you not want to do a beta reduction in a real language like JavaScript?
+Where we're trying to say set X equal to some parameter for all X in some scope.
+What can go wrong?
+Yeah.
+Yeah.
+In JavaScript, we can update the value of X.
+X might be something at the start of a function and change to be something else at the end
+of the function.
+We've been working with JavaScript that looks like this, but that's not actually all of
+JavaScript's power.
+We could say X equals X plus 1 on the second line of this function.
+And then if we've substituted everything, we're kind of, like, in a limbo land.
+It can also slow things down.
+We don't need to get into that.
+But to point out this idea of change and mutation in JavaScript, if we had a relatively simple
+function, let Y equal 1, Z equal 0, Z plus plus, log Z, what do we expect to be the output
+of console.log?
+1.
+1.
+Right?
+We've started Z as 0, we incremented Z, and then we output Z.
+If we did a beta reduction of all Z is equal to 0, then when we get to this log, we log
+0.
+So most languages support this idea of mutation.
+Variables are not static.
+They change.
+They're called variable for a reason.
+Pascal has a different idea and says variables aren't variable.
+They are static.
+And part of the reason for that is so that they can do more substitution.
+So what can we do about this?
+We're going to spend the next lecture and a half talking about how to translate from
+the kind of mathematician ivory tower of lambda calculus, not quite all the way down
+to the machine model, but talk about the environment model of JavaScript somewhere in between.
+Where we get some of the benefits of lambda calculus, but we aren't all the way in the
+nuts and bolts of things.
+It'll look like this.
+This is what we're going to kind of be covering.
+What does scope look like?
+How do first order functions� yeah.
+First order functions to start.
+How do those work with scope?
+How do free variables play into this?
+And then finally, how do high order functions work with scope?
+So to start, what is a scope?
+What's the point of a scope?
+What do you use it for?
+You guys have a lot of answers.
+Someone who hasn't brought something up.
+I do appreciate it, just to be clear.
+It's not bad that you guys answer a lot of questions.
+What's the point of a scope?
+You guys use these all the time.
+When was the last time you wrote code?
+It's like yesterday.
+Right?
+There was a PA.
+You had to use a scope in the PA.
+Yeah?
+No, definitely.
+So to make variables easier to use, I think, is a pretty concise summary of what's the
+point of a scope.
+We want to encapsulate and hide these variables live here.
+It doesn't care about, like, these variables don't matter anywhere else.
+Don't use the same X that I've defined here in some other place.
+Yeah?
+PA is due next week.
+PA2 should be due this Sunday.
+Is that not what grade scope says?
+I'll fix that.
+It should be this Sunday.
+PA2 and 3 are due, like, this upcoming Sunday.
+Not yesterday.
+No.
+Oh, yeah.
+I guess I did just say...
+Yeah, no.
+Some of you might have been writing code.
+I don't know.
+Whatever.
+You guys should probably be writing more code than you are currently writing.
+That's definitely true.
+For probably 99 of you.
+But PA is due in six days or something like that.
+Yep.
+Don't worry if you didn't submit it.
+Okay.
+So scopes.
+The point of them is to encapsulate state specific to the area of code that we're working
+on.
+Right?
+If we're saying X here is equal to this thing, this is where I'm gonna use X with this value.
+Not elsewhere in, like, a different library.
+I don't want that other implementation of X.
+I want my version of X.
+So how are we gonna capture that?
+We are...
+We're not going here.
+But we are gonna be somewhere in the middle here, where we're talking about, like, what
+do we need to actually use a scope?
+If we wanted to track this idea of the environment of our program over time, we're gonna need
+some information.
+So going to the previous example, we're going to create environments, which I call activation
+records of whatever we are currently executing.
+When we are inside of one scope, we want information about that scope.
+It's doing X in this scope.
+And we're going to contain all of our variables in this environment.
+And then we're also going to contain some extra information.
+If you've taken kind of lower level classes, where you've done Spark or MIPS or X86 or
+whatever, you have to keep track of things like the stack pointer, the return address,
+the frame pointer.
+This is environmental information about what we're currently executing.
+So what we might do is, for the current snippet, we could have our environment pointer point
+to this area of memory, where we've said Y is equal to 1, Z is equal to 0.
+This is our state.
+It's our square brackets from lambda calculus.
+As opposed to the code, the expressions that we're going to execute.
+Depends on the setup.
+Okay.
+One minor piece of this that we kind of ignore after this one slide.
+But there's the canonical idea of R values and L values.
+R values are true expressions where we can treat them like lambda calculus.
+They're very mathematical.
+We can simplify as much as we want.
+There's no backing environment to them.
+And L values are pointers to R values.
+They're like the buckets that you learn about with variables.
+So L values point to R value information.
+And when we look at something like plus plus, when we say Z plus plus or plus plus Z, we
+can't plus plus an R value, because plus plus is mutating the state.
+So you can only plus plus an L value so that it can update itself.
+So in our thing over here, the left-hand side, the YZ, those are our L values that
+are pointing to R values on the right-hand side.
+We can plus plus Z. You can't plus plus 0.
+Because plus plus 0, it's like, what does that even mean?
+Maybe it returns 1.
+Maybe it doesn't.
+But it certainly doesn't update the number 0 to be 1.
+That would be really weird.
+If later, you then, like, use 0 and got 1.
+Goodness.
+OK.
+So that's L values, R values, whatever.
+When we want to execute console.log Z, we will go look at our environment and say, what
+context are we evaluating console.log Z in?
+Oh, sorry.
+We're looking at the Z plus plus first.
+When we execute Z plus plus, we say, what environment are we executing that in?
+Our environment is the little square.
+We go look up the value of Z. Z is 0.
+We increment it to 1.
+So we find our environment.
+We check to see if we're inside of the environment.
+And then we use the environment.
+When we log Z, the process is the same.
+We find what our current environment is, which is whatever our environment pointer
+points to.
+We look up the value of Z. What's the value of Z?
+What's the value of Z?
+1.
+1.
+Yeah.
+It's in the table right there.
+So we print out 1.
+This algorithm sounds a little slow.
+That's because it is.
+It's not very convenient to continually look up the environment pointer, check what my
+variables are.
+Is my variable there?
+If it's not, go find it somewhere else.
+That's partially because we're not in the machine model.
+We aren't talking about x86 or Spark.
+But it's also just a kind of necessary evil.
+You have to be able to find what is my environment.
+So we can come up with kind of, like, speedy hacks around it.
+But at the end of the day, we have to do this approach.
+Anytime we're executing code, we have to know what environment are we executing that code
+in.
+Because it's very different to log Z here than in a totally different program where
+you said Z is 100.
+Or Z is omega.
+Or, you know, whatever.
+Those mean different things depending on the environment.
+OK.
+That's the anatomy of a scope.
+Which is not, like, it's not crazy.
+It's not supposed to be something totally new.
+Scopes are scopes.
+Scopes store variables.
+Right?
+When do we create environments?
+When do we create scopes?
+Chat with someone next to you.
+When do we need to do these?
+A, B, A and B, or never?
+How many people vote A?
+Every time we create a new block scope.
+Or every time we enter a new block scope.
+How many people vote B?
+Every time we enter a new function scope.
+How many people vote A and B?
+All right.
+We got a majority there.
+Anybody say we don't need new environments?
+OK.
+Nobody's really...
+Oh, maybe we have a jokester.
+There are some worlds where you might have a language that doesn't create new environments.
+It's not unreasonable.
+And there was a version of JavaScript where you didn't have new block scopes.
+Or new scope on a block scope.
+Because we only really cared about function scope.
+Nowadays, it's A and B. Whenever you create a new block scope or a new function scope.
+Then we create a new environment.
+So the approach we're gonna take, and we're gonna spend a lot of time drawing these diagrams,
+and this is basically what the homework looks like, is we will have a function.
+We will call that function.
+And then we're going to keep track of the environment as we execute that code.
+And one of the main points of this chunk of class is so that you can look at this code
+and say...
+I know what that's gonna do.
+Here it's pretty obvious.
+It's factorial.
+We called it fact.
+That's not always the case.
+Sometimes you're presented with code that looks like...
+What the heck is this doing?
+Being able to trace through it and understand what state is looking like as you are tracing
+through it is extremely valuable.
+It saves you a lot of time.
+Rather than having to put a bunch of console.log inside of the code and then run it and run
+it.
+Or put a breakpoint and run it and run it.
+So we're finishing up with class now.
+We're gonna pick up on Wednesday diving into how can we track environment as we run JavaScript
+code.
+Feel free to drop by office hours.
+Otherwise, have a good week.
+Bye.
+Bye.
+Bye.
+Bye.
+
+Bye.
+Bye.
+
+Bye.
+Bye.
+

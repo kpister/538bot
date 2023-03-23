@@ -1,0 +1,3035 @@
+WEBVTT
+
+00:00.520 --> 00:02.520
+So please get your laptop, please get your notepads,
+
+00:03.780 --> 00:06.080
+please get your laptops, please get your computers, please get
+
+00:06.080 --> 00:08.080
+your tablets, please get your pens and paper.
+
+00:18.160 --> 00:20.160
+So it's a nice major.
+
+00:22.360 --> 00:24.360
+We are trying to make virtual signaling easier on them.
+
+00:27.300 --> 00:29.300
+That's where we had helps a lot.
+
+00:30.100 --> 00:32.100
+But it wasn't there.
+
+00:33.820 --> 00:35.820
+It was more like an ARCO.
+
+00:38.160 --> 00:40.160
+It wasn't really that small of a balloon.
+
+00:45.980 --> 00:47.980
+But we got it bigger.
+
+00:49.900 --> 00:51.900
+And the thing is everything on Panasonic is square.
+
+00:52.960 --> 00:54.960
+So we were finally able to do it.
+
+00:56.980 --> 00:58.980
+But it took us like two weeks to get it up to here.
+
+01:00.840 --> 01:02.840
+All right, folks.
+
+01:03.720 --> 01:05.720
+Let's get started.
+
+01:08.200 --> 01:12.080
+Our bookkeeping before we begin lecture.
+
+01:13.400 --> 01:18.180
+As posted. So solutions for homeworks one and two are posted on Canvas.
+
+01:18.820 --> 01:21.340
+Go ahead and check them out. See how you did.
+
+01:22.020 --> 01:24.000
+Grading is on the way.
+
+01:24.000 --> 01:28.200
+For homework one, we're almost done. For homework two, we'll get there probably this week.
+
+01:29.200 --> 01:37.200
+PA3 and homework three are both posted to Canvas. You should have access.
+
+01:39.200 --> 01:42.200
+Homework three is primarily JavaScript.
+
+01:42.200 --> 01:47.200
+And it will be covered in the end of today's lecture and Wednesday's lecture.
+
+01:48.200 --> 01:50.200
+PA3 is entirely JavaScript as well.
+
+01:50.200 --> 01:56.200
+So over the course of the next two weeks, we're currently talking about lambda calculus.
+
+01:56.200 --> 01:59.200
+We're going to transition back to JavaScript for a little bit.
+
+01:59.200 --> 02:03.200
+And then we're going to power through to Haskell next week.
+
+02:03.200 --> 02:07.200
+We're going to be covering three pretty different languages in two weeks.
+
+02:08.200 --> 02:12.200
+If that feels confusing and hard, stop by office hours.
+
+02:12.200 --> 02:17.200
+In particular, Monday is generally light because the homework was just released.
+
+02:17.200 --> 02:23.200
+So if you want to chat about not just homework, come to my office hours after class today.
+
+02:24.200 --> 02:25.200
+Some general advice.
+
+02:25.200 --> 02:30.200
+There are a lot of people posting, my PA tests are failing on Gradescope.
+
+02:30.200 --> 02:33.200
+But they pass all of the local tests. What am I doing wrong?
+
+02:34.200 --> 02:36.200
+It's not everyone. I recognize that.
+
+02:36.200 --> 02:43.200
+But in general, the tests that I give you locally are not a complete test set.
+
+02:43.200 --> 02:48.200
+It's an idea to make sure you've written some idea of the correct function.
+
+02:49.200 --> 02:53.200
+The goal of Gradescope is to be the exam test.
+
+02:53.200 --> 02:59.200
+So you shouldn't be writing your code, submitting to Gradescope, iterating 500 times.
+
+02:59.200 --> 03:05.200
+It's more of write code so that it's probably done.
+
+03:05.200 --> 03:08.200
+Submit once. You need to fix one or two things.
+
+03:08.200 --> 03:13.200
+Write some more local test cases yourself to try and identify the problem.
+
+03:13.200 --> 03:15.200
+Then resubmit.
+
+03:16.200 --> 03:19.200
+So that's my advice there.
+
+03:19.200 --> 03:23.200
+Write local tests. Local tests, local tests, local tests.
+
+03:23.200 --> 03:27.200
+I don't give you everything. I just give you most things.
+
+03:31.200 --> 03:36.200
+Okay. Any questions for me?
+
+03:36.200 --> 03:39.200
+Anything that we should cover before we start class?
+
+03:46.200 --> 03:49.200
+Okay.
+
+03:49.200 --> 03:53.200
+Then hopefully today's the last lecture on LambdaCalc for a little while.
+
+03:53.200 --> 03:55.200
+So maybe that's good and you like that.
+
+03:55.200 --> 03:57.200
+Maybe that's bad because you've been loving it.
+
+03:57.200 --> 03:59.200
+Either way, we'll be wrapping it up.
+
+03:59.200 --> 04:03.200
+Starting off, we're going to talk about free variables again.
+
+04:03.200 --> 04:07.200
+We have three equations that we built out last time.
+
+04:07.200 --> 04:13.200
+I'd like for you guys to give me these two equations.
+
+04:14.200 --> 04:20.200
+What is the free variables of a complex expression LambdaX.E?
+
+04:20.200 --> 04:23.200
+What are the free variables?
+
+04:23.200 --> 04:26.200
+Who can tell me?
+
+04:26.200 --> 04:29.200
+Yeah.
+
+04:29.200 --> 04:36.200
+Yeah. They are the free variables of E minus X.
+
+04:36.200 --> 04:40.200
+We have bound X as one of the non-free variables.
+
+04:40.200 --> 04:42.200
+It's one of the bound variables.
+
+04:42.200 --> 04:50.200
+And then the free variables of a function application E1, E2 are what?
+
+04:50.200 --> 04:53.200
+Yeah.
+
+04:53.200 --> 04:57.200
+It's the union of what?
+
+04:57.200 --> 04:59.200
+Yeah. Definitely.
+
+04:59.200 --> 05:02.200
+So we find out whatever the free variables of E1 are.
+
+05:02.200 --> 05:06.200
+And then union that with whatever the free variables of E2 are.
+
+05:06.200 --> 05:10.200
+This is one set of equations that we care about in LambdaCalc.
+
+05:11.200 --> 05:14.200
+What are the free variables of our space?
+
+05:14.200 --> 05:17.200
+We did have a question on Wednesday saying,
+
+05:17.200 --> 05:19.200
+isn't it all of the variables?
+
+05:19.200 --> 05:21.200
+All variables ever?
+
+05:21.200 --> 05:24.200
+Not necessarily just the free variables of E.
+
+05:24.200 --> 05:30.200
+And to that, I would say a variable is only a variable if it's being used.
+
+05:30.200 --> 05:32.200
+So just for that point.
+
+05:32.200 --> 05:35.200
+Okay.
+
+05:35.200 --> 05:38.200
+This is our second set of equations.
+
+05:38.200 --> 05:42.200
+So our first set of equations, these ones to calculate the free variables.
+
+05:42.200 --> 05:47.200
+Our second set of equations are about how do we actually do substitution?
+
+05:47.200 --> 05:50.200
+How do we do capture avoiding substitution?
+
+05:50.200 --> 05:52.200
+And what do we do with these?
+
+05:52.200 --> 05:58.200
+What is X where X is E?
+
+05:58.200 --> 06:08.200
+How do we reduce the first statement?
+
+06:08.200 --> 06:09.200
+Who's got an answer?
+
+06:09.200 --> 06:11.200
+Yeah. Go for it.
+
+06:11.200 --> 06:12.200
+Just reduces to E.
+
+06:12.200 --> 06:15.200
+We get to do our replacement as you would expect.
+
+06:15.200 --> 06:19.200
+If X is the value 3, when we see X, we replace it with the value 3.
+
+06:19.200 --> 06:21.200
+For example.
+
+06:21.200 --> 06:22.200
+All right.
+
+06:22.200 --> 06:25.200
+Then we have the variable Y where X is equal to E.
+
+06:25.200 --> 06:28.200
+What's this reduced to?
+
+06:28.200 --> 06:34.200
+Who's got an answer?
+
+06:34.200 --> 06:37.200
+Yeah.
+
+06:37.200 --> 06:41.200
+Y if Y is not equal to X.
+
+06:41.200 --> 06:48.200
+So assuming these are two different variables, then we just get to ignore whatever we set X to be.
+
+06:48.200 --> 06:50.200
+Okay.
+
+06:50.200 --> 06:52.200
+What about E1, E2?
+
+06:53.200 --> 06:56.200
+Also known as a function application.
+
+06:56.200 --> 07:00.200
+E1, E2 where X is equal to E.
+
+07:00.200 --> 07:10.200
+How does this reduce?
+
+07:10.200 --> 07:11.200
+Yeah.
+
+07:12.200 --> 07:15.200
+Yeah.
+
+07:15.200 --> 07:19.200
+So we get to say all occurrences of X are replaced with E.
+
+07:19.200 --> 07:27.200
+But a little bit more generically, we say all occurrences of X in E1, we will replace with E.
+
+07:27.200 --> 07:33.200
+Or we'll continue to recursively substitute inside of E1, X is equal to E.
+
+07:33.200 --> 07:40.200
+And we will recursively substitute in E2, X is equal to E.
+
+07:40.200 --> 07:41.200
+All right.
+
+07:41.200 --> 07:44.200
+And then we have our function, our lambda abstraction.
+
+07:44.200 --> 07:48.200
+Lambda X.E1 where X is equal to E.
+
+07:48.200 --> 08:02.200
+What do we do here?
+
+08:02.200 --> 08:04.200
+Yeah.
+
+08:04.200 --> 08:08.200
+Just E1.
+
+08:08.200 --> 08:11.200
+Who agrees?
+
+08:11.200 --> 08:13.200
+So just E1.
+
+08:13.200 --> 08:16.200
+This is, I think, a common point of confusion.
+
+08:16.200 --> 08:22.200
+If I can find my pen.
+
+08:22.200 --> 08:34.200
+There's a meaningful difference here between lambda X.E1 with the state X is equal to E.
+
+08:34.200 --> 08:44.200
+And lambda X.E1 applied to E.
+
+08:44.200 --> 08:52.200
+This is an application, a function application, where this is an expression and this is an expression.
+
+08:52.200 --> 08:56.200
+This is the parameter to this function.
+
+08:56.200 --> 08:59.200
+Here what I'm saying is I have an expression.
+
+08:59.200 --> 09:04.200
+And I have some state that goes along with that expression.
+
+09:04.200 --> 09:16.200
+Where I can say X is equal to E inside of this expression here.
+
+09:16.200 --> 09:22.200
+So these are two different things that we're talking about.
+
+09:22.200 --> 09:25.200
+I'm looking up here.
+
+09:25.200 --> 09:28.200
+What do we do?
+
+09:29.200 --> 09:42.200
+You already got one.
+
+09:42.200 --> 09:47.200
+Yeah.
+
+09:47.200 --> 09:56.200
+E1 where X is evaluated to E.
+
+09:56.200 --> 10:05.200
+E1 where X is equal to E.
+
+10:05.200 --> 10:10.200
+What we've done here is we've lost this lambda.
+
+10:10.200 --> 10:16.200
+We aren't doing a function application in this expression here.
+
+10:16.200 --> 10:18.200
+There's no function application.
+
+10:18.200 --> 10:21.200
+So we should end up with a function at the end.
+
+10:21.200 --> 10:26.200
+We don't want to substitute in any value into this function.
+
+10:26.200 --> 10:29.200
+Because that's not what we're doing at this point.
+
+10:29.200 --> 10:35.200
+This here is what we would get if we had said, if I had kept the original thing.
+
+10:35.200 --> 10:37.200
+I don't know why I erased it.
+
+10:37.200 --> 10:49.200
+If we kept lambda X.E1, E, this would simplify to E1 where X is equal to E.
+
+10:49.200 --> 10:51.200
+This is our function application.
+
+10:51.200 --> 10:54.200
+E is a parameter to this function.
+
+10:54.200 --> 10:59.200
+So X is equal to E. And we get E1 where X is equal to E.
+
+10:59.200 --> 11:01.200
+Up here, we have an expression.
+
+11:01.200 --> 11:05.200
+And we have state that's going along with it.
+
+11:05.200 --> 11:06.200
+Yeah.
+
+11:06.200 --> 11:09.200
+Right.
+
+11:09.200 --> 11:16.200
+So when we are doing this step here, what we get to do is we get to actually drop our state entirely,
+
+11:16.200 --> 11:21.200
+like you've said, and get just lambda X.E1 out of it.
+
+11:21.200 --> 11:27.200
+Yeah, question.
+
+11:27.200 --> 11:29.200
+That's precisely correct.
+
+11:29.200 --> 11:32.200
+So this X is from an outer statement.
+
+11:32.200 --> 11:36.200
+It's a different X than this X.
+
+11:36.200 --> 11:46.200
+So one way that I personally look at this here, when I see that, I go backwards.
+
+11:46.200 --> 11:50.200
+And I say, how did we get here?
+
+11:50.200 --> 11:57.200
+We got here by having a lambda X.E.
+
+11:57.200 --> 11:59.200
+This is our inner expression.
+
+11:59.200 --> 12:02.200
+This corresponds to this piece.
+
+12:02.200 --> 12:03.200
+E1, sorry.
+
+12:03.200 --> 12:08.200
+And then we had an X, or that's an E.
+
+12:08.200 --> 12:20.200
+An E as a parameter to this outer function where we have X as our parameter name.
+
+12:20.200 --> 12:28.200
+So we can go backwards from this starting point to get to what it might have looked like before.
+
+12:29.200 --> 12:30.200
+Maybe it looked like this.
+
+12:30.200 --> 12:33.200
+Maybe it was more complicated.
+
+12:33.200 --> 12:44.200
+But if we simplify this line here, we would get to this point.
+
+12:44.200 --> 12:48.200
+OK.
+
+12:48.200 --> 12:49.200
+Other questions on this one?
+
+12:49.200 --> 12:51.200
+Because it definitely can be confusing.
+
+12:51.200 --> 12:52.200
+Yeah.
+
+12:52.200 --> 13:20.200
+So it can't be E1 and then E. What do you mean by that?
+
+13:20.200 --> 13:21.200
+Right.
+
+13:21.200 --> 13:34.200
+So why we can't say that this piece here becomes E1 where X is equal to E, or something of this sort, is because this isn't an application.
+
+13:34.200 --> 13:38.200
+We aren't making a function call here.
+
+13:38.200 --> 13:42.200
+We have an expression, and we have state that goes along with it.
+
+13:42.200 --> 13:53.200
+Any time you see square brackets in lambda calculus, we're talking about the state of our kind of world, of our program.
+
+13:53.200 --> 13:57.200
+Parentheses and all of this side, that's all the expression.
+
+13:57.200 --> 14:00.200
+That's the math that we're actually trying to solve.
+
+14:00.200 --> 14:03.200
+This is the accompanying state.
+
+14:03.200 --> 14:05.200
+It's not part of the expression.
+
+14:05.200 --> 14:08.200
+It's not something that we're going to ever substitute in.
+
+14:08.200 --> 14:11.200
+It's just saying this variable is equal to that.
+
+14:11.200 --> 14:17.200
+This variable is equal to that.
+
+14:17.200 --> 14:18.200
+Yeah.
+
+14:18.200 --> 14:22.200
+So basically, that's a bound variable, right?
+
+14:22.200 --> 14:23.200
+X.
+
+14:23.200 --> 14:28.200
+So wouldn't it be more comfortable for reading?
+
+14:28.200 --> 14:30.200
+We could, but we don't need to.
+
+14:30.200 --> 14:31.200
+Yeah.
+
+14:31.200 --> 14:44.200
+Yeah, so we could kind of accumulate as much state as we want.
+
+14:44.200 --> 14:50.200
+We could say X is equal to E, and then we'll replace this one with a Z so that eventually,
+
+14:50.200 --> 14:52.200
+we never rewrite this X.
+
+14:52.200 --> 14:53.200
+We never overwrite it.
+
+14:53.200 --> 14:55.200
+We could do that, but we don't need to.
+
+14:55.200 --> 14:56.200
+Yeah.
+
+14:57.200 --> 15:04.200
+So this next problem is basically the same sort of similar to this problem?
+
+15:04.200 --> 15:05.200
+Yes.
+
+15:05.200 --> 15:08.200
+So now, let's move on to this next one.
+
+15:08.200 --> 15:15.200
+Lambda Y dot E1, where X is equal to E2.
+
+15:15.200 --> 15:20.200
+How do we simplify this?
+
+15:20.200 --> 15:31.200
+First of all, what happens if Y is equal to X?
+
+15:31.200 --> 15:34.200
+Yeah.
+
+15:34.200 --> 15:39.200
+Right, if Y is equal to X, then we just use this rule.
+
+15:39.200 --> 15:41.200
+And we say, OK, Y is equal to X.
+
+15:41.200 --> 15:46.200
+Then we drop this state, and we'll get lambda X dot E1.
+
+15:46.200 --> 15:49.200
+So we can assume Y is not equal to X.
+
+15:49.200 --> 15:53.200
+Y is a different variable than X.
+
+15:53.200 --> 16:18.200
+What do we want to do now?
+
+16:19.200 --> 16:22.200
+Yeah, go for it.
+
+16:22.200 --> 16:23.200
+Drop the state.
+
+16:23.200 --> 16:25.200
+Well, not necessarily.
+
+16:25.200 --> 16:27.200
+What if E1 uses X?
+
+16:27.200 --> 16:33.200
+So I think let's actually take a second and look at what this would look like in JavaScript.
+
+16:33.200 --> 16:39.200
+You can turn this guy around.
+
+16:40.200 --> 16:50.200
+If I have a function that returns Y plus X, so there's a function in JavaScript.
+
+16:50.200 --> 16:51.200
+It takes in a parameter Y.
+
+16:51.200 --> 16:55.200
+It returns Y plus X.
+
+16:55.200 --> 17:06.200
+What if I have the state let X equal 3?
+
+17:06.200 --> 17:25.200
+What do I do to simplify my function here?
+
+17:25.200 --> 17:31.200
+Go for it.
+
+17:31.200 --> 17:34.200
+We can apply the state recursively to the expression.
+
+17:34.200 --> 17:37.200
+I love that answer for this generic thing.
+
+17:37.200 --> 17:40.200
+Yeah, yeah.
+
+17:40.200 --> 17:42.200
+So that is exactly how I would phrase it.
+
+17:42.200 --> 17:44.200
+I agree.
+
+17:44.200 --> 17:52.200
+In this example, what does that look like?
+
+17:52.200 --> 17:55.200
+Yeah.
+
+17:55.200 --> 17:58.200
+We can replace the X in our function with 3.
+
+17:59.200 --> 18:05.200
+So we can simplify our function to be this.
+
+18:05.200 --> 18:14.200
+Because we know the value of X, and we're using that variable X.
+
+18:14.200 --> 18:39.200
+So I want to argue that this example here is going to be identical to lambda Y dot Y plus X, where X is equal to 3.
+
+18:39.200 --> 18:42.200
+Here, what I have is a function that takes a parameter Y.
+
+18:42.200 --> 18:44.200
+It returns Y plus X.
+
+18:44.200 --> 18:50.200
+And I have some state that is telling me that X is equal to 3.
+
+18:50.200 --> 18:59.200
+This expression is equivalent to the JavaScript expression that I just showed you.
+
+18:59.200 --> 19:08.200
+So what we want to do is we have lambda Y dot E1, where E1 is Y plus X.
+
+19:09.200 --> 19:17.200
+And we have some state that X is equal to E2, where E2 is 3.
+
+19:17.200 --> 19:28.200
+Our goal is to get to lambda Y dot Y plus 3.
+
+19:28.200 --> 19:43.200
+And the way we do that is, as your classmate said, we recursively apply our substitution of X is equal to E2 inside of E1.
+
+19:43.200 --> 19:52.200
+So what that looks like is that we have lambda Y dot E1 with no parentheses, where X is equal to E2.
+
+19:52.200 --> 19:56.200
+So long as Y is not equal to X, which we already covered.
+
+19:56.200 --> 20:12.200
+And so long as Y is not in the free variables of E2.
+
+20:12.200 --> 20:16.200
+That's a confusing line of math code.
+
+20:16.200 --> 20:21.200
+And it might take multiple times staring at it to figure it out.
+
+20:21.200 --> 20:22.200
+And that's OK.
+
+20:22.200 --> 20:30.200
+That's expected.
+
+20:30.200 --> 20:33.200
+Questions on it at this point?
+
+20:33.200 --> 20:34.200
+Yeah?
+
+20:35.200 --> 20:45.200
+Well, because if Y is equal to X, we have a different rule for that, where we say just drop the state entirely.
+
+20:45.200 --> 20:48.200
+So we have that part covered somewhere else.
+
+20:48.200 --> 20:50.200
+Yeah?
+
+20:50.200 --> 20:53.200
+Other questions?
+
+20:53.200 --> 21:08.200
+Well, no, because if Y is equal to X, then we have that.
+
+21:08.200 --> 21:15.200
+So you would just, it's kind of like a, consider it like a case statement, where you're matching on these patterns.
+
+21:15.200 --> 21:16.200
+If it's this, do that.
+
+21:16.200 --> 21:17.200
+If it's this, do that.
+
+21:17.200 --> 21:18.200
+If it's this, do that.
+
+21:18.200 --> 21:24.200
+So maybe you could say this is redundant, because we've previously checked that Y is not equal to X.
+
+21:24.200 --> 21:41.200
+That's not too important to us.
+
+21:41.200 --> 21:48.200
+Yeah, so why don't we have this same check for this second-to-last expression?
+
+21:48.200 --> 21:51.200
+The reason is because we're entirely dropping the state.
+
+21:51.200 --> 21:57.200
+So we're never going to accidentally capture by substituting in E2.
+
+21:57.200 --> 21:59.200
+E2 is just kind of erased.
+
+21:59.200 --> 22:02.200
+Or E, in this case, is just erased.
+
+22:02.200 --> 22:04.200
+Yeah?
+
+22:04.200 --> 22:09.200
+Yeah?
+
+22:09.200 --> 22:10.200
+Ah, no, these are rules.
+
+22:10.200 --> 22:12.200
+Yes, yeah, good question.
+
+22:12.200 --> 22:15.200
+These are rules, not examples.
+
+22:15.200 --> 22:28.200
+This is the entire rule description of how we do substitution in lambda calculus.
+
+22:28.200 --> 22:30.200
+If it was or wasn't?
+
+22:30.200 --> 22:31.200
+If it was, yeah.
+
+22:31.200 --> 22:42.200
+So what if X is equal to, let's say, 3 plus Y?
+
+22:42.200 --> 22:50.200
+So now we have a complicated expression for X.
+
+22:51.200 --> 22:58.200
+If we perform the substitution without caring about the fact that, well, actually, first,
+
+22:58.200 --> 23:03.200
+is this Y free or is it bound?
+
+23:03.200 --> 23:04.200
+This is a free Y.
+
+23:04.200 --> 23:08.200
+This is a different Y than this Y.
+
+23:08.200 --> 23:10.200
+These two are the same Y.
+
+23:10.200 --> 23:11.200
+That's a different Y.
+
+23:11.200 --> 23:12.200
+This is a free Y.
+
+23:12.200 --> 23:15.200
+These are bound.
+
+23:15.200 --> 23:22.200
+So if we do our substitution without checking the free variables, then what we would get
+
+23:22.200 --> 23:30.200
+is we would get Y plus X, where X is 3 plus Y.
+
+23:30.200 --> 23:38.200
+And now when we look at this expression, which of these Y's is free?
+
+23:38.200 --> 23:39.200
+None of them.
+
+23:39.200 --> 23:40.200
+They're all bound.
+
+23:40.200 --> 23:43.200
+Or they're both bound to this Y.
+
+23:43.200 --> 23:47.200
+We've lost that free variable.
+
+23:47.200 --> 23:50.200
+And you can see this in JavaScript as well.
+
+23:56.200 --> 24:05.200
+If we said that X is equal to Y plus 3, this Y here is different than this Y, very clearly.
+
+24:05.200 --> 24:10.200
+We would have to have said somewhere else, let Y equal 7 or whatever we want.
+
+24:10.200 --> 24:18.200
+But if we tried to do the substitution that we did here and we said that it's instead equal to Y plus 3,
+
+24:18.200 --> 24:22.200
+now we've run into that same problem that we saw with lambda calculus.
+
+24:22.200 --> 24:27.200
+This Y is the same as this Y, even though it wasn't the same previously.
+
+24:32.200 --> 24:35.200
+So that's why we do this check.
+
+24:35.200 --> 24:40.200
+If we didn't, we would capture variables around us.
+
+24:44.200 --> 24:45.200
+Yeah, question.
+
+24:59.200 --> 25:03.200
+Yeah, no, we don't need to because it's being overwritten.
+
+25:03.200 --> 25:09.200
+So it's kind of what we can show this example as well with JavaScript,
+
+25:09.200 --> 25:13.200
+where we can say, let Y equal 3.
+
+25:13.200 --> 25:19.200
+And now we have a function with the parameter name Y goes to Y plus X.
+
+25:19.200 --> 25:26.200
+Inside of this function expression, we don't care that Y was previously equal to 3.
+
+25:26.200 --> 25:29.200
+We have shadowed that with our parameter name.
+
+25:30.200 --> 25:37.200
+So we get to ignore this previous state when we are evaluating this expression.
+
+25:39.200 --> 25:42.200
+That's what the second to last one is saying.
+
+25:42.200 --> 25:43.200
+Yeah.
+
+25:49.200 --> 25:52.200
+Does this make things more clear, seeing it with JavaScript?
+
+25:52.200 --> 25:54.200
+Is this a...
+
+25:54.200 --> 25:55.200
+OK, I'm seeing a lot of nods.
+
+25:55.200 --> 25:57.200
+That's good.
+
+25:57.200 --> 26:02.200
+Because I felt like Wednesday's lecture wasn't quite getting there.
+
+26:02.200 --> 26:05.200
+So, all right.
+
+26:05.200 --> 26:08.200
+At this point, we've covered the basics of LambdaCalc.
+
+26:08.200 --> 26:10.200
+That's everything.
+
+26:10.200 --> 26:11.200
+We have free variables.
+
+26:11.200 --> 26:13.200
+We have substitution.
+
+26:13.200 --> 26:14.200
+Great.
+
+26:14.200 --> 26:15.200
+Now, what can we do with it?
+
+26:15.200 --> 26:19.200
+Why did I spend two and a half lectures talking about all of this?
+
+26:21.200 --> 26:24.200
+Well, I guess, so first of all, the kind of specifics,
+
+26:24.200 --> 26:27.200
+we have the ability to do alpha renaming.
+
+26:27.200 --> 26:30.200
+Beta reduction is what we just defined.
+
+26:30.200 --> 26:33.200
+And then we have this last one, eta conversion,
+
+26:33.200 --> 26:36.200
+which is definitely the kind of like weird one.
+
+26:39.200 --> 26:44.200
+The way I think of it is, once again, with JavaScript,
+
+26:46.200 --> 26:51.200
+that if we have a function that takes in a variable X
+
+26:51.200 --> 26:54.200
+and it calls f of X,
+
+26:56.200 --> 26:59.200
+so if I have a function that looks like this,
+
+26:59.200 --> 27:02.200
+why didn't I just use f?
+
+27:06.200 --> 27:10.200
+Because all that I did was create a wrapper around my function f
+
+27:10.200 --> 27:13.200
+that took one parameter and passed it right into f.
+
+27:13.200 --> 27:17.200
+And I could have instead just used f.
+
+27:17.200 --> 27:20.200
+These are equivalent.
+
+27:20.200 --> 27:23.200
+That's exactly what the eta conversion is saying.
+
+27:23.200 --> 27:30.200
+That if we have a function that takes a single parameter
+
+27:30.200 --> 27:33.200
+and it has some complicated expression,
+
+27:33.200 --> 27:36.200
+but all that's happening is it takes in one parameter
+
+27:36.200 --> 27:39.200
+and passes it along to that expression,
+
+27:39.200 --> 27:45.200
+we can simplify that to the expression itself.
+
+27:46.200 --> 27:51.200
+This is not a huge thing to worry about.
+
+27:51.200 --> 27:56.200
+It's minorly convenient in some cases.
+
+27:56.200 --> 27:59.200
+So if it doesn't make full sense, that's fine.
+
+27:59.200 --> 28:03.200
+I would recommend just trying to play around with it a little bit,
+
+28:03.200 --> 28:06.200
+and that'll probably help.
+
+28:06.200 --> 28:09.200
+Okay.
+
+28:09.200 --> 28:12.200
+We did this example forever ago.
+
+28:12.200 --> 28:14.200
+Well, we can...
+
+28:14.200 --> 28:16.200
+Yeah, we can look at it again.
+
+28:16.200 --> 28:18.200
+So when we did this example before,
+
+28:18.200 --> 28:23.200
+what we found was that the A in the A plus 5
+
+28:23.200 --> 28:26.200
+went in for the X,
+
+28:26.200 --> 28:28.200
+and then we got into this problem
+
+28:28.200 --> 28:35.200
+where the A outside that's free was captured by the A inside.
+
+28:35.200 --> 28:39.200
+So what should we have done?
+
+28:43.200 --> 28:45.200
+What's our first step?
+
+28:45.200 --> 28:48.200
+Who knows?
+
+28:48.200 --> 28:51.200
+I heard it from someone.
+
+28:51.200 --> 28:53.200
+Raise your hand.
+
+28:53.200 --> 28:54.200
+Who was it?
+
+28:54.200 --> 28:56.200
+Yeah.
+
+28:56.200 --> 28:58.200
+We'll do an alpha rename.
+
+28:58.200 --> 29:01.200
+Yeah, an alpha rename of what?
+
+29:01.200 --> 29:03.200
+Exactly.
+
+29:03.200 --> 29:05.200
+We'll do an inner A,
+
+29:05.200 --> 29:07.200
+and we'll name it something else.
+
+29:07.200 --> 29:09.200
+In this case, I've called it B.
+
+29:09.200 --> 29:13.200
+So we just rename that inner A to be a B.
+
+29:13.200 --> 29:16.200
+Then we can do our substitution like normal,
+
+29:16.200 --> 29:20.200
+and we can pass in A plus 5 for X,
+
+29:20.200 --> 29:23.200
+and we can continue to beta substitute with the 7,
+
+29:23.200 --> 29:30.200
+and we'll end up with A plus 12.
+
+29:30.200 --> 29:37.200
+So that's what we should have done earlier.
+
+29:37.200 --> 29:38.200
+Okay.
+
+29:38.200 --> 29:41.200
+There's some more for the ones that,
+
+29:41.200 --> 29:45.200
+if you want to do them at home, feel free to.
+
+29:45.200 --> 29:50.200
+But that covers formal substitution,
+
+29:50.200 --> 29:53.200
+which leaves us with the fun part of LambdaCalc,
+
+29:53.200 --> 29:56.200
+why we actually talk about it.
+
+29:56.200 --> 29:58.200
+Well, one of the reasons that we actually talk about it
+
+29:58.200 --> 30:03.200
+is that we can use it to show off language paradigms.
+
+30:03.200 --> 30:16.200
+For example, evaluation order.
+
+30:16.200 --> 30:21.200
+This is a question for you guys.
+
+30:21.200 --> 30:36.200
+What should we reduce first in this expression?
+
+30:36.200 --> 30:39.200
+Yeah.
+
+30:39.200 --> 30:41.200
+What's that?
+
+30:41.200 --> 30:42.200
+The inner term.
+
+30:42.200 --> 30:43.200
+A.
+
+30:43.200 --> 30:45.200
+Who votes for A?
+
+30:45.200 --> 30:49.200
+Who votes for B?
+
+30:50.200 --> 30:52.200
+Like, mostly you guys didn't vote.
+
+30:52.200 --> 30:57.200
+It was like a lot of left-hand side voted for A.
+
+30:57.200 --> 30:59.200
+What's the reason?
+
+30:59.200 --> 31:01.200
+Somebody who voted,
+
+31:01.200 --> 31:08.200
+what's your reason for making the choice that you made?
+
+31:08.200 --> 31:10.200
+Did you want a third choice?
+
+31:10.200 --> 31:13.200
+Who wanted a third choice?
+
+31:13.200 --> 31:17.200
+Okay, a decent number of people wanted a third choice.
+
+31:17.200 --> 31:22.200
+Somebody back up your claim, whether it's A, B, or C.
+
+31:22.200 --> 31:30.200
+Why?
+
+31:30.200 --> 31:43.200
+Yeah.
+
+31:43.200 --> 31:44.200
+Yeah, sure.
+
+31:44.200 --> 31:47.200
+So one thing that we can do is we can actually solve it.
+
+31:47.200 --> 31:50.200
+If we take the first approach, the inner term,
+
+31:50.200 --> 31:53.200
+we pass z in for y.
+
+31:53.200 --> 31:55.200
+That reduces to z.
+
+31:55.200 --> 31:57.200
+Then we pass that into lambda x dot x,
+
+31:57.200 --> 31:59.200
+so that reduces to z.
+
+31:59.200 --> 32:01.200
+If we do it the other way,
+
+32:01.200 --> 32:05.200
+we'll pass lambda y dot yz into x,
+
+32:05.200 --> 32:07.200
+which gives us lambda y dot yz,
+
+32:07.200 --> 32:10.200
+which, when we reduce that one, also gives us z.
+
+32:10.200 --> 32:13.200
+They gave us the same thing either way.
+
+32:13.200 --> 32:18.200
+So does that mean that it doesn't matter?
+
+32:18.200 --> 32:20.200
+I'm seeing some nods.
+
+32:20.200 --> 32:21.200
+Yeah, I'm with you.
+
+32:21.200 --> 32:22.200
+It doesn't matter.
+
+32:22.200 --> 32:24.200
+They both reduce to z.
+
+32:24.200 --> 32:25.200
+We got the same thing.
+
+32:25.200 --> 32:30.200
+This is formally proved that all expressions
+
+32:30.200 --> 32:33.200
+will reduce to the same thing
+
+32:33.200 --> 32:42.200
+so long as they reduce to the same thing.
+
+32:43.200 --> 32:47.200
+More formally, if you reduce to a normal form,
+
+32:47.200 --> 32:57.200
+it doesn't matter what order you do your reductions in.
+
+32:57.200 --> 32:58.200
+Okay.
+
+32:58.200 --> 33:03.200
+So does that mean the reduction order doesn't matter?
+
+33:03.200 --> 33:04.200
+Yeah.
+
+33:04.200 --> 33:15.200
+All right.
+
+33:15.200 --> 33:18.200
+We have a vote for no.
+
+33:18.200 --> 33:20.200
+Anybody else vote for no?
+
+33:20.200 --> 33:21.200
+Oh, wait.
+
+33:21.200 --> 33:22.200
+That was a...
+
+33:22.200 --> 33:24.200
+Does it mean the reduction order...
+
+33:24.200 --> 33:27.200
+That was a vote for yes, it does matter.
+
+33:27.200 --> 33:31.200
+Who else votes for yes, it does matter?
+
+33:31.200 --> 33:34.200
+Who votes for no, it doesn't matter?
+
+33:34.200 --> 33:36.200
+Okay, we actually have a little bit of split.
+
+33:36.200 --> 33:38.200
+I do want you...
+
+33:38.200 --> 33:40.200
+I'll give you the answer.
+
+33:40.200 --> 33:41.200
+It does matter.
+
+33:41.200 --> 33:44.200
+No, it doesn't not matter.
+
+33:44.200 --> 33:45.200
+I don't know.
+
+33:45.200 --> 33:47.200
+It does matter.
+
+33:47.200 --> 33:48.200
+Why?
+
+33:48.200 --> 33:49.200
+You have an idea.
+
+33:49.200 --> 33:51.200
+Chat with the people next to you.
+
+33:51.200 --> 33:55.200
+Try and come up with a program that it does matter for,
+
+33:55.200 --> 33:58.200
+where you get a different result
+
+33:58.200 --> 34:02.200
+depending on how you evaluate your code.
+
+34:02.200 --> 34:03.200
+Chat with the people next to you.
+
+34:03.200 --> 34:18.200
+I'll give you like two or three minutes.
+
+34:18.200 --> 34:20.200
+I'm sorry to cut you off.
+
+34:20.200 --> 34:22.200
+You clearly have the right idea.
+
+34:22.200 --> 34:25.200
+I know the one, I just can't remember the exact formula.
+
+34:25.200 --> 34:27.200
+It's like the Y combinator.
+
+34:27.200 --> 34:28.200
+Yep, that's one.
+
+34:28.200 --> 34:31.200
+Yep, we'll cover those in a minute though.
+
+34:57.200 --> 35:10.200
+Okay, quieted down a bit.
+
+35:10.200 --> 35:12.200
+Does anybody have a good program?
+
+35:12.200 --> 35:22.200
+Something they want to try out?
+
+35:22.200 --> 35:24.200
+Who's got an idea?
+
+35:24.200 --> 35:26.200
+What can we try?
+
+35:26.200 --> 35:35.200
+For a program where it matters, what order are we going?
+
+35:35.200 --> 35:53.200
+You were pretty chatty 30 seconds ago.
+
+35:54.200 --> 36:08.200
+Something like that?
+
+36:08.200 --> 36:12.200
+Okay, how does evaluation order matter here?
+
+36:12.200 --> 36:28.200
+Ah, so let's, we're going to do proper substitution.
+
+36:28.200 --> 36:31.200
+So we will rename anything that we're supposed to rename.
+
+36:31.200 --> 36:34.200
+But definitely true that if we aren't doing proper substitution,
+
+36:35.200 --> 36:45.200
+we could get different results one way or the other.
+
+36:45.200 --> 36:49.200
+Any other ideas?
+
+36:49.200 --> 36:50.200
+Yeah.
+
+36:50.200 --> 37:06.200
+Yep.
+
+37:06.200 --> 37:10.200
+Yeah, so I like where you're starting here.
+
+37:10.200 --> 37:14.200
+The theorem there says, if you reduce to a normal form.
+
+37:14.200 --> 37:18.200
+So our goal is going to be trying to construct a function
+
+37:18.200 --> 37:21.200
+which is not reduced to a normal form.
+
+37:21.200 --> 37:23.200
+Not quite sure what you mean by the input-output though.
+
+37:23.200 --> 37:36.200
+What's, like, where they're independent?
+
+37:36.200 --> 37:38.200
+Won't that do what you're saying?
+
+37:38.200 --> 37:41.200
+But this actually is a normal form.
+
+37:41.200 --> 37:44.200
+Okay, so I think it's, to be honest,
+
+37:44.200 --> 37:47.200
+I wasn't fully expecting anyone to come up with an answer.
+
+37:47.200 --> 37:49.200
+But it's because it's kind of mind-boggling
+
+37:49.200 --> 37:52.200
+how you could come up with something
+
+37:52.200 --> 37:55.200
+that doesn't reduce to a normal form.
+
+37:55.200 --> 38:00.200
+So let's chat about a program that does this.
+
+38:00.200 --> 38:03.200
+The program is called Omega.
+
+38:03.200 --> 38:08.200
+And Omega is defined as an application of two expressions.
+
+38:08.200 --> 38:12.200
+You have the left-hand side, lambda x dot xx.
+
+38:12.200 --> 38:17.200
+And the right-hand side, lambda x dot xx.
+
+38:17.200 --> 38:28.200
+So what would be our first step in reducing this?
+
+38:28.200 --> 38:31.200
+Yeah.
+
+38:31.200 --> 38:33.200
+Sure, let's do an alpha rename.
+
+38:33.200 --> 38:39.200
+So we have lambda x, xx.
+
+38:39.200 --> 38:41.200
+What do you want to rename?
+
+38:41.200 --> 38:45.200
+I would basically give, I would number them 1, 2, 4.
+
+38:45.200 --> 38:48.200
+Ah, 1, 2, 3, 4.
+
+38:48.200 --> 38:49.200
+Yes.
+
+38:49.200 --> 38:54.200
+Can we do that?
+
+38:54.200 --> 38:58.200
+Which x is this bound by?
+
+38:58.200 --> 38:59.200
+The first x.
+
+38:59.200 --> 39:00.200
+The first x.
+
+39:00.200 --> 39:01.200
+Which x is this bound by?
+
+39:01.200 --> 39:02.200
+The first.
+
+39:02.200 --> 39:03.200
+Also the first one.
+
+39:03.200 --> 39:05.200
+So are these two x's the same?
+
+39:05.200 --> 39:06.200
+Yes.
+
+39:06.200 --> 39:07.200
+Yes.
+
+39:07.200 --> 39:11.200
+So we could rename these, but they have to be called the same thing.
+
+39:11.200 --> 39:12.200
+Yeah.
+
+39:12.200 --> 39:15.200
+So we could call this one x1, x1, x1.
+
+39:15.200 --> 39:18.200
+This one x2, x2, x2.
+
+39:18.200 --> 39:19.200
+Sure.
+
+39:19.200 --> 39:31.200
+Now what do we want to do?
+
+39:31.200 --> 39:32.200
+Beta reduce.
+
+39:32.200 --> 39:46.200
+What does beta look like?
+
+39:46.200 --> 39:52.200
+Yeah, so x1 is the parameter name where x1 is equal to this whole thing.
+
+39:52.200 --> 39:55.200
+So we will get x1, x1.
+
+39:55.200 --> 39:58.200
+That's our inner expression.
+
+39:59.200 --> 40:09.200
+x1 is equal to lambda x2 dot x2 x2.
+
+40:09.200 --> 40:23.200
+How do we simplify this?
+
+40:23.200 --> 40:24.200
+Yeah.
+
+40:24.200 --> 40:25.200
+Go back to where we started?
+
+40:25.200 --> 40:27.200
+We go back to where we started.
+
+40:27.200 --> 40:33.200
+Because x1 and x1 become lambda x2 dot x2 x2.
+
+40:33.200 --> 40:37.200
+Which we're back to the alpha renaming step again.
+
+40:37.200 --> 40:42.200
+Exactly.
+
+40:42.200 --> 40:52.200
+So if we replace this x1 with what x1 is, and we replace that x1 with what x1 is, what we end up with is this expression here.
+
+40:52.200 --> 41:03.200
+Which if we alpha rename, removing these numbers, is lambda x dot xx applied to lambda x dot xx.
+
+41:03.200 --> 41:09.200
+Which is precisely where we started.
+
+41:09.200 --> 41:17.200
+So if we simplify this, we end up back at omega.
+
+41:17.200 --> 41:20.200
+That means omega has no normal form.
+
+41:20.200 --> 41:29.200
+If you can beta reduce it as much as you want, you'll never end up done.
+
+41:29.200 --> 41:37.200
+So when we return to this question of does evaluation order matter, what if we had a function that ignores the input?
+
+41:37.200 --> 41:40.200
+And this is kind of what you were getting at, I feel like.
+
+41:40.200 --> 41:43.200
+Where we can just toss away the input.
+
+41:43.200 --> 41:45.200
+Lambda x dot y.
+
+41:45.200 --> 41:52.200
+What happens if we have lambda x dot y where the parameter is omega?
+
+41:52.200 --> 41:59.200
+What options do we have for reducing this expression here?
+
+42:00.200 --> 42:18.200
+What's one option that we have?
+
+42:18.200 --> 42:23.200
+Yeah.
+
+42:23.200 --> 42:29.200
+We could pass omega in for x and then return the result, which is y.
+
+42:29.200 --> 42:30.200
+We know the value.
+
+42:30.200 --> 42:31.200
+We're done.
+
+42:31.200 --> 42:33.200
+Y is the result.
+
+42:33.200 --> 42:36.200
+So we could return y.
+
+42:36.200 --> 42:38.200
+What else could we do?
+
+42:38.200 --> 42:40.200
+What's a different way of simplifying this problem?
+
+42:40.200 --> 42:44.200
+Yeah.
+
+42:44.200 --> 42:45.200
+Right.
+
+42:45.200 --> 42:46.200
+We could try and reduce omega.
+
+42:46.200 --> 42:49.200
+We could take a beta reduction on omega.
+
+42:49.200 --> 42:55.200
+What would that look like?
+
+42:55.200 --> 42:57.200
+We'll get the same thing.
+
+42:57.200 --> 43:01.200
+Reducing omega gives you omega back.
+
+43:01.200 --> 43:04.200
+OK, so now we're here.
+
+43:04.200 --> 43:09.200
+What could we do?
+
+43:09.200 --> 43:12.200
+What options do we have?
+
+43:12.200 --> 43:14.200
+The same thing.
+
+43:14.200 --> 43:21.200
+Once again, return y by passing omega in for x, and then ignoring x and returning y.
+
+43:21.200 --> 43:25.200
+Or we could try and reduce it again, and again, and again, and again.
+
+43:25.200 --> 43:27.200
+At each stage, we have a choice to make.
+
+43:27.200 --> 43:33.200
+If you're familiar with non-determinism in Turing machines, this might look pretty familiar.
+
+43:33.200 --> 43:41.200
+Where it's like we could take that jump, or we could just stay where we are and kind of sit doing nothing with our epsilon.
+
+43:42.200 --> 43:47.200
+So, does it matter?
+
+43:47.200 --> 43:48.200
+Yes.
+
+43:48.200 --> 43:51.200
+Does it not matter?
+
+43:51.200 --> 43:52.200
+No.
+
+43:52.200 --> 43:54.200
+It does matter.
+
+43:54.200 --> 43:56.200
+But it only matters sometimes.
+
+43:56.200 --> 44:00.200
+And most of the time, we can say whatever.
+
+44:00.200 --> 44:04.200
+Sometimes, in lambda calc, we have to be pretty precise.
+
+44:04.200 --> 44:07.200
+So we can come up with a few different strategies.
+
+44:08.200 --> 44:12.200
+The first of which is called call by value.
+
+44:12.200 --> 44:17.200
+This is JavaScript's and most languages' approach.
+
+44:17.200 --> 44:22.200
+Where we have a function application, E1, E2.
+
+44:22.200 --> 44:26.200
+What we will do is first reduce the function.
+
+44:26.200 --> 44:29.200
+Then reduce the arguments.
+
+44:29.200 --> 44:31.200
+Then apply.
+
+44:31.200 --> 44:42.200
+So, any time you're doing a function application, you simplify both sides before applying the actual function call.
+
+44:42.200 --> 44:51.200
+We can think of this as...
+
+44:51.200 --> 45:00.200
+If we have JavaScript goes to X plus 3, whatever.
+
+45:00.200 --> 45:02.200
+So, we have some function.
+
+45:02.200 --> 45:07.200
+And we're going to call it with 3 plus 4.
+
+45:07.200 --> 45:11.200
+We will simplify our function, which we can't do.
+
+45:11.200 --> 45:13.200
+There's no simplification to be made.
+
+45:13.200 --> 45:15.200
+Then we simplify the arguments.
+
+45:15.200 --> 45:18.200
+And we figure out that this is 7.
+
+45:18.200 --> 45:23.200
+Then we pass 7 in for X.
+
+45:23.200 --> 45:29.200
+We could instead pass the expression 3 plus 4 in for X.
+
+45:29.200 --> 45:31.200
+We would get the same thing here.
+
+45:31.200 --> 45:33.200
+But that's a different route that we could take.
+
+45:33.200 --> 45:36.200
+JavaScript says reduce the arguments.
+
+45:36.200 --> 45:38.200
+Then apply.
+
+45:38.200 --> 45:41.200
+So, if we...
+
+45:41.200 --> 45:44.200
+You know, like, following that, we simplify the red.
+
+45:44.200 --> 45:46.200
+Then we simplify the blue.
+
+45:46.200 --> 45:51.200
+Then we apply the thing.
+
+45:51.200 --> 45:54.200
+So, if we look at this JavaScript function.
+
+45:55.200 --> 45:59.200
+X goes to 33 with this parameter as input.
+
+45:59.200 --> 46:07.200
+What are we going to get as our result?
+
+46:07.200 --> 46:19.200
+You have to turn on your visual debugger.
+
+46:19.200 --> 46:25.200
+What do we get?
+
+46:25.200 --> 46:28.200
+Who's got an idea?
+
+46:28.200 --> 46:29.200
+One person.
+
+46:29.200 --> 46:31.200
+Chat with somebody next to you.
+
+46:31.200 --> 46:32.200
+Figure out.
+
+46:32.200 --> 46:42.200
+What does this give us?
+
+47:03.200 --> 47:09.200
+How many of you said this?
+
+47:09.200 --> 47:13.200
+Range error maximum call stack exceeded.
+
+47:13.200 --> 47:14.200
+Why?
+
+47:14.200 --> 47:16.200
+What happened here?
+
+47:16.200 --> 47:18.200
+Where did we go wrong?
+
+47:18.200 --> 47:24.200
+Yeah?
+
+47:24.200 --> 47:25.200
+Exactly.
+
+47:25.200 --> 47:26.200
+No, no, no.
+
+47:26.200 --> 47:30.200
+So, we're trying to reduce the right-hand side value in blue.
+
+47:30.200 --> 47:32.200
+And this is a recursive function.
+
+47:32.200 --> 47:36.200
+What is this function?
+
+47:36.200 --> 47:38.200
+What's another name for the blue part?
+
+47:38.200 --> 47:39.200
+Yeah.
+
+47:39.200 --> 47:41.200
+Omega.
+
+47:41.200 --> 47:43.200
+That's what we just saw.
+
+47:43.200 --> 47:45.200
+In lambda calculus.
+
+47:45.200 --> 47:46.200
+That's omega.
+
+47:46.200 --> 47:50.200
+In JavaScript.
+
+47:50.200 --> 47:53.200
+Yeah, so it's not gonna work.
+
+47:53.200 --> 47:56.200
+What if we wanted it to work?
+
+47:56.200 --> 48:02.200
+Haskell, which we will start studying soon, takes a different approach.
+
+48:02.200 --> 48:05.200
+That's more similar to call by name.
+
+48:05.200 --> 48:08.200
+Where what we do is we reduce the function.
+
+48:08.200 --> 48:11.200
+And then we apply.
+
+48:11.200 --> 48:19.200
+The only thing that's different than call by value is that we aren't reducing the argument.
+
+48:19.200 --> 48:21.200
+You don't reduce the argument ever.
+
+48:21.200 --> 48:23.200
+You only ever reduce the function.
+
+48:24.200 --> 48:30.200
+And what that means is we will only use a value if it's being used.
+
+48:30.200 --> 48:38.200
+To go to our example over here, which was bad JavaScript.
+
+48:38.200 --> 48:50.200
+If we have a function X goes to 3, and we pass in 3 plus 4, but we aren't using X, why would you evaluate 3 plus 4?
+
+48:50.200 --> 48:52.200
+We didn't need that.
+
+48:52.200 --> 48:55.200
+Wasted computation.
+
+48:55.200 --> 48:58.200
+Ice caps are melting and all that, you know?
+
+48:58.200 --> 49:01.200
+This 3 plus 4 is the fault.
+
+49:01.200 --> 49:05.200
+So we can just toss it out instead because it's never used.
+
+49:05.200 --> 49:10.200
+Never evaluate something if it's not gonna be used.
+
+49:10.200 --> 49:16.200
+So this is your first, for some of you, your first time ever seeing Haskell.
+
+49:16.200 --> 49:20.200
+But it looks surprisingly similar to lambda calculus.
+
+49:20.200 --> 49:31.200
+Where we have lambda X dot 33, lambda X dot XX, lambda X dot XX.
+
+49:31.200 --> 49:34.200
+What will this program evaluate to?
+
+49:34.200 --> 49:38.200
+If you know nothing about Haskell except for what I've just said up above.
+
+49:38.200 --> 49:39.200
+Yeah?
+
+49:39.200 --> 49:40.200
+33.
+
+49:40.200 --> 49:49.200
+Because we don't use our parameter X, this piece here being omega, we'll never reduce omega.
+
+49:49.200 --> 49:59.200
+Which means we'll never try to go into this infinite loop, and we'll end up with the value 33.
+
+49:59.200 --> 50:03.200
+Now you guys know Haskell.
+
+50:03.200 --> 50:05.200
+That wasn't so hard.
+
+50:05.200 --> 50:06.200
+All right.
+
+50:06.200 --> 50:07.200
+Questions?
+
+50:07.200 --> 50:09.200
+Is there any of this?
+
+50:09.200 --> 50:10.200
+Yeah.
+
+50:10.200 --> 50:11.200
+No.
+
+50:11.200 --> 50:12.200
+That's...
+
+50:12.200 --> 50:13.200
+Yeah?
+
+50:13.200 --> 50:14.200
+Yeah.
+
+50:14.200 --> 50:15.200
+No.
+
+50:15.200 --> 50:29.640
+So it'll do the beta reduction to pass this all in for X.
+
+50:29.640 --> 50:32.040
+And then it won't need to use X.
+
+50:32.040 --> 50:35.360
+So it will never evaluate that state.
+
+50:35.360 --> 50:40.700
+So up above what you can see, only the pointer worked.
+
+50:40.700 --> 50:44.300
+We evaluate the left-hand side, the red.
+
+50:44.300 --> 50:46.420
+Simplify that as much as we can.
+
+50:46.420 --> 50:54.060
+And then the beauty of it is that we get to this E1 prime 33, where X is equal to this
+
+50:54.060 --> 50:55.620
+omega.
+
+50:55.620 --> 51:00.140
+And since we never use X, we can just toss away the state.
+
+51:00.140 --> 51:01.140
+And we'll return 33.
+
+51:01.140 --> 51:02.140
+Yeah?
+
+51:02.140 --> 51:03.140
+What do you mean by sharing?
+
+51:03.140 --> 51:05.460
+Oh, yeah, yeah.
+
+51:05.460 --> 51:12.600
+So what if...
+
+51:12.600 --> 51:19.060
+What if we have a function that takes X and returns X plus X?
+
+51:19.060 --> 51:22.520
+Then it's great to precompute 3 plus 4.
+
+51:22.520 --> 51:25.420
+Now we're saving the polarized caps.
+
+51:25.420 --> 51:31.620
+Because we're doing 7 plus 7 instead of 3 plus 4 plus 3 plus 4.
+
+51:31.620 --> 51:37.740
+And if you do 3 plus 4 plus 3 plus 4, you've duplicated your computation.
+
+51:37.740 --> 51:40.620
+Which might seem trivial, but I promise you it's not.
+
+51:40.620 --> 51:45.780
+This is exactly what compilers are doing all the time to optimize your code.
+
+51:45.780 --> 51:51.040
+So what Haskell does is it says, until you need something, don't evaluate it.
+
+51:51.040 --> 51:54.580
+As soon as you need it, store it.
+
+51:54.580 --> 51:57.420
+So we're gonna compute 3 plus 4 for X.
+
+51:57.420 --> 52:00.420
+And then we're just gonna use that same value a second time.
+
+52:00.420 --> 52:02.360
+We don't need to recompute it.
+
+52:02.360 --> 52:04.540
+So that's what the sharing means.
+
+52:04.540 --> 52:05.540
+Yeah?
+
+52:05.540 --> 52:19.040
+So, no, that's part of the runtime environment.
+
+52:19.040 --> 52:24.260
+But well, to the extent it can do these things at compile time, it will.
+
+52:24.260 --> 52:28.260
+But it can't do everything.
+
+52:29.100 --> 52:37.100
+Other questions?
+
+52:37.100 --> 52:39.660
+Cool.
+
+52:39.660 --> 52:48.700
+So in summary, you can have the technical term redexes or some terms that can reduce.
+
+52:48.700 --> 52:55.620
+Your evaluation strategy tells you which term to evaluate and reduce.
+
+52:55.620 --> 52:58.580
+You aren't guaranteed to find a normal form.
+
+52:58.580 --> 53:01.020
+These are two different ways that you could...
+
+53:01.020 --> 53:09.020
+Two different strategies to solve lambda expressions.
+
+53:09.020 --> 53:16.700
+All right.
+
+53:16.700 --> 53:19.820
+That concludes lambda calc.
+
+53:19.820 --> 53:27.100
+However, in the slide deck, there are about 15 more slides about more fun things you can
+
+53:27.100 --> 53:33.540
+do with lambda calculus, such as creating booleans, creating numbers, creating functions
+
+53:33.540 --> 53:45.460
+we've already done, doing tuples, structs, and in particular, recursion, which is not
+
+53:45.460 --> 53:58.020
+required for the course and will not be part of standard exam points.
+
+53:58.020 --> 53:59.340
+There's some fun slides on it, too.
+
+53:59.340 --> 54:05.020
+We talked about the Y Combinator, but not the VC firm.
+
+54:05.020 --> 54:10.500
+So I would encourage you, if you have at all enjoyed lambda calc, or if it's just at all
+
+54:10.500 --> 54:13.740
+interesting to check it out.
+
+54:13.740 --> 54:16.420
+Those last few slides.
+
+54:16.420 --> 54:25.100
+But otherwise, we're going to be leaving lambda calc in its place and use it as a way of talking
+
+54:25.100 --> 54:31.660
+about some of these other ideas.
+
+54:31.660 --> 54:35.940
+So any lingering questions on lambda calc?
+
+54:35.940 --> 54:38.260
+Yeah.
+
+54:38.260 --> 54:54.740
+So what should you take away from lambda calc?
+
+54:54.740 --> 54:57.860
+I think it's a fair question.
+
+54:57.860 --> 55:02.900
+First of all, for the exam, but also more broadly speaking, the goal of a lot of the
+
+55:02.900 --> 55:08.620
+parts of this class are to improve your visual debugger, as I mentioned� as I brought up
+
+55:08.620 --> 55:09.620
+earlier.
+
+55:09.620 --> 55:14.940
+Where it's not necessarily that you're ever going to write lambda calc.
+
+55:14.940 --> 55:18.980
+But you will look at a lot of functions as software engineers.
+
+55:18.980 --> 55:19.980
+That's something that you will do.
+
+55:19.980 --> 55:25.340
+And being able to spot how they work and what they're doing and how things will evaluate
+
+55:25.340 --> 55:27.860
+is very important.
+
+55:27.860 --> 55:36.780
+With respect to your grade, you need to be able to evaluate a lambda calc expression.
+
+55:36.780 --> 55:40.300
+And say what are the free variables of this expression?
+
+55:40.300 --> 55:41.860
+What will it reduce to?
+
+55:41.860 --> 55:42.900
+Will it reduce?
+
+55:42.900 --> 55:45.100
+Or will it not reduce?
+
+55:45.100 --> 55:48.660
+That sort of thing.
+
+55:48.660 --> 55:53.900
+Or write a lambda calc expression that does X, Y, Z.
+
+55:53.900 --> 55:58.780
+That's the sum of it.
+
+55:58.780 --> 56:00.100
+Other last questions?
+
+56:00.100 --> 56:04.340
+Otherwise, feel free to bring up any other stuff during office hours as well.
+
+56:04.340 --> 56:05.340
+Yeah?
+
+56:05.340 --> 56:15.620
+In general, is it easier to start from the expression you go out?
+
+56:15.620 --> 56:18.780
+It really depends on the expression.
+
+56:18.780 --> 56:20.780
+Yeah.
+
+56:20.780 --> 56:25.420
+The fact that JavaScript does it one way and Haskell does it another way is kind of indicative
+
+56:25.420 --> 56:27.060
+of there's no right answer.
+
+56:27.060 --> 56:30.340
+It's not that one of the two of them is smarter and better.
+
+56:30.340 --> 56:32.500
+It's that they're different approaches.
+
+56:32.500 --> 56:39.380
+Either one might be better.
+
+56:39.380 --> 56:42.420
+Okay.
+
+56:42.420 --> 56:48.380
+So what we have been talking about is lambda calculus's substitution model.
+
+56:48.380 --> 56:54.080
+Where we said we could have a function with a function application and we can beta reduce
+
+56:54.080 --> 57:01.220
+it to some other expression.
+
+57:01.220 --> 57:05.860
+In JavaScript, that above function looks something like this.
+
+57:05.860 --> 57:14.220
+And why we care about it is because we can do this beta reduction at compile time.
+
+57:14.220 --> 57:16.700
+That's not a runtime evaluation.
+
+57:16.700 --> 57:19.740
+That's a compile time simplification of your code.
+
+57:19.740 --> 57:25.260
+So that at runtime, we don't need to compute it.
+
+57:25.260 --> 57:31.660
+And if you're gonna do this over and over, then compile once, run ten times, it's highly
+
+57:31.660 --> 57:39.220
+effective to beta reduce.
+
+57:39.220 --> 57:42.500
+But why would you not want to do that?
+
+57:42.500 --> 57:47.740
+If we tried to do beta reduction on� these slides are on Canvas, by the way, already.
+
+57:47.740 --> 57:53.720
+So if you do that and follow along, they are already up there.
+
+57:53.720 --> 58:00.180
+Why would you not want to do a beta reduction in a real language like JavaScript?
+
+58:00.180 --> 58:09.420
+Where we're trying to say set X equal to some parameter for all X in some scope.
+
+58:09.420 --> 58:12.420
+What can go wrong?
+
+58:12.420 --> 58:14.420
+Yeah.
+
+58:14.420 --> 58:16.420
+Yeah.
+
+58:16.420 --> 58:22.820
+In JavaScript, we can update the value of X.
+
+58:22.820 --> 58:27.140
+X might be something at the start of a function and change to be something else at the end
+
+58:27.140 --> 58:31.020
+of the function.
+
+58:31.020 --> 58:35.860
+We've been working with JavaScript that looks like this, but that's not actually all of
+
+58:35.860 --> 58:37.940
+JavaScript's power.
+
+58:37.940 --> 58:43.100
+We could say X equals X plus 1 on the second line of this function.
+
+58:43.100 --> 58:51.160
+And then if we've substituted everything, we're kind of, like, in a limbo land.
+
+58:51.160 --> 58:53.180
+It can also slow things down.
+
+58:53.180 --> 58:55.660
+We don't need to get into that.
+
+58:55.660 --> 59:04.300
+But to point out this idea of change and mutation in JavaScript, if we had a relatively simple
+
+59:04.300 --> 59:12.220
+function, let Y equal 1, Z equal 0, Z plus plus, log Z, what do we expect to be the output
+
+59:12.220 --> 59:13.220
+of console.log?
+
+59:13.220 --> 59:14.220
+1.
+
+59:14.220 --> 59:15.220
+1.
+
+59:15.220 --> 59:16.220
+Right?
+
+59:16.220 --> 59:25.100
+We've started Z as 0, we incremented Z, and then we output Z.
+
+59:25.100 --> 59:32.260
+If we did a beta reduction of all Z is equal to 0, then when we get to this log, we log
+
+59:32.260 --> 59:45.060
+0.
+
+59:45.060 --> 59:52.300
+So most languages support this idea of mutation.
+
+59:52.300 --> 59:53.660
+Variables are not static.
+
+59:53.660 --> 59:54.660
+They change.
+
+59:54.660 --> 59:57.540
+They're called variable for a reason.
+
+59:57.540 --> 01:00:02.380
+Pascal has a different idea and says variables aren't variable.
+
+01:00:02.380 --> 01:00:04.140
+They are static.
+
+01:00:04.140 --> 01:00:13.200
+And part of the reason for that is so that they can do more substitution.
+
+01:00:13.200 --> 01:00:15.500
+So what can we do about this?
+
+01:00:15.500 --> 01:00:21.840
+We're going to spend the next lecture and a half talking about how to translate from
+
+01:00:21.840 --> 01:00:28.880
+the kind of mathematician ivory tower of lambda calculus, not quite all the way down
+
+01:00:28.880 --> 01:00:35.240
+to the machine model, but talk about the environment model of JavaScript somewhere in between.
+
+01:00:35.240 --> 01:00:40.240
+Where we get some of the benefits of lambda calculus, but we aren't all the way in the
+
+01:00:40.240 --> 01:00:45.840
+nuts and bolts of things.
+
+01:00:45.840 --> 01:00:46.840
+It'll look like this.
+
+01:00:46.840 --> 01:00:49.380
+This is what we're going to kind of be covering.
+
+01:00:49.380 --> 01:00:51.100
+What does scope look like?
+
+01:00:51.100 --> 01:00:55.060
+How do first order functions� yeah.
+
+01:00:55.060 --> 01:00:56.420
+First order functions to start.
+
+01:00:56.420 --> 01:00:58.220
+How do those work with scope?
+
+01:00:58.220 --> 01:01:00.300
+How do free variables play into this?
+
+01:01:00.300 --> 01:01:06.740
+And then finally, how do high order functions work with scope?
+
+01:01:06.740 --> 01:01:12.660
+So to start, what is a scope?
+
+01:01:12.660 --> 01:01:18.660
+What's the point of a scope?
+
+01:01:18.660 --> 01:01:27.220
+What do you use it for?
+
+01:01:27.220 --> 01:01:30.180
+You guys have a lot of answers.
+
+01:01:30.180 --> 01:01:38.940
+Someone who hasn't brought something up.
+
+01:01:38.940 --> 01:01:41.180
+I do appreciate it, just to be clear.
+
+01:01:41.180 --> 01:01:51.300
+It's not bad that you guys answer a lot of questions.
+
+01:01:51.300 --> 01:01:52.300
+What's the point of a scope?
+
+01:01:52.300 --> 01:01:54.140
+You guys use these all the time.
+
+01:01:54.140 --> 01:01:56.340
+When was the last time you wrote code?
+
+01:01:56.340 --> 01:01:57.340
+It's like yesterday.
+
+01:01:57.340 --> 01:01:58.340
+Right?
+
+01:01:58.340 --> 01:02:00.120
+There was a PA.
+
+01:02:00.120 --> 01:02:01.620
+You had to use a scope in the PA.
+
+01:02:01.620 --> 01:02:02.620
+Yeah?
+
+01:02:02.620 --> 01:02:18.620
+No, definitely.
+
+01:02:18.620 --> 01:02:24.100
+So to make variables easier to use, I think, is a pretty concise summary of what's the
+
+01:02:24.100 --> 01:02:25.800
+point of a scope.
+
+01:02:25.800 --> 01:02:32.120
+We want to encapsulate and hide these variables live here.
+
+01:02:32.120 --> 01:02:35.880
+It doesn't care about, like, these variables don't matter anywhere else.
+
+01:02:35.880 --> 01:02:40.240
+Don't use the same X that I've defined here in some other place.
+
+01:02:40.240 --> 01:02:41.600
+Yeah?
+
+01:02:41.600 --> 01:02:49.720
+PA is due next week.
+
+01:02:49.720 --> 01:02:52.280
+PA2 should be due this Sunday.
+
+01:02:52.280 --> 01:02:56.080
+Is that not what grade scope says?
+
+01:02:56.080 --> 01:02:57.080
+I'll fix that.
+
+01:02:57.080 --> 01:02:58.360
+It should be this Sunday.
+
+01:02:58.360 --> 01:03:04.560
+PA2 and 3 are due, like, this upcoming Sunday.
+
+01:03:04.560 --> 01:03:05.560
+Not yesterday.
+
+01:03:05.560 --> 01:03:06.560
+No.
+
+01:03:06.560 --> 01:03:07.560
+Oh, yeah.
+
+01:03:07.560 --> 01:03:08.560
+I guess I did just say...
+
+01:03:08.560 --> 01:03:09.560
+Yeah, no.
+
+01:03:09.560 --> 01:03:10.680
+Some of you might have been writing code.
+
+01:03:10.680 --> 01:03:11.680
+I don't know.
+
+01:03:11.680 --> 01:03:12.680
+Whatever.
+
+01:03:12.680 --> 01:03:16.920
+You guys should probably be writing more code than you are currently writing.
+
+01:03:16.920 --> 01:03:19.040
+That's definitely true.
+
+01:03:19.040 --> 01:03:24.040
+For probably 99 of you.
+
+01:03:24.040 --> 01:03:27.600
+But PA is due in six days or something like that.
+
+01:03:27.600 --> 01:03:28.600
+Yep.
+
+01:03:28.600 --> 01:03:32.440
+Don't worry if you didn't submit it.
+
+01:03:32.440 --> 01:03:34.440
+Okay.
+
+01:03:34.440 --> 01:03:35.640
+So scopes.
+
+01:03:35.640 --> 01:03:42.520
+The point of them is to encapsulate state specific to the area of code that we're working
+
+01:03:42.520 --> 01:03:43.520
+on.
+
+01:03:43.520 --> 01:03:44.520
+Right?
+
+01:03:44.520 --> 01:03:50.560
+If we're saying X here is equal to this thing, this is where I'm gonna use X with this value.
+
+01:03:50.560 --> 01:03:53.000
+Not elsewhere in, like, a different library.
+
+01:03:53.000 --> 01:03:56.080
+I don't want that other implementation of X.
+
+01:03:56.080 --> 01:04:00.000
+I want my version of X.
+
+01:04:00.000 --> 01:04:03.280
+So how are we gonna capture that?
+
+01:04:03.280 --> 01:04:04.780
+We are...
+
+01:04:04.780 --> 01:04:06.360
+We're not going here.
+
+01:04:06.360 --> 01:04:09.640
+But we are gonna be somewhere in the middle here, where we're talking about, like, what
+
+01:04:09.640 --> 01:04:15.320
+do we need to actually use a scope?
+
+01:04:15.320 --> 01:04:24.520
+If we wanted to track this idea of the environment of our program over time, we're gonna need
+
+01:04:24.840 --> 01:04:26.280
+some information.
+
+01:04:26.280 --> 01:04:33.280
+So going to the previous example, we're going to create environments, which I call activation
+
+01:04:33.280 --> 01:04:36.960
+records of whatever we are currently executing.
+
+01:04:36.960 --> 01:04:42.620
+When we are inside of one scope, we want information about that scope.
+
+01:04:42.620 --> 01:04:45.760
+It's doing X in this scope.
+
+01:04:45.760 --> 01:04:50.660
+And we're going to contain all of our variables in this environment.
+
+01:04:50.660 --> 01:04:54.300
+And then we're also going to contain some extra information.
+
+01:04:54.300 --> 01:05:00.780
+If you've taken kind of lower level classes, where you've done Spark or MIPS or X86 or
+
+01:05:00.780 --> 01:05:06.340
+whatever, you have to keep track of things like the stack pointer, the return address,
+
+01:05:06.340 --> 01:05:08.460
+the frame pointer.
+
+01:05:08.460 --> 01:05:15.740
+This is environmental information about what we're currently executing.
+
+01:05:15.740 --> 01:05:21.980
+So what we might do is, for the current snippet, we could have our environment pointer point
+
+01:05:21.980 --> 01:05:29.460
+to this area of memory, where we've said Y is equal to 1, Z is equal to 0.
+
+01:05:29.460 --> 01:05:30.780
+This is our state.
+
+01:05:30.780 --> 01:05:34.460
+It's our square brackets from lambda calculus.
+
+01:05:34.460 --> 01:05:53.620
+As opposed to the code, the expressions that we're going to execute.
+
+01:05:53.620 --> 01:06:05.500
+Depends on the setup.
+
+01:06:05.500 --> 01:06:10.340
+Okay.
+
+01:06:10.340 --> 01:06:16.340
+One minor piece of this that we kind of ignore after this one slide.
+
+01:06:16.340 --> 01:06:22.420
+But there's the canonical idea of R values and L values.
+
+01:06:22.420 --> 01:06:29.140
+R values are true expressions where we can treat them like lambda calculus.
+
+01:06:29.140 --> 01:06:30.500
+They're very mathematical.
+
+01:06:30.500 --> 01:06:33.060
+We can simplify as much as we want.
+
+01:06:33.060 --> 01:06:36.700
+There's no backing environment to them.
+
+01:06:36.700 --> 01:06:40.780
+And L values are pointers to R values.
+
+01:06:40.780 --> 01:06:47.700
+They're like the buckets that you learn about with variables.
+
+01:06:47.700 --> 01:06:53.260
+So L values point to R value information.
+
+01:06:53.260 --> 01:07:02.180
+And when we look at something like plus plus, when we say Z plus plus or plus plus Z, we
+
+01:07:02.180 --> 01:07:09.580
+can't plus plus an R value, because plus plus is mutating the state.
+
+01:07:09.580 --> 01:07:15.500
+So you can only plus plus an L value so that it can update itself.
+
+01:07:15.500 --> 01:07:24.860
+So in our thing over here, the left-hand side, the YZ, those are our L values that
+
+01:07:24.860 --> 01:07:27.900
+are pointing to R values on the right-hand side.
+
+01:07:27.900 --> 01:07:33.500
+We can plus plus Z. You can't plus plus 0.
+
+01:07:33.500 --> 01:07:37.060
+Because plus plus 0, it's like, what does that even mean?
+
+01:07:37.060 --> 01:07:38.760
+Maybe it returns 1.
+
+01:07:38.760 --> 01:07:39.760
+Maybe it doesn't.
+
+01:07:39.760 --> 01:07:44.060
+But it certainly doesn't update the number 0 to be 1.
+
+01:07:44.060 --> 01:07:45.060
+That would be really weird.
+
+01:07:45.620 --> 01:07:48.620
+If later, you then, like, use 0 and got 1.
+
+01:07:53.620 --> 01:07:54.620
+Goodness.
+
+01:07:54.620 --> 01:07:55.620
+OK.
+
+01:07:55.620 --> 01:08:01.180
+So that's L values, R values, whatever.
+
+01:08:01.180 --> 01:08:08.380
+When we want to execute console.log Z, we will go look at our environment and say, what
+
+01:08:08.380 --> 01:08:12.140
+context are we evaluating console.log Z in?
+
+01:08:12.140 --> 01:08:13.780
+Oh, sorry.
+
+01:08:13.780 --> 01:08:15.500
+We're looking at the Z plus plus first.
+
+01:08:15.500 --> 01:08:20.340
+When we execute Z plus plus, we say, what environment are we executing that in?
+
+01:08:20.340 --> 01:08:23.260
+Our environment is the little square.
+
+01:08:23.260 --> 01:08:25.900
+We go look up the value of Z. Z is 0.
+
+01:08:25.900 --> 01:08:29.460
+We increment it to 1.
+
+01:08:29.460 --> 01:08:31.420
+So we find our environment.
+
+01:08:31.420 --> 01:08:33.820
+We check to see if we're inside of the environment.
+
+01:08:33.820 --> 01:08:36.220
+And then we use the environment.
+
+01:08:36.220 --> 01:08:40.020
+When we log Z, the process is the same.
+
+01:08:40.020 --> 01:08:44.980
+We find what our current environment is, which is whatever our environment pointer
+
+01:08:44.980 --> 01:08:46.620
+points to.
+
+01:08:46.620 --> 01:08:53.700
+We look up the value of Z. What's the value of Z?
+
+01:08:53.700 --> 01:08:54.700
+What's the value of Z?
+
+01:08:54.700 --> 01:08:55.700
+1.
+
+01:08:55.700 --> 01:08:56.700
+1.
+
+01:08:56.700 --> 01:08:57.700
+Yeah.
+
+01:08:57.700 --> 01:09:00.900
+It's in the table right there.
+
+01:09:00.900 --> 01:09:06.700
+So we print out 1.
+
+01:09:06.700 --> 01:09:10.700
+This algorithm sounds a little slow.
+
+01:09:10.700 --> 01:09:12.500
+That's because it is.
+
+01:09:12.500 --> 01:09:16.820
+It's not very convenient to continually look up the environment pointer, check what my
+
+01:09:16.820 --> 01:09:18.180
+variables are.
+
+01:09:18.180 --> 01:09:19.300
+Is my variable there?
+
+01:09:19.300 --> 01:09:23.700
+If it's not, go find it somewhere else.
+
+01:09:23.700 --> 01:09:26.580
+That's partially because we're not in the machine model.
+
+01:09:26.580 --> 01:09:29.580
+We aren't talking about x86 or Spark.
+
+01:09:29.580 --> 01:09:33.300
+But it's also just a kind of necessary evil.
+
+01:09:33.300 --> 01:09:36.740
+You have to be able to find what is my environment.
+
+01:09:36.740 --> 01:09:41.500
+So we can come up with kind of, like, speedy hacks around it.
+
+01:09:41.500 --> 01:09:44.980
+But at the end of the day, we have to do this approach.
+
+01:09:44.980 --> 01:09:49.340
+Anytime we're executing code, we have to know what environment are we executing that code
+
+01:09:49.340 --> 01:09:50.340
+in.
+
+01:09:50.340 --> 01:09:55.980
+Because it's very different to log Z here than in a totally different program where
+
+01:09:55.980 --> 01:09:57.860
+you said Z is 100.
+
+01:09:57.860 --> 01:09:58.860
+Or Z is omega.
+
+01:09:58.860 --> 01:10:00.660
+Or, you know, whatever.
+
+01:10:00.660 --> 01:10:05.780
+Those mean different things depending on the environment.
+
+01:10:05.780 --> 01:10:10.020
+OK.
+
+01:10:10.020 --> 01:10:14.340
+That's the anatomy of a scope.
+
+01:10:14.340 --> 01:10:17.300
+Which is not, like, it's not crazy.
+
+01:10:17.300 --> 01:10:20.860
+It's not supposed to be something totally new.
+
+01:10:20.860 --> 01:10:21.940
+Scopes are scopes.
+
+01:10:21.940 --> 01:10:26.660
+Scopes store variables.
+
+01:10:26.660 --> 01:10:31.300
+Right?
+
+01:10:31.300 --> 01:10:33.660
+When do we create environments?
+
+01:10:33.660 --> 01:10:39.660
+When do we create scopes?
+
+01:10:39.660 --> 01:10:41.020
+Chat with someone next to you.
+
+01:10:41.020 --> 01:10:42.660
+When do we need to do these?
+
+01:10:42.660 --> 01:10:48.660
+A, B, A and B, or never?
+
+01:11:18.660 --> 01:11:34.860
+How many people vote A?
+
+01:11:34.860 --> 01:11:37.260
+Every time we create a new block scope.
+
+01:11:37.260 --> 01:11:39.820
+Or every time we enter a new block scope.
+
+01:11:39.820 --> 01:11:41.500
+How many people vote B?
+
+01:11:41.500 --> 01:11:45.020
+Every time we enter a new function scope.
+
+01:11:45.020 --> 01:11:47.060
+How many people vote A and B?
+
+01:11:48.060 --> 01:11:49.060
+All right.
+
+01:11:49.060 --> 01:11:50.060
+We got a majority there.
+
+01:11:50.060 --> 01:11:52.060
+Anybody say we don't need new environments?
+
+01:11:52.060 --> 01:11:53.060
+OK.
+
+01:11:53.060 --> 01:11:54.060
+Nobody's really...
+
+01:11:54.060 --> 01:11:57.180
+Oh, maybe we have a jokester.
+
+01:11:57.180 --> 01:12:02.540
+There are some worlds where you might have a language that doesn't create new environments.
+
+01:12:02.540 --> 01:12:04.700
+It's not unreasonable.
+
+01:12:04.700 --> 01:12:10.240
+And there was a version of JavaScript where you didn't have new block scopes.
+
+01:12:10.240 --> 01:12:12.820
+Or new scope on a block scope.
+
+01:12:12.820 --> 01:12:15.380
+Because we only really cared about function scope.
+
+01:12:15.380 --> 01:12:22.180
+Nowadays, it's A and B. Whenever you create a new block scope or a new function scope.
+
+01:12:22.180 --> 01:12:25.900
+Then we create a new environment.
+
+01:12:25.900 --> 01:12:30.900
+So the approach we're gonna take, and we're gonna spend a lot of time drawing these diagrams,
+
+01:12:30.900 --> 01:12:37.460
+and this is basically what the homework looks like, is we will have a function.
+
+01:12:37.460 --> 01:12:40.100
+We will call that function.
+
+01:12:40.100 --> 01:12:46.860
+And then we're going to keep track of the environment as we execute that code.
+
+01:12:46.860 --> 01:12:52.920
+And one of the main points of this chunk of class is so that you can look at this code
+
+01:12:52.920 --> 01:12:53.920
+and say...
+
+01:12:53.920 --> 01:12:55.500
+I know what that's gonna do.
+
+01:12:55.500 --> 01:12:56.500
+Here it's pretty obvious.
+
+01:12:56.500 --> 01:12:57.500
+It's factorial.
+
+01:12:57.500 --> 01:12:59.900
+We called it fact.
+
+01:12:59.900 --> 01:13:01.260
+That's not always the case.
+
+01:13:01.260 --> 01:13:03.300
+Sometimes you're presented with code that looks like...
+
+01:13:03.300 --> 01:13:04.820
+What the heck is this doing?
+
+01:13:04.820 --> 01:13:10.420
+Being able to trace through it and understand what state is looking like as you are tracing
+
+01:13:10.420 --> 01:13:12.780
+through it is extremely valuable.
+
+01:13:12.780 --> 01:13:14.700
+It saves you a lot of time.
+
+01:13:14.700 --> 01:13:20.140
+Rather than having to put a bunch of console.log inside of the code and then run it and run
+
+01:13:20.140 --> 01:13:21.140
+it.
+
+01:13:21.140 --> 01:13:22.740
+Or put a breakpoint and run it and run it.
+
+01:13:22.740 --> 01:13:25.720
+So we're finishing up with class now.
+
+01:13:25.720 --> 01:13:33.300
+We're gonna pick up on Wednesday diving into how can we track environment as we run JavaScript
+
+01:13:33.580 --> 01:13:35.580
+code.
+
+01:13:35.580 --> 01:13:37.900
+Feel free to drop by office hours.
+
+01:13:37.900 --> 01:13:39.620
+Otherwise, have a good week.
+
+01:18:33.300 --> 01:18:34.300
+Bye.
+
+01:18:34.300 --> 01:18:35.300
+Bye.
+
+01:18:35.300 --> 01:18:36.300
+Bye.
+
+01:18:36.300 --> 01:18:37.300
+Bye.
+
+01:18:37.300 --> 01:18:37.300
+
+
+01:19:03.300 --> 01:19:04.300
+Bye.
+
+01:19:04.300 --> 01:19:05.300
+Bye.
+
+01:19:05.300 --> 01:19:05.300
+
+
+01:19:33.300 --> 01:19:34.300
+Bye.
+
+01:19:34.300 --> 01:19:35.300
+Bye.
+
+01:19:35.300 --> 01:19:35.300
+
+
