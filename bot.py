@@ -37,10 +37,10 @@ def transcribe_audio_data(audio_filename: str, transcription_folder: str):
         file.write(results['text'])
 
 
-def answer_questions(question: str):
+def answer_questions(question: str, transcription_folder: str):
     """Answer questions."""
     print("Answering questions...")
-    print(get_chain()({"question": question}, return_only_outputs=True))
+    print(get_chain(transcription_folder)({"question": question}, return_only_outputs=True))
 
 
 @click.command()
@@ -52,7 +52,7 @@ def main(audio_filename: str, transcription_folder: str, question: str):
         transcribe_audio_data(audio_filename, transcription_folder)
 
     if question:
-        answer_questions(question)
+        answer_questions(question, transcription_folder)
 
 
 if __name__ == "__main__":

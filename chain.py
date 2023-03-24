@@ -10,7 +10,7 @@ from langchain.prompts.chat import (
 )
 
 
-def load_vectorstore():
+def load_vectorstore(transcription_folder: str):
     # TODO use transcription folder
     with open("../../state_of_the_union.txt") as f:
         state_of_the_union = f.read()
@@ -25,7 +25,7 @@ def load_vectorstore():
     )
 
 
-def get_chain():
+def get_chain(transcription_folder: str):
     system_template = """Use the following pieces of context to answer the users question. 
     If you don't know the answer, just say that you don't know, don't try to make up an answer.
     ALWAYS return a "SOURCES" part in your answer.
@@ -53,6 +53,6 @@ def get_chain():
     return VectorDBQAWithSourcesChain.from_chain_type(
         ChatOpenAI(temperature=0),
         chain_type="stuff",
-        vectorstore=load_vectorstore(),
+        vectorstore=load_vectorstore(transcription_folder),
         chain_type_kwargs=chain_type_kwargs,
     )
