@@ -4,3 +4,4 @@ click
 black
 langchain
 chromadb
+sentence-transformers
