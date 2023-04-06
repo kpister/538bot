@@ -7,6 +7,8 @@ import whisper
 
 from chain import get_chain
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 
 def transcribe_audio_data(audio_filename: str, transcription_folder: str):
     """Transcribe audio data."""
@@ -40,7 +42,8 @@ def transcribe_audio_data(audio_filename: str, transcription_folder: str):
 def answer_questions(question: str, cache_dir: str):
     """Answer questions."""
     print("Answering questions...")
-    print(get_chain(cache_dir)({"question": question}, return_only_outputs=True))
+    chain = get_chain(cache_dir)
+    print(chain({"question": question}, return_only_outputs=True))
 
 
 @click.command()
