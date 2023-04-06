@@ -34,25 +34,34 @@ def transcribe_audio_data(audio_filename: str, transcription_folder: str):
     Path(transcription_folder).mkdir(exist_ok=True)
 
     with open(os.path.join(transcription_folder, transcription_filename), "w") as file:
-        file.write(results['text'])
+        file.write(results["text"])
 
 
-def answer_questions(question: str, transcription_folder: str):
+def answer_questions(question: str, cache_dir: str):
     """Answer questions."""
     print("Answering questions...")
-    print(get_chain(transcription_folder)({"question": question}, return_only_outputs=True))
+    print(get_chain(cache_dir)({"question": question}, return_only_outputs=True))
 
 
 @click.command()
 @click.option("--audio_filename", default="", help="Audio file to be transcribed.")
 @click.option("--question", default="", help="Answer questions.")
-@click.option("--transcription_folder", default="transcriptions", help="Folder to save transcribed audio recordings.")
-def main(audio_filename: str, transcription_folder: str, question: str):
+@click.option(
+    "--transcription_folder",
+    default="transcriptions",
+    help="Folder to save transcribed audio recordings.",
+)
+@click.option(
+    "--cache_folder", default="./cache", help="Folder to save cached embeddings."
+)
+def main(
+    audio_filename: str, transcription_folder: str, question: str, cache_folder: str
+):
     if audio_filename:
         transcribe_audio_data(audio_filename, transcription_folder)
 
     if question:
-        answer_questions(question, transcription_folder)
+        answer_questions(question, cache_folder)
 
 
 if __name__ == "__main__":
