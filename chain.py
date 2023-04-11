@@ -39,12 +39,14 @@ def create_vectorstore(transcription_folder: str, cache_dir: str):
 
     embeddings = HuggingFaceEmbeddings()
 
-    return Chroma.from_texts(
+    chroma_db = Chroma.from_texts(
         texts,
         embeddings,
         metadatas=[{"source": f"{i}-pl"} for i in range(len(texts))],
         persist_directory=cache_dir,
     )
+    chroma_db.persist() # persist the database
+    return chroma_db
 
 
 def load_vecstore(cache_dir: str):
