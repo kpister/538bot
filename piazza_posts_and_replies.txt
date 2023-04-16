@@ -1,0 +1,1341 @@
+--------------------------------------------------
+Subject
+Eric’s OH - Saturday 4/15
+
+Content
+
+Hi all,
+
+This Saturday, I’ll have to move my office hours from 2-5 to be 4-7. Super
+sorry for the inconvenience!
+
+Thanks,
+
+Eric
+
+#pin
+
+--------------------------------------------------
+Subject
+Imperative programming
+
+Content
+
+Hey folks,
+
+The "While" language we looked at in class is inspired by this chapter.
+
+Hoare's seminal paper on verification. This sets the stage for formal
+imperative logic, (imperative programming itself had already been around for a
+decade). The wiki page on it is a bit easier to digest. Finally, Hoare
+verifies a small, but real program: find.
+
+#pin
+
+--------------------------------------------------
+Subject
+PA7 / PA8 Due Dates
+
+Content
+
+PA7 late due date will be pushed to Wednesday of next week (4/12).
+
+This does not affect:
+
+1\. The early due date for extra credit
+
+2\. HW7 due date
+
+3\. HW8/PA8 release dates
+
+I recommend working to get the assignment completed by Sunday as usual and
+only using the extra days if necessary.
+
+Similarly, PA8 will have a few extra days, until the following Sunday (4/23).
+
+The early due date remains the Thursday after release (4/13).
+
+#pin
+
+--------------------------------------------------
+Subject
+TypeClasses Review sheet
+
+Content
+
+Hey folks, since I am out of office hours this week, I am posting solutions to
+the review for the type classes sheet.
+
+I highly recommend trying to work this out before checking the sheet and if
+you can, check only one answer at a time. A lot of these problems can be easy
+to convince yourself that you understand the answer once you see it, but the
+only way to be sure is to do it.
+
+main.pdf
+
+#pin
+
+--------------------------------------------------
+Subject
+Using "if" in Haskell
+
+Content
+
+Folks, I am seeing a lot of code submissions using "let ... in ..." and "if
+... else ...".
+
+While these constructs exist in Haskell, I strongly recommend against using
+them to solve the PA.
+
+For example, I want to write a function in JavaScript which executes `A` when
+my input `n `is greater than zero and `B` otherwise,
+
+    
+    
+    let fun = (n) => {
+    	if (n > 0) {
+    		A();
+    	} else {
+    		B();
+    	}
+    }
+
+Writing the same function in Haskell:
+
+    
+    
+    fun n
+    	| n > 0     = A
+    	| otherwise = B -- otherwise is a keyword in haskell to catch other cases
+    	| n <= 0    = B -- this line would also work instead of the "otherwise" line
+
+Consider factorial in javascript:
+
+    
+    
+    let factorial = (n) => {
+    	if (n <= 1) {
+    		return 1;
+    	}
+    	return n * factorial(n);
+    }
+
+Same thing in Haskell:
+
+    
+    
+    factorial 0 = 1
+    factorial n = n * factorial (n - 1)
+
+Here the function has two definitions: one for if the input is 0 and one for
+if the input is not zero. (What happens if the input is negative?)
+
+#pin
+
+--------------------------------------------------
+Subject
+I found an interesting resource for question 2 on Homework 4
+
+Content
+
+https://cseweb.ucsd.edu/~kpister/cse130-summer19/lectures/week2b/readings/types.pdf
+
+https://cseweb.ucsd.edu/~dstefan/cse130-winter17/
+
+Nested Replies: 1
+
+Thanks for posting this! You'll notice a lot of direct comparisons from
+lecture on the introduction and the examples.
+
+--------------------------------------------------
+Subject
+Real life closures
+
+Content
+
+In class there was a question regarding, "when will we use this idea" with
+respect to closures.
+
+It's a fair question, and one that is better to answer with real code than a
+hypothetical.
+
+Closures are perhaps one of the most common powerful tools that you'll use in
+industry projects.
+
+Attached here is a simplified version of an evaluation script I use for a
+client.
+
+The idea of the script is to run many different experiments and compare the
+accuracies of the hypotheses.
+
+Take a look at the `create_experiment` function. The purpose here is to create
+a closure capturing specific information about the experimental run.
+
+Take a look at the `compose` function. Here I am storing two functions that I
+will want to use together later.
+
+Could I have written it a different way? Definitely.
+
+Is this way more concise? Definitely.
+
+This is just one example, we will dive further into closures in unit 2.
+
+closures.py
+
+P.S. if you are unfamiliar with python, it is still worth reading through.
+
+P.P.S if you are unfamiliar with python, I recommend spending a weekend to
+work with it!
+
+#pin
+
+--------------------------------------------------
+Subject
+Welcome to CS 538 + Notes
+
+Content
+
+The course is primarily run through Canvas.
+
+Assignments are graded on Gradescope.
+
+Textbook: Recommended as a pre-requisite for this class.  
+The link below is to thriftbooks where you can find the book for about $6.
+Version does not matter, the theory has been the same for fifty years.
+**Chapter 2 is the most important one.**  
+https://www.thriftbooks.com/w/introduction-to-the-theory-of-
+computation_michael-sipser/257269/
+
+General Syllabus: https://uw.pister.dev/
+
+#pin
+
+--------------------------------------------------
+Subject
+Search for Teammates!
+
+Content#pin
+
+--------------------------------------------------
+Subject
+Important Midterm Update
+
+Content
+
+Folks,
+
+**I am moving the midterm to Monday, March 6.**
+
+We are behind where I expected us to be in the course content (which is fine)
+and it would not be fair to you all to test you on Haskell and Type Inference
+when we have not given them adequate attention in lecture.
+
+This means: Monday Feb 27's lecture will be on Type Inference & Haskell,
+Wednesday March 1's lecture will be Midterm review.
+
+Also: I am **delaying the late due dates for Homework 4 and PA 4** to be
+_next_ Sunday, March 5. This should give you plenty of time to digest the
+material from Types and to study for the midterm.
+
+Best,
+
+Kaiser
+
+Nested Replies: 1What about the early due dates? Still be due by today?
+
+Nested Replies: 2
+
+Yep, early due dates remain the same
+
+Nested Replies: 1
+
+Just a note: the gradescope assignments still show the older due dates, that
+might confuse some students.
+
+Nested Replies: 2
+
+Should be updated now
+
+--------------------------------------------------
+Subject
+Context Free Grammars [required reading]
+
+Content
+
+Hey all, in preparation for next week's lectures, please read through the
+attached pdf. chap2.pdf
+
+If the following code
+
+`e ::= x | λx.e | e e`
+
+does not make crystal clear sense to you, then this chapter is worth reading.
+It is about 10 pages.
+
+Since photocopiers are for people in the 20th century, yes these are just shot
+on an iPhone Xs™.
+
+I'll add a higher quality version of the pdf next time I am on campus.
+
+Nested Replies: 1
+
+Hi, could you tell us what this book is?
+
+Nested Replies: 2I believe it is _Introduction to the Theory of Computation_ by Michael Sipser.
+
+Nested Replies: 2
+
+Exactly correct. There are copies available online for ~$7. It's a good read.
+
+--------------------------------------------------
+Subject
+Confusion regarding hw8 2a)
+
+ContentFor hw8 2a), is the state S0 in each individual question independent from each
+other? Can we assume the initial state of S0 for each individual question is
+[0,0]? Any suggestions would be extremely appreciated!
+
+Nested Replies: 1Yep, you can assume so.
+
+--------------------------------------------------
+Subject
+Midterm 2 Topics
+
+ContentJust curious if we will get a list of topics that we should review for midterm
+2 just like we did with midterm 1? Thanks!
+
+Nested Replies: 1I believe the topics mentioned from last lecture are:
+
+  
+
+1.) Review (LC, TI, Classes)
+
+2.) Type classes
+
+3.) OPP(Subtypes and Dynamic lookup)
+
+4.) Control Flow (CPS and Monads)
+
+--------------------------------------------------
+Subject
+Anatomy of steps?
+
+ContentI'm confused about what the anatomy of the operational semantics is supposed
+to be. What does the top half indicate, and what does the bottom half
+indicate? Any help would be appreciated.
+
+Nested Replies: 1
+
+In a phrase: **If** the top, **then** the bottom
+
+Anything with an empty top is an axiom. It is always true.
+
+--------------------------------------------------
+Subject
+Lecture 4/12 Slides
+
+ContentHas yesterdays lecture slides been posted on Canvas?
+
+Nested Replies: 1
+
+https://canvas.wisc.edu/courses/330425/files/folder/lectures
+
+it's control.pdf
+
+--------------------------------------------------
+Subject
+Gradescope so slow
+
+ContentI don't know if you have encountered the same situation as me, but my
+gradescope is extremely slow when running tests, especially when 7 files are
+uploaded together. When I upload interp2 and 6 individually, both get 3
+points. But when I upload all the files together, I get a point deducted from
+both 2 and 6 for being too slow.
+
+Nested Replies: 1Yeah, it’s significantly slower than previous PAs. That said, I think that’s
+to be expected. The tests are quite computationally complex.
+
+  
+
+I would try a couple things, (1) double check your implementation and make
+sure it follows the instructions and (2) keep resubmitting all 7 files. It can
+take a couple tries for everything to pass, even when you’re not changing
+anything in any of the files.
+
+--------------------------------------------------
+Subject
+Q 1.1
+
+ContentIn class we covered cps conversion for function declarations but not for
+function calls. What should we be using as the new parameter for cc when we
+are writing a function call?
+
+Nested Replies: 1
+
+Maybe I'm misinterpreting your question so just let me know.
+
+Given:
+
+    
+    
+    function f(x, y) {
+    	return x + y
+    }
+
+We need to convert it to CPS. So, as you say, we declare a new parameter
+called "cc."
+
+    
+    
+    function f(x, y, cc) {
+    	cc(x + y)
+    }
+
+So, instead of returning, we pass it into a deeper layer of the call stack of
+a function that we define as cc in our parameter. What does cc do? We can
+define this whenever we call the function **f.**
+
+****
+
+Let's say, without CPS, we want to do:
+
+    
+    
+    function f(x, y) {
+    	return x + y
+    }
+    
+    print(10 + f(2,3))
+
+With CPS, we can no longer use (10 + f(2,3)) syntax since **f no longer
+returns a value.** But, we know that the "return value" of f will be passed
+into the parameter function **cc.** So, we can do this:
+
+    
+    
+    function f(x, y, cc) {
+    	cc(x + y)
+    }
+    
+    f(2, 3, ret => { # <-- This anonymous function will be passed into the cc parameter
+    	print(ret + 10);
+    })
+
+As I wrote in my comment, the key thing to be aware of is that **when we call
+the function f, we define an anonymous function that is passed as the cc
+value.** This cc function, as defined in our function f, takes the "return"
+value (x + y in our case) as the argument. Since the cc function is defined as
+the ret => {} portion, ret will be assigned to the x + y value, and we do
+print(ret + 10), which has the same functionality as our non-CPS version.
+
+Does that help clarify a little bit? Let me know if I didn't answer your
+question! I also think CPS is a little tricky to understand. It's a lot of
+moving parts, so doing a lot of examples will help develop a sort of intuition
+of how to use it.
+
+--------------------------------------------------
+Subject
+HW8 Question 2.2
+
+ContentFor Homework 8 Question 2.2 it says that we can get by with four new rules. Is
+it okay if we use more than four?
+
+  
+
+Nested Replies: 1Yes, you can use 5 if needed. you probably shouldn't need more than 5 though.
+
+--------------------------------------------------
+Subject
+Autograder Issues
+
+ContentWhen submitting all files together, my autograder won't run because of this
+issue and gives this message. Is there any reason for this?
+![image.pngNaN](/redirect/s3?bucket=uploads&prefix=paste%2Fjzyocerlm2v541%2F5cde1aafaf652503ef5c0963f1c6ca4baed42534cac875cf92374022b4b69de1%2Fimage.png)
+
+Nested Replies: 1I think it means your code is running properly
+
+  
+
+--------------------------------------------------
+Subject
+Review sheet1 and dictionary type rescoures
+
+Content
+
+I want to ask if there is an solution to the review sheet1 posted at the March
+20 lecture. I am very confused about the dictionary part. Are there any
+resources or reading materials that can help me better understand dictionary
+type?
+
+Nested Replies: 1
+
+Here is a fine writeup on the topic:
+https://nikivazou.github.io/CMSC498V/lectures/TypeClasses.html Go to
+"Internals of Type Classes" to get to the dictionary part.
+
+Solutions aren't posted, but feel free to discuss answers here.
+
+If there are specific questions, I would be happy to answer or drop by office
+hours and we can chat more broadly.
+
+--------------------------------------------------
+Subject
+Midterm topics
+
+Content
+
+Anyone have a list of what the topics will be for the upcoming midterm?
+
+Nested Replies: 1
+
+I also want to know the coverage of the mid-term exam.
+
+--------------------------------------------------
+Subject
+HW Solutions
+
+Content
+
+It has been a while that the homework solution has not been posted. Are we
+expect to get the solution anytime soon, at least before midterm?
+
+Nested Replies: 1
+
+Just got 5, and 6 up!
+
+--------------------------------------------------
+Subject
+Notes: Small-step and Large-step operational semantics
+
+Content
+
+https://www.cs.cornell.edu/courses/cs4110/2012fa/lectures/lecture06.pdf
+
+Those notes were very helpful for me. I hope you find them helpful as well!
+:-)
+
+--------------------------------------------------
+Subject
+Request for more Recourses: Imperative Programming
+
+Content
+
+Hi,
+
+The lecture on imperative programming was extremely challenging for me. I was
+hoping that some videos or reading materials could be shared with the class so
+we can review the material that was covered in class and really solidify our
+understanding. Personally, it would help me come to class with well-prepared
+questions, so it would be a great help!
+
+Thanks! :-)
+
+Nested Replies: 1
+
+@315
+
+Nested Replies: 1
+
+Thank you! :-)
+
+Nested Replies: 1
+
+@319 as well
+
+--------------------------------------------------
+Subject
+how to solve the time problem?
+
+Content
+
+Interp1 does not use a bracket map, so the performance is very low, and many
+programs cannot run, so I want to know how to deal with interp1.
+
+![__2023-04-10___9.44.40.pngNaN](/redirect/s3?bucket=uploads&prefix=paste%2Fkk8g66ds7u22au%2F097619d57544fef8db5f115eca5260f0a99952b6f4d5fb54733a930032adc2bc%2F__2023-04-10___9.44.40.png)
+
+Nested Replies: 1
+
+With all of the interp files filled out according to the instructions, there
+is no time error on Gradescope. If you’re getting this, there’s likely a
+runtime or compile-time problem in your code. _Before_ submitting to
+Gradescope, I’d suggest trying all of the following:
+
+  1. Implement all of the interp files (interp1-interp7)
+  2. In the pa08 directory… 
+    1. run “cabal check” and address any terminal output
+    2. run “cabal clippy” and address any terminal output
+    3. run “cabal fmt”
+    4. For each interp file… (interp1-interp7) 
+      1. run “cargo run --release --bin interp1 bf/bench.bf” (outputs the alphabet in reverse)
+      2. run “cargo run --release --bin interp1 bf/hanoi.bf” (outputs a towers of hanoi animation)
+      3. run “cargo run --release --bin interp1 bf/hello.bf” (outputs the good ol' hello world)
+      4. run “cargo run --release --bin interp1 bf/mandelbrot.bf” (outputs a mandelbrot set visualization)
+
+--------------------------------------------------
+Subject
+Gradescope Submission Issue
+
+Content
+
+When I submit all files together I lose 1 point on interp7.rs due to speed
+issues. When I post this alone, though, I receive full credit on the code. I
+think this may be an issue with allowed runtime. @309
+
+![](/redirect/s3?bucket=uploads&prefix=paste%2Fjzvwpvjxxo133j%2F0255d24874ebce59b23eba30f67a3f75f26cd85181572cde3cb19747bb1c7af8%2FScreenshot_2023-04-10_at_8.28.17_PM.png)![](/redirect/s3?bucket=uploads&prefix=paste%2Fjzvwpvjxxo133j%2Fd6f7007ffc6416fe14416f13eecf1ce6f5337e8b16e263afe194fc6a87586c1a%2FScreenshot_2023-04-10_at_8.29.41_PM.png)
+
+Nested Replies: 1
+
+My grade is continuing to fluctuate as a retry uploading.
+
+Nested Replies: 1
+
+It took me a couple tries of submitting identical code to get interp7 to pass
+too. Assuming you have it implemented correctly, just keep resubmitting to
+Gradescope and you'll eventually get full points.
+
+Nested Replies: 1
+
+I have a similar problem. Sometimes my code takes a point but sometimes my
+code is a full mark. I think it's related to the algorithm, and the algorithm
+time is not short enough.
+
+--------------------------------------------------
+Subject
+Error: Blocking waiting for file lock on package cache
+
+Content
+
+Has anyone had this issue when trying to run cargo commands like build, check,
+or clippy? When I run them the program hangs and I get this message: "
+**Blocking** waiting for file lock on package cache"
+
+I've tried most of the solutions on Stack Overflow and nothing seems to work
+
+Nested Replies: 1
+
+Have you tried a fresh copy of the pa07 and/or pa08 folder? I'd try that
+first.  
+  
+Then I'd try to uninstall and reinstall cargo/rust according to their docs.
+
+My best guess is that this is a workspace/computer config setup problem.
+
+--------------------------------------------------
+Subject
+Gradescope says "too slow"
+
+Content
+
+Hello,
+
+I submitted PA8 and got 1 point off at interp6. The error "Hanoi is too slow.
+did you follow the readme?"
+
+I believe I followed the readme. Moreover, I modified interp6 and submitted
+the code again, this time I got 2 points off. Same error but now it happened
+both at interp6 and inter5. So my code for inter5 was exactly the same at
+submissions 1 and 2 but it passed once and did not pass another time.
+
+Should the timeout at gradescope be slightly increased maybe?
+
+Nested Replies: 1
+
+I also get the same error. Also, gradescope itself takes too long to get back
+me the result. Is this expected behavior?
+
+Additional context: submitted interp1.rs and interp2.rs / When submitted
+interp1.rs only, it get results back in few minutes. / Now, I got submission
+timeout.
+
+Nested Replies: 2
+
+Now, I do not see any issue. The previous issue might be due to my poor
+implementation.
+
+Nested Replies: 1
+
+Looks like Hanoi 5/6 were a bit strict. I've added 1 second to the allowed run
+time.
+
+Nested Replies: 1
+
+works great now, thank you, Kaiser!
+
+--------------------------------------------------
+Subject
+PA8 interp2 bmap is vector?
+
+Content
+
+I am confused as to why bmap is a vector in PA8 interp2, should not it be a
+HashMap?
+
+Nested Replies: 1
+
+I guess my question is actually if we can change the definition of bmap to
+look like this in interp2:
+
+    
+    
+    let mut bmap = vec![0; prog.len()];
+
+Because without this, it panics b/c the length of the map is 0.
+
+Nested Replies: 2
+
+You can also push 0 for each place while we are going through the program
+array.
+
+Nested Replies: 1
+
+Not sure if we can use a hashmap (I'll wait on other instructors to comment on
+it!), but you can still use the vector with the same functionality as a
+hashmap.
+
+One way way to think about this is for every "character" of the expression, we
+add a corresponding cell in the vector. So, for "[>>>>]", we will have a
+vector of length 6.
+
+So, you can think of the "character's index" as the key of that hashmap, and
+whatever you're storing as the "value" of the hashmap. What we store as the
+key will depend on your implementation, but it will relate to the positioning
+of the "[" and "]" characters, or what we are trying to optimize.
+
+Does that make sense? Again, another instructor can comment on whether just
+using a hashmap is valid! :)
+
+Nested Replies: 1
+
+thank you, Eric! that makes sense. I guess I was rather asking if there is any
+benefit here to using a vector instead of a HashMap
+
+Nested Replies: 2
+
+yep, again I'm not 100% sure if it's okay, so I'll leave this unresolved until
+another instructor comes around and answers it. Just wanted to give some tips
+in case people had the same question later
+
+Nested Replies: 2
+
+From my understanding, if we make bmap to be the same size of the prog.len()
+and storing the jump position only for '[' and ']', it should run faster than
+hash. It is because running the hash function is additional overhead (though
+it might be small). This method and using hashmap is also O(1) (Retrieve
+element using index and lookup of hash), but retrieving element using index
+will be faster. Obviously, it will consume more memory space.
+
+Nested Replies: 2
+
+yeah, that probably it
+
+--------------------------------------------------
+Subject
+PA 7 Can't generate random number
+
+Content
+
+How to use rand defined in parser.rs in rpn.rs? I have searched the internet
+for hours with no luck.
+
+I tried to import rand to rpn.rs but autograder says,
+
+"The autograder failed to execute correctly. Please ensure that your
+submission is valid. Contact your course staff for help in debugging this
+issue. Make sure to include a link to this page so that they can help you most
+effectively."
+
+Nested Replies: 1Make sure you have `use rand::Rng;` at the beginning of the class. Then use
+the function of rand::thread_rng(); to get a random number generator and then
+use gen_range(x,y); to generate the number you want where y is the exclusive
+upper bound and x lower.
+
+Nested Replies: 1
+
+I tried that but the autograder says,
+
+"The autograder failed to execute correctly. Please ensure that your
+submission is valid. Contact your course staff for help in debugging this
+issue. Make sure to include a link to this page so that they can help you most
+effectively."
+
+Do you know how to fix this?
+
+Nested Replies: 2
+
+btw, I tried "cargo run" with input "1 3 +". The result is,
+
+"thread 'main' has overflowed its stack  
+fatal runtime error: stack overflow  
+Aborted"
+
+Do you know what causes this?
+
+Thank you.
+
+Nested Replies: 2
+
+nvm I fixed it.
+
+Nested Replies: 2how did you fix this?
+
+--------------------------------------------------
+Subject
+Today's office hours
+
+Content
+
+Are there still office hours today in room 3233? I was just there and there
+seemed to be a meeting going on not related to CS 538.
+
+Nested Replies: 1The office hours are from 2pm-5pm on Friday.
+
+  
+
+--------------------------------------------------
+Subject
+HW8/PA8 Release
+
+Content
+
+I know in class on Monday, it was mentioned that HW8/PA8 may be delayed. On
+Canvas right now, it shows that they will be released on Sunday at the usual
+time. Just curious what the current status is, if they will be released on
+schedule or if they will be delayed? Thanks!
+
+Nested Replies: 1
+
+HW8/PA8 will be released on time. The late due dates for PA7 and PA8 will be
+delayed by a few days.
+
+I will make an official note announcement today.
+
+--------------------------------------------------
+Subject
+Gradescope Results
+
+Content
+
+My program has passed all the tests on gradescope, but in the ReadMe it
+mentions deductions. So I was wondering is the gradescope putting those into
+consideration or are the deductions manually conducted?
+
+Nested Replies: 1
+
+Deductions are taken into account on gradescope.
+
+The autograder parses your output looking for warnings etc, and if it doesn't
+find any, you don't lose any points.
+
+--------------------------------------------------
+Subject
+Gradescope error
+
+Content
+
+What does this gradescope error mean?
+
+![image.png](/redirect/s3?bucket=uploads&prefix=paste%2Fkcz3q2d3iq4381%2F4e632ede41c2d44d63b9966150a6c23d25fb79652f70adcccff0fb708f4061e4%2Fimage.png)
+
+Nested Replies: 1
+
+I think this means that Gradescope is intentionally passing in an error (to
+simulate bad input, for example), and instead of erroring out, the Cond
+function is returning an int of 5.
+
+Nested Replies: 1`left` indicates the correct value expected. `right` is the value returned
+from your implementation.
+
+--------------------------------------------------
+Subject
+Confusion on functionality of Rand and Cond
+
+ContentI am a bit confused about what the functionality of Rand and Cond is supposed
+to be. For Rand, are you supposed to pull anything from the stack and then
+overwrite the value with a random number or just generate a new value and push
+it? Similar confusion as to what values are needed to evaluate Cond.
+
+Nested Replies: 1
+
+So for Rand, you want to pop the first element from the stack, and (if it is
+greater than zero), generate a random number between 0 and that number. Then
+push this number to the stack.
+
+For Cond, you want to get three things from the stack (from the user input),
+which should be a boolean, and two integers. If the boolean is true, you want
+to push the first integer from the user input onto the stack. If it is false,
+you want to push the other one.
+
+Hope that helps!
+
+--------------------------------------------------
+Subject
+Clarification on Midterm Date
+
+Content
+
+If I understand the calendar correctly, the review/"catch up" will be on
+**4/17** and the midterm will be on **4/19**?
+
+Nested Replies: 1
+
+where did you find such calendar? I thought at the beginning of the semester
+we were told that the exam will be on April 12. That is also what's on the
+"intro" slides.
+
+Nested Replies: 2
+
+From the lecture on Monday, 4/3:
+
+![image.png](/redirect/s3?bucket=uploads&prefix=paste%2Fk05lo49tq1a3p0%2Fc8278a6f7835b9be7c58109c89b112e25bbc82d90e586e9fc811a8803e52d867%2Fimage.png)
+
+Nested Replies: 2
+
+Got it, thank you!
+
+Nested Replies: 1
+
+That's right!
+
+--------------------------------------------------
+Subject
+Canvas grade different from overall grade
+
+Content
+
+Hi,
+
+I was wondering why is the canvas grade different from the overall grade?
+
+Nested Replies: 1
+
+I think that the assignment called "Overall" shows your actual grade (up until
+the first midterm), and the actual canvas grade can mostly be ignored
+
+Nested Replies: 1
+
+Your guess is as good as mine on this one. Canvas and Gradescope have buggy
+integrations so the grades don't always align. Gradescope is your "true"
+assignment grade. The Overall grade on Canvas is your adjusted grade after
+extra credit and weighting.
+
+--------------------------------------------------
+Subject
+Rust learning resources
+
+Content
+
+Rust is a weird programming language that kinda looks like TypeScript until
+you start uncovering the strange bits.
+
+The Rust Book (with small optional quizzes):
+
+https://rust-book.cs.brown.edu/title-page.html
+
+A good but very dense blog post listing all the non-standard bits of Rust:
+
+https://fasterthanli.me/articles/a-half-hour-to-learn-rust
+
+--------------------------------------------------
+Subject
+thread 'eval_add' panicked at 'assertion failed: stack.empty()',
+src/main.rs:249:9
+
+ContentAny hints on why my code for pa7 is failing?
+
+Nested Replies: 1
+
+.
+
+Nested Replies: 1
+
+I am guessing that this refers to the main evaluation function in rpn.rs.
+According to the error, it sounds like you aren't properly pushing anything to
+the stack. What we have to do is pop elements from the stack (which first get
+pushed to the stack from user input in parser.rs), and then push a result to
+the stack (which is eventually shown to us as output). Not sure if that helps
+at all.
+
+--------------------------------------------------
+Subject
+Lecture Recording
+
+Content
+
+I'm sorry that I missed the lecture today since I caught covid. Will that be
+posted?
+
+Nested Replies: 1
+
+It's under Kaltura Gallery. I think the professor will upload it shortly.
+
+--------------------------------------------------
+Subject
+pa7: Rust Analyzer extension for VS code is phenomenal
+
+Content
+
+I used the Rust Analyzer tool for helping me write my Rust programs. It
+automatically compiles and underlines errors in your code like a spellchecker.
+It is great for quickly iterating over handling different Rust types in the
+correct way. I would definitely recommend anyone use this tool. It is a
+godsend. It also allows you to run your code and run tests directly from the
+text in the IDE and puts "Run" and "Debug" buttons above all runnable code
+(tests and main method).
+
+--------------------------------------------------
+Subject
+Class on Monday? 4/3
+
+ContentShould we assume class is not canceled for Monday? Or are we playing it by
+ear?
+
+Nested Replies: 1
+
+Class is not cancelled. Please do show up :)
+
+--------------------------------------------------
+Subject
+Solution for HW05
+
+Content
+
+Looks like the solution for HW5 has not been published. Can we get the
+solution for the previous homework before midterm?
+
+--------------------------------------------------
+Subject
+Pa6 step function
+
+Content
+
+If there are not enough items on the stack should the function failure be an
+error "Stack Underflow" or should it return an empty stack?
+
+Nested Replies: 1
+
+you can return "Nothing," which is another alternative constructor for the
+"Maybe a" type.
+
+--------------------------------------------------
+Subject
+PA6 Gradescope test error
+
+Content
+
+I have met a weird problem.
+
+When I submitted my code to gradescope, it gives me error about simplifyZero
+method.
+
+The info is that
+![](/redirect/s3?bucket=uploads&prefix=paste%2Fkt3d3i9sjpu5y%2Fc53911cb1e5751b0a9eae52ebc335d8cfa9b2ea7f6b22a6c61bb90af98d3ae31%2F1.png)
+
+However, when I resubmit it again, it gives different error
+
+![](/redirect/s3?bucket=uploads&prefix=paste%2Fkt3d3i9sjpu5y%2F539ea82247b4d1b6bec467eb8d0ed061150dc64693128b1a454a04db2505b6c9%2F3.png)  
+  
+For these error cases, I modified Test.hs to test them and they are working
+fine on my local
+end.![image.png](/redirect/s3?bucket=uploads&prefix=paste%2Fkt3d3i9sjpu5y%2Ff2873c54229bd87c8abe437d82294b324956c9a87ea925342772ffa27fd6f8bf%2Fimage.png)![image.png](/redirect/s3?bucket=uploads&prefix=paste%2Fkt3d3i9sjpu5y%2F40edf20e51dadbd5c265250a197a7174722723a4c741a352f9329b5393cc91e8%2Fimage.png)  
+Can someone explain what should I do with it? Really can't find a way to debug
+it.
+
+Nested Replies: 1same problem here
+
+Nested Replies: 1
+
+So, for our implementation of simplifyZero, we want to be simplifying just for
+**addition operations.** So, calling simplifyZero (Op Times (Lit 0) (Lit 0))
+should just return (Op Times (Lit 0) (Lit 0)) since it's multiplication.
+
+--------------------------------------------------
+Subject
+PA06 11) decompile is inverse of compile (0/5)
+
+Content
+
+I believe there may be an error with the last test block of PA06.  
+I fail this test:  
+  
+*** Failed! Falsified (after 18 tests):  
+Op Minus (Lit 7) (Lit (-1))  
+Just (Op Minus (Lit (-1)) (Lit 7)) /= Just (Op Minus (Lit 7) (Lit (-1)))  
+Use --quickcheck-replay=860350 --quickcheck-max-size=10 to reproduce.  
+  
+I don't believe the inverses would be equal to each other with the minus
+operation.  
+EX) -1 - 7 = -8 but 7 - -1 = 8
+
+Any clarification would be greatly appreciated.
+
+Nested Replies: 1
+
+Without looking at your code, I think this means you are pushing back onto the
+stack in the reverse order of what is expected.
+
+For reference the test code is: `decompile (compile e) === Just e` which means
+start with an expression e (e.g. Op Minus (Lit 7) (Lit (-1))), compile that,
+then decompile it. The result should be (Op Minus (Lit 7) (Lit (-1))) but you
+are returning Just (Op Minus (Lit 7) (Lit (-1))) instead
+
+--------------------------------------------------
+Subject
+Class today (3/29) cancelled
+
+Content
+
+Hey folks class today is going to be cancelled.
+
+With respect to problem #2 on the homework, since we didn't spend much time
+covering Smalltalk, I will be halving the points for those problems (only 6
+points total). The problems do not actually require much more knowledge than
+the activation records we covered and a bit of critical thinking. The
+assignments will still be due this Sunday.
+
+Nested Replies: 1
+
+Did Kaiser have his baby?
+
+Nested Replies: 2Maybe yes!! Congratulations!!?!!!
+
+--------------------------------------------------
+Subject
+New folders?
+
+Content
+
+Not 100% necessary, but will we get more Piazza folders soon? It seems like
+we're a little behind on the pa{x} folders, so it's hard to filter by what
+questions people are asking.
+
+Nested Replies: 1
+
+Just added. Let me know if that works :)
+
+--------------------------------------------------
+Subject
+Eric's Office Hours - April 1st
+
+Content
+
+Hey all,
+
+Not an April Fools Joke. I have to cancel this Saturday's office hours because
+I'm traveling. If you have any questions, I'll try to answer them either on my
+Thursday OH or via Piazza.
+
+Thanks!
+
+Eric.
+
+--------------------------------------------------
+Subject
+Looking for a partner/group to join
+
+Content
+
+Hey guys, my previous lab partner dropped the class so I'm looking for a group
+to join! a little last minute but we can collaborate on going over questions
+and just make sure everyone is on the same page with the class content. pls
+lmk if I can join you ;)
+
+Nested Replies: 1
+
+Hey, I'm also looking for a teammate, chen945@wisc.edu.
+
+--------------------------------------------------
+Subject
+Missed Lecture Due to Exam 🥲
+
+Content
+
+I'm sorry. I missed today's lecture due to an exam T-T Will it be posted?
+
+Nested Replies: 1
+
+Posted!
+
+--------------------------------------------------
+Subject
+Next midterm
+
+Content
+
+Are we keeping the second midterm date (in theory, at least), given the new
+grading/class structure?
+
+Nested Replies: 1
+
+I would expect it to be pushed about a week. I will update the class soon.
+
+Edit: plan on it being either 4/17 or more likely 4/19. I'll make an official
+announcement one way or the other on Monday.
+
+--------------------------------------------------
+Subject
+Note: class is still on for today.
+
+Content
+
+Just as a reminder. There is class today - see you there!
+
+-Kaiser
+
+Nested Replies: 1
+
+Just curious, why was there a reminder for class today?
+
+Nested Replies: 2
+
+The professor is expecting a baby this week! He said that we probably
+shouldn't expect lecture on Wednesday but to check Piazza to make sure.
+
+--------------------------------------------------
+Subject
+PA06: Issue running code
+
+Content
+
+My code isn't running due to the first line of the test case
+
+    
+    
+    {-# LANGUAGE ScopedTypeVariables #-}
+      ^
+    
+    SyntaxError: Invalid or unexpected token
+
+Any ideas?
+
+Nested Replies: 1
+
+Does it run without that line? What version of Haskell/Cabal/Haskell Language
+Server are you working with?
+
+Nested Replies: 2
+
+It isn't for me.
+
+ghc version 9.2.5
+
+cabal version 3.6.2.0
+
+Nested Replies: 2
+
+And the HLS? You can check with `ghcup tui`
+
+Nested Replies: 2
+
+1.9.1.0
+
+Nested Replies: 2
+
+I could just be running it wrong - I will come into office hours if I can't
+figure it out. Thanks
+
+--------------------------------------------------
+Subject
+PA06 "This assignment does not have an autograder configured."
+
+Content
+
+Just noticed this on Gradescope for programming assignment 6, just wondering
+if this is intentional or not
+
+Nested Replies: 1
+
+Updated.
+
+--------------------------------------------------
+Subject
+dOrdXY
+
+Content
+
+I am having some trouble with dOrdXY, and I just wanted to know if I could get
+some help on how to get started?
+
+Nested Replies: 1
+
+In the given type definition of dOrdXY, the `dOrdXY` function takes two
+arguments of type `Ord a` and `Ord b` respectively, and returns an instance of
+the `Ord` type class for pairs of values of types `a` and `b`. You need to
+define the a new instance of Ord with the Ord class definition and compare
+function. You can follow the pattern provided in the comments.
+
+Nested Replies: 1
+
+I am still a little confused on the exact syntax of it all. Am I supposed to
+implement MkOrd in some way? If so how?
+
+--------------------------------------------------
+Subject
+See Below
+
+Content
+
+ **I am once again asking for lecture videos**
+
+![](/redirect/s3?bucket=uploads&prefix=paste%2Fkkcolx31yyy68s%2Fe3b173b1e08d94f75bc548033d3387f2721e481644818be1b42f1c3e3ad468df%2Fbernie-
+sanders-i-am-once-again-asking.jpg)
+
+Nested Replies: 1
+
+I appreciate the meme, but as a reminder lecture recordings are never
+guaranteed.
+
+That said, they are now posted.
+
+--------------------------------------------------
+Subject
+Invisible Text in Lecture Slides 🥲
+
+Content
+
+Hi,
+
+Some of the text in the lecture slides for type-classes is visible. Was this
+intentional? If not, could this be fixed?
+
+I often refer back to the lecture slides when I get stuck in problems, so it
+would be a great help if this could be fixed.
+
+Thank you!
+
+![image.pngNaN](/redirect/s3?bucket=uploads&prefix=paste%2Fkek40d7mbee64i%2F9b93d87159e05d995a1de1636635522508fc492458153877b4c5a055447e186a%2Fimage.png)
+
+Nested Replies: 1
+
+The hs-code/type-classes/type-classes-desugar.hs covers these examples, or
+your classmates could help you out on it!
+
+--------------------------------------------------
+Subject
+For Part 2, are we assumed that the code in Q1 be runned?
+
+ContentIn this case, (===) globally overwritten by `MyEqD a -> a -> a -> Bool`...
+Isn't it?
+
+--------------------------------------------------
+Subject
+Are we using all lines/blanks?
+
+ContentFor this homework, we are requested to fill in the blank. I want to make sure
+whether we have to use all the lines or not. e.g. We have three lines on part
+1.2.1.a on pop (Stack s) = ..., and is this intended as we have to put three
+lines of code?
+
+Nested Replies: 1
+
+Maybe another instructor can comment on whether or not it's okay to just use 1
+line vs. 3 lines, but I just wanted to follow-up with a way of interpreting
+the 3 line implementation.
+
+One way to think of the three line implementation is just using one line to
+check if the given Stack/Queue matches to empty list, then carry out the
+following procedures (these parts are very similar to the previous
+implementations)
+
+Edit to add: if you can solve it in one line, and the solution is correct, you
+will get full points.
+
