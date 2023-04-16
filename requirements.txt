@@ -5,3 +5,6 @@ black
 langchain
 chromadb
 sentence-transformers
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
