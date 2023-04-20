@@ -85,6 +85,7 @@ def get_chain(cache_dir: str):
         chain_type="stuff",
         vectorstore=load_vecstore(cache_dir),
         chain_type_kwargs=chain_type_kwargs,
+        return_source_documents=True
     )
 
 
