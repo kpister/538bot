@@ -29,7 +29,7 @@ def main():
     EMAIL = "rattanakornp@wisc.edu" # Piazza username
     PASSWORD = "87lemons" # Piazza password
     network_id = "lcguqjpvo0q39j" # Course CS 538
-    OPENAI_API_KEY = "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"
+    OPENAI_API_KEY = 
     os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
     piazza = Piazza()
