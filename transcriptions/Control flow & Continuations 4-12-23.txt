@@ -1,1 +1,705 @@
- You You You You You You You You You You can use your previous notes and then come up with a New sheet or throw out your old one and come up with two new ones. Two new sheets of notes. Front and back. Printed or handwritten. Totally up to you. Do whatever you want. So just don't bring gpt. All right. Today and Monday we're going to be talking about control flow continuations and Monads. I didn't show you a status pick on last one day so i figure i'll give you an extra good one today. Here's supermove to the rescue. I have no idea what we get is i don't know if you guys do. We're like 10 maybe? I don't know. Here are the things we're going to be talking about structured programming, procedural abstraction, exceptions, continuations, monads at a high level. Okay. All right. Let's get into it. Unless any other questions or notes about the class. Nope. Okay. Turn back the clock. Let's read some code that was written many many years ago in a language called 4tram. Try and parse what this code does. You'll recognize a lot of the symbols that uses if greater than go or go to. Does anybody have a sense of what this program does? Yeah. It's a lot of different lines of code and it's unparseable. Primarily because of these go to statements where we're leaping around from one line to another line without being able to visualize the path of control. So this was what everyone was writing in the 50s, 60s, 70s, even people today write 4tram. If you work with some prominent scientific computing such as numpy or pandas, or sci-fi not pandas, say. Those are built on 4tram because 4tram is really fast and efficient. But it's also hard to work with. So this guy, one of the titans of our field, Dijkstra, in 61, I feel like it's somewhere in here. I don't know. Sometime in the 60s, late 60s I think actually, he writes this paper saying go to statements are harmful. They're actively bad. They make your code harder to read which makes it harder for other people to understand which makes it harder to fix which makes it harder to run. They're harmful. Stop using go to. Because up until this point everyone was. It was the default way to control jumping around your code. You would jump from one place to another. So what he's saying is the primary way that we understand programs, that we as humans understand programs, is to process code as a sequence. We read it vertically and we try and figure out what's happening. If we're jumping into the middle of a code block, that's really hard for us as humans to process. The computer has no problem with it, but we struggle. And so we result where we get spaghetti code when we're jumping all over the place. So we should eliminate go to's, stop writing with go to's. And instead let's have high level control flow constructs, things like functions or just blocks or if statements that are, you know, bounded to the if statement. So this is his kind of radical idea of the 60s. Get rid of go to's. Yeah, so this is kind of condemning of programmers in the 60s and 70s. But it shouldn't be too much of a surprise that there was actually opposition to this move. He's saying go to's are bad, but everyone's using go to's. So there's clearly some cultural like inertia behind the go to statement. People want to be using it so they are. This is kind of the radical new idea. And in fact, Donald Neuth, another big guy in the field, is saying no, no, actually go to's are pretty good. We can use them effectively to control our program and simplify our code. Just like you would use functions. Functions are really powerful to organize and structure your code. We can use go to's the same way. And so long as you aren't writing spaghetti code and you keep your go to's neat and clean, we actually have really efficient code. So it's really good to have go to's in some cases. We just need to teach people to use them right. But that doesn't go so well. You guys are currently learning to program or you know how to program. But we still make mistakes. And even the best programmers aren't always going to know how to put the go to in the right spots so it's readable. So the easier thing is to go with thanks for his approach and say let's get rid of it. Let's not let people use it at all instead of letting people use it sometimes. And then that causes some issues. This is pretty common. Like what about null pointers? That's something that existed. Or I mean it still exists in some languages obviously. But some languages actively chose to remove them. Even though you can handle null pointers correctly, it's also really easy to mess them up. So if you handle it at a language level, you never run into that problem. And that's what this course is about. Handling things at the language level. So Dijkstra proposes what's called structured program. This idea that we have high level structures of code instead of just line by line kind of assembly type code. Our programs will have abstractions such as control structures, procedures and blocks. And the reason we do this is so that we can read the code. We as programmers want to be able to read other people's code. You have to do it. It's part of the job. So that's structured program. We'll look just briefly at what this means compared to go to. So if we try and look at the control flow graph of a go to program, which is to say how does the execution of your program proceed. So we would draw, for example, each of these blocks represents a chunk of code. That's maybe three lines of code that always execute in a row. And then each arrow says we can go from that block to another block. We can jump from this line of code to this other line of code. And go to create these very large unstructured graphs. But the nice thing is that they're extremely flexible. Okay. So what we want is to get rid of go to, but still keep all the flexibility, keep the power of these jump, these kind of arbitrary jumps. And we want to be able to express any computable function. We also saw the same idea yesterday or on Monday with our imperative programming. What do we have to have in terms of control flow to allow our program to express anything that we want it to? What are the features of our language that we would use to make that happen? You have an idea? Yeah. Yeah, we want to be able to loop. That's a big thing that we do go to's for. If you've ever written assembly, you do all sorts of check and then jump back. So that's definitely true. We want looping. What else? What was another feature of imperative programming? Conditionals. We want to be able to say if this one jumped there, if a different one jumped somewhere else. And then what's the kind of most basic? We want to execute one thing, then we want to execute another. Sequencing. So the semicolon. So sequencing two things together, selection or conditioning or if statements and then iteration. Being able to loop. These are the three key components to allow us to express anything. Okay. What does the control flow graph of sequencing look like? We're talking about this again in this kind of a box represents a chunk of code. An arrow represents going from one chunk of code to another chunk of code. Does anybody have an idea of what sequencing would look like? Yeah. Yeah, lines connecting a bunch of rectangle things. If we have two chunks of code that we want to execute, sequencing would just be a line connecting those two things. This is a really simple control flow graph. We have line one, then we do line two. Line one goes to line two, you can't go anywhere else from line one. Okay. What about if, if else? Yeah, what do you think? Yeah. Yeah, so a diamond, if you're kind of drawing it in a UML or whatever it is, where you can either go to the left or you can go to the right. And then what happens when you're done with going left or right? We reconverge. We come back to the same place. So we draw something like this. We start from one place, that's kind of our like Boolean check. Maybe we do left, maybe we do right. Once we're done, we come back. Take a second, draw what you think while it would look like. I'll give you 30 seconds. Yeah, question. They should be, they're called control. It could be. If it says control, it doesn't have these slides. It could be, yeah. Yeah. Some of the slides might be slightly out of order, but they're roughly the same content. Okay, who's got an idea for while? You can instruct me as I draw. What do we think? Okay. Yeah, Dan. A loop between two rectangles. Like that. What does this one represent? Yeah. What does either one represent? Yeah. Yeah, so this could be the condition, and then what does that make this? The expression or the body? I would add just two things to this. Two minor things. Yeah. We didn't exit. Yeah. Yeah, we also actually need to enter. So a basic while loop would look something like that. We could do a do while if we preferred, and then you would come into the body first, and then do the conditional, and then potentially exit, maybe go back to the body. Every construct that you have used can be represented in this format, in some form or another. So a for loop, we can skip whatever, what about this one? Oh, yeah, question. Can we enclose the condition in the body in one box? Not really. I guess what we could do, we could have it loop back to itself, is that what you're thinking? So they are two different pieces, though, where we're doing a check, and we're doing a body. But it wouldn't be wrong to do that. This is just a bit more clear what's going on. Okay, what do we think about this one? What is this, the CFG? Yeah, this is a switch statement. So we have many potential pieces to it, and then what's this guy here? Or maybe actually, yeah, no. I guess we don't really know, actually, I was thinking that would be default, but it's not necessarily default. But there's a switch statement. Cool. Now you guys are experts at drawing control flow graphs. That's all there is to it. It's not like there are ten more of these to do. These are all the, well, okay, we're going to cover one more in a minute, but these are basically all of them. So that's structured programming in a nutshell. Let's use those control flow units instead of plane go-to's. Let's use if statements sequencing and loops, because they're easier to reason about, easier to read. Okay. So we can chain blocks together to write anything we want. This is what I would do when I was first learning Python. I just wrote one large main function. I'm sure many of you did the same. You just kind of put all of your code in one place, and then you hit run at the top, and it does it all. And it's great, because it makes sense. You just read it in order, but it kind of sucks in that your code is just a giant blob. You don't get any reusability. It's hard to kind of fix things. There's probably a lot of copy-pasting if you were doing anything like I was. So instead, instead of just chaining everything together, let's use procedures, aka functions. Let's group common logic together so that we can reuse it all over the place. This might feel obvious you guys have been writing code for years at this point, but it's not like it just spontaneously has. It happens that we do this. People thought to do this because that was so bad. Assembly was not very nice, so we came up with things like procedural abstraction. Our upside is that we get better code reuse, we get better organization, you can read what's going on. The downside is we complicate our control photographs. So previously we were just using sequencing if and loop. But now we need something to actually handle this procedure, to handle a function. So if we have a control photograph for a function call, we're calling h inside of f, we're calling h inside of g. What would we represent the control photograph of this as? How would we draw that? Yeah. So just talking about the function call, not the function return yet. So arrow to f, arrow to h, just function call. What else? Yeah. We also have the ability to go from g to h. h can be reached from two different places in this code. When we're inside of f and when we're inside of g. Yeah. Okay. What about for function return? It depends on where you're coming from. We don't actually know. h doesn't know where it's going. Until runtime. At the point that we're actually executing h, then we know I was just called from f, go back to f. Or I was just called from g, go back to g. So we don't know where h was called from until runtime. What's the implication of this statement compared to all of the other cases that we've talked about so far? What do you have to do in order to handle this problem? What does a language have to do in order to handle this problem? Yeah. You have to do runtime error handling. What do you mean by that? And what are we checking? Definitely. Yeah. So we have to check at runtime something about h. You have an answer to something yet. Go ahead. We, yeah, so in activation records, we stored the control link. That was an important feature of the activation records so that we knew where to go back to. It's also called the return address that's pushed onto the stack so that you know where do I set my instruction pointer to once I finish. This problem is handled by putting the runtime or the return address of whatever called us onto the stack. That sentence is the cause of so many security flaws. That's like the biggest security concern that exists. The fact that we have to push the runtime, the return address to the runtime stack. And the reason we're doing this is because we don't know when we are in h, do I go back to f or do I go back to g? So there could be lots of different places that we return to from a function call. And in this example, it's kind of straightforward. We know that it's one of two places. But as soon as things start to get a bit more complicated, we can no longer at compile time figure out where is this thing supposed to go. Okay. So in general, figuring out how the control flow graph works is very important to your program. It helps for optimization. Much more importantly, it helps for security. This is like the biggest control flow or the biggest security concern is control flow hijacking. So it's not crazy to think back to 1960s when Dijkstra says go to his harmful to then ask ourselves is returning harmful. Should we not be able to return? Which sounds crazy. It sounds like a radical idea just like removing go to was considered a radical idea. 60 years ago. But maybe in the next 10 years, we will move past returning as crazy as that sounds. We already talked about this. How do we know where to go? We put the return pointer on the stack. Okay. So a quick check. Return pointer goes on the stack when we do a function call. Do we also need to do it for an if statement, a while loop, or for sequencing? Take 10 seconds. Come up with an answer. Yes or no? Yes? No. No, we don't. These things, if statements, while loops sequencing, those are just as simple as knowing go to the next instruction. Or with an if statement, it's hard coded to say jump to this address. That's predetermined at compile time where you're going. Okay. So that's procedural abstraction in an upshell. We want to write functions because functions make our code clean. However, they complicate our control flow graph. We would still love to have functions, but we would like to have a simpler control flow graph. Let's do that by eliminating the return statement. We're going to start writing code and never return. The way we are going to do this is with a tool called Continuations. You probably know Continuations by a different name. They are also called callbacks. Continuations were initially developed in Elville, but they've continued to re-emerge in basically every programming language that comes out since then. Because people think that it's a cool idea and then implement it and then they realize, oh, hey, actually, algal did that or scheme did that or JavaScript did that already. So one of the big things that Continuations enable and the place that you have probably used them is asynchronous program. We can do things such as read a file asynchronously, which means start reading a file once you're done reading that file, execute my callback with whatever the result of reading that file was. So the second parameter to read file that error comma data goes to blah, blah, blah, that's our callback function that we will execute when we finish reading the file. That's a continuation. We're going to do this at a bigger scale. Questions? Yeah. So here, we are still returning. We need to go further. This isn't far enough. But we will never return in our, in, in where we are going, which means we never need to put the return address on the stack, which actually means we get to get rid of the stack. Okay. Another example of Continuations is the Debugger. You guys have probably used the Debugger all the time. A Debugger operates by executing up to a point, giving you kind of an injection into that precise state, and then storing, storing the future state of the program, whatever will happen next, that's the continuation, that's the callback. Once you're done doing whatever you want to do in the Debugger, you will then execute the callback. Just like once you're done reading the file, execute the callback. So Debuggers work the same exact way that asynchronous file reads to you. The plan for CPS is to say, first, what is a continuation? Then we're going to look at continuation passing style, and then how can we use continuations to solve our problems? Okay. All of the code that you write has continuations. You just don't know it. At any point in your program, you have current state, you have past state, and you have future state. And so, if we are currently executing this one over y, we can think of our past state as the multiply 2 by x, our current state, or our current computation, divide 1 by y, and then the rest of the program, the continuation of what we're doing is the next two steps. And if we wanted to rewrite our code to follow this structure, we might say something like, before is 2 times x, that's our past state. Cont for current continuation is equal to a function that takes a result, the results will be the result of 1 divided by y, and it will return before plus current result times 2. So, take a second, reassure yourself that nothing crazy is happening here. The line of code in the consider is identical to the line of code, or the four lines of code on the right. Make sure that those two look the same. Okay, two more snippets of code that should look the same. We can have an implicit continuation, that is to say we just sequence our code together, first read our file, then log the data, then process the data, or an explicit continuation, where we say read the file, and here's the callback for once you finish executing the read file. So again, take a second, read those lines of code, make sure they feel similar. Any questions on them? Okay, so we are going to translate code that looks like that, more into code that looks like this. We're going to turn our implicit continuations into continuation passing style. And why do we want to do this? The main reason is because we're going to get read of returning. That's going to make our evaluation order explicit. And one of the main benefits is that this is used all the time in compilers. They will translate your code from looking like this to looking like this to get optimizations. And the more that they can optimize the faster your code is, some can be optimized so much that they basically turn into something that's been used. And the more of a math problem, like solve for x, then a programming assignment where you actually have to execute code. Okay, let's do an example. If we have a function called zero, all it does is return zero. The key concept of CPS is that we never return. So we are not going to use the return term. We can't use that. If you have a right return on a CPS problem, you've made a mistake, go back and retry. What we're going to do instead is we are going to take a callback function, a continuation, that we will execute when we have finished our computation. So zero now takes a continuation and it continues with the value zero. Question. Yeah. What happens when the program ends? We will send the program back to the runtime to say clean up and finish. Very similar to what happens when the program ends at the end of your Python file. Say, by no, or JavaScript, any of the managed languages. It goes back to the runtime. And the runtime is going to clean up for you. It's going to free your memory. It's going to do everything that it needs to do to close any files that are still open, that sort of thing. Same thing would happen here. We'll send it back to the runtime. Which is often called top CC in the homework assignments or on the exam, like that's the term that I call it. Okay. We're not going to do factorial yet. That one will get to. Let's look instead at a function twice. So twice takes a function f and a parameter x and it returns f of f of x. How many returns are happening inside of twice, either explicitly or implicitly? Yeah, damn. Three. We have the return from twice. We need to get rid of that. But also, f of x is returning of value. And that's going into f, which is then returning of value. Which is then the thing that we return. So we have three returns here that we need to address, because we can't have any of them. So how should we do this? What should we do? If we want to rewrite twice. You guys haven't seen many examples yet, but yeah, go for it. No returns at all. So we will be kind of unwrapping it. That is the idea that we're going to be working with. But we need to unwrap it so far that we never return. Which is a little while. The first thing that we want to do, how do we write JavaScript? Okay, function twice. The first thing for every CPS style or CPS function is that it will take a continuation. Every function takes effectively a callback to say, what should I do once I'm done? So let's include that. Take the CC, the other parameters are just going to stay the same. That's the first change. We need to know instead of returning, call this function. What else do we want to do? What's the first piece of code that gets executed inside of twice? Yeah. F of X. So that is also the first thing that we are going to want to try and compute. What do we know about F? Yeah? It takes a parameter X. It's also CPS. We're in the world of CPS, everything is CPS. So it takes a parameter X, but it also takes a callback. And the callback that F takes is what F will do once it computes whatever it needs to compute with X. And we get to assume that that's true, kind of like an induction-style proof, because that's just true. That's how CPS works. So F, we want to compute F of X just like we did before, but F of X is going to take a callback. This says, what should I do with the result of whatever F of X used to be? And what do we want to do with the result of F of X? Yeah. We want to pass it again to F. That's what we're doing up here. F of X goes into F. So our function is going to take a callback. And that callback has a parameter because we have computed something. F of X returns something. So I've called it Res for Result. Our callback takes this parameter, the result of F of X, and it passes it to F again. So it's going to do F of Res. But once again, F is CPS, which means F takes a callback. So this F also needs a second parameter. What's the callback to F, the second F? CC, yeah. Let's make sure you have my parentheses right. Yup. So what we are saying is that we first want to compute F of X. Whatever the result of that is, will we pass into this second function here. A function that takes a result and it passes that result to F. So we will then compute F of the result and pass whatever the result of that onto our initial continuation. Which is whatever we were supposed to do once we finished with the function toys. This is one of the more like mind-screwy things that we do in this class of trying to unwrap all of these continuations. Alright, I want you guys to do CMP compose. So take two minutes chat with someone next to you, try and figure out how would we translate composed to F of X. Two CPS. So think about what is the value of F here. F itself is a function that has been translated to CPS. Which means F is going to be something that takes in a value, and then passes it onto the continuation. So this doesn't work in a world where F is a normal function. F needs to be CPS as well. Right. So we only are ever jumping forward. We have a bunch of function calls. We're saying F of X. That's a function call. But we're never coming back to the point right after F of X happens. Instead we just continue on forwards to this function here. Right. And we keep continuing on forwards, continuing the computation. So it'd be like at the last half there if we thought it would have like an effect. No, no, so that's all handled by our current continuation. This current continuation might be jump back to runtime to the runtime system. Yeah. Yeah. So we never come back to where it is. Right. Yep. So if you could just jump back to the value of F of X. Right. Right. JavaScript will return here back to where we are. Right. Right. So if you go to stage, you can go to stage. Right. Right. Yeah. Which is what functions are. Because it's not go to its function. Yeah. Okay. What do we think? How do we rate compose? Who's got an answer? Go for it. This one? This one. What do we think? I'm seeing a lot of nodding. Yeah. Question? Good point. We do also take a g as a second one. And the function name needs to change. But the internals of the code, yeah, that's all that we need to do to change this one. So one of the things that is highlighted here is the order of operations is very explicit. First we are doing g, the inner piece, then we are calling F with the result of that. Okay. Another way to think about this is if we break that function into parts, F of F of X is the same thing as saying let R equal F of X return F of R. So R equals F of X return F of R. This looks a little bit more similar to call F of X, store it into R, and then call F of R with the continuation. The second, so yeah, the last parameter to have the function is the continuation. I did that bit backwards here. We should put the continuation here. You could do it as the first one to. So long as you're consistent. Yeah. So if we don't have any information on the stack about our control flow, the attacker can't do anything. This information is not actually something that's being stored on the stack. So we can't just overwrite the, we could provide a malicious function. So you need to make sure your attacker can't control what CC is, for example. But you aren't just going to be able to overwrite the CC function. Unless, if you can, then you have other issues. I wanted to access R after you've set it before you return. So like in CPS or let's do a slightly more complicated example. Because I think that's a great question. How could we handle more complicated things than just like one liners? Because you can and we will. Try and write factorial. Start with the simple stuff that we've talked about of. Make sure you have your continuation. You're never returning anywhere you're returning. Don't. And see what you can get to. I'll give you guys three minutes because it's a long one. Yeah. Yeah. Yeah. Just like f is a function that's defined somewhere else. This f is told to you to say, you know, jump to this place. Right. Just like a normal function call. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Okay. What do we think? Someone help guide me. I have to write some JavaScript and I turned off get hub co-pilot. What do I do? Rudy, you can start. Just give me a little bit. We take parameters n and cc, excellent. So just like before we took a parameter n, now we're adding in our current continuation. What should we do once we're done executing? Who wants to give me the next bit? Yeah. Son. With what value? Yeah. So at some point we're going to want to call cc of 1. When do we want to call cc of 1? Yeah. When n equals 0. So just like before we can say if n equals 0, cc of 1. If we wanted to be super strict about this, equals itself could be considered a function that we would want to rewrite to be cps. We are not going to do that. But you could. If equals is not a function, then you're kind of good to go as is. Okay. So we've covered our base case. Now what? Yeah. So it takes the result and does what with it? Thoughts, feelings, opinions. Yeah. Call us cc with our time then. I like it. So our final result is going to be n times the result of factorial n minus 1. So we compute factorial of n minus 1. And then the results of that is passed into our call back where we multiply that by m and pass the result to cc. I think we ended up with the same thing. Any questions on factorial? Yeah, in the back. How does that work? Yeah. How does this hold up without the stack? So we're going to end up with something like this. If we have factorial of 3 and our continuation is just the identity function. But you could consider any arbitrarily complex continuation function. Maybe we're going back to the runtime. Maybe we're passing it into twice. I don't know. Something that sort. We can then expand factorial 3 into factorial 2 with this other call back function. And we can continue to expand and expand and expand until we end up with without ever computing anything. Is that we're going to be calling ID with 3 times 2 times 1 times 0. Ignore that. Ignore the time 0. So we have removed the need to run JavaScript outside of this last line here. Because we were able to rewrite this in a completely different form. And what the homework will have you explore is how similar does this look to your first assignment where you are asked to convert JavaScript to lambda calculus or lambda calculus to JavaScript. Because this to me looks like a line of lambda calculus. And when I have a line of lambda calculus, I can do beta substitution. And beta substitution is not the same thing as computation. Beta substitution can be done by my compiler before I ever run my program. The only thing that we end up running is this last line. We compile away all the rest. So we've reduced the need for calling factorial ever actually. Yeah. No. So factorial is a tail recursive function, which is to say that it only ever returns at the end of or it only ever recurses at the return point, which is a special type of recursive function that optimizes very nicely. So factorial is special here, but other functions are also tail recursive and can also be optimized in this way. Yeah. So that's how we get rid of the runtime stack. Oh, yeah. So we're actually not holding on to any information in this stack here. Because we didn't need to do any of this stuff in our runtime stack. We're holding on to it in the compiler in some sense in that we are rewriting our code to be a new form. We're rewriting it from that to be this through all of these steps. Yeah. Okay. So the actual kind of quote unquote rules that we have been unofficially following, any time you have a function, that function takes a continuation. No problem. Anytime you previously were returning a value, now you call continuation with that value. And then the hard one or the only kind of complicated one is that whenever you have multiple statements, you have a sequence of statements, you first compute whatever needs to be created in the first statement, and then take a continuation with the result of that computation for the continuation. And if statement one, statement two are also complicated, recursively apply this rule until we get to the point where they are not. These are the rules. One, two, three. Two of them, I feel like, you know, no problem at all. They're basically just automatically. You see a return, you call CC instead. You see a function declaration, add CC to the parameter list. Okay. Questions. Yeah. Yeah. Any code can become CPS. Not at all code should be CPS, but any code could be CPS. This is a different way of writing the same exact thing. Okay. Once again, reiterating why is this useful? The whole point we make control flow explicit. That makes it a lot harder to hijack the control flow and get into trouble. It also means that you can optimize a lot of your code because things start to look like Lambda Calculus. If you look like Lambda Calculus, you can be optimized like Lambda Calculus. It works well for multi-threaded programming and programming with GUIs for event-based stuff. Cool. Continuations are very powerful. They really can let you do anything we can rewrite all code to be CPS. We can implement if statements in CPS. If statement in CPS takes three parameters. It takes a Boolean. It takes a true continuation and it takes a false continuation. We can also do exceptions. Exceptions would be you take a function to run and you take a catch continuation and you take a success continuation. So to show that just briefly, if we add a JavaScript function that throws an error and then we try to run that function, this is how we would handle it in traditional JavaScript with CPS 130. That's why I taught at UCSD. It's also what I took at UCSD just for the record. These are, I didn't write this code. Let's blame that on day on step and weird guy. Trying to be personable. Yeah. Anyway. So our continuation, when we hit the try, we want to execute f and if it succeeds, we want to log no way. And if it fails, we want to log e. So we have a success continuation and then we have a fail continuation. All right. Putting it all in context, continuations absorb everything. Everything can be represented by continuations. Go to is a small form of continuation. Structured programming is a small form of continuations and those overlap on block based control flow, if, while, and sequencing. Yeah. So everything is so much easier in a world without I.O. I.O. is like the confounding factor for programmers. Because if we didn't have I.O., everything you would just write it and then it would be done. You would never have to like actually care about if something changed. Nothing ever changes. So I.O. could be disc, it could be reading from something like that, or it could be taking user input. If we wanted factorial to take user input, what could we do that would be fun. Instead of returning one, maybe we want to, where, where should I write this? Return. So our base case will be return input. Where input is a function that requests input from the user. We would just rewrite this to be input cc. And input itself would be a function that accepts a continuation to keep going. We might no longer be able to optimize this. This might totally destroy all of our optimizations. But it's still doable. But yeah, I.O. I.O. really messes everything up. And that is exactly why we are going to talk about Monads. Because Monads are a way of handling I.O. in a reasonable way. We're going to talk about Monads on Monday. But I am going to spend just five minutes on exceptions today. You guys are all used to exceptions. We throw and we catch them. We raise and we handle them. The point of an exception is that we want to jump out of something that we're doing and pass some amount of data along. That there was an I.O. error, for example, you tried to redifile it doesn't exist. Raise an exception so that somebody can handle it and print to the user. Hey, that file doesn't exist. Whatever. I have a question for you though. Who's supposed to handle the exception? Who's job is it to handle a file not found error? Yeah. Some unspecified call it. Whoever asked for the file should handle the file not found error. It should not be the person who wrote the function for opening a file. They don't know what you want to do if there's an error. You know what you want to do if there's an error. So with that said, can we determine statically where we want to return to when we throw? What do you guys think? If there's an exception, do we know at compile time where it's going? Yes? No. I'm going to say most of the time no. In some cases, yes. For some simpler things that we can do static analysis on, sure. But generally speaking, no. We know where to return to based on information on the stack. This is the same problem that we've run into with return statements. So the way that many languages handle this is that when you're inside of a try catch, you attach some extra information to your runtime stack to say, not only here's the return address, here's the catch address. This is the scope to go back to if we are raising an exception. And the reason we're doing this is because the user knows how to handle an error and the library author does not. All right. Here's a little bit of JavaScript. We won't dig too deep into it. Forgive the, you know, we have a function that throws an error. We try to run that function and it catches an error. It makes sense here that we jump to the catch. No big deal. I feel like you guys have all seen this before. I don't want to bore you with that. What you might not have seen though is how can we connect this to our activation records? So if we created our kind of standard activation records that we were doing with JavaScript, we're now going to add in an extra catch activation record. And this activation record will only be created when we have a try catch. And it basically just wraps whatever else we were doing. There's no new magic here. We're doing the same exact thing. We still have control. We still have access. And then we just have some catch information. What should we do if there's an error? And our function f, when we call that, points up to our catch activation record. Instead of pointing directly back up to the global scope. So when we have an exception, we jump back to the catch and we're going to go. All right. Before we, there's so many builds on this. Before we end class, which one, two, or three catch is executed when f of g is called. I'll give you guys a minute and then we'll discuss real quick before ending class. What do we think? One, two, three. A lot of people saying three. Is that reasonable? I didn't actually look at it. Why is it three? Because h is what causes the error. And we handle it at the most local place to say, h raised an error catching it three. That seems reasonable to me. If we wanted to draw it all out, this is what it would look like. Feel free to consult the notes in the lecture slide. If we did it a different way, we would get a different result. So don't get confused by saying this is two. Therefore it's two. This is if we did it a different way, we would get two. But yeah, I agree it's three here. Okay. That's all for exceptions. We're going to be talking on Monday about monads. See you guys then. Bye. Bye. Bye. Bye. Bye. Bye. Bye. Bye. Bye.
+ You You You You You You You You You You can use your previous notes and then come up with a New sheet or throw out your old one and come up with two new ones
+ Two new sheets of notes
+ Front and back
+ Printed or handwritten
+ Totally up to you
+ Do whatever you want
+ So just don't bring gpt
+ All right
+ Today and Monday we're going to be talking about control flow continuations and Monads
+ I didn't show you a status pick on last one day so i figure i'll give you an extra good one today
+ Here's supermove to the rescue
+ I have no idea what we get is i don't know if you guys do
+ We're like 10 maybe? I don't know
+ Here are the things we're going to be talking about structured programming, procedural abstraction, exceptions, continuations, monads at a high level
+ Okay
+ All right
+ Let's get into it
+ Unless any other questions or notes about the class
+ Nope
+ Okay
+ Turn back the clock
+ Let's read some code that was written many many years ago in a language called 4tram
+ Try and parse what this code does
+ You'll recognize a lot of the symbols that uses if greater than go or go to
+ Does anybody have a sense of what this program does? Yeah
+ It's a lot of different lines of code and it's unparseable
+ Primarily because of these go to statements where we're leaping around from one line to another line without being able to visualize the path of control
+ So this was what everyone was writing in the 50s, 60s, 70s, even people today write 4tram
+ If you work with some prominent scientific computing such as numpy or pandas, or sci-fi not pandas, say
+ Those are built on 4tram because 4tram is really fast and efficient
+ But it's also hard to work with
+ So this guy, one of the titans of our field, Dijkstra, in 61, I feel like it's somewhere in here
+ I don't know
+ Sometime in the 60s, late 60s I think actually, he writes this paper saying go to statements are harmful
+ They're actively bad
+ They make your code harder to read which makes it harder for other people to understand which makes it harder to fix which makes it harder to run
+ They're harmful
+ Stop using go to
+ Because up until this point everyone was
+ It was the default way to control jumping around your code
+ You would jump from one place to another
+ So what he's saying is the primary way that we understand programs, that we as humans understand programs, is to process code as a sequence
+ We read it vertically and we try and figure out what's happening
+ If we're jumping into the middle of a code block, that's really hard for us as humans to process
+ The computer has no problem with it, but we struggle
+ And so we result where we get spaghetti code when we're jumping all over the place
+ So we should eliminate go to's, stop writing with go to's
+ And instead let's have high level control flow constructs, things like functions or just blocks or if statements that are, you know, bounded to the if statement
+ So this is his kind of radical idea of the 60s
+ Get rid of go to's
+ Yeah, so this is kind of condemning of programmers in the 60s and 70s
+ But it shouldn't be too much of a surprise that there was actually opposition to this move
+ He's saying go to's are bad, but everyone's using go to's
+ So there's clearly some cultural like inertia behind the go to statement
+ People want to be using it so they are
+ This is kind of the radical new idea
+ And in fact, Donald Neuth, another big guy in the field, is saying no, no, actually go to's are pretty good
+ We can use them effectively to control our program and simplify our code
+ Just like you would use functions
+ Functions are really powerful to organize and structure your code
+ We can use go to's the same way
+ And so long as you aren't writing spaghetti code and you keep your go to's neat and clean, we actually have really efficient code
+ So it's really good to have go to's in some cases
+ We just need to teach people to use them right
+ But that doesn't go so well
+ You guys are currently learning to program or you know how to program
+ But we still make mistakes
+ And even the best programmers aren't always going to know how to put the go to in the right spots so it's readable
+ So the easier thing is to go with thanks for his approach and say let's get rid of it
+ Let's not let people use it at all instead of letting people use it sometimes
+ And then that causes some issues
+ This is pretty common
+ Like what about null pointers? That's something that existed
+ Or I mean it still exists in some languages obviously
+ But some languages actively chose to remove them
+ Even though you can handle null pointers correctly, it's also really easy to mess them up
+ So if you handle it at a language level, you never run into that problem
+ And that's what this course is about
+ Handling things at the language level
+ So Dijkstra proposes what's called structured program
+ This idea that we have high level structures of code instead of just line by line kind of assembly type code
+ Our programs will have abstractions such as control structures, procedures and blocks
+ And the reason we do this is so that we can read the code
+ We as programmers want to be able to read other people's code
+ You have to do it
+ It's part of the job
+ So that's structured program
+ We'll look just briefly at what this means compared to go to
+ So if we try and look at the control flow graph of a go to program, which is to say how does the execution of your program proceed
+ So we would draw, for example, each of these blocks represents a chunk of code
+ That's maybe three lines of code that always execute in a row
+ And then each arrow says we can go from that block to another block
+ We can jump from this line of code to this other line of code
+ And go to create these very large unstructured graphs
+ But the nice thing is that they're extremely flexible
+ Okay
+ So what we want is to get rid of go to, but still keep all the flexibility, keep the power of these jump, these kind of arbitrary jumps
+ And we want to be able to express any computable function
+ We also saw the same idea yesterday or on Monday with our imperative programming
+ What do we have to have in terms of control flow to allow our program to express anything that we want it to? What are the features of our language that we would use to make that happen? You have an idea? Yeah
+ Yeah, we want to be able to loop
+ That's a big thing that we do go to's for
+ If you've ever written assembly, you do all sorts of check and then jump back
+ So that's definitely true
+ We want looping
+ What else? What was another feature of imperative programming? Conditionals
+ We want to be able to say if this one jumped there, if a different one jumped somewhere else
+ And then what's the kind of most basic? We want to execute one thing, then we want to execute another
+ Sequencing
+ So the semicolon
+ So sequencing two things together, selection or conditioning or if statements and then iteration
+ Being able to loop
+ These are the three key components to allow us to express anything
+ Okay
+ What does the control flow graph of sequencing look like? We're talking about this again in this kind of a box represents a chunk of code
+ An arrow represents going from one chunk of code to another chunk of code
+ Does anybody have an idea of what sequencing would look like? Yeah
+ Yeah, lines connecting a bunch of rectangle things
+ If we have two chunks of code that we want to execute, sequencing would just be a line connecting those two things
+ This is a really simple control flow graph
+ We have line one, then we do line two
+ Line one goes to line two, you can't go anywhere else from line one
+ Okay
+ What about if, if else? Yeah, what do you think? Yeah
+ Yeah, so a diamond, if you're kind of drawing it in a UML or whatever it is, where you can either go to the left or you can go to the right
+ And then what happens when you're done with going left or right? We reconverge
+ We come back to the same place
+ So we draw something like this
+ We start from one place, that's kind of our like Boolean check
+ Maybe we do left, maybe we do right
+ Once we're done, we come back
+ Take a second, draw what you think while it would look like
+ I'll give you 30 seconds
+ Yeah, question
+ They should be, they're called control
+ It could be
+ If it says control, it doesn't have these slides
+ It could be, yeah
+ Yeah
+ Some of the slides might be slightly out of order, but they're roughly the same content
+ Okay, who's got an idea for while? You can instruct me as I draw
+ What do we think? Okay
+ Yeah, Dan
+ A loop between two rectangles
+ Like that
+ What does this one represent? Yeah
+ What does either one represent? Yeah
+ Yeah, so this could be the condition, and then what does that make this? The expression or the body? I would add just two things to this
+ Two minor things
+ Yeah
+ We didn't exit
+ Yeah
+ Yeah, we also actually need to enter
+ So a basic while loop would look something like that
+ We could do a do while if we preferred, and then you would come into the body first, and then do the conditional, and then potentially exit, maybe go back to the body
+ Every construct that you have used can be represented in this format, in some form or another
+ So a for loop, we can skip whatever, what about this one? Oh, yeah, question
+ Can we enclose the condition in the body in one box? Not really
+ I guess what we could do, we could have it loop back to itself, is that what you're thinking? So they are two different pieces, though, where we're doing a check, and we're doing a body
+ But it wouldn't be wrong to do that
+ This is just a bit more clear what's going on
+ Okay, what do we think about this one? What is this, the CFG? Yeah, this is a switch statement
+ So we have many potential pieces to it, and then what's this guy here? Or maybe actually, yeah, no
+ I guess we don't really know, actually, I was thinking that would be default, but it's not necessarily default
+ But there's a switch statement
+ Cool
+ Now you guys are experts at drawing control flow graphs
+ That's all there is to it
+ It's not like there are ten more of these to do
+ These are all the, well, okay, we're going to cover one more in a minute, but these are basically all of them
+ So that's structured programming in a nutshell
+ Let's use those control flow units instead of plane go-to's
+ Let's use if statements sequencing and loops, because they're easier to reason about, easier to read
+ Okay
+ So we can chain blocks together to write anything we want
+ This is what I would do when I was first learning Python
+ I just wrote one large main function
+ I'm sure many of you did the same
+ You just kind of put all of your code in one place, and then you hit run at the top, and it does it all
+ And it's great, because it makes sense
+ You just read it in order, but it kind of sucks in that your code is just a giant blob
+ You don't get any reusability
+ It's hard to kind of fix things
+ There's probably a lot of copy-pasting if you were doing anything like I was
+ So instead, instead of just chaining everything together, let's use procedures, aka functions
+ Let's group common logic together so that we can reuse it all over the place
+ This might feel obvious you guys have been writing code for years at this point, but it's not like it just spontaneously has
+ It happens that we do this
+ People thought to do this because that was so bad
+ Assembly was not very nice, so we came up with things like procedural abstraction
+ Our upside is that we get better code reuse, we get better organization, you can read what's going on
+ The downside is we complicate our control photographs
+ So previously we were just using sequencing if and loop
+ But now we need something to actually handle this procedure, to handle a function
+ So if we have a control photograph for a function call, we're calling h inside of f, we're calling h inside of g
+ What would we represent the control photograph of this as? How would we draw that? Yeah
+ So just talking about the function call, not the function return yet
+ So arrow to f, arrow to h, just function call
+ What else? Yeah
+ We also have the ability to go from g to h
+ h can be reached from two different places in this code
+ When we're inside of f and when we're inside of g
+ Yeah
+ Okay
+ What about for function return? It depends on where you're coming from
+ We don't actually know
+ h doesn't know where it's going
+ Until runtime
+ At the point that we're actually executing h, then we know I was just called from f, go back to f
+ Or I was just called from g, go back to g
+ So we don't know where h was called from until runtime
+ What's the implication of this statement compared to all of the other cases that we've talked about so far? What do you have to do in order to handle this problem? What does a language have to do in order to handle this problem? Yeah
+ You have to do runtime error handling
+ What do you mean by that? And what are we checking? Definitely
+ Yeah
+ So we have to check at runtime something about h
+ You have an answer to something yet
+ Go ahead
+ We, yeah, so in activation records, we stored the control link
+ That was an important feature of the activation records so that we knew where to go back to
+ It's also called the return address that's pushed onto the stack so that you know where do I set my instruction pointer to once I finish
+ This problem is handled by putting the runtime or the return address of whatever called us onto the stack
+ That sentence is the cause of so many security flaws
+ That's like the biggest security concern that exists
+ The fact that we have to push the runtime, the return address to the runtime stack
+ And the reason we're doing this is because we don't know when we are in h, do I go back to f or do I go back to g? So there could be lots of different places that we return to from a function call
+ And in this example, it's kind of straightforward
+ We know that it's one of two places
+ But as soon as things start to get a bit more complicated, we can no longer at compile time figure out where is this thing supposed to go
+ Okay
+ So in general, figuring out how the control flow graph works is very important to your program
+ It helps for optimization
+ Much more importantly, it helps for security
+ This is like the biggest control flow or the biggest security concern is control flow hijacking
+ So it's not crazy to think back to 1960s when Dijkstra says go to his harmful to then ask ourselves is returning harmful
+ Should we not be able to return? Which sounds crazy
+ It sounds like a radical idea just like removing go to was considered a radical idea
+ 60 years ago
+ But maybe in the next 10 years, we will move past returning as crazy as that sounds
+ We already talked about this
+ How do we know where to go? We put the return pointer on the stack
+ Okay
+ So a quick check
+ Return pointer goes on the stack when we do a function call
+ Do we also need to do it for an if statement, a while loop, or for sequencing? Take 10 seconds
+ Come up with an answer
+ Yes or no? Yes? No
+ No, we don't
+ These things, if statements, while loops sequencing, those are just as simple as knowing go to the next instruction
+ Or with an if statement, it's hard coded to say jump to this address
+ That's predetermined at compile time where you're going
+ Okay
+ So that's procedural abstraction in an upshell
+ We want to write functions because functions make our code clean
+ However, they complicate our control flow graph
+ We would still love to have functions, but we would like to have a simpler control flow graph
+ Let's do that by eliminating the return statement
+ We're going to start writing code and never return
+ The way we are going to do this is with a tool called Continuations
+ You probably know Continuations by a different name
+ They are also called callbacks
+ Continuations were initially developed in Elville, but they've continued to re-emerge in basically every programming language that comes out since then
+ Because people think that it's a cool idea and then implement it and then they realize, oh, hey, actually, algal did that or scheme did that or JavaScript did that already
+ So one of the big things that Continuations enable and the place that you have probably used them is asynchronous program
+ We can do things such as read a file asynchronously, which means start reading a file once you're done reading that file, execute my callback with whatever the result of reading that file was
+ So the second parameter to read file that error comma data goes to blah, blah, blah, that's our callback function that we will execute when we finish reading the file
+ That's a continuation
+ We're going to do this at a bigger scale
+ Questions? Yeah
+ So here, we are still returning
+ We need to go further
+ This isn't far enough
+ But we will never return in our, in, in where we are going, which means we never need to put the return address on the stack, which actually means we get to get rid of the stack
+ Okay
+ Another example of Continuations is the Debugger
+ You guys have probably used the Debugger all the time
+ A Debugger operates by executing up to a point, giving you kind of an injection into that precise state, and then storing, storing the future state of the program, whatever will happen next, that's the continuation, that's the callback
+ Once you're done doing whatever you want to do in the Debugger, you will then execute the callback
+ Just like once you're done reading the file, execute the callback
+ So Debuggers work the same exact way that asynchronous file reads to you
+ The plan for CPS is to say, first, what is a continuation? Then we're going to look at continuation passing style, and then how can we use continuations to solve our problems? Okay
+ All of the code that you write has continuations
+ You just don't know it
+ At any point in your program, you have current state, you have past state, and you have future state
+ And so, if we are currently executing this one over y, we can think of our past state as the multiply 2 by x, our current state, or our current computation, divide 1 by y, and then the rest of the program, the continuation of what we're doing is the next two steps
+ And if we wanted to rewrite our code to follow this structure, we might say something like, before is 2 times x, that's our past state
+ Cont for current continuation is equal to a function that takes a result, the results will be the result of 1 divided by y, and it will return before plus current result times 2
+ So, take a second, reassure yourself that nothing crazy is happening here
+ The line of code in the consider is identical to the line of code, or the four lines of code on the right
+ Make sure that those two look the same
+ Okay, two more snippets of code that should look the same
+ We can have an implicit continuation, that is to say we just sequence our code together, first read our file, then log the data, then process the data, or an explicit continuation, where we say read the file, and here's the callback for once you finish executing the read file
+ So again, take a second, read those lines of code, make sure they feel similar
+ Any questions on them? Okay, so we are going to translate code that looks like that, more into code that looks like this
+ We're going to turn our implicit continuations into continuation passing style
+ And why do we want to do this? The main reason is because we're going to get read of returning
+ That's going to make our evaluation order explicit
+ And one of the main benefits is that this is used all the time in compilers
+ They will translate your code from looking like this to looking like this to get optimizations
+ And the more that they can optimize the faster your code is, some can be optimized so much that they basically turn into something that's been used
+ And the more of a math problem, like solve for x, then a programming assignment where you actually have to execute code
+ Okay, let's do an example
+ If we have a function called zero, all it does is return zero
+ The key concept of CPS is that we never return
+ So we are not going to use the return term
+ We can't use that
+ If you have a right return on a CPS problem, you've made a mistake, go back and retry
+ What we're going to do instead is we are going to take a callback function, a continuation, that we will execute when we have finished our computation
+ So zero now takes a continuation and it continues with the value zero
+ Question
+ Yeah
+ What happens when the program ends? We will send the program back to the runtime to say clean up and finish
+ Very similar to what happens when the program ends at the end of your Python file
+ Say, by no, or JavaScript, any of the managed languages
+ It goes back to the runtime
+ And the runtime is going to clean up for you
+ It's going to free your memory
+ It's going to do everything that it needs to do to close any files that are still open, that sort of thing
+ Same thing would happen here
+ We'll send it back to the runtime
+ Which is often called top CC in the homework assignments or on the exam, like that's the term that I call it
+ Okay
+ We're not going to do factorial yet
+ That one will get to
+ Let's look instead at a function twice
+ So twice takes a function f and a parameter x and it returns f of f of x
+ How many returns are happening inside of twice, either explicitly or implicitly? Yeah, damn
+ Three
+ We have the return from twice
+ We need to get rid of that
+ But also, f of x is returning of value
+ And that's going into f, which is then returning of value
+ Which is then the thing that we return
+ So we have three returns here that we need to address, because we can't have any of them
+ So how should we do this? What should we do? If we want to rewrite twice
+ You guys haven't seen many examples yet, but yeah, go for it
+ No returns at all
+ So we will be kind of unwrapping it
+ That is the idea that we're going to be working with
+ But we need to unwrap it so far that we never return
+ Which is a little while
+ The first thing that we want to do, how do we write JavaScript? Okay, function twice
+ The first thing for every CPS style or CPS function is that it will take a continuation
+ Every function takes effectively a callback to say, what should I do once I'm done? So let's include that
+ Take the CC, the other parameters are just going to stay the same
+ That's the first change
+ We need to know instead of returning, call this function
+ What else do we want to do? What's the first piece of code that gets executed inside of twice? Yeah
+ F of X
+ So that is also the first thing that we are going to want to try and compute
+ What do we know about F? Yeah? It takes a parameter X
+ It's also CPS
+ We're in the world of CPS, everything is CPS
+ So it takes a parameter X, but it also takes a callback
+ And the callback that F takes is what F will do once it computes whatever it needs to compute with X
+ And we get to assume that that's true, kind of like an induction-style proof, because that's just true
+ That's how CPS works
+ So F, we want to compute F of X just like we did before, but F of X is going to take a callback
+ This says, what should I do with the result of whatever F of X used to be? And what do we want to do with the result of F of X? Yeah
+ We want to pass it again to F
+ That's what we're doing up here
+ F of X goes into F
+ So our function is going to take a callback
+ And that callback has a parameter because we have computed something
+ F of X returns something
+ So I've called it Res for Result
+ Our callback takes this parameter, the result of F of X, and it passes it to F again
+ So it's going to do F of Res
+ But once again, F is CPS, which means F takes a callback
+ So this F also needs a second parameter
+ What's the callback to F, the second F? CC, yeah
+ Let's make sure you have my parentheses right
+ Yup
+ So what we are saying is that we first want to compute F of X
+ Whatever the result of that is, will we pass into this second function here
+ A function that takes a result and it passes that result to F
+ So we will then compute F of the result and pass whatever the result of that onto our initial continuation
+ Which is whatever we were supposed to do once we finished with the function toys
+ This is one of the more like mind-screwy things that we do in this class of trying to unwrap all of these continuations
+ Alright, I want you guys to do CMP compose
+ So take two minutes chat with someone next to you, try and figure out how would we translate composed to F of X
+ Two CPS
+ So think about what is the value of F here
+ F itself is a function that has been translated to CPS
+ Which means F is going to be something that takes in a value, and then passes it onto the continuation
+ So this doesn't work in a world where F is a normal function
+ F needs to be CPS as well
+ Right
+ So we only are ever jumping forward
+ We have a bunch of function calls
+ We're saying F of X
+ That's a function call
+ But we're never coming back to the point right after F of X happens
+ Instead we just continue on forwards to this function here
+ Right
+ And we keep continuing on forwards, continuing the computation
+ So it'd be like at the last half there if we thought it would have like an effect
+ No, no, so that's all handled by our current continuation
+ This current continuation might be jump back to runtime to the runtime system
+ Yeah
+ Yeah
+ So we never come back to where it is
+ Right
+ Yep
+ So if you could just jump back to the value of F of X
+ Right
+ Right
+ JavaScript will return here back to where we are
+ Right
+ Right
+ So if you go to stage, you can go to stage
+ Right
+ Right
+ Yeah
+ Which is what functions are
+ Because it's not go to its function
+ Yeah
+ Okay
+ What do we think? How do we rate compose? Who's got an answer? Go for it
+ This one? This one
+ What do we think? I'm seeing a lot of nodding
+ Yeah
+ Question? Good point
+ We do also take a g as a second one
+ And the function name needs to change
+ But the internals of the code, yeah, that's all that we need to do to change this one
+ So one of the things that is highlighted here is the order of operations is very explicit
+ First we are doing g, the inner piece, then we are calling F with the result of that
+ Okay
+ Another way to think about this is if we break that function into parts, F of F of X is the same thing as saying let R equal F of X return F of R
+ So R equals F of X return F of R
+ This looks a little bit more similar to call F of X, store it into R, and then call F of R with the continuation
+ The second, so yeah, the last parameter to have the function is the continuation
+ I did that bit backwards here
+ We should put the continuation here
+ You could do it as the first one to
+ So long as you're consistent
+ Yeah
+ So if we don't have any information on the stack about our control flow, the attacker can't do anything
+ This information is not actually something that's being stored on the stack
+ So we can't just overwrite the, we could provide a malicious function
+ So you need to make sure your attacker can't control what CC is, for example
+ But you aren't just going to be able to overwrite the CC function
+ Unless, if you can, then you have other issues
+ I wanted to access R after you've set it before you return
+ So like in CPS or let's do a slightly more complicated example
+ Because I think that's a great question
+ How could we handle more complicated things than just like one liners? Because you can and we will
+ Try and write factorial
+ Start with the simple stuff that we've talked about of
+ Make sure you have your continuation
+ You're never returning anywhere you're returning
+ Don't
+ And see what you can get to
+ I'll give you guys three minutes because it's a long one
+ Yeah
+ Yeah
+ Yeah
+ Just like f is a function that's defined somewhere else
+ This f is told to you to say, you know, jump to this place
+ Right
+ Just like a normal function call
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ Okay
+ What do we think? Someone help guide me
+ I have to write some JavaScript and I turned off get hub co-pilot
+ What do I do? Rudy, you can start
+ Just give me a little bit
+ We take parameters n and cc, excellent
+ So just like before we took a parameter n, now we're adding in our current continuation
+ What should we do once we're done executing? Who wants to give me the next bit? Yeah
+ Son
+ With what value? Yeah
+ So at some point we're going to want to call cc of 1
+ When do we want to call cc of 1? Yeah
+ When n equals 0
+ So just like before we can say if n equals 0, cc of 1
+ If we wanted to be super strict about this, equals itself could be considered a function that we would want to rewrite to be cps
+ We are not going to do that
+ But you could
+ If equals is not a function, then you're kind of good to go as is
+ Okay
+ So we've covered our base case
+ Now what? Yeah
+ So it takes the result and does what with it? Thoughts, feelings, opinions
+ Yeah
+ Call us cc with our time then
+ I like it
+ So our final result is going to be n times the result of factorial n minus 1
+ So we compute factorial of n minus 1
+ And then the results of that is passed into our call back where we multiply that by m and pass the result to cc
+ I think we ended up with the same thing
+ Any questions on factorial? Yeah, in the back
+ How does that work? Yeah
+ How does this hold up without the stack? So we're going to end up with something like this
+ If we have factorial of 3 and our continuation is just the identity function
+ But you could consider any arbitrarily complex continuation function
+ Maybe we're going back to the runtime
+ Maybe we're passing it into twice
+ I don't know
+ Something that sort
+ We can then expand factorial 3 into factorial 2 with this other call back function
+ And we can continue to expand and expand and expand until we end up with without ever computing anything
+ Is that we're going to be calling ID with 3 times 2 times 1 times 0
+ Ignore that
+ Ignore the time 0
+ So we have removed the need to run JavaScript outside of this last line here
+ Because we were able to rewrite this in a completely different form
+ And what the homework will have you explore is how similar does this look to your first assignment where you are asked to convert JavaScript to lambda calculus or lambda calculus to JavaScript
+ Because this to me looks like a line of lambda calculus
+ And when I have a line of lambda calculus, I can do beta substitution
+ And beta substitution is not the same thing as computation
+ Beta substitution can be done by my compiler before I ever run my program
+ The only thing that we end up running is this last line
+ We compile away all the rest
+ So we've reduced the need for calling factorial ever actually
+ Yeah
+ No
+ So factorial is a tail recursive function, which is to say that it only ever returns at the end of or it only ever recurses at the return point, which is a special type of recursive function that optimizes very nicely
+ So factorial is special here, but other functions are also tail recursive and can also be optimized in this way
+ Yeah
+ So that's how we get rid of the runtime stack
+ Oh, yeah
+ So we're actually not holding on to any information in this stack here
+ Because we didn't need to do any of this stuff in our runtime stack
+ We're holding on to it in the compiler in some sense in that we are rewriting our code to be a new form
+ We're rewriting it from that to be this through all of these steps
+ Yeah
+ Okay
+ So the actual kind of quote unquote rules that we have been unofficially following, any time you have a function, that function takes a continuation
+ No problem
+ Anytime you previously were returning a value, now you call continuation with that value
+ And then the hard one or the only kind of complicated one is that whenever you have multiple statements, you have a sequence of statements, you first compute whatever needs to be created in the first statement, and then take a continuation with the result of that computation for the continuation
+ And if statement one, statement two are also complicated, recursively apply this rule until we get to the point where they are not
+ These are the rules
+ One, two, three
+ Two of them, I feel like, you know, no problem at all
+ They're basically just automatically
+ You see a return, you call CC instead
+ You see a function declaration, add CC to the parameter list
+ Okay
+ Questions
+ Yeah
+ Yeah
+ Any code can become CPS
+ Not at all code should be CPS, but any code could be CPS
+ This is a different way of writing the same exact thing
+ Okay
+ Once again, reiterating why is this useful? The whole point we make control flow explicit
+ That makes it a lot harder to hijack the control flow and get into trouble
+ It also means that you can optimize a lot of your code because things start to look like Lambda Calculus
+ If you look like Lambda Calculus, you can be optimized like Lambda Calculus
+ It works well for multi-threaded programming and programming with GUIs for event-based stuff
+ Cool
+ Continuations are very powerful
+ They really can let you do anything we can rewrite all code to be CPS
+ We can implement if statements in CPS
+ If statement in CPS takes three parameters
+ It takes a Boolean
+ It takes a true continuation and it takes a false continuation
+ We can also do exceptions
+ Exceptions would be you take a function to run and you take a catch continuation and you take a success continuation
+ So to show that just briefly, if we add a JavaScript function that throws an error and then we try to run that function, this is how we would handle it in traditional JavaScript with CPS 130
+ That's why I taught at UCSD
+ It's also what I took at UCSD just for the record
+ These are, I didn't write this code
+ Let's blame that on day on step and weird guy
+ Trying to be personable
+ Yeah
+ Anyway
+ So our continuation, when we hit the try, we want to execute f and if it succeeds, we want to log no way
+ And if it fails, we want to log e
+ So we have a success continuation and then we have a fail continuation
+ All right
+ Putting it all in context, continuations absorb everything
+ Everything can be represented by continuations
+ Go to is a small form of continuation
+ Structured programming is a small form of continuations and those overlap on block based control flow, if, while, and sequencing
+ Yeah
+ So everything is so much easier in a world without I
+O
+ I
+O
+ is like the confounding factor for programmers
+ Because if we didn't have I
+O
+, everything you would just write it and then it would be done
+ You would never have to like actually care about if something changed
+ Nothing ever changes
+ So I
+O
+ could be disc, it could be reading from something like that, or it could be taking user input
+ If we wanted factorial to take user input, what could we do that would be fun
+ Instead of returning one, maybe we want to, where, where should I write this? Return
+ So our base case will be return input
+ Where input is a function that requests input from the user
+ We would just rewrite this to be input cc
+ And input itself would be a function that accepts a continuation to keep going
+ We might no longer be able to optimize this
+ This might totally destroy all of our optimizations
+ But it's still doable
+ But yeah, I
+O
+ I
+O
+ really messes everything up
+ And that is exactly why we are going to talk about Monads
+ Because Monads are a way of handling I
+O
+ in a reasonable way
+ We're going to talk about Monads on Monday
+ But I am going to spend just five minutes on exceptions today
+ You guys are all used to exceptions
+ We throw and we catch them
+ We raise and we handle them
+ The point of an exception is that we want to jump out of something that we're doing and pass some amount of data along
+ That there was an I
+O
+ error, for example, you tried to redifile it doesn't exist
+ Raise an exception so that somebody can handle it and print to the user
+ Hey, that file doesn't exist
+ Whatever
+ I have a question for you though
+ Who's supposed to handle the exception? Who's job is it to handle a file not found error? Yeah
+ Some unspecified call it
+ Whoever asked for the file should handle the file not found error
+ It should not be the person who wrote the function for opening a file
+ They don't know what you want to do if there's an error
+ You know what you want to do if there's an error
+ So with that said, can we determine statically where we want to return to when we throw? What do you guys think? If there's an exception, do we know at compile time where it's going? Yes? No
+ I'm going to say most of the time no
+ In some cases, yes
+ For some simpler things that we can do static analysis on, sure
+ But generally speaking, no
+ We know where to return to based on information on the stack
+ This is the same problem that we've run into with return statements
+ So the way that many languages handle this is that when you're inside of a try catch, you attach some extra information to your runtime stack to say, not only here's the return address, here's the catch address
+ This is the scope to go back to if we are raising an exception
+ And the reason we're doing this is because the user knows how to handle an error and the library author does not
+ All right
+ Here's a little bit of JavaScript
+ We won't dig too deep into it
+ Forgive the, you know, we have a function that throws an error
+ We try to run that function and it catches an error
+ It makes sense here that we jump to the catch
+ No big deal
+ I feel like you guys have all seen this before
+ I don't want to bore you with that
+ What you might not have seen though is how can we connect this to our activation records? So if we created our kind of standard activation records that we were doing with JavaScript, we're now going to add in an extra catch activation record
+ And this activation record will only be created when we have a try catch
+ And it basically just wraps whatever else we were doing
+ There's no new magic here
+ We're doing the same exact thing
+ We still have control
+ We still have access
+ And then we just have some catch information
+ What should we do if there's an error? And our function f, when we call that, points up to our catch activation record
+ Instead of pointing directly back up to the global scope
+ So when we have an exception, we jump back to the catch and we're going to go
+ All right
+ Before we, there's so many builds on this
+ Before we end class, which one, two, or three catch is executed when f of g is called
+ I'll give you guys a minute and then we'll discuss real quick before ending class
+ What do we think? One, two, three
+ A lot of people saying three
+ Is that reasonable? I didn't actually look at it
+ Why is it three? Because h is what causes the error
+ And we handle it at the most local place to say, h raised an error catching it three
+ That seems reasonable to me
+ If we wanted to draw it all out, this is what it would look like
+ Feel free to consult the notes in the lecture slide
+ If we did it a different way, we would get a different result
+ So don't get confused by saying this is two
+ Therefore it's two
+ This is if we did it a different way, we would get two
+ But yeah, I agree it's three here
+ Okay
+ That's all for exceptions
+ We're going to be talking on Monday about monads
+ See you guys then
+ Bye
+ Bye
+ Bye
+ Bye
+ Bye
+ Bye
+ Bye
+ Bye
+ Bye

@@ -1,1 +1,610 @@
- You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You Tell the computer how to do a task. Imperative programming comes from the word imperative, which is a command, and it's about describing the series of instructions for the computer autistic. The simplest imperative model that you can think of is assembly language where you have a list of commands to execute against some state, the memory, the stack of the computer. For example, this is very different than functional programming where we think of things as being expressions. It's like math where something just is a value. With imperative programming, we talk about the sequence of commands and the sequence of states that describe a program. So that's imperative programming. Everything that you write is built on top of imperative programming, and it's very similar to if you've done any finite state automata or finite state machines where you have or Touring machines where you have a tape and you have a sequence of commands that edits that tape. That's imperative program. And we're going to start talking about it today. Well, only today, hopefully. The way to do that is to start by saying what does it look like? So think about C. What are the basic language structures of C? What are the features? What can you write in C? What do you guys think? Yeah. If statements. Yeah, we have conditional checks. So we can do, we can say it's a conditional, and these typically look something like if what they normally start with. If a Boolean then command number one else command number two. That's what an if statement broadly speaking is. Where command can be any number of things, and a Boolean is either true or false, or an expression that reduces to true or false. What else do we have? What are other features? Yeah. Input and output. We're actually going to leave those off the table because they complicate things a lot. But input and output for sure. What else? Yeah. Go to. What's the purpose of go to though? Is actually a form of sequencing. To say we have command a, we want to do command b. Next. So go to is a complex form of sequencing. And the way that we do sequencing. Is to say we have some command one. And then we want to do command two. And we put a semicolon in between to say this one then that one. What else do we have? Yeah. A loop. Yeah. Almost every language is, language has looping in some form. So loops would look something like while b do c. While some Boolean is true, do some command. And that command can be a complicated command. It can be a sequence of commands, each of which could be a sequence, or they could be if statements. What else do we have? Yeah. We can write functions. We don't actually need to write functions. But c lets us, sure. That's actually still another form of sequencing. What else do we have? Like basic units. Basic building blocks. Yeah. Variables. One of the most important being able to actually update an access memory. So a variable might be something like a location is equal to an expression. And the location is some place in memory. And the expression could be some arithmetic expression, for example, or a Boolean expression. What else do we have? I guess the last one, yeah. Like plus, for example. Yes, we have arithmetic operations. So here, this set here. These are commands. Then we have arithmetic. Earth the tick describes our expressions. So an expression could be, for example, an expression plus an expression, or an expression minus an expression, an expression divided by all of our usual stuff. And the other two things that an expression could be. It could just be an integer. N. Or it could be a location in memory. We could say x equals y, for example. Finally, we have Booleans, which we've been referencing, but we haven't actually described. Booleans can obviously be false and true. But they can also be things such as a Boolean equal to a Boolean, or not a Boolean. Or a Boolean and a Boolean, or a Boolean, or a Boolean. All those good Boolean algebra functions. There's one more command that we are missing, which is called the skip command. And that's just a no-op. Just does nothing. This is our imperative language. And in the homework, you'll see this reference as the while language. Because it's about this loop. This while loop is the most complicated feature of the language. But with just these features, we can actually do almost everything that we would want to be able to do. In fact, this is turning complete. So functionally as powerful as Python. It'll just take you a lot longer to get there. Any questions on our definitions of language? We'll give you a second to write it down and let it sink in. I'm going to be erasing these things, unfortunately, because there's not enough whiteboard space. So make sure you either take a photo or write down what they are in notes. I feel like a celebrity now. All these cameras. Today's lecture, by the way, is going to be a little bit different. We're going to be doing some formal math. So having these expressions and all the rules that we're going to be writing down on the board in your notes will be quite helpful. Okay, so with a language like this, we can already start to express some programs. We can do things such as, we can say x is equal to, this is how we did assignment, right? No. I'm going to put two dots here. That's common notation. The walrus equals for mathematical equals. It's whatever. Do it either way. So we could say like x equals 1, y is equal to 2, while x, while not x equals y, do x equals x plus 1. Something of this form. This is a program that's legal in our language. To start, we have our assignments, l equals e, where e is a numeric, and l is our name of our variable. We could use actual positions in the stack, but we can make them for that. And then we're saying, while this Boolean, do this thing. We probably want semicolon, though, just to chain them all together. And then, yeah. Okay. Questions on our program? Yeah. Yeah, not x, yeah. I was saying not. Maybe I can, yeah, that's a bit better. Good call. Any other questions on the program? Yeah. You can use words, but you can use words, but you can use words, but you can use words. Yeah, this will come in quite handy for our proving stuff, which is what we're about to get to. So the purpose of all of this is that now we can start talking formally about our language, and say, what does this program mean? How do we evaluate this program? Because that's what your runtime is all about. Whether it's C, or it's Java, or it's Python, we need to figure out how do we take the code that you've written and turn it into an actual output, a result. How does it affect memory? What does it do? And to do that, we're going to start by using what's called big step semantics. So big step, I'm not going to write, but this is about turning a sequence of, or turning a command and a state. So a command C and a state S into a new state S prime. And this downward arrow here is called a judgment. And it's about evaluating this command to completion to transform this state into a new state. So for example, over here, we would start by saying, all of this is our command. The entire program is the command. Our initial state is nothing. We have no variables declared. By the end, we have no more commands to run, and our state is that X is equal to 2, and Y is also equal to 2. So our job is going to be figuring out how to write this judgment for each of these commands. What does a judgment mean for assignment, or conditional, or looping, or sequencing? That's going to be step one. So let's do that. Oh, but we don't have an eraser. So this will be even more painful. Okay. Let's start with assignment. Well, okay. Now we can start with skip. If we have some skip with some state, what does it evaluate to? Yes. The state. Nothing has changed. That one's the easiest one. We're going to write these, by the way, using our bar notation. If this piece here, then this piece here. So what we would say is if anything, if three is in action, if three is in action, then skip X is in the two states. We'll do more examples of this, so that there will be even more. Okay. Let's do the assignment. So what we're going to say is if we have an assignment, but assignment, so we have an assignment L is two plus two of three, and it's state. We want to figure out what the system is. Yeah, we're wondering what it's like. Thank you. Okay. If we have an assignment where we're saying X is equal to three, and we have some state S, what should our new state be? Yeah. An S where L is equal to E. So we would say S with the update L points to E. All that we've done is we've changed the value of L. This isn't quite what we want to say, because E is complicated. So we're actually going to add a little bit of a reduction here where we say if E under some state S reduces to N, then how do we modify this? So if an expression with a given state S reduces to a value such as three, what's the end result here? Yeah. L stores N instead. So it's the same exact thing, but we're actually going to reduce the expression. Because we don't want to have our variable point to Y plus two, we want to have our variable point to whatever the value of Y plus two is. Sound good? Questions on our first two? Yeah. So, like, are we doing the same thing with the point of Y? Hmm. Imperative programming is not really talking about laziness. We are specifically saying here that you actually can't be lazy. You must evaluate this expression to N, and then store that value in N at that location. So you can't have laziness under this model. It might be possible to build it into your language, but that would be harder. Other questions? And here represents an integer. Are our language you can only store integers? We have a relatively simple language in that sense, but as you guys know, you can turn anything into the bits underneath it, and interpret those bits however you want. So an integer could be a car if you treat it the right way. Okay. Let's figure out sequencing. But before we do, I want you to figure it out with the person sitting next to you. So I'm going to give you two minutes. Try to come up with what would the judgment rule be for sequencing? If we have a command, um, C1, C2, what would we want to say? What would be the if this, then C1, C2, S? So I guess I'll give you the skeleton. We're going to have one of these guys, and we have C1, C2, with S. We're trying to figure out what does this go to? We're going to have if something then C1, C2 evaluates to something else. And we might have two of them. So I'll leave it to you guys. I'll give you two minutes. Chat with someone next to you. Try and figure it out. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. What do you guys think? Who's got, like, even if you just have a thought or a part of it? Go ahead and give me that. You threw the answered questions so far. Go for it. Okay. Okay. Okay. I like this. So, if we have C1 and S, and that is going to evaluate to some state S prime, so if this is true that C1 with a state S goes to S prime, then C1, C2 with that state S, is going to evaluate to C2 with S prime. That's right. That's what you said. So, this is definitely true, but we want a state. We should be ending up with just a state left over. How did our sequence of commands give us a final state? So, this is like an intermediary piece, which is actually what we're going to get to with small steps semantics instead of big steps semantics. But if we take this another level, what we're going to say is not only if C1 and S goes to S prime, and as well, C2 and S prime evaluate to S double prime, then all of this is going to go to S double prime. And what you might say is, hey wait, that's like cheating. We just said we can figure out what C1, C2, S turns into S double prime, so long as C1, S goes to S prime and C2, S prime goes to S double prime. But that's the point. We aren't trying to do something super complicated. We're just trying to describe what it means to have a sequence of commands. A sequence of commands with a given state will give you a new state where that new state is equal to applying those two commands. Questions on this piece? Yeah. So the second one here, we're saying if an expression with a given state evaluates to the value n, for example, if x plus y, where x is equal to 1 and y is equal to 2, evaluates to 3, then z equals x plus y with that state, where x equals 1, y equals 2, evaluates to x equals 1, y equals 2, and z equals 3. So if this is true, then this is true. Or given this, then this, all different ways of saying the same thing. Other questions? Yeah. Right. So if C1 given S turns into S prime and C2 given S prime turns into S double prime, then C1, C2 with S turns into S double prime. What kind of a program corresponds to sequence? All of them. If we say x equals 1, and then we say y equals 2, we have sequenced these together. We have two different commands that we want to be part of the same program. This is command 1, this is command 2. We join them together into a longer program by using the sequence operator, the semicolon. We're going to talk a lot about the semicolon, kind of indirectly over the next week, because it's a lot more powerful than it seems. Yeah. Yeah, so if we said C1 is x equals 1, and our initial state is the empty state, because we have no values, and then we would evaluate that to a state where x equals 1. And here we have command 2, y equals 2, and a state where x equals 1, that's going to evaluate to a state where x equals 1 and y equals 2. So those two are given. Then we say, if we join together a command x equals 1, y equals 2, with the empty state, that's going to give us back the state where x equals 1 and y equals 2. For no other reason than the fact that we've said that it does, that was given to us, that was part of our provided information. This stuff is definitely different than most of CS, so if it's taken a little bit, that's okay. We aren't just booting on the computer, you know. We're trying to actually show that when you type on your computer, it has meaning. It does something, and it's consistent, and it's verifiable. Okay, so we're going to leave conditioning and looping for later or just at home for fun, and we're going to move on to the small step idea. The point of the small step is actually what we were doing to start when we began with sequencing, where we want to break apart these commands. We don't necessarily care about what's the final state look like, but we want to know how can we split up a super complicated command into the different pieces, and evaluate part by part of the command. And so this is called small step semantics as opposed to the big step semantics that we've done. Yeah. The important ideas with small step semantics are going to be looking at how we actually do control flow execution and memory updates. And we're going to, instead of say that given a set of commands and initial state, we evaluate some new state. We're going to say given a command C1 and a state S1, or we can just call them C and S. This is a small step to C prime S prime. So what we're getting back is another set of commands and a slightly different state. And the point is we've just barely modified our command sequence, maybe executing one thing, and we've updated our state according. All right. Let's start with skip. So skip before we said skip with a state turns into the same state. Skip doesn't do anything. Skip is similarly interesting in small step semantics because we can't actually do anything here. Skip with a state can't go to any C with a new state. It's not possible because there just are no commands left. So this is our terminal. As soon as we reach a point where the command list is skip, we're done. We can't execute anything else in our program. Yeah. So the no-op in x86 changes the instruction pointer. Yes, it doesn't actually change the state of your memory, though. It changes the state of the runtime. So it is actually same idea. But state here is about the state of memory of the program. It's not about what's the stack point they're currently pointing to, things of that nature. Yeah. No, it's not continue. Continue is more like a go-to, which is basically a sequence. I mean, it's a complicated sequence, but it's a sequence. Yeah. Okay, so small step skip, that's the end of the program. We're done. With assignment, we also have a relatively similar definition. So if we have the case that E with a state evaluates to N, then what we would say is that L equals E given some state does a small step to skip where the state L points to N. So what we're saying here is if the expression turns into N, same thing as before, then when we have an assignment, L equals E with some state, we will take a small step to skip where S points to N. Yeah, question. Yeah, I mean, so, I think you're saying how do you think whether that means that you don't have any state. How do you know that, but what if you don't have state of memory that you just say that you don't have any state. No, it's let it doesn't go to any state. So if I give you the program, what is the results of this program? It's just nothing. It's whatever you started with. The final state is the state that you started with and nothing has changed. We're done. There's no more command to execute. So I'm going to show you the use for that you really can use to use the state of memory. It's just like the use of the U of S before you can use it to use the state of memory. Yeah, so when we say skip here, we're saying the entire program. We're representing the entire program right here. This is not saying for each skip command, replace it with this thing. It's once we get to the point where the entire program looks like skip with a given state, we're done. So if I give you the program instead of skip, if I give you the program x equals 2. The first thing that we want to do is we will apply this rule. And we're going to say this expression, which is the value 2, means that we can turn here. So, okay, the c is equal to x equals 2 and s is equal to nothing. We have the empty state. Then we can turn this command, this program, with that state, into a different program with a new state. So we can transform x equals 2 with the empty state into a new program, skip, where x points to 2. And now once we're here, we would use a different rule. We would use this rule to say we are actually done. There's no more program to run. But at this point, we don't have sequencing. We can only ever execute one command. So in order to write interesting programs, we have to write the rule for sequencing, so that we can actually chain two things together. Because right now we don't have the ability, it's impossible for us to define x equals 2, y equals 3. Sorry for that being low. We can't write this, or we can't evaluate this in our system yet. We haven't given the rule for it. But now let's do that. Let's write the rule for, or rules for small step semantics for sequencing. And you guys are going to do it yourselves, and then I'm going to help you. We're going to start with the two cases. So we have this idea of c1, c2. And we're going to want to say what happens if c1 is skipped, and what happens otherwise? So you're going to write two rules. One of them is for c1 is skip. One of them is where c1 is not skip. I'll give you two minutes to do it, chat with your partners, and try and figure it out. Start with the skip. Yeah. I'll put some pills in it. Yeah, there are some resources that will help. Yeah. Yeah. Yeah. Okay. What do we think? Let's start with skip. What happens if c1 is skip? And all the race right here. What does our rule look like? Yeah. You're done. Are we? Just because we have, if you have a no off in your code, effectively a pass or literal no off, you don't finish your code unless you have no more commands to execute. You do the next command, right? If you have a sequence of things to do. So here I was saying we're done because this is our only command. Skip with a state is terminal if skip is your only command. But skip isn't, it's just a no off. It's not exit. Yeah. Yeah. So if we have some skip with a c2 and some state, then that will small step to c2 with that same state. It's just a no off. We just continue on. And this tells us exactly how to do that. It tells us here's how you know off. You do nothing. You just toss away that instruction. Yeah. Question. So we don't small step to just a state. We always small step to a state and a command. And if we finish the command and evaluate to skip, then this step allows us to continue on. And I'll show that with an example here in a second. So what do we do though if c1 is not skip? C1 itself was a complicated command and we want to break it down. This rule will have a top part to it. So we're going to have a top and a bottom. Yeah. Yeah. Assuming c1 is not equal to skip. And that is the reason that c1 comes back to you. C1 comma s will small step because we're still talking about small step, which means we have a command and a state. But like you said, we have an s prime just like our state has changed or command has also changed. So assuming that c1, small step with a state s, small steps to c1 prime and a state s prime, then what? What's missing? This is very close. Yeah. C1 prime, then c2 with the new state s prime. So assuming that we can reduce c1 to some c1 prime, then c1 c2 reduces to c1 prime c2 with an updated state. And let's give an example of that before we look at questions. So if we have a sequence, x1, x equals 1, y equals 2, what rule can we use? We have four rules on our board. What rule can we use? What can we do? Pattern matching, guys. Yeah. We can't actually do the variable. Our program is this whole thing. We have to start with a sequence because we need to match our entire program. So we're doing a sequence, c1, c2, where c1 is equal to x equals 1 and c2 is equal to y equals 2. Which sequence are we doing? We're using the small step semantics. Which sequence do we use? The bottom one. Yeah. We're going to use this. We can't use this one because c1 is not skipped. Okay. So if we do this bottom one, how can we use this rule? Yeah. Yeah. So we know that this is true by our first rule or by our second rule of assignment. This here is the top given that assignment works. Then x equals 1 y equals 2 with the empty state. Small steps to what? Yeah. Yep. I think you got it. So then our whole program will small step 2 from x equals 1 y equals 2 and the empty state skip y equals 2 and the state is now x equals 1. Now we have a new program. We have skip y equals 2 with a new state, x equals 1. What rule can we now apply? Yeah. We can use this rule. Our program has changed so the rules that we can use have changed. We can now turn this skip y equals 2 into just the c2 and we can effectively drop that skip commit. So we get y equals 2 with the state x points to 1. How can we solve this piece? What can we do here? Yeah. Well, we still have a command. But this is actually your earlier answer. We can just do the assignment now. Because all that we have, our only command is assignment. So now we can set y equal 2 into our state. And the final thing that we will get is a skip with the state x equals 1 y equals 2. And skip when this is our final program where skip is the last thing to do. Now we're here. We've finished. We have fully executed the program x equals 1 y equals 2. And it seems so trivially easy. Like this program looks so simple, but the steps to do this are not. I mean, they're mechanical. The computer does them. But as you were picking them up, they aren't simple. Questions on our example. I'll give you a second. Actually, let's do a merkeous point. Chat with the person next to you. What have we done that's like super confusing, but I can try and clear up. Take 30 seconds. Oh, I should. I know should be arrows. Yeah. I'll fix them. Yeah. What's up for the skip state to add to the D2N? Do we need something above the line? Nope. That's just always true. Not the M tape. Like me. It means it's an axiom. It's just true that that is. Yeah. Okay. What do we think? Questions. What can I clear up? What was one of the things that you and your partner were both confused on? Yeah. All the stories on the top part of the line are all the questions that you have. No, those are separate. I didn't want to write them as new lines so that people could see them. Yeah, sorry. These are separate lines. Yeah. When would the top part ever stand? When would the top part of it? So it's not necessarily ever that it would be false. It's saying this is a premise that we can accept. This is a tool. This top part is a tool to then simplify the second piece. Yeah. So it's not so much as maybe saying if top then bottom is a little bit more confusing. It's more like given this is true. This then holds. Yeah. Yeah. Right. So here we have empty. We also actually have empty up here I guess. And we have empty over there. If you don't have a top, it just means this is always true under all circumstances. Which is called an axiom. It's just truth that skip with the command turns into that command. You don't need any special condition or that p to case. Yeah. From this one. Wait. Yeah. So to go from here to here. We would typically mention which rule we are using. Which I did orally. I said that we were using this piece here. This command, this sequence command. And we would have given these names that I have left off to kind of shorten how much I have to write. But we would say something like this is a sequence non-skip. And we would have this one be a sequence skip. And then we would say here, such something like using sequence non-skip. That's all that you would need to say. So you'd reference the rule that you're talking about. Other questions? Okay. Let's do if. Take a minute. Do it with your neighbor. We want to do if. Small step semantics for if. Yeah. So it might be helpful. Similar to how we have said an expression with a state gives you an integer n. We can say a Boolean with a state can evaluate to true or false. Depending on which case you want to talk about. What's up? Yeah. Yeah. Okay. What do we think? I will link lecture notes to all of this. This entire lecture is largely from a chapter of a PL textbook. So I will link that for you to read at your leisure. If. What do we want to do with if? What happens if the Boolean is true? So if we have Boolean evaluates to true, then what? This is what our if looks like. Yeah. Yeah. So the whole thing would be if what? So if the. Then C one. L C two with a state S. And I'm running out of space here. So I'll use a new line. That's small steps to what? C one. S. So we get to reduce our if statement. If the Boolean is true to the first branch. This again is an example of how we are breaking down a complicated command into smaller pieces. What happens if it's false? What changes? Yeah. Same thing, but with C two. So if this were false, then instead of C one S, we get C two S. Yeah. Yeah. Right, right, two separate rules here. Okay. What do we think about while? How would while false work? I'll put it here. Who feels confident? A couple of you, that's good. What do we think? Someone started off. You don't have to give the whole thing. If we're doing the false case of while. Yeah. If the Boolean evaluates two false. That's great. Who wants to continue? Someone who hasn't talked yet. What do you do? So again, we're looking here. That's what a while looks like. What do you do with the Boolean is false? Someone who hasn't talked yet. Yeah. We just skip. We don't have to do anything. Yeah. So what we would say is while B given S, small steps to a skip with that same S, we haven't changed our state. And we just get to skip over the while because our Boolean was false. Yeah. Because we don't do anything. Yep, exactly. The C here is our body of our loop. And so we would skip over that if our Boolean is false. But what do we do if it's true? I mean, I raised the if statement here. So we handled the false case. If it's true, what happens? We have while B due C with a state goes to what? Yeah. C, well, we can't drop the into. We can't drop our while loop. But what we can do is we want to do one iteration of C. Yeah. C, semicolon the while loop, this piece here, the entire while loop, comma S. Effectively, we're pulling out one iteration of our loop and saying iterate once. In order to iterate once, use the sequencing command, which might update our state because sequencing, as we've written out here, can change S. And in the event that it changes S, maybe next time we come through, we're going to evaluate our Boolean and get false. And then we're going to be done. Okay, questions. On while, on if sequencing any of that. These are the constructs that you have been using for four or more years. Explained formally to you. Yeah. So we could turn this into either skip C2 or C1 skip. But that would be effectively the same thing. We'll just be creating actual work for us. Yeah. So we can't, for example, drop the skip here because this is actually what allows us to drop the skip later. Then here this is telling us this is a terminal program. We are effectively done with that portion of it. So I don't think we can just ignore skips anywhere else. We could always tack on as many skips as we want with sequencing. And based on this rule, we would be able to jump over any number of them. Yeah. Other questions? Okay. Then I'm not going to rush us, but we have 10 minutes to talk about the last idea here, which is proving things about programs. Is that actually the point of all of this? We want to describe these semantics so that then we can pose questions about programming in this language and make guarantees about what's true and what's false. The program, we are the assertion we want to prove. The property is for all commands, for all C in the set of commands, and for all states S, if Cs small steps to C1, S1, and Cs small steps to C2, S2, if these two things are true, then C1 equals C2, and S1 equals S2. What we're saying is if you take a small step from some state to another state with some commands to a new command sequence, there's only one way to do it. You can't step two ways. And this is what gives us deterministic programming. If you don't have this, then we can't really say anything about your code. If you run your code once and you get one result and you run it a second time, and you get a second result, assuming you have not imported random, then you're going to run into some weird issues. We would not want to live in a world where that's true, unless you're doing quantum stuff, in which case who knows? That's what it's all about, is saying this is not true. But for traditional programming, this is like the key cornerstone of repeatable programming. So we want to prove this property, P, we can call this P, true for all of our commands. We want to say that it's true for a skip. We want to say it's true for assignment, it's true for looping, it's true for sequencing, and it's true for conditioners. How should we go about doing that? Let's just go one by one and actually do it. So we will start with skip. What do I want to erase here? I guess we will do this. All right, skip is not so complicated. Why is skip not so complicated? Because of this right here, skip can't go to anything. So therefore, we would never end up in a state C1 or C2. Skip is skip, we're done, we can't do anything. So this is just true. The property on skip is just true, vacuously. We can't go anywhere. Let's do assignment instead. So what we want to say here is if we have our command C as an assignment, which is right here, then if we step to anything, we will step to the same thing every time. What that looks like is we're trying to show that C as goes to C1 S1, and it also goes to C2 S2, and our C is our assignment. So we have assignment with a state is going to both C1 S1 and C2 S2. How can we simplify this command sequence? What rule can we use to reduce it? What small step rule? Yeah. Yeah, we can use this guy here to turn it into skip where S, where the state has L pointing to N. So the only way to reduce this is to skip where L points to E, S, where L points to E. So here, since this is the only way to reduce it, C1 is equal to skip, S1 is equal to S where L points to E, and C2 is equal to skip, and S2 is equal to S where L points to E. There's no other way to reduce this thing. So since C1 equals skip, and C2 equals skip, C1 equals C2, and since S1 equals S where L points to E, and S2 equals S where L points to E, those are also the same. So we're good. Our property holds. That one's done. This one was already done. Those are our two base cases. Now we do induction. And this really pulls together all of those different discrete math courses that you take in different ways. We want to now prove the property on sequence, specifically we can say on D1, D2, where P of D1 holds, and P of D2 holds. So assume that the property is true on each of our commands, we want to show that it's true on the sequence of the commands as well. Since we only have two minutes, I'm not going to go too far into it, but our first step will be to say what if D1 is skip? If D1 is skip, we're going to use C skip to convert D1, D2 into D2S. And since D2 holds, the property holds for D2, the property holds for skip D2. Then we want to show the same thing for sequence with non-skip, but we get to make the assumption that D1S goes to D1 prime S prime. And since it holds for D1, it'll hold for the result of D1 prime D2S prime. I'm not going to go into all of that, and I won't ask you to go too far into all that, but it would be good to make sure that that feels a little bit comfortable going forward. And that's imperative programming. You You You You You You You You You You You
+ You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You You Tell the computer how to do a task
+ Imperative programming comes from the word imperative, which is a command, and it's about describing the series of instructions for the computer autistic
+ The simplest imperative model that you can think of is assembly language where you have a list of commands to execute against some state, the memory, the stack of the computer
+ For example, this is very different than functional programming where we think of things as being expressions
+ It's like math where something just is a value
+ With imperative programming, we talk about the sequence of commands and the sequence of states that describe a program
+ So that's imperative programming
+ Everything that you write is built on top of imperative programming, and it's very similar to if you've done any finite state automata or finite state machines where you have or Touring machines where you have a tape and you have a sequence of commands that edits that tape
+ That's imperative program
+ And we're going to start talking about it today
+ Well, only today, hopefully
+ The way to do that is to start by saying what does it look like? So think about C
+ What are the basic language structures of C? What are the features? What can you write in C? What do you guys think? Yeah
+ If statements
+ Yeah, we have conditional checks
+ So we can do, we can say it's a conditional, and these typically look something like if what they normally start with
+ If a Boolean then command number one else command number two
+ That's what an if statement broadly speaking is
+ Where command can be any number of things, and a Boolean is either true or false, or an expression that reduces to true or false
+ What else do we have? What are other features? Yeah
+ Input and output
+ We're actually going to leave those off the table because they complicate things a lot
+ But input and output for sure
+ What else? Yeah
+ Go to
+ What's the purpose of go to though? Is actually a form of sequencing
+ To say we have command a, we want to do command b
+ Next
+ So go to is a complex form of sequencing
+ And the way that we do sequencing
+ Is to say we have some command one
+ And then we want to do command two
+ And we put a semicolon in between to say this one then that one
+ What else do we have? Yeah
+ A loop
+ Yeah
+ Almost every language is, language has looping in some form
+ So loops would look something like while b do c
+ While some Boolean is true, do some command
+ And that command can be a complicated command
+ It can be a sequence of commands, each of which could be a sequence, or they could be if statements
+ What else do we have? Yeah
+ We can write functions
+ We don't actually need to write functions
+ But c lets us, sure
+ That's actually still another form of sequencing
+ What else do we have? Like basic units
+ Basic building blocks
+ Yeah
+ Variables
+ One of the most important being able to actually update an access memory
+ So a variable might be something like a location is equal to an expression
+ And the location is some place in memory
+ And the expression could be some arithmetic expression, for example, or a Boolean expression
+ What else do we have? I guess the last one, yeah
+ Like plus, for example
+ Yes, we have arithmetic operations
+ So here, this set here
+ These are commands
+ Then we have arithmetic
+ Earth the tick describes our expressions
+ So an expression could be, for example, an expression plus an expression, or an expression minus an expression, an expression divided by all of our usual stuff
+ And the other two things that an expression could be
+ It could just be an integer
+ N
+ Or it could be a location in memory
+ We could say x equals y, for example
+ Finally, we have Booleans, which we've been referencing, but we haven't actually described
+ Booleans can obviously be false and true
+ But they can also be things such as a Boolean equal to a Boolean, or not a Boolean
+ Or a Boolean and a Boolean, or a Boolean, or a Boolean
+ All those good Boolean algebra functions
+ There's one more command that we are missing, which is called the skip command
+ And that's just a no-op
+ Just does nothing
+ This is our imperative language
+ And in the homework, you'll see this reference as the while language
+ Because it's about this loop
+ This while loop is the most complicated feature of the language
+ But with just these features, we can actually do almost everything that we would want to be able to do
+ In fact, this is turning complete
+ So functionally as powerful as Python
+ It'll just take you a lot longer to get there
+ Any questions on our definitions of language? We'll give you a second to write it down and let it sink in
+ I'm going to be erasing these things, unfortunately, because there's not enough whiteboard space
+ So make sure you either take a photo or write down what they are in notes
+ I feel like a celebrity now
+ All these cameras
+ Today's lecture, by the way, is going to be a little bit different
+ We're going to be doing some formal math
+ So having these expressions and all the rules that we're going to be writing down on the board in your notes will be quite helpful
+ Okay, so with a language like this, we can already start to express some programs
+ We can do things such as, we can say x is equal to, this is how we did assignment, right? No
+ I'm going to put two dots here
+ That's common notation
+ The walrus equals for mathematical equals
+ It's whatever
+ Do it either way
+ So we could say like x equals 1, y is equal to 2, while x, while not x equals y, do x equals x plus 1
+ Something of this form
+ This is a program that's legal in our language
+ To start, we have our assignments, l equals e, where e is a numeric, and l is our name of our variable
+ We could use actual positions in the stack, but we can make them for that
+ And then we're saying, while this Boolean, do this thing
+ We probably want semicolon, though, just to chain them all together
+ And then, yeah
+ Okay
+ Questions on our program? Yeah
+ Yeah, not x, yeah
+ I was saying not
+ Maybe I can, yeah, that's a bit better
+ Good call
+ Any other questions on the program? Yeah
+ You can use words, but you can use words, but you can use words, but you can use words
+ Yeah, this will come in quite handy for our proving stuff, which is what we're about to get to
+ So the purpose of all of this is that now we can start talking formally about our language, and say, what does this program mean? How do we evaluate this program? Because that's what your runtime is all about
+ Whether it's C, or it's Java, or it's Python, we need to figure out how do we take the code that you've written and turn it into an actual output, a result
+ How does it affect memory? What does it do? And to do that, we're going to start by using what's called big step semantics
+ So big step, I'm not going to write, but this is about turning a sequence of, or turning a command and a state
+ So a command C and a state S into a new state S prime
+ And this downward arrow here is called a judgment
+ And it's about evaluating this command to completion to transform this state into a new state
+ So for example, over here, we would start by saying, all of this is our command
+ The entire program is the command
+ Our initial state is nothing
+ We have no variables declared
+ By the end, we have no more commands to run, and our state is that X is equal to 2, and Y is also equal to 2
+ So our job is going to be figuring out how to write this judgment for each of these commands
+ What does a judgment mean for assignment, or conditional, or looping, or sequencing? That's going to be step one
+ So let's do that
+ Oh, but we don't have an eraser
+ So this will be even more painful
+ Okay
+ Let's start with assignment
+ Well, okay
+ Now we can start with skip
+ If we have some skip with some state, what does it evaluate to? Yes
+ The state
+ Nothing has changed
+ That one's the easiest one
+ We're going to write these, by the way, using our bar notation
+ If this piece here, then this piece here
+ So what we would say is if anything, if three is in action, if three is in action, then skip X is in the two states
+ We'll do more examples of this, so that there will be even more
+ Okay
+ Let's do the assignment
+ So what we're going to say is if we have an assignment, but assignment, so we have an assignment L is two plus two of three, and it's state
+ We want to figure out what the system is
+ Yeah, we're wondering what it's like
+ Thank you
+ Okay
+ If we have an assignment where we're saying X is equal to three, and we have some state S, what should our new state be? Yeah
+ An S where L is equal to E
+ So we would say S with the update L points to E
+ All that we've done is we've changed the value of L
+ This isn't quite what we want to say, because E is complicated
+ So we're actually going to add a little bit of a reduction here where we say if E under some state S reduces to N, then how do we modify this? So if an expression with a given state S reduces to a value such as three, what's the end result here? Yeah
+ L stores N instead
+ So it's the same exact thing, but we're actually going to reduce the expression
+ Because we don't want to have our variable point to Y plus two, we want to have our variable point to whatever the value of Y plus two is
+ Sound good? Questions on our first two? Yeah
+ So, like, are we doing the same thing with the point of Y? Hmm
+ Imperative programming is not really talking about laziness
+ We are specifically saying here that you actually can't be lazy
+ You must evaluate this expression to N, and then store that value in N at that location
+ So you can't have laziness under this model
+ It might be possible to build it into your language, but that would be harder
+ Other questions? And here represents an integer
+ Are our language you can only store integers? We have a relatively simple language in that sense, but as you guys know, you can turn anything into the bits underneath it, and interpret those bits however you want
+ So an integer could be a car if you treat it the right way
+ Okay
+ Let's figure out sequencing
+ But before we do, I want you to figure it out with the person sitting next to you
+ So I'm going to give you two minutes
+ Try to come up with what would the judgment rule be for sequencing? If we have a command, um, C1, C2, what would we want to say? What would be the if this, then C1, C2, S? So I guess I'll give you the skeleton
+ We're going to have one of these guys, and we have C1, C2, with S
+ We're trying to figure out what does this go to? We're going to have if something then C1, C2 evaluates to something else
+ And we might have two of them
+ So I'll leave it to you guys
+ I'll give you two minutes
+ Chat with someone next to you
+ Try and figure it out
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ Okay
+ What do you guys think? Who's got, like, even if you just have a thought or a part of it? Go ahead and give me that
+ You threw the answered questions so far
+ Go for it
+ Okay
+ Okay
+ Okay
+ I like this
+ So, if we have C1 and S, and that is going to evaluate to some state S prime, so if this is true that C1 with a state S goes to S prime, then C1, C2 with that state S, is going to evaluate to C2 with S prime
+ That's right
+ That's what you said
+ So, this is definitely true, but we want a state
+ We should be ending up with just a state left over
+ How did our sequence of commands give us a final state? So, this is like an intermediary piece, which is actually what we're going to get to with small steps semantics instead of big steps semantics
+ But if we take this another level, what we're going to say is not only if C1 and S goes to S prime, and as well, C2 and S prime evaluate to S double prime, then all of this is going to go to S double prime
+ And what you might say is, hey wait, that's like cheating
+ We just said we can figure out what C1, C2, S turns into S double prime, so long as C1, S goes to S prime and C2, S prime goes to S double prime
+ But that's the point
+ We aren't trying to do something super complicated
+ We're just trying to describe what it means to have a sequence of commands
+ A sequence of commands with a given state will give you a new state where that new state is equal to applying those two commands
+ Questions on this piece? Yeah
+ So the second one here, we're saying if an expression with a given state evaluates to the value n, for example, if x plus y, where x is equal to 1 and y is equal to 2, evaluates to 3, then z equals x plus y with that state, where x equals 1, y equals 2, evaluates to x equals 1, y equals 2, and z equals 3
+ So if this is true, then this is true
+ Or given this, then this, all different ways of saying the same thing
+ Other questions? Yeah
+ Right
+ So if C1 given S turns into S prime and C2 given S prime turns into S double prime, then C1, C2 with S turns into S double prime
+ What kind of a program corresponds to sequence? All of them
+ If we say x equals 1, and then we say y equals 2, we have sequenced these together
+ We have two different commands that we want to be part of the same program
+ This is command 1, this is command 2
+ We join them together into a longer program by using the sequence operator, the semicolon
+ We're going to talk a lot about the semicolon, kind of indirectly over the next week, because it's a lot more powerful than it seems
+ Yeah
+ Yeah, so if we said C1 is x equals 1, and our initial state is the empty state, because we have no values, and then we would evaluate that to a state where x equals 1
+ And here we have command 2, y equals 2, and a state where x equals 1, that's going to evaluate to a state where x equals 1 and y equals 2
+ So those two are given
+ Then we say, if we join together a command x equals 1, y equals 2, with the empty state, that's going to give us back the state where x equals 1 and y equals 2
+ For no other reason than the fact that we've said that it does, that was given to us, that was part of our provided information
+ This stuff is definitely different than most of CS, so if it's taken a little bit, that's okay
+ We aren't just booting on the computer, you know
+ We're trying to actually show that when you type on your computer, it has meaning
+ It does something, and it's consistent, and it's verifiable
+ Okay, so we're going to leave conditioning and looping for later or just at home for fun, and we're going to move on to the small step idea
+ The point of the small step is actually what we were doing to start when we began with sequencing, where we want to break apart these commands
+ We don't necessarily care about what's the final state look like, but we want to know how can we split up a super complicated command into the different pieces, and evaluate part by part of the command
+ And so this is called small step semantics as opposed to the big step semantics that we've done
+ Yeah
+ The important ideas with small step semantics are going to be looking at how we actually do control flow execution and memory updates
+ And we're going to, instead of say that given a set of commands and initial state, we evaluate some new state
+ We're going to say given a command C1 and a state S1, or we can just call them C and S
+ This is a small step to C prime S prime
+ So what we're getting back is another set of commands and a slightly different state
+ And the point is we've just barely modified our command sequence, maybe executing one thing, and we've updated our state according
+ All right
+ Let's start with skip
+ So skip before we said skip with a state turns into the same state
+ Skip doesn't do anything
+ Skip is similarly interesting in small step semantics because we can't actually do anything here
+ Skip with a state can't go to any C with a new state
+ It's not possible because there just are no commands left
+ So this is our terminal
+ As soon as we reach a point where the command list is skip, we're done
+ We can't execute anything else in our program
+ Yeah
+ So the no-op in x86 changes the instruction pointer
+ Yes, it doesn't actually change the state of your memory, though
+ It changes the state of the runtime
+ So it is actually same idea
+ But state here is about the state of memory of the program
+ It's not about what's the stack point they're currently pointing to, things of that nature
+ Yeah
+ No, it's not continue
+ Continue is more like a go-to, which is basically a sequence
+ I mean, it's a complicated sequence, but it's a sequence
+ Yeah
+ Okay, so small step skip, that's the end of the program
+ We're done
+ With assignment, we also have a relatively similar definition
+ So if we have the case that E with a state evaluates to N, then what we would say is that L equals E given some state does a small step to skip where the state L points to N
+ So what we're saying here is if the expression turns into N, same thing as before, then when we have an assignment, L equals E with some state, we will take a small step to skip where S points to N
+ Yeah, question
+ Yeah, I mean, so, I think you're saying how do you think whether that means that you don't have any state
+ How do you know that, but what if you don't have state of memory that you just say that you don't have any state
+ No, it's let it doesn't go to any state
+ So if I give you the program, what is the results of this program? It's just nothing
+ It's whatever you started with
+ The final state is the state that you started with and nothing has changed
+ We're done
+ There's no more command to execute
+ So I'm going to show you the use for that you really can use to use the state of memory
+ It's just like the use of the U of S before you can use it to use the state of memory
+ Yeah, so when we say skip here, we're saying the entire program
+ We're representing the entire program right here
+ This is not saying for each skip command, replace it with this thing
+ It's once we get to the point where the entire program looks like skip with a given state, we're done
+ So if I give you the program instead of skip, if I give you the program x equals 2
+ The first thing that we want to do is we will apply this rule
+ And we're going to say this expression, which is the value 2, means that we can turn here
+ So, okay, the c is equal to x equals 2 and s is equal to nothing
+ We have the empty state
+ Then we can turn this command, this program, with that state, into a different program with a new state
+ So we can transform x equals 2 with the empty state into a new program, skip, where x points to 2
+ And now once we're here, we would use a different rule
+ We would use this rule to say we are actually done
+ There's no more program to run
+ But at this point, we don't have sequencing
+ We can only ever execute one command
+ So in order to write interesting programs, we have to write the rule for sequencing, so that we can actually chain two things together
+ Because right now we don't have the ability, it's impossible for us to define x equals 2, y equals 3
+ Sorry for that being low
+ We can't write this, or we can't evaluate this in our system yet
+ We haven't given the rule for it
+ But now let's do that
+ Let's write the rule for, or rules for small step semantics for sequencing
+ And you guys are going to do it yourselves, and then I'm going to help you
+ We're going to start with the two cases
+ So we have this idea of c1, c2
+ And we're going to want to say what happens if c1 is skipped, and what happens otherwise? So you're going to write two rules
+ One of them is for c1 is skip
+ One of them is where c1 is not skip
+ I'll give you two minutes to do it, chat with your partners, and try and figure it out
+ Start with the skip
+ Yeah
+ I'll put some pills in it
+ Yeah, there are some resources that will help
+ Yeah
+ Yeah
+ Yeah
+ Okay
+ What do we think? Let's start with skip
+ What happens if c1 is skip? And all the race right here
+ What does our rule look like? Yeah
+ You're done
+ Are we? Just because we have, if you have a no off in your code, effectively a pass or literal no off, you don't finish your code unless you have no more commands to execute
+ You do the next command, right? If you have a sequence of things to do
+ So here I was saying we're done because this is our only command
+ Skip with a state is terminal if skip is your only command
+ But skip isn't, it's just a no off
+ It's not exit
+ Yeah
+ Yeah
+ So if we have some skip with a c2 and some state, then that will small step to c2 with that same state
+ It's just a no off
+ We just continue on
+ And this tells us exactly how to do that
+ It tells us here's how you know off
+ You do nothing
+ You just toss away that instruction
+ Yeah
+ Question
+ So we don't small step to just a state
+ We always small step to a state and a command
+ And if we finish the command and evaluate to skip, then this step allows us to continue on
+ And I'll show that with an example here in a second
+ So what do we do though if c1 is not skip? C1 itself was a complicated command and we want to break it down
+ This rule will have a top part to it
+ So we're going to have a top and a bottom
+ Yeah
+ Yeah
+ Assuming c1 is not equal to skip
+ And that is the reason that c1 comes back to you
+ C1 comma s will small step because we're still talking about small step, which means we have a command and a state
+ But like you said, we have an s prime just like our state has changed or command has also changed
+ So assuming that c1, small step with a state s, small steps to c1 prime and a state s prime, then what? What's missing? This is very close
+ Yeah
+ C1 prime, then c2 with the new state s prime
+ So assuming that we can reduce c1 to some c1 prime, then c1 c2 reduces to c1 prime c2 with an updated state
+ And let's give an example of that before we look at questions
+ So if we have a sequence, x1, x equals 1, y equals 2, what rule can we use? We have four rules on our board
+ What rule can we use? What can we do? Pattern matching, guys
+ Yeah
+ We can't actually do the variable
+ Our program is this whole thing
+ We have to start with a sequence because we need to match our entire program
+ So we're doing a sequence, c1, c2, where c1 is equal to x equals 1 and c2 is equal to y equals 2
+ Which sequence are we doing? We're using the small step semantics
+ Which sequence do we use? The bottom one
+ Yeah
+ We're going to use this
+ We can't use this one because c1 is not skipped
+ Okay
+ So if we do this bottom one, how can we use this rule? Yeah
+ Yeah
+ So we know that this is true by our first rule or by our second rule of assignment
+ This here is the top given that assignment works
+ Then x equals 1 y equals 2 with the empty state
+ Small steps to what? Yeah
+ Yep
+ I think you got it
+ So then our whole program will small step 2 from x equals 1 y equals 2 and the empty state skip y equals 2 and the state is now x equals 1
+ Now we have a new program
+ We have skip y equals 2 with a new state, x equals 1
+ What rule can we now apply? Yeah
+ We can use this rule
+ Our program has changed so the rules that we can use have changed
+ We can now turn this skip y equals 2 into just the c2 and we can effectively drop that skip commit
+ So we get y equals 2 with the state x points to 1
+ How can we solve this piece? What can we do here? Yeah
+ Well, we still have a command
+ But this is actually your earlier answer
+ We can just do the assignment now
+ Because all that we have, our only command is assignment
+ So now we can set y equal 2 into our state
+ And the final thing that we will get is a skip with the state x equals 1 y equals 2
+ And skip when this is our final program where skip is the last thing to do
+ Now we're here
+ We've finished
+ We have fully executed the program x equals 1 y equals 2
+ And it seems so trivially easy
+ Like this program looks so simple, but the steps to do this are not
+ I mean, they're mechanical
+ The computer does them
+ But as you were picking them up, they aren't simple
+ Questions on our example
+ I'll give you a second
+ Actually, let's do a merkeous point
+ Chat with the person next to you
+ What have we done that's like super confusing, but I can try and clear up
+ Take 30 seconds
+ Oh, I should
+ I know should be arrows
+ Yeah
+ I'll fix them
+ Yeah
+ What's up for the skip state to add to the D2N? Do we need something above the line? Nope
+ That's just always true
+ Not the M tape
+ Like me
+ It means it's an axiom
+ It's just true that that is
+ Yeah
+ Okay
+ What do we think? Questions
+ What can I clear up? What was one of the things that you and your partner were both confused on? Yeah
+ All the stories on the top part of the line are all the questions that you have
+ No, those are separate
+ I didn't want to write them as new lines so that people could see them
+ Yeah, sorry
+ These are separate lines
+ Yeah
+ When would the top part ever stand? When would the top part of it? So it's not necessarily ever that it would be false
+ It's saying this is a premise that we can accept
+ This is a tool
+ This top part is a tool to then simplify the second piece
+ Yeah
+ So it's not so much as maybe saying if top then bottom is a little bit more confusing
+ It's more like given this is true
+ This then holds
+ Yeah
+ Yeah
+ Right
+ So here we have empty
+ We also actually have empty up here I guess
+ And we have empty over there
+ If you don't have a top, it just means this is always true under all circumstances
+ Which is called an axiom
+ It's just truth that skip with the command turns into that command
+ You don't need any special condition or that p to case
+ Yeah
+ From this one
+ Wait
+ Yeah
+ So to go from here to here
+ We would typically mention which rule we are using
+ Which I did orally
+ I said that we were using this piece here
+ This command, this sequence command
+ And we would have given these names that I have left off to kind of shorten how much I have to write
+ But we would say something like this is a sequence non-skip
+ And we would have this one be a sequence skip
+ And then we would say here, such something like using sequence non-skip
+ That's all that you would need to say
+ So you'd reference the rule that you're talking about
+ Other questions? Okay
+ Let's do if
+ Take a minute
+ Do it with your neighbor
+ We want to do if
+ Small step semantics for if
+ Yeah
+ So it might be helpful
+ Similar to how we have said an expression with a state gives you an integer n
+ We can say a Boolean with a state can evaluate to true or false
+ Depending on which case you want to talk about
+ What's up? Yeah
+ Yeah
+ Okay
+ What do we think? I will link lecture notes to all of this
+ This entire lecture is largely from a chapter of a PL textbook
+ So I will link that for you to read at your leisure
+ If
+ What do we want to do with if? What happens if the Boolean is true? So if we have Boolean evaluates to true, then what? This is what our if looks like
+ Yeah
+ Yeah
+ So the whole thing would be if what? So if the
+ Then C one
+ L C two with a state S
+ And I'm running out of space here
+ So I'll use a new line
+ That's small steps to what? C one
+ S
+ So we get to reduce our if statement
+ If the Boolean is true to the first branch
+ This again is an example of how we are breaking down a complicated command into smaller pieces
+ What happens if it's false? What changes? Yeah
+ Same thing, but with C two
+ So if this were false, then instead of C one S, we get C two S
+ Yeah
+ Yeah
+ Right, right, two separate rules here
+ Okay
+ What do we think about while? How would while false work? I'll put it here
+ Who feels confident? A couple of you, that's good
+ What do we think? Someone started off
+ You don't have to give the whole thing
+ If we're doing the false case of while
+ Yeah
+ If the Boolean evaluates two false
+ That's great
+ Who wants to continue? Someone who hasn't talked yet
+ What do you do? So again, we're looking here
+ That's what a while looks like
+ What do you do with the Boolean is false? Someone who hasn't talked yet
+ Yeah
+ We just skip
+ We don't have to do anything
+ Yeah
+ So what we would say is while B given S, small steps to a skip with that same S, we haven't changed our state
+ And we just get to skip over the while because our Boolean was false
+ Yeah
+ Because we don't do anything
+ Yep, exactly
+ The C here is our body of our loop
+ And so we would skip over that if our Boolean is false
+ But what do we do if it's true? I mean, I raised the if statement here
+ So we handled the false case
+ If it's true, what happens? We have while B due C with a state goes to what? Yeah
+ C, well, we can't drop the into
+ We can't drop our while loop
+ But what we can do is we want to do one iteration of C
+ Yeah
+ C, semicolon the while loop, this piece here, the entire while loop, comma S
+ Effectively, we're pulling out one iteration of our loop and saying iterate once
+ In order to iterate once, use the sequencing command, which might update our state because sequencing, as we've written out here, can change S
+ And in the event that it changes S, maybe next time we come through, we're going to evaluate our Boolean and get false
+ And then we're going to be done
+ Okay, questions
+ On while, on if sequencing any of that
+ These are the constructs that you have been using for four or more years
+ Explained formally to you
+ Yeah
+ So we could turn this into either skip C2 or C1 skip
+ But that would be effectively the same thing
+ We'll just be creating actual work for us
+ Yeah
+ So we can't, for example, drop the skip here because this is actually what allows us to drop the skip later
+ Then here this is telling us this is a terminal program
+ We are effectively done with that portion of it
+ So I don't think we can just ignore skips anywhere else
+ We could always tack on as many skips as we want with sequencing
+ And based on this rule, we would be able to jump over any number of them
+ Yeah
+ Other questions? Okay
+ Then I'm not going to rush us, but we have 10 minutes to talk about the last idea here, which is proving things about programs
+ Is that actually the point of all of this? We want to describe these semantics so that then we can pose questions about programming in this language and make guarantees about what's true and what's false
+ The program, we are the assertion we want to prove
+ The property is for all commands, for all C in the set of commands, and for all states S, if Cs small steps to C1, S1, and Cs small steps to C2, S2, if these two things are true, then C1 equals C2, and S1 equals S2
+ What we're saying is if you take a small step from some state to another state with some commands to a new command sequence, there's only one way to do it
+ You can't step two ways
+ And this is what gives us deterministic programming
+ If you don't have this, then we can't really say anything about your code
+ If you run your code once and you get one result and you run it a second time, and you get a second result, assuming you have not imported random, then you're going to run into some weird issues
+ We would not want to live in a world where that's true, unless you're doing quantum stuff, in which case who knows? That's what it's all about, is saying this is not true
+ But for traditional programming, this is like the key cornerstone of repeatable programming
+ So we want to prove this property, P, we can call this P, true for all of our commands
+ We want to say that it's true for a skip
+ We want to say it's true for assignment, it's true for looping, it's true for sequencing, and it's true for conditioners
+ How should we go about doing that? Let's just go one by one and actually do it
+ So we will start with skip
+ What do I want to erase here? I guess we will do this
+ All right, skip is not so complicated
+ Why is skip not so complicated? Because of this right here, skip can't go to anything
+ So therefore, we would never end up in a state C1 or C2
+ Skip is skip, we're done, we can't do anything
+ So this is just true
+ The property on skip is just true, vacuously
+ We can't go anywhere
+ Let's do assignment instead
+ So what we want to say here is if we have our command C as an assignment, which is right here, then if we step to anything, we will step to the same thing every time
+ What that looks like is we're trying to show that C as goes to C1 S1, and it also goes to C2 S2, and our C is our assignment
+ So we have assignment with a state is going to both C1 S1 and C2 S2
+ How can we simplify this command sequence? What rule can we use to reduce it? What small step rule? Yeah
+ Yeah, we can use this guy here to turn it into skip where S, where the state has L pointing to N
+ So the only way to reduce this is to skip where L points to E, S, where L points to E
+ So here, since this is the only way to reduce it, C1 is equal to skip, S1 is equal to S where L points to E, and C2 is equal to skip, and S2 is equal to S where L points to E
+ There's no other way to reduce this thing
+ So since C1 equals skip, and C2 equals skip, C1 equals C2, and since S1 equals S where L points to E, and S2 equals S where L points to E, those are also the same
+ So we're good
+ Our property holds
+ That one's done
+ This one was already done
+ Those are our two base cases
+ Now we do induction
+ And this really pulls together all of those different discrete math courses that you take in different ways
+ We want to now prove the property on sequence, specifically we can say on D1, D2, where P of D1 holds, and P of D2 holds
+ So assume that the property is true on each of our commands, we want to show that it's true on the sequence of the commands as well
+ Since we only have two minutes, I'm not going to go too far into it, but our first step will be to say what if D1 is skip? If D1 is skip, we're going to use C skip to convert D1, D2 into D2S
+ And since D2 holds, the property holds for D2, the property holds for skip D2
+ Then we want to show the same thing for sequence with non-skip, but we get to make the assumption that D1S goes to D1 prime S prime
+ And since it holds for D1, it'll hold for the result of D1 prime D2S prime
+ I'm not going to go into all of that, and I won't ask you to go too far into all that, but it would be good to make sure that that feels a little bit comfortable going forward
+ And that's imperative programming
+ You You You You You You You You You You You

@@ -1,1 +1,708 @@
- This is a class on functional programming. This is a class on functional programming. This is a class on functional programming. This is a class on functional programming. I can't get color coding to work on, but there's a little bit, but not much. Was there, like, color highlighting on the code? It's like super, yeah, like this is green. And maybe that's something else? Was there some last time on Monday? I didn't even know this. That's too bad. Hopefully your IDEs look prettier than mine. Hopefully they're not solarized light. All right. You guys have a midterm in a week. Seven days from today, you will have an exam in front of you and you get to start writing. That exam is still coming together at this point in time. I have talked with the TA. We have a plan. It's going to be one type inference problem, one JavaScript activation record problem, a couple of lambda calculus reduction problems, and then some truffles. I'll put all of that in a P.O.s opposed for you guys probably today, maybe later this week. And I'll have a little bit of last semester's exam published as well, so you can see roughly speaking what I'm talking about. But for today, we have to finish talking first about what Haskell looks like and then second about how Haskell uses types. So we have a lot to cover. Are there questions before we get going? Yeah. I'll get it posted soon. Yep. Oh, yeah, yeah, yeah, definitely. How's that? Good? Good? Okay. Other questions? Okay, let's dive into it then. So we were right about at the point where things start getting interesting in Haskell. We created custom data types. So we had this point data type, data point equals, and then we said there are two ways to create a point. You can either create a Cartesian point with two doubles, or you can create a polar point with two doubles. And then we created a point one and a point two. We also created the color data type that's basically just an enum. And what we're saying here is the color type has five or, yeah, five constructors that you could use to create. So we could create my red is the value red and it's of type color. Okay. That's how we create data types. Then how we use them is, for example, we wrote this function to Cartesian. And it's written a little bit differently than where we left off last time. But what two Cartesian does is it takes a point in and it outputs a point. So the function type is point to point. We can then say the definition of this function to Cartesian takes a parameter point. And then we're going to use a case of statement, which basically looks at what does the point look like? If the point is a polar point, if it matches on polar our theta, if it matches this pattern here, then we're going to return a new point that's a Cartesian point with these two values. If it is instead a Cartesian point with x, y values, then we return Cartesian x, y. So no matter what point comes in, we get a Cartesian point out. And the way that we do that is we pattern match on the two different structures of a point. A point can be a polar point or a Cartesian point. How would we write a complementary color function? So this is what colors should we have up here? We'll move this down. Let's write a quick little comp color. And the goal of this function is to take a color in and output a color out. And let's add yellow as a color. Take these ones out. How would we want to write comp color? Oh, we need more colors, actually. What are the other complementary colors? It's orange, purple, green, cool. I'll trust you on that. So what are we going to do? Yeah. Let's exactly do that. So what does that mean to use guards? We're going to start by naming our function. We're going to be giving the definition. And then this function takes an input, which is a color. So we're going to call it the variable name color, the parameter name color. And then how are we going to use guards? So you would have red, yellow, blue, orange, purple, green. And we often do that with a vertical bar. The vertical bar. And then you would have after that the complementary color. And then you would have color input. Right. So one of the powerful things that Haskell allows us to do is actually break apart and condition based on our input. So we're going to put it to figure out what sort of code we need to run on the other side. So we can say red, if color is red, output green. If color is yellow, output purple. If color is blue, output orange. And now we have captured those three cases. And we will output the corresponding value for each one of them. This is called pattern matching. And in particular, it is pattern matching with guards. That's what these vertical bars are. One of the weird things to note here is that we don't actually have like an equal sign after our function declaration. The equal sign comes here. Because the way you want to read this is comp color is a function that takes a parameter named color. And if that parameter is red, it's equal to green. And if that parameter is yellow, it's equal to purple, et cetera. Yeah. Can you say how powerful they are? They say the color equals red, dark, yellow, dark, and black. Yeah. So these vertical bars are saying or. Yeah. This is saying color is red or yellow or blue. This is saying like match on this, match on that. Yeah. Yeah. Yeah. Yeah. So up above, we have a very similar structure where we have case point of polar and cartesian. This is entirely just like syntactic difference. So in case point of notice, we do actually have this equal sign is equal to the case point of these cases. And then instead of having the equal sign before the body, the results, we use this arrow to say transform this thing into that thing. They're very similar. Different ways are writing the same thing. In other languages, you would only ever have one. But Haskell gives you multiple ways to do it. What's another way not doing the case point of that we could write our function here, not using guards, not using case of. But directly pattern matching on the input. Yeah. If statements. Yeah. If statements don't really come up in Haskell. If you find that you're writing an if statement, there's probably a better Haskell way to do it. And that's true on the homework as well. If you, I don't think you need a single if statement in the homework. Yeah. Yeah. Like there's a more idiomatic way to solve the problem using the tools that Haskell provides as part of its language. So instead of using an if, use a guard like this, or instead of, you know, do it, do it the way that Haskell wants you to do it. And then Haskell will help you do it. The tools, the linters, the optimizer, it'll work with you instead of against you. All right. So how are we going to do comp color without guards without case of? Someone had an idea. I saw a hand. Yeah. Exactly. So we can also directly pattern match on the parameter itself. And just say when comp color is called with red, the result is green. When comp color is called with yellow, the result is purple, et cetera. These are multiple ways of doing the exact same thing. You get to choose which one you like the most. I think it's one of the, like, coolest features of Haskell that other languages don't do. But you'll find rust actually does. Yeah. When you have to realize one that others know that you're not doing a parameter, so it's a constant function instead of, under the matches of the parameters, and that function, that's the first thing that's left of the future. We're not using the parameter in the. So red is a constructor and it always is a constructor. We've said that it's a constructor up here by saying red is a constructor for color. And it doesn't take any values, so it's just like a naked constructor. There's nothing more to it. There's no other way to interpret comp color red equals green. Other than saying comp color takes a parameter. That parameter is the constructor red and it outputs green. But we can chat more about that with expressions. So a more powerful thing to do than just creating colors is to create a new data type called expression. And an expression can either be an add expression, which then has recursively two more expressions. Or it can be a multiply expression, which also has two more expressions. Or it can be a constant expression with an integer. And then we can define a function eval that takes an expression and evaluates it to be an integer. And the way that we would do something like that is by saying eval takes one parameter. And then if we evaluate the expression with the value n, if that parameter is a constant expression with the value n, output the value n. So if we try to eval const expression three, this would be three. Then if we eval an add expression of two expressions, we recursively eval the left plus eval the right. And eval the left will give us an integer and eval the right will give us an integer, which means when we add them together, we get an integer. And multiply will do the same exact thing. And now we've built in like ten lines of code a simple calculator, which is what homework five is basically in Haskell. All right. We already looked at the two Cartesian, but this is another way of defining it where we've moved our parameter up, we've deconstructed our parameter as part of the definition. Other code in here that's relevant, probably nothing. I recommend that you continue to take a look at this and use it as a guide when you are working on the programming assignment or when you're looking at the homework. But the rest of these are kind of more complex, just interesting features. For example, laziness comes into play where we can create, here's an infinite list, pause ince. The dot dot notation here is saying two infinity. So we're creating a list of pause ince, which if we try to request the list of, it was pause ince, right? We'll go on forever until your computer gets mad at you. So it's an infinite list, but at the same time, I can execute the rest of my code in here, like example 0, that's example 0, example 0, still has a value, even though there's an infinite list in my code. Since we never used the infinite list, we don't run into any problems. You can define an infinite function, and so long as you never reference forever, then you're going to be fine. So some other neat things in here, not a big deal. Take a look if you're interested. The most important thing to take away from this file is how we actually do function calls, how we use Haskell to create data types and use data types. That's why I want you to get out of it. Okay, that was a little bit dense for the first 18 minutes of class. Questions? I'll give you a minute to think of them. Yeah. I would recommend not using if statements. They are a crutch from the object-oriented land that you have been writing code for the last many years. Try to do it without, and it will feel more natural the more that you do it. If you feel like you need to use an if statement, you use an if statement, and if it works, it works. Great. Yeah. Yeah. What if, so we have a data type, where it's this one, the pair, and a pair is a pair of two integers. What if we wanted to write, I want to be right by this. If we wanted to write a function that performs factorial on both values of the pair. So we're going to have to do a couple of if statements on the first value and the second value. So how would we want to go about that? We can call it fact-p for factorial pair. This is going to take, actually, what's it going to take? What's the type of fact-p? The goal is to take two integers, or take the pair, and perform factorial on each of them. So what should the type be? Per T. There's a function, right? So it needs a arrow. What's the return result? Now it can be integers. We want factorial both of them. Per T. I mean, we could just do it as a two-pull or whatever, but let's use our pair type. So fact-p is going to take a pair of values. We can deconstruct that and say it takes a pair c of x and y. And now we're getting the integer values x and y that are stored inside of that pair. And what do we want to do here? This is going to be a weird function. Maybe the easiest thing is actually to define what happens when we've reached 0, 0. So we can pattern match on if x and y are both 0. What should the result be? Yeah. A pair c of 1, 1. Presumably, factorial is 0 is 1, maybe. All right. So then given pair c x, y, how the heck are we going to compute this? Do we also want to have x? Maybe is one way to do it? Can we do, I'm coming up with this with you guys. Somebody try and help me. We can call fact-p of x minus 1, what am I doing? And 0. And then this will return to us a pair. It's going to be annoying to have to extract back out. All right. This one might be two bothersome. There's probably a clean way to do it though. But we would probably want to define a sum function as well. And now I don't really want to go into all that. Because then we could do, oh, but it's actually a multiply function. Yeah, let's simplify. What's a different thing we could do with pairs? Yeah. Ah, okay. Yeah, yeah. So we said up above a is equal to if b 10 else 100. What did we actually say? A is equal to y if y then a else b. So what we could do here is if we were trying to use the value a, we would just pattern match on y. We would say like f of a if it's, or f of y. If it is true, then it's a, if it is false, then it is b. So f is a function that takes in y. And if it is, if y is true, then we get a, if y is false, then we get b. So then we could say a is equal to f of y, where y is true, great. So then a is equal to a. This is an if statement. Yeah. Why do I need a vertical bar behind the false? Oh, we totally do. Ta-da, thank you. We could also do f y equals case y of. And then here you don't need it. We use the arrow. Or we could say f true. Yeah. So it's a first of these pattern matchings. All of these are pattern matching. All three of these are using pattern matching to figure out what is y. Why is there a point of time in case? They do the same thing. I don't know why you would use one versus another. They, they, they're the same thing. They are all pattern matching. All right. Any other questions on Haskell code? The more you write, the more comfortable you'll be, yeah. Yeah. So the point of aware is to specify like it's like creating a closure in JavaScript to say, do this using these variables where this variable is that, this variable is that, this variable is that. So there's no better way to do this than to CDPA4 lib and warm up. Tada. It's the homework. So we have these where clauses so that what we are saying is some square sum takes a parameter x's, a list of integers and it's equal to this statement here, fold left, f, base, x's. However, we have not defined what is f and we also have not defined what is base. So f and base are unknown variables inside of this statement. So what we do is we say it's equal to this thing where f is this thing and base is this other thing. So we might say base is zero and f is plus. Something like that. This would be the wrong solution. This would be adding up a list. But the point here is that we don't have to define outside f a x equals plus a plus x and base equals zero. And then we can use them here. We could then say, fold left, f, base, x's. Great, but down below, I also want to use f and base. And because Haskell doesn't let me overwrite variables, I can't hear now say, well, base is actually a list. And f a x is actually something else. So what we do is we use this where clause to create a local scope where f is this value base is this other value. Yeah. Like that. I've never seen that, but I don't see why you couldn't. But you might be getting too weird at that point. And it might be better to then break it. I don't know. Maybe there's a place for it. I've never seen it. It doesn't mean it's wrong. Okay. Let's talk about types. We've started working with them in Haskell already. But now let's get very explicit about them. I believe we're in the middle of week four. Is that right? I think so. At least by my count. We're going to be talking about types. We're going to be talking about type inference. And then type polymorphism. Just a little bit, hopefully. To start, what is a type? What are types? Yeah. Yeah. So a type is a marker or a rule of how something can be used. So for example, we can add integers. We can multiply integers. We can't multiply strings. Maybe you can add strings. I think that's a reasonable definition. What else is a type? Yeah. A classification of variables and values. I like to think of this as kind of the bucket definition. Types are buckets that you put values into. And all the integers fit into that bucket. It's a classification for what the value looks like. I think that's fair. I think both of those are actually quite fair. So some examples, integers, lists of characters, either's, that's from the Haskell intro code. You can take a look at it. I think a set of values is a very nice informal definition. Where this is the bucket of integers. If you're in that bucket, you're an integer. If you're not in that bucket, you're not an integer. How does that break down though? When is it not just good enough to say that it's a set of values? Ignore that. You don't need it. It doesn't have the answer. When the type is unvalued things? Unvalued things. Like what? Like you can have like the type that's the type of definition. The type that's the type of definitions. Yeah, I think there are complex types and type relationships that might need to come into play. And I think that's kind of get at the same point where it's like there are these kind of non-value types that still want to have type information. Fair enough. How do we use types? One way. What's one of the biggest things that you use types for? Actually. How do you guys use types? Sometimes they're just a pain to type in and you say auto instead. But sometimes you use them and they help you. What's something that they've helped you with? To guard against errors. Yeah, I think that's super common. JavaScript, you know, maybe doesn't guard as much as it would light as you would like it to. But when you add a number to a string, maybe that gives you an error in some languages, not JavaScript. If you pass a non-function to the apply function and then we try and call the number three with the value four, that doesn't make any sense. That's a type error. So they prevent errors for sure. Ideally before you actually run into the problem, but not all the time. Types also help you organize and document code. If you look at the type signature of a function, you can often tell how you're supposed to use that function. This is especially a true in Haskell, where sometimes you see the type signature and you know exactly what to do. You don't even need to write code. The type signature just tells you, take this input, take that input, pass that into this, use that here and you're done. So when you look at something like how to read a file, you know exactly how to use this function just based on the type signature. Types also are hints to the compiler. They tell the compiler how it should optimize. If you say everything is an integer and then you just use the bits, however you want to use the bits, that's going to confuse the compiler. If you say these are characters, it knows how to smash for those into an integer, things of that sort. So they do a lot. They help out. But who's job is it to take care of them? So if we have an array of length 10, an integer array of length 10, and we try and access element 200 of that array. What's going to happen in JavaScript? If the array, I guess in this case, is empty. If it's an null, if it's undefined, what happens? And when does it happen? So this is going to tell us on this first one in JavaScript. It's going to say at runtime, that's an error. You can't access this element of undefined. In C++ or C, if the array is 10, of size 10, what happens? And you try and access element 200. Yeah. Yeah. Yeah, it'll give you the 200th element of the 10 element array, which, you know, why not? It's memory is there. In Haskell, if this thing is not an array, like you mentioned, it'll give you a type error at compile time. And it'll say, you can't access that thing. It's too far away, or it's not an array. You aren't even trying to access an array. So it depends on the language. It might be the compiler taking care of things at compile time. It might be your runtime system taking care of things at runtime, or it might literally be the hardware taking care of things at runtime. What are some pros and cons of these approaches? What's a benefit of taking this extra step at compile time that Haskell does to make sure that your types are all properly set up? You two guys have answered a lot. Who else? What's a benefit here? Yeah. Save the time when? Well, if you're doing more at compile time. Right. It doesn't have to do it at runtime. It saves you all that time. Where if your code was going to crash at runtime, you didn't run all the code before the crash. So you saved a bunch of time. It saves you effort at runtime. What about runtime checks? What's a benefit of JavaScript not giving you type errors when you try and compile, but only once you're all done with the like when you're actually running it and you run into the thing? Yeah. Yeah. Maybe it works. Maybe you don't run into the type error because you take a code path that doesn't run into it. So you have a type error, but it's like hidden on some edge case and nobody ever runs into that edge case. Great. Until it's not. What about hardware and just not even checking like C and C++? You just get that element back. It doesn't matter that runtime checking or compile time checking would have told you that wasn't allowed. You just get it. Yeah. Right. If you aren't checking things and you literally just grab them from memory, you're super fast. Nothing's going to beat that. What are the downsides? Yeah. Yeah. So here compile time and hardware will get similar performance at runtime, but you don't have to deal with all that compile time overhead. Yeah. Yeah. Right. That's kind of language dependent though. But yeah. No, I think fair enough. All right. Let's talk about cons. Compile time con. What's bad about this system? Yeah. You can't have mutable types. It might be harder to have mutable types like where you would say this is an int. Now it's a string. But I mean JavaScript. I guess that's runtime. Yeah. I can't think of any compile time languages where you have mutable types. So maybe that's true. Yeah. We lose some flexibility on what a variable is. Yeah. It's slower when? Well, when are we doing the extra work? When we compile. So we're slower at compile time for sure. It's kind of the like trade off compared to hardware. What about the flip side of the fact that runtime is permissive compile time is actually like restrictive. It over approximates your code and says you can't do these certain things. For example, swapping types, even if maybe you could get away with it. So it has to be overly restrictive. Runtime checks have runtime overhead, which means they're slower. And hardware means that you end up in weird states and have sag faults and things of that nature. So you catch bugs late or not at all. PL folk would have you believe that compile time is best. I'm not personally convinced. I think it's. It's up for debate. Compile time saves you a lot of headache on bugs. That's definitely true. So it depends on your situation. Are you going to be working with a big code base that might run into a lot of bugs? Is it something that you want to be more permissive? That depends. Okay. There's an important notion of type safety in a language where a language is type safe if no program is allowed to violate its type distinctions. This is similar to that idea of swapping the type of a value. But it's actually more extreme where we're saying we can treat an integer as a float. That's not type safe. So, Haskell, what do we think? Type safe? Yes? No. Yes. Haskell's type safe. It's very strict. You can't do anything. JavaScript. Type safe? Yes? No. Yes. We can't actually treat an integer as a float. So, an integer is an integer and we can change the value to become a float. But we can't treat the bits underneath the integer as a float. Yeah. So, if you cast an integer to be a float and then treat it as a float, that's fine. You're good to go. Yeah. If I have an integer pointer and then I turn that into a float pointer, now I've just changed the bits from meaning the integer value 1 to meaning the float value like whatever 0 with 1, 1 is in float. Probably tiny. So, with that said is C and C++ type safe. Yes? No. No. We can't actually change how we interpret the bits that represent our value. That's not type safe. Okay. So, to get to that last question there, what makes a feature hard to what features make it hard to guarantee type safety? Having raw memory access or pointers combined with casting? Very difficult. But powerful. So, what are you going to do? Okay. Yeah. Right. So, just casting is not enough to violate type safety normally. So, long as your casting mechanism is good. Because you can cast an int to a float and be totally fine. So, long as you treat the input as an integer and you treat the output as a float, it's when you try and swap them up without doing that that you get into trouble. Yeah. Great. That's some background on types. I feel like I'm rushing. So, I'm trying to take a pause before we continue. We're now going to start talking about type inference, which is the process of looking at a piece of code and telling what are the types being used. What's the input? What's the output type? It's an extremely valuable skill as a software developer to look at someone else's code that they have not annotated and figure out how you're supposed to use it. Or if they've annotated it incorrectly. So, type inference. The difference between that and type checking. Type checking is saying if we had this function int f int x return x plus one, check that x is actually an integer, whatever x is used. Type inference instead gets rid of the annotations and says what is x such that we can work with the rest of this code. So, x is being used with plus one. We know that we have to add integers, an integer and an integer, so we can infer that x is an integer. And then anywhere we find that we've inferred a type for x that's not an integer, we know there's going to be an error. Because we're trying to assign x to different types. The benefit of type inference is that it means that we don't have to write types ourselves. The compiler will figure them out or the linter will figure them out for us and tell us that's the type of your function, that's the type you're variable, you don't have to do it yourself. Depending on the algorithm, use your guaranteed to produce the most general type, which is convenient. Everyone is using type inference at this point. C++ uses type inference even though the majority of code doesn't, but you can use things like auto. If you've worked with C++, does Java have auto as well? You guys know? Yes, I see some nods. It's so convenient to just be like, I don't know the type of this thing or I don't want to write the class name for whatever this thing is auto and figured out. It's also a kind of good demonstration of static analysis of code. So that's worth working with too. We are going to be talking about specifically the Hindley Milner type inference algorithm. This is an algorithm developed in the like 70s. I think the math for it was the late 50s and then it was implemented in Haskell when Haskell kind of came out. The purpose of this algorithm has stayed the same. You take code in and you figure out what are the types being used. Our steps are going to be one, parse the program, two assign variables to all of the nodes, three generate constraints between the nodes, four solve the constraints and five you're done. That's the process we're going to do as a class. And it's actually what your limter does as well. We're going to be doing this on a version of Haskell that I have called micro Haskell. Micro Haskell is very similar to Haskell. It looks just like Haskell but it has many fewer features. So for example, we can create a function declaration, D, which has a name, it has P, which is a parameter, and it has a body that is an expression. The parameters or the patterns can be an identifier, they can be a tuple, they can be a cons, a list, or they can be a list itself. And then the expressions can be integers, Booleans, lists, identifiers, we have grouping, we have addition, we have application, kind of all your normal stuff. We even have if-then-else. And our types, we have functions, we have lists, we have tuples, Booleans, and integers. This is our new language. Questions on the language. Okay, let's actually use it. This is like outline for how we're going to use it. So if we started with a function, fx equals 2 plus x, our goal is to figure out what's the type of f. Informally, we can look at it and say 2 is an int plus takes two integers and returns an integer. And we are going to pass x as a parameter to x, therefore x is of type integer. So our final function is going to be integer to integer to integer. Does this-like, take a second, look at this. Does this leave you with questions? Is there any part of this that is confusing? Okay, then what we're going to do is we're going to do it algorithmically. Hopefully. Did they put the brakes on? There we go. So we have a function, fx equals x plus 2. Yeah. Now, we're going to split this up into a few parts. We're going to have a function node. Our function node has a name, f. It has a parameter, x, and it has an expression, this x plus 2. Every function will look like this. It's got a name, it's got parameters, it's got an expression. However, our expression is a little bit complicated. It's x plus 2. So we're actually going to break this down. And what we're going to do is first rewrite our expression to look like it's in reverse-polish notation, where we're going to kind of break apart, have plus be first 2x. So we have fx equals 2 plus x, which is equal to fx equals plus 2, and then x. Oh, I added in the rest of that. Oh, well. The way that we think about setting up our expression is that we have an application of this function here, 2x. And I use at for application, we have an application of this function here, which we can call e to the variable x. But this e is complicated as well. That e is an application of its own right of plus on to x. So we end up with a parse tree that looks like this. What I've done is I've turned the code into a tree representation of that code. You do this any time you want to analyze code. You have to figure out what does the parse tree for the code look like. Yeah. That's because I didn't know what I was writing. Yep, that should be a two. Two plus. Yeah. Yeah. Thank you. Other questions. Yeah. Yeah. So why do it this way instead of two plus x. This is just harder to figure out what's going on. How like parsing this is confusing. parsing this is saying we have a function that takes an input and results in a function that takes an input. So this step you'll always want to do first. You want your structure to always look like function input input input, etc. Not necessarily input function input. That's hard to figure out that both of these are going into that function. But because this is how we look at math most of our life, you know, it is what it is. But plus is a function that takes an integer and it returns a function that takes an integer and returns an integer. Yeah. Yes. Is there a connection between this and abstract syntax trees. It is a one to one connection. This is an abstract syntax tree with a little bit less information. But this is the backbone of your AST. So your compiler generates this every time you compile your code, your runtime environment generates this every time you run your code to figure out what is the code, which parameters go with that function. What did you write? Okay. Okay. Cool. This was step two. No, no. This was step one. Pass the tree. Step two is assigned type variables to the nodes. This is the easiest step. Can anyone guess how we do it? Yeah. That's actually even more complicated. This all that we have to do is we say this is type tau zero. This is type tau one. I don't know what type those are. This one is type tau two. This one is type tau three. Now we can get a little clever and say X has already been given a type. So X here, that one is tau one. Plus is tau four, two is tau five. All we're doing is given them names so we can start talking about them. I think that I've used slightly different numbering here. Not a big deal. So, what do these types then tell us is step three. How do we generate constraints based on what we know about our language? So, if we look at a lambda expression, we have a function tau zero and we have input tau one and output tau two. What would the type tau zero be? Is it just tau two? Yeah. So, what do we do? We do have tau one, tau one, tau two. Our result is tau two, but we do actually need a tau one to generate that tau two. So, using this information, what is the overall type of tau zero, which is our function? What can we say tau zero equals one? tau one, arrow tau two. X is the input, the result of this application is the output. This is tau two. So, tau one to tau two. Not so crazy. Oh, which is actually the next slide. So, if we have a function declaration, f x equals e, we would say tau zero, f is equal to tau one, x two, tau two, e. Not so crazy. This one is the one that always trips people up. Function application. This is passing a parameter x into the function f and getting a result out. So, what is tau zero here? tau zero is definitely tau zero, but that's not telling us any information. But it is actually very important that these tau is a tau, which means if two is an int, then tau two being an int means that two is the int. Yeah. So, we take tau one, results in tau two. How can we use this information? If we have, let's look at this one here, this application node. So, we have this piece. What constraint can we generate from this subtree? Is it hard to see in the back? I apologize. We have tau three as an application, tau four is plus, tau five is the number two. What can we say about that? Yeah. That's exactly right. So, tau four, this node here, takes in tau five as input and outputs tau three as output. What can we say about this subtree here? tau three is equal to tau one to tau two. Perfect. We take in tau one, we output tau two. This process that I'm going through now of asking what can we say is the process of generating constraints. If we add an if else, what constraints would we know about tau zero, one, two, and three? What do we know about tau one? Yeah. tau one's a Boolean, definitely. It's the if, blank. It's the conditional. What do we know about the relationship between the results of this and the branches that we take? If tau one is true, if the value x is true, we're going to have the value y returned, which means our output, our t zero, must be equal to the t two. They must be the same type because they are going to be the same thing. Similarly, we know that tau two is the same as tau three because we can't say x is equal to three if this value or it's equal to the string, hello, if this other value. Values can only have one type. It's either an int or a list. So they have to be the result has to be the same thing. Yeah. Yeah. So if we had a language like JavaScript where we could have different types returned here, this would not necessarily be true. But in microhazicle, this is true. A variable can only have one type. Yeah. Yeah. Yeah. So what we're saying is tau two is some expression. It's going to evaluate to something, for example, three. And then we are saying, x, we might say w is equal to if x, then three else four. For example, that means the result of the whole if is the value three or four, depending on whatever x is. So w would have the value three or four, which means tau zero, the result of the expression will be equal to tau two or tau three. But since tau two equals tau three, it's the same thing. tau zero equals tau two equals tau three. They're all equal one. Because you can only ever have one type. So let's, let's, if we actually wrote a line of code using this thing, w equals if true three, four. W will have the, we can put a then and then else. W after this runs will either have the value three or four. In this case, it will have the value three. That means this expression results in three, which is of type int, which is the same type as our left branch. Yeah. You're always setting something. So it, even if I didn't have this, the results still exists as a thing. It's not like traditional like Python or JavaScript code, where you're actually branching to execute different code. It's about what's the value of this expression. That's why I don't recommend using ifs. It means that you're thinking about things in, in the kind of like JavaScript world where it's branching to run these lines of code or these lines of code. That's not, not quite how this is supposed to be used. Yeah. It's the same. So tau zero equals tau two equals tau three, because we cannot say this. That would mean that w has an unknown type. W would have the type int and character. And that's not allowed by Haskell. It won't let you do that. So that's why we know that these things have to be equivalent. Because you can't do that. Yeah. If a equals b and a equals c b equals c by transit of property. Yeah. I guess like. Yeah. Yeah. No, you can. So for, for when we actually do these things, we're going to be generating a long list of constraints. Your goal to solve them is only to generate as many as you need to solve the final type. So what I've done here is generated the same constraints that we already started doing. We figured out that tau four equals tau five to tau three. Tau zero is tau one to tau two. We also said tau three is tau one to tau two. And then we're going to start combining those together. We also know tau two is the plus symbol. And plus has a very specific type into into int. We also know the number two is an integer. So from that, we can start solving these constraints to figure out that, but the numbers are different. We can figure out that tau one must be an integer because it's being passed into tau four. And tau four is the result of into into int being applied to an int. So we can figure out tau one is an integer. We know that our function is tau one to tau two. We also know as an integer. So our is integer to integer. So our final result, F tau zero is integer to integer. No, that's not right. It's just an integer. Yeah, that's a typo. Our final type is of type integer to integer. We take in one integer, we output one integer. Yeah. So what happens if we don't know that plus is into int to int, then we're going to go with the most generic thing that we can and we'll just end up saying tau zero is equal to tau one to tau three. And maybe we don't know anything about those. And that's okay. Yeah. Yeah, but this one's that's wrong. It's into. Yes. That's exactly right. We take in an int and we output a function that takes in an int and outputs in it. Yeah. All right. That's the Hindley Milner type inference algorithm in a very compressed format. There are more examples in the slides, which will help you through the homework. Feel free to drop by off. Sowers and chat about it. The homework assignment problems are a little bit more complicated than this, but you apply the same exact steps and you'll get the answer. You You You You You You You You You You
+ This is a class on functional programming
+ This is a class on functional programming
+ This is a class on functional programming
+ This is a class on functional programming
+ I can't get color coding to work on, but there's a little bit, but not much
+ Was there, like, color highlighting on the code? It's like super, yeah, like this is green
+ And maybe that's something else? Was there some last time on Monday? I didn't even know this
+ That's too bad
+ Hopefully your IDEs look prettier than mine
+ Hopefully they're not solarized light
+ All right
+ You guys have a midterm in a week
+ Seven days from today, you will have an exam in front of you and you get to start writing
+ That exam is still coming together at this point in time
+ I have talked with the TA
+ We have a plan
+ It's going to be one type inference problem, one JavaScript activation record problem, a couple of lambda calculus reduction problems, and then some truffles
+ I'll put all of that in a P
+O
+s opposed for you guys probably today, maybe later this week
+ And I'll have a little bit of last semester's exam published as well, so you can see roughly speaking what I'm talking about
+ But for today, we have to finish talking first about what Haskell looks like and then second about how Haskell uses types
+ So we have a lot to cover
+ Are there questions before we get going? Yeah
+ I'll get it posted soon
+ Yep
+ Oh, yeah, yeah, yeah, definitely
+ How's that? Good? Good? Okay
+ Other questions? Okay, let's dive into it then
+ So we were right about at the point where things start getting interesting in Haskell
+ We created custom data types
+ So we had this point data type, data point equals, and then we said there are two ways to create a point
+ You can either create a Cartesian point with two doubles, or you can create a polar point with two doubles
+ And then we created a point one and a point two
+ We also created the color data type that's basically just an enum
+ And what we're saying here is the color type has five or, yeah, five constructors that you could use to create
+ So we could create my red is the value red and it's of type color
+ Okay
+ That's how we create data types
+ Then how we use them is, for example, we wrote this function to Cartesian
+ And it's written a little bit differently than where we left off last time
+ But what two Cartesian does is it takes a point in and it outputs a point
+ So the function type is point to point
+ We can then say the definition of this function to Cartesian takes a parameter point
+ And then we're going to use a case of statement, which basically looks at what does the point look like? If the point is a polar point, if it matches on polar our theta, if it matches this pattern here, then we're going to return a new point that's a Cartesian point with these two values
+ If it is instead a Cartesian point with x, y values, then we return Cartesian x, y
+ So no matter what point comes in, we get a Cartesian point out
+ And the way that we do that is we pattern match on the two different structures of a point
+ A point can be a polar point or a Cartesian point
+ How would we write a complementary color function? So this is what colors should we have up here? We'll move this down
+ Let's write a quick little comp color
+ And the goal of this function is to take a color in and output a color out
+ And let's add yellow as a color
+ Take these ones out
+ How would we want to write comp color? Oh, we need more colors, actually
+ What are the other complementary colors? It's orange, purple, green, cool
+ I'll trust you on that
+ So what are we going to do? Yeah
+ Let's exactly do that
+ So what does that mean to use guards? We're going to start by naming our function
+ We're going to be giving the definition
+ And then this function takes an input, which is a color
+ So we're going to call it the variable name color, the parameter name color
+ And then how are we going to use guards? So you would have red, yellow, blue, orange, purple, green
+ And we often do that with a vertical bar
+ The vertical bar
+ And then you would have after that the complementary color
+ And then you would have color input
+ Right
+ So one of the powerful things that Haskell allows us to do is actually break apart and condition based on our input
+ So we're going to put it to figure out what sort of code we need to run on the other side
+ So we can say red, if color is red, output green
+ If color is yellow, output purple
+ If color is blue, output orange
+ And now we have captured those three cases
+ And we will output the corresponding value for each one of them
+ This is called pattern matching
+ And in particular, it is pattern matching with guards
+ That's what these vertical bars are
+ One of the weird things to note here is that we don't actually have like an equal sign after our function declaration
+ The equal sign comes here
+ Because the way you want to read this is comp color is a function that takes a parameter named color
+ And if that parameter is red, it's equal to green
+ And if that parameter is yellow, it's equal to purple, et cetera
+ Yeah
+ Can you say how powerful they are? They say the color equals red, dark, yellow, dark, and black
+ Yeah
+ So these vertical bars are saying or
+ Yeah
+ This is saying color is red or yellow or blue
+ This is saying like match on this, match on that
+ Yeah
+ Yeah
+ Yeah
+ Yeah
+ So up above, we have a very similar structure where we have case point of polar and cartesian
+ This is entirely just like syntactic difference
+ So in case point of notice, we do actually have this equal sign is equal to the case point of these cases
+ And then instead of having the equal sign before the body, the results, we use this arrow to say transform this thing into that thing
+ They're very similar
+ Different ways are writing the same thing
+ In other languages, you would only ever have one
+ But Haskell gives you multiple ways to do it
+ What's another way not doing the case point of that we could write our function here, not using guards, not using case of
+ But directly pattern matching on the input
+ Yeah
+ If statements
+ Yeah
+ If statements don't really come up in Haskell
+ If you find that you're writing an if statement, there's probably a better Haskell way to do it
+ And that's true on the homework as well
+ If you, I don't think you need a single if statement in the homework
+ Yeah
+ Yeah
+ Like there's a more idiomatic way to solve the problem using the tools that Haskell provides as part of its language
+ So instead of using an if, use a guard like this, or instead of, you know, do it, do it the way that Haskell wants you to do it
+ And then Haskell will help you do it
+ The tools, the linters, the optimizer, it'll work with you instead of against you
+ All right
+ So how are we going to do comp color without guards without case of? Someone had an idea
+ I saw a hand
+ Yeah
+ Exactly
+ So we can also directly pattern match on the parameter itself
+ And just say when comp color is called with red, the result is green
+ When comp color is called with yellow, the result is purple, et cetera
+ These are multiple ways of doing the exact same thing
+ You get to choose which one you like the most
+ I think it's one of the, like, coolest features of Haskell that other languages don't do
+ But you'll find rust actually does
+ Yeah
+ When you have to realize one that others know that you're not doing a parameter, so it's a constant function instead of, under the matches of the parameters, and that function, that's the first thing that's left of the future
+ We're not using the parameter in the
+ So red is a constructor and it always is a constructor
+ We've said that it's a constructor up here by saying red is a constructor for color
+ And it doesn't take any values, so it's just like a naked constructor
+ There's nothing more to it
+ There's no other way to interpret comp color red equals green
+ Other than saying comp color takes a parameter
+ That parameter is the constructor red and it outputs green
+ But we can chat more about that with expressions
+ So a more powerful thing to do than just creating colors is to create a new data type called expression
+ And an expression can either be an add expression, which then has recursively two more expressions
+ Or it can be a multiply expression, which also has two more expressions
+ Or it can be a constant expression with an integer
+ And then we can define a function eval that takes an expression and evaluates it to be an integer
+ And the way that we would do something like that is by saying eval takes one parameter
+ And then if we evaluate the expression with the value n, if that parameter is a constant expression with the value n, output the value n
+ So if we try to eval const expression three, this would be three
+ Then if we eval an add expression of two expressions, we recursively eval the left plus eval the right
+ And eval the left will give us an integer and eval the right will give us an integer, which means when we add them together, we get an integer
+ And multiply will do the same exact thing
+ And now we've built in like ten lines of code a simple calculator, which is what homework five is basically in Haskell
+ All right
+ We already looked at the two Cartesian, but this is another way of defining it where we've moved our parameter up, we've deconstructed our parameter as part of the definition
+ Other code in here that's relevant, probably nothing
+ I recommend that you continue to take a look at this and use it as a guide when you are working on the programming assignment or when you're looking at the homework
+ But the rest of these are kind of more complex, just interesting features
+ For example, laziness comes into play where we can create, here's an infinite list, pause ince
+ The dot dot notation here is saying two infinity
+ So we're creating a list of pause ince, which if we try to request the list of, it was pause ince, right? We'll go on forever until your computer gets mad at you
+ So it's an infinite list, but at the same time, I can execute the rest of my code in here, like example 0, that's example 0, example 0, still has a value, even though there's an infinite list in my code
+ Since we never used the infinite list, we don't run into any problems
+ You can define an infinite function, and so long as you never reference forever, then you're going to be fine
+ So some other neat things in here, not a big deal
+ Take a look if you're interested
+ The most important thing to take away from this file is how we actually do function calls, how we use Haskell to create data types and use data types
+ That's why I want you to get out of it
+ Okay, that was a little bit dense for the first 18 minutes of class
+ Questions? I'll give you a minute to think of them
+ Yeah
+ I would recommend not using if statements
+ They are a crutch from the object-oriented land that you have been writing code for the last many years
+ Try to do it without, and it will feel more natural the more that you do it
+ If you feel like you need to use an if statement, you use an if statement, and if it works, it works
+ Great
+ Yeah
+ Yeah
+ What if, so we have a data type, where it's this one, the pair, and a pair is a pair of two integers
+ What if we wanted to write, I want to be right by this
+ If we wanted to write a function that performs factorial on both values of the pair
+ So we're going to have to do a couple of if statements on the first value and the second value
+ So how would we want to go about that? We can call it fact-p for factorial pair
+ This is going to take, actually, what's it going to take? What's the type of fact-p? The goal is to take two integers, or take the pair, and perform factorial on each of them
+ So what should the type be? Per T
+ There's a function, right? So it needs a arrow
+ What's the return result? Now it can be integers
+ We want factorial both of them
+ Per T
+ I mean, we could just do it as a two-pull or whatever, but let's use our pair type
+ So fact-p is going to take a pair of values
+ We can deconstruct that and say it takes a pair c of x and y
+ And now we're getting the integer values x and y that are stored inside of that pair
+ And what do we want to do here? This is going to be a weird function
+ Maybe the easiest thing is actually to define what happens when we've reached 0, 0
+ So we can pattern match on if x and y are both 0
+ What should the result be? Yeah
+ A pair c of 1, 1
+ Presumably, factorial is 0 is 1, maybe
+ All right
+ So then given pair c x, y, how the heck are we going to compute this? Do we also want to have x? Maybe is one way to do it? Can we do, I'm coming up with this with you guys
+ Somebody try and help me
+ We can call fact-p of x minus 1, what am I doing? And 0
+ And then this will return to us a pair
+ It's going to be annoying to have to extract back out
+ All right
+ This one might be two bothersome
+ There's probably a clean way to do it though
+ But we would probably want to define a sum function as well
+ And now I don't really want to go into all that
+ Because then we could do, oh, but it's actually a multiply function
+ Yeah, let's simplify
+ What's a different thing we could do with pairs? Yeah
+ Ah, okay
+ Yeah, yeah
+ So we said up above a is equal to if b 10 else 100
+ What did we actually say? A is equal to y if y then a else b
+ So what we could do here is if we were trying to use the value a, we would just pattern match on y
+ We would say like f of a if it's, or f of y
+ If it is true, then it's a, if it is false, then it is b
+ So f is a function that takes in y
+ And if it is, if y is true, then we get a, if y is false, then we get b
+ So then we could say a is equal to f of y, where y is true, great
+ So then a is equal to a
+ This is an if statement
+ Yeah
+ Why do I need a vertical bar behind the false? Oh, we totally do
+ Ta-da, thank you
+ We could also do f y equals case y of
+ And then here you don't need it
+ We use the arrow
+ Or we could say f true
+ Yeah
+ So it's a first of these pattern matchings
+ All of these are pattern matching
+ All three of these are using pattern matching to figure out what is y
+ Why is there a point of time in case? They do the same thing
+ I don't know why you would use one versus another
+ They, they, they're the same thing
+ They are all pattern matching
+ All right
+ Any other questions on Haskell code? The more you write, the more comfortable you'll be, yeah
+ Yeah
+ So the point of aware is to specify like it's like creating a closure in JavaScript to say, do this using these variables where this variable is that, this variable is that, this variable is that
+ So there's no better way to do this than to CDPA4 lib and warm up
+ Tada
+ It's the homework
+ So we have these where clauses so that what we are saying is some square sum takes a parameter x's, a list of integers and it's equal to this statement here, fold left, f, base, x's
+ However, we have not defined what is f and we also have not defined what is base
+ So f and base are unknown variables inside of this statement
+ So what we do is we say it's equal to this thing where f is this thing and base is this other thing
+ So we might say base is zero and f is plus
+ Something like that
+ This would be the wrong solution
+ This would be adding up a list
+ But the point here is that we don't have to define outside f a x equals plus a plus x and base equals zero
+ And then we can use them here
+ We could then say, fold left, f, base, x's
+ Great, but down below, I also want to use f and base
+ And because Haskell doesn't let me overwrite variables, I can't hear now say, well, base is actually a list
+ And f a x is actually something else
+ So what we do is we use this where clause to create a local scope where f is this value base is this other value
+ Yeah
+ Like that
+ I've never seen that, but I don't see why you couldn't
+ But you might be getting too weird at that point
+ And it might be better to then break it
+ I don't know
+ Maybe there's a place for it
+ I've never seen it
+ It doesn't mean it's wrong
+ Okay
+ Let's talk about types
+ We've started working with them in Haskell already
+ But now let's get very explicit about them
+ I believe we're in the middle of week four
+ Is that right? I think so
+ At least by my count
+ We're going to be talking about types
+ We're going to be talking about type inference
+ And then type polymorphism
+ Just a little bit, hopefully
+ To start, what is a type? What are types? Yeah
+ Yeah
+ So a type is a marker or a rule of how something can be used
+ So for example, we can add integers
+ We can multiply integers
+ We can't multiply strings
+ Maybe you can add strings
+ I think that's a reasonable definition
+ What else is a type? Yeah
+ A classification of variables and values
+ I like to think of this as kind of the bucket definition
+ Types are buckets that you put values into
+ And all the integers fit into that bucket
+ It's a classification for what the value looks like
+ I think that's fair
+ I think both of those are actually quite fair
+ So some examples, integers, lists of characters, either's, that's from the Haskell intro code
+ You can take a look at it
+ I think a set of values is a very nice informal definition
+ Where this is the bucket of integers
+ If you're in that bucket, you're an integer
+ If you're not in that bucket, you're not an integer
+ How does that break down though? When is it not just good enough to say that it's a set of values? Ignore that
+ You don't need it
+ It doesn't have the answer
+ When the type is unvalued things? Unvalued things
+ Like what? Like you can have like the type that's the type of definition
+ The type that's the type of definitions
+ Yeah, I think there are complex types and type relationships that might need to come into play
+ And I think that's kind of get at the same point where it's like there are these kind of non-value types that still want to have type information
+ Fair enough
+ How do we use types? One way
+ What's one of the biggest things that you use types for? Actually
+ How do you guys use types? Sometimes they're just a pain to type in and you say auto instead
+ But sometimes you use them and they help you
+ What's something that they've helped you with? To guard against errors
+ Yeah, I think that's super common
+ JavaScript, you know, maybe doesn't guard as much as it would light as you would like it to
+ But when you add a number to a string, maybe that gives you an error in some languages, not JavaScript
+ If you pass a non-function to the apply function and then we try and call the number three with the value four, that doesn't make any sense
+ That's a type error
+ So they prevent errors for sure
+ Ideally before you actually run into the problem, but not all the time
+ Types also help you organize and document code
+ If you look at the type signature of a function, you can often tell how you're supposed to use that function
+ This is especially a true in Haskell, where sometimes you see the type signature and you know exactly what to do
+ You don't even need to write code
+ The type signature just tells you, take this input, take that input, pass that into this, use that here and you're done
+ So when you look at something like how to read a file, you know exactly how to use this function just based on the type signature
+ Types also are hints to the compiler
+ They tell the compiler how it should optimize
+ If you say everything is an integer and then you just use the bits, however you want to use the bits, that's going to confuse the compiler
+ If you say these are characters, it knows how to smash for those into an integer, things of that sort
+ So they do a lot
+ They help out
+ But who's job is it to take care of them? So if we have an array of length 10, an integer array of length 10, and we try and access element 200 of that array
+ What's going to happen in JavaScript? If the array, I guess in this case, is empty
+ If it's an null, if it's undefined, what happens? And when does it happen? So this is going to tell us on this first one in JavaScript
+ It's going to say at runtime, that's an error
+ You can't access this element of undefined
+ In C++ or C, if the array is 10, of size 10, what happens? And you try and access element 200
+ Yeah
+ Yeah
+ Yeah, it'll give you the 200th element of the 10 element array, which, you know, why not? It's memory is there
+ In Haskell, if this thing is not an array, like you mentioned, it'll give you a type error at compile time
+ And it'll say, you can't access that thing
+ It's too far away, or it's not an array
+ You aren't even trying to access an array
+ So it depends on the language
+ It might be the compiler taking care of things at compile time
+ It might be your runtime system taking care of things at runtime, or it might literally be the hardware taking care of things at runtime
+ What are some pros and cons of these approaches? What's a benefit of taking this extra step at compile time that Haskell does to make sure that your types are all properly set up? You two guys have answered a lot
+ Who else? What's a benefit here? Yeah
+ Save the time when? Well, if you're doing more at compile time
+ Right
+ It doesn't have to do it at runtime
+ It saves you all that time
+ Where if your code was going to crash at runtime, you didn't run all the code before the crash
+ So you saved a bunch of time
+ It saves you effort at runtime
+ What about runtime checks? What's a benefit of JavaScript not giving you type errors when you try and compile, but only once you're all done with the like when you're actually running it and you run into the thing? Yeah
+ Yeah
+ Maybe it works
+ Maybe you don't run into the type error because you take a code path that doesn't run into it
+ So you have a type error, but it's like hidden on some edge case and nobody ever runs into that edge case
+ Great
+ Until it's not
+ What about hardware and just not even checking like C and C++? You just get that element back
+ It doesn't matter that runtime checking or compile time checking would have told you that wasn't allowed
+ You just get it
+ Yeah
+ Right
+ If you aren't checking things and you literally just grab them from memory, you're super fast
+ Nothing's going to beat that
+ What are the downsides? Yeah
+ Yeah
+ So here compile time and hardware will get similar performance at runtime, but you don't have to deal with all that compile time overhead
+ Yeah
+ Yeah
+ Right
+ That's kind of language dependent though
+ But yeah
+ No, I think fair enough
+ All right
+ Let's talk about cons
+ Compile time con
+ What's bad about this system? Yeah
+ You can't have mutable types
+ It might be harder to have mutable types like where you would say this is an int
+ Now it's a string
+ But I mean JavaScript
+ I guess that's runtime
+ Yeah
+ I can't think of any compile time languages where you have mutable types
+ So maybe that's true
+ Yeah
+ We lose some flexibility on what a variable is
+ Yeah
+ It's slower when? Well, when are we doing the extra work? When we compile
+ So we're slower at compile time for sure
+ It's kind of the like trade off compared to hardware
+ What about the flip side of the fact that runtime is permissive compile time is actually like restrictive
+ It over approximates your code and says you can't do these certain things
+ For example, swapping types, even if maybe you could get away with it
+ So it has to be overly restrictive
+ Runtime checks have runtime overhead, which means they're slower
+ And hardware means that you end up in weird states and have sag faults and things of that nature
+ So you catch bugs late or not at all
+ PL folk would have you believe that compile time is best
+ I'm not personally convinced
+ I think it's
+ It's up for debate
+ Compile time saves you a lot of headache on bugs
+ That's definitely true
+ So it depends on your situation
+ Are you going to be working with a big code base that might run into a lot of bugs? Is it something that you want to be more permissive? That depends
+ Okay
+ There's an important notion of type safety in a language where a language is type safe if no program is allowed to violate its type distinctions
+ This is similar to that idea of swapping the type of a value
+ But it's actually more extreme where we're saying we can treat an integer as a float
+ That's not type safe
+ So, Haskell, what do we think? Type safe? Yes? No
+ Yes
+ Haskell's type safe
+ It's very strict
+ You can't do anything
+ JavaScript
+ Type safe? Yes? No
+ Yes
+ We can't actually treat an integer as a float
+ So, an integer is an integer and we can change the value to become a float
+ But we can't treat the bits underneath the integer as a float
+ Yeah
+ So, if you cast an integer to be a float and then treat it as a float, that's fine
+ You're good to go
+ Yeah
+ If I have an integer pointer and then I turn that into a float pointer, now I've just changed the bits from meaning the integer value 1 to meaning the float value like whatever 0 with 1, 1 is in float
+ Probably tiny
+ So, with that said is C and C++ type safe
+ Yes? No
+ No
+ We can't actually change how we interpret the bits that represent our value
+ That's not type safe
+ Okay
+ So, to get to that last question there, what makes a feature hard to what features make it hard to guarantee type safety? Having raw memory access or pointers combined with casting? Very difficult
+ But powerful
+ So, what are you going to do? Okay
+ Yeah
+ Right
+ So, just casting is not enough to violate type safety normally
+ So, long as your casting mechanism is good
+ Because you can cast an int to a float and be totally fine
+ So, long as you treat the input as an integer and you treat the output as a float, it's when you try and swap them up without doing that that you get into trouble
+ Yeah
+ Great
+ That's some background on types
+ I feel like I'm rushing
+ So, I'm trying to take a pause before we continue
+ We're now going to start talking about type inference, which is the process of looking at a piece of code and telling what are the types being used
+ What's the input? What's the output type? It's an extremely valuable skill as a software developer to look at someone else's code that they have not annotated and figure out how you're supposed to use it
+ Or if they've annotated it incorrectly
+ So, type inference
+ The difference between that and type checking
+ Type checking is saying if we had this function int f int x return x plus one, check that x is actually an integer, whatever x is used
+ Type inference instead gets rid of the annotations and says what is x such that we can work with the rest of this code
+ So, x is being used with plus one
+ We know that we have to add integers, an integer and an integer, so we can infer that x is an integer
+ And then anywhere we find that we've inferred a type for x that's not an integer, we know there's going to be an error
+ Because we're trying to assign x to different types
+ The benefit of type inference is that it means that we don't have to write types ourselves
+ The compiler will figure them out or the linter will figure them out for us and tell us that's the type of your function, that's the type you're variable, you don't have to do it yourself
+ Depending on the algorithm, use your guaranteed to produce the most general type, which is convenient
+ Everyone is using type inference at this point
+ C++ uses type inference even though the majority of code doesn't, but you can use things like auto
+ If you've worked with C++, does Java have auto as well? You guys know? Yes, I see some nods
+ It's so convenient to just be like, I don't know the type of this thing or I don't want to write the class name for whatever this thing is auto and figured out
+ It's also a kind of good demonstration of static analysis of code
+ So that's worth working with too
+ We are going to be talking about specifically the Hindley Milner type inference algorithm
+ This is an algorithm developed in the like 70s
+ I think the math for it was the late 50s and then it was implemented in Haskell when Haskell kind of came out
+ The purpose of this algorithm has stayed the same
+ You take code in and you figure out what are the types being used
+ Our steps are going to be one, parse the program, two assign variables to all of the nodes, three generate constraints between the nodes, four solve the constraints and five you're done
+ That's the process we're going to do as a class
+ And it's actually what your limter does as well
+ We're going to be doing this on a version of Haskell that I have called micro Haskell
+ Micro Haskell is very similar to Haskell
+ It looks just like Haskell but it has many fewer features
+ So for example, we can create a function declaration, D, which has a name, it has P, which is a parameter, and it has a body that is an expression
+ The parameters or the patterns can be an identifier, they can be a tuple, they can be a cons, a list, or they can be a list itself
+ And then the expressions can be integers, Booleans, lists, identifiers, we have grouping, we have addition, we have application, kind of all your normal stuff
+ We even have if-then-else
+ And our types, we have functions, we have lists, we have tuples, Booleans, and integers
+ This is our new language
+ Questions on the language
+ Okay, let's actually use it
+ This is like outline for how we're going to use it
+ So if we started with a function, fx equals 2 plus x, our goal is to figure out what's the type of f
+ Informally, we can look at it and say 2 is an int plus takes two integers and returns an integer
+ And we are going to pass x as a parameter to x, therefore x is of type integer
+ So our final function is going to be integer to integer to integer
+ Does this-like, take a second, look at this
+ Does this leave you with questions? Is there any part of this that is confusing? Okay, then what we're going to do is we're going to do it algorithmically
+ Hopefully
+ Did they put the brakes on? There we go
+ So we have a function, fx equals x plus 2
+ Yeah
+ Now, we're going to split this up into a few parts
+ We're going to have a function node
+ Our function node has a name, f
+ It has a parameter, x, and it has an expression, this x plus 2
+ Every function will look like this
+ It's got a name, it's got parameters, it's got an expression
+ However, our expression is a little bit complicated
+ It's x plus 2
+ So we're actually going to break this down
+ And what we're going to do is first rewrite our expression to look like it's in reverse-polish notation, where we're going to kind of break apart, have plus be first 2x
+ So we have fx equals 2 plus x, which is equal to fx equals plus 2, and then x
+ Oh, I added in the rest of that
+ Oh, well
+ The way that we think about setting up our expression is that we have an application of this function here, 2x
+ And I use at for application, we have an application of this function here, which we can call e to the variable x
+ But this e is complicated as well
+ That e is an application of its own right of plus on to x
+ So we end up with a parse tree that looks like this
+ What I've done is I've turned the code into a tree representation of that code
+ You do this any time you want to analyze code
+ You have to figure out what does the parse tree for the code look like
+ Yeah
+ That's because I didn't know what I was writing
+ Yep, that should be a two
+ Two plus
+ Yeah
+ Yeah
+ Thank you
+ Other questions
+ Yeah
+ Yeah
+ So why do it this way instead of two plus x
+ This is just harder to figure out what's going on
+ How like parsing this is confusing
+ parsing this is saying we have a function that takes an input and results in a function that takes an input
+ So this step you'll always want to do first
+ You want your structure to always look like function input input input, etc
+ Not necessarily input function input
+ That's hard to figure out that both of these are going into that function
+ But because this is how we look at math most of our life, you know, it is what it is
+ But plus is a function that takes an integer and it returns a function that takes an integer and returns an integer
+ Yeah
+ Yes
+ Is there a connection between this and abstract syntax trees
+ It is a one to one connection
+ This is an abstract syntax tree with a little bit less information
+ But this is the backbone of your AST
+ So your compiler generates this every time you compile your code, your runtime environment generates this every time you run your code to figure out what is the code, which parameters go with that function
+ What did you write? Okay
+ Okay
+ Cool
+ This was step two
+ No, no
+ This was step one
+ Pass the tree
+ Step two is assigned type variables to the nodes
+ This is the easiest step
+ Can anyone guess how we do it? Yeah
+ That's actually even more complicated
+ This all that we have to do is we say this is type tau zero
+ This is type tau one
+ I don't know what type those are
+ This one is type tau two
+ This one is type tau three
+ Now we can get a little clever and say X has already been given a type
+ So X here, that one is tau one
+ Plus is tau four, two is tau five
+ All we're doing is given them names so we can start talking about them
+ I think that I've used slightly different numbering here
+ Not a big deal
+ So, what do these types then tell us is step three
+ How do we generate constraints based on what we know about our language? So, if we look at a lambda expression, we have a function tau zero and we have input tau one and output tau two
+ What would the type tau zero be? Is it just tau two? Yeah
+ So, what do we do? We do have tau one, tau one, tau two
+ Our result is tau two, but we do actually need a tau one to generate that tau two
+ So, using this information, what is the overall type of tau zero, which is our function? What can we say tau zero equals one? tau one, arrow tau two
+ X is the input, the result of this application is the output
+ This is tau two
+ So, tau one to tau two
+ Not so crazy
+ Oh, which is actually the next slide
+ So, if we have a function declaration, f x equals e, we would say tau zero, f is equal to tau one, x two, tau two, e
+ Not so crazy
+ This one is the one that always trips people up
+ Function application
+ This is passing a parameter x into the function f and getting a result out
+ So, what is tau zero here? tau zero is definitely tau zero, but that's not telling us any information
+ But it is actually very important that these tau is a tau, which means if two is an int, then tau two being an int means that two is the int
+ Yeah
+ So, we take tau one, results in tau two
+ How can we use this information? If we have, let's look at this one here, this application node
+ So, we have this piece
+ What constraint can we generate from this subtree? Is it hard to see in the back? I apologize
+ We have tau three as an application, tau four is plus, tau five is the number two
+ What can we say about that? Yeah
+ That's exactly right
+ So, tau four, this node here, takes in tau five as input and outputs tau three as output
+ What can we say about this subtree here? tau three is equal to tau one to tau two
+ Perfect
+ We take in tau one, we output tau two
+ This process that I'm going through now of asking what can we say is the process of generating constraints
+ If we add an if else, what constraints would we know about tau zero, one, two, and three? What do we know about tau one? Yeah
+ tau one's a Boolean, definitely
+ It's the if, blank
+ It's the conditional
+ What do we know about the relationship between the results of this and the branches that we take? If tau one is true, if the value x is true, we're going to have the value y returned, which means our output, our t zero, must be equal to the t two
+ They must be the same type because they are going to be the same thing
+ Similarly, we know that tau two is the same as tau three because we can't say x is equal to three if this value or it's equal to the string, hello, if this other value
+ Values can only have one type
+ It's either an int or a list
+ So they have to be the result has to be the same thing
+ Yeah
+ Yeah
+ So if we had a language like JavaScript where we could have different types returned here, this would not necessarily be true
+ But in microhazicle, this is true
+ A variable can only have one type
+ Yeah
+ Yeah
+ Yeah
+ So what we're saying is tau two is some expression
+ It's going to evaluate to something, for example, three
+ And then we are saying, x, we might say w is equal to if x, then three else four
+ For example, that means the result of the whole if is the value three or four, depending on whatever x is
+ So w would have the value three or four, which means tau zero, the result of the expression will be equal to tau two or tau three
+ But since tau two equals tau three, it's the same thing
+ tau zero equals tau two equals tau three
+ They're all equal one
+ Because you can only ever have one type
+ So let's, let's, if we actually wrote a line of code using this thing, w equals if true three, four
+ W will have the, we can put a then and then else
+ W after this runs will either have the value three or four
+ In this case, it will have the value three
+ That means this expression results in three, which is of type int, which is the same type as our left branch
+ Yeah
+ You're always setting something
+ So it, even if I didn't have this, the results still exists as a thing
+ It's not like traditional like Python or JavaScript code, where you're actually branching to execute different code
+ It's about what's the value of this expression
+ That's why I don't recommend using ifs
+ It means that you're thinking about things in, in the kind of like JavaScript world where it's branching to run these lines of code or these lines of code
+ That's not, not quite how this is supposed to be used
+ Yeah
+ It's the same
+ So tau zero equals tau two equals tau three, because we cannot say this
+ That would mean that w has an unknown type
+ W would have the type int and character
+ And that's not allowed by Haskell
+ It won't let you do that
+ So that's why we know that these things have to be equivalent
+ Because you can't do that
+ Yeah
+ If a equals b and a equals c b equals c by transit of property
+ Yeah
+ I guess like
+ Yeah
+ Yeah
+ No, you can
+ So for, for when we actually do these things, we're going to be generating a long list of constraints
+ Your goal to solve them is only to generate as many as you need to solve the final type
+ So what I've done here is generated the same constraints that we already started doing
+ We figured out that tau four equals tau five to tau three
+ Tau zero is tau one to tau two
+ We also said tau three is tau one to tau two
+ And then we're going to start combining those together
+ We also know tau two is the plus symbol
+ And plus has a very specific type into into int
+ We also know the number two is an integer
+ So from that, we can start solving these constraints to figure out that, but the numbers are different
+ We can figure out that tau one must be an integer because it's being passed into tau four
+ And tau four is the result of into into int being applied to an int
+ So we can figure out tau one is an integer
+ We know that our function is tau one to tau two
+ We also know as an integer
+ So our is integer to integer
+ So our final result, F tau zero is integer to integer
+ No, that's not right
+ It's just an integer
+ Yeah, that's a typo
+ Our final type is of type integer to integer
+ We take in one integer, we output one integer
+ Yeah
+ So what happens if we don't know that plus is into int to int, then we're going to go with the most generic thing that we can and we'll just end up saying tau zero is equal to tau one to tau three
+ And maybe we don't know anything about those
+ And that's okay
+ Yeah
+ Yeah, but this one's that's wrong
+ It's into
+ Yes
+ That's exactly right
+ We take in an int and we output a function that takes in an int and outputs in it
+ Yeah
+ All right
+ That's the Hindley Milner type inference algorithm in a very compressed format
+ There are more examples in the slides, which will help you through the homework
+ Feel free to drop by off
+ Sowers and chat about it
+ The homework assignment problems are a little bit more complicated than this, but you apply the same exact steps and you'll get the answer
+ You You You You You You You You You You

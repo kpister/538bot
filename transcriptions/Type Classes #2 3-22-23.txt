@@ -1,1 +1,476 @@
- All right. Java 20 is out. Does this look like the web page for a modern language? I don't know. It doesn't seem like one to me. But Java 20 is out. That's kind of fun. These languages are huge and monolithic, but they are constantly evolving, and that's easy to forget. But I'm not a big fan of Java. Oh well. Other fun news. The Turing Award was just given out for the 2022 Turing Award to the inventor of Ethernet. It only took them 40 years to realize the importance. I don't know. It seems like you cut it on that one sooner. And then last fun thing. This one will impact you guys much more. Is anybody seen the new GitHub Co-Pilot? So GitHub Co-Pilot as of a year ago was an editor extension that would autocomplete your code for you. Which was awesome. It is awesome. I use it all the time. I highly recommend that you use it as well within the limits of not cheating for any assignments. Microsoft today or maybe last night announced GitHub Co-Pilot X, which is in their words the AI-powered developer experience. This is supposed to take your speech turn it into an app or review all your pull requests so that you never run into that bug again. rewrite your code at such a high level that you didn't really need to write the code in the code. It will have lots of errors. But very exciting either way. You will run into it as software engineers. So good to keep track of that sort of thing. I have no notes for today. Other than a reminder that before you come to class next week, make sure you check Piazza to make sure we are doing it. Cool. Today's talk is about type classes. That's going to be fun. First we are going to do this. If you have your computer or your phone, please pull it out. This is just a quick two to three minute survey on DEI, diversity, equity, inclusion and belonging. It is in line with the grant that I'm working on of trying to make you guys feel like you are engaged in class more than typical perhaps. So if you could spend a minute or two, fill that out. It is completely anonymous. You don't even need your UW account this time. I fixed that. I will give you three minutes to do it because it is all right. If you need more time, feel free to take it or do it after class either way. I really appreciate the feedback. It is something that makes me a better teacher, makes you guys learn better. So thank you in advance. Now let's talk about type classes. A lot of the material we are going to cover today is similar to but built off of what we were talking about yesterday. So if some of it feels repetitive, great. That means it is baking sense. All right. We have a little bit of Haskell code. Just four lines. It is the member function and we have to do type inference on it. We have to figure out what is the type of our function member. So here's one idea. Is that the type of member? Give it a second to think. Maybe talk to someone next to you if you want. Let's get a show of hands. Who votes? Yes. That is the type of member. Who votes? No. That is not the type of member. All right. We got like 20% participation there, which is really great coming off of this. So I appreciate that guys. Talk to someone next to you and try and come to an agreement between the two of you. All right. What do we come to? Let's do another show of hands. Who votes? Yes. This is the type of member. Who votes? No. This is not the type of member. Much more votes. Much more people saying no than yes. Can I get an argument either way? Somebody who votes yes or no? Go for it. I guess I would say no because I don't know if the type can never be resolved because the member could be an infinite list and then you would never get to any type of statement. That is fair. If the list is infinite then maybe we are going to run into some problems. Because we are talking about things at a static type level, we don't actually care about the length of the list. So that won't cause us any problems. Yeah. There is nothing enforcing that A here is the same as that A. The X is the same as the whatever the list is holding. Why not? What about this equals sign? Equals equals. What's the type of equals equals? Go for it. Is it A to A to Boule? Is it A to A to Boule? How many people say yes? Equals is A to A to Boule. We are getting more over time. How many people are saying no? It's not A to A to Boule. A to A to Boule feels right. We take into integers for example and figure out yes these are equal return true or we could take into floats. Figure out that those are equal return false or true depending on their values. But there is something wrong with that. What can go wrong with equals equals? Yeah. Well no our type checker will stop us from if we tried to say so I think this is an important example. That's a type error. That's not false. That's not true. That's a type error. Your Haskell code won't run. What else is going wrong here though? Just so we're clear. Something's going wrong. Yeah. Do you have to have types that are comparable? We have to have types that are comparable. What if you can't compare two objects? Even if they're the same type we don't know what it means for one object to be equal to another object. For integers it's pretty obvious. Maybe for floats it's pretty obvious. But also maybe it's not. Maybe equality for floats means they're equal within some point 0.0001 or maybe it means the bits are equivalent. Those are two different ways to talk about equality for a float. If I come up with a new class for example a car what does it mean for two cars to be equal? Is it that they point to the same memory location or is it that they have the x and y can be compared? Which means that we can't say member is a to list of a to bool. We have to figure out some more way of talking about this a is not being generically a but it's an a that can be compared. Some more examples. Sort. We can't always sort of list. For the same reason we can't always check to see if two things are equal. We don't know if a is less than b unless we have a way of comparing a and b. Adding feels a little bit more intuitive perhaps. Some things very clearly can't be added. We can't always add two cars together unless you come up with a way to add two cars together and make a bus or something. I don't know. Show is effectively Haskell's print function where we can turn an object of any type into a string so long as you have a way of turning an object of any type into a string. Serialize will turn you into bite strings hash turns you into an int. So we can't work on any type here though we need more information. We need sortable things or addable things or showable things. And the issue that we're going to run into is that we want to use those common symbols to do the same thing over and over. We want to overload the plus symbol so that we can plus floats and we can plus ints. We want to be able to show the number four and we want to be able to show a list of one at the end of the day it really comes down to this idea of I want to be able to add 3.4 to 5.0 and I want to be able to add three and five as a developer. I want to be able to write that code because I could rewrite all of this to say 3.4 plus float 5.5 and 3 plus int 5 but that's a pain. Programming languages very often is about how do I make my own life easier which is one three reasons I love it. So our motivation behind overloading is that we want we can't just use parametric polymorphism. We can't say equals equals is a to a to bool but we do want to have some reusability of these common functions. Yeah. So at the end of last class we started defining dictionaries and we're going to do some more of that today are these similar to v tables in C++ which some of you might be familiar with others if you might never have heard of. You will have heard of them as of next week you will have heard of them. We're going to cover v tables and all the beauty of object oriented programming starting next week. V tables to some extent they share ideas with dictionaries in Haskell in that both of them are about capturing the set of operations that something can do. You know the the v table stores a list of all of the functions that an object can run that are inherited and similarly the dictionary does that. Going back to overloading. So what we want is a form of overloading where we get one symbol with multiple algorithms because if we only have one algorithm for example comparing integers and integers is the same as comparing floats and floats we're going to end up with problems because we can't always do that and the algorithms are going to operate on different types. Okay so end of the day this is what we're looking for. If we can come up with something where we get one symbol for example the plus sign to talk about two different algorithms for example plus int plus float and those algorithms have different types we've solved our problem. Any questions going into this? We got a little bit of a sneak peek at this yesterday with the idea of dictionaries where your function member for example could take a dictionary that would tell it how to compare the two types that are going to come in. So that's how Haskell solves this problem but let's build to that. So how should we do overloading? We can go through a couple of steps of like what might we consider? One option is we do this at the local choice. So your compiler is going to look at your code and everywhere it sees the multiply it's going to either replace it with multi int if a and b are integers or it will replace it with float if a and b are floats. So it's effectively rewriting your code as you compile it to say a and b in this case their integers in this case their floats rewrite them. If you've seen macros before this is very similar to that situation. What's the problem with this approach? What might we run into? Yeah. Yeah so if the user has like overridden these basically if the user came up with their own multi int but we can just give a compile error there and say hey you aren't allowed to do that. You know tell the user off for their ignorance the compilers love to do that. They love to tell you how much smarter they are than you. Except Rust. Rust says I'm sorry for this burden that I'm placing on you but please fix your code. What else could go wrong other than the user kind of stealing these names. What was our starting example yesterday? What function did we write? Yeah. It was square. Why would square run into a problem? So if we we could write it out again nothing crazy. What goes wrong? When our algorithm which starts by just choosing a multi int or multi float gets to square what happens? Yeah. It doesn't know if x is going to be an inter-a float exactly. It has to choose right there it has to choose to replace that star with multi int or multi float. But it doesn't know which one to do because we might be using square with integers or we might be using it with floats. So if we had for example square three and square three point one four the first usage would tell us that it's into int and so we'd want to replace that star with multi int but then we use a float and suddenly we can't. I always got to check my phone these days. Okay. The first usage says that multiply is multi int. The second one says that's multi float. That's a type error. We can't have both of them right there. All right so another option is that we try and overload them so that we actually could have star go to both of them depending on what it's being used with. So for example when we go back here the issue was we said we have to use this as int to int and this is float to float. Well what if we just have two versions of square? There's square float and square int and we also started with this yesterday where we said maybe we just avoid this whole problem by duplicating our code effectively. The compiler can do that. It can rewrite this for you to say there are now two different versions. When we call it with integers we will call square int. When we call it with floats we will call it with we will call square float. The problem we're going to run into here though what if we had a square that took a pair of integers or a pair of values and then we square the first values square the second value. Now we're going to explode in terms of the amount of code that we have to generate because we have to be able to handle int coming in, int float float float float. Our one function turns into four functions. If we had three parameters to nine so we have exponential code blow. That's if we tried to actually overload. Okay one more idea. We could go fully polymorphic. We could say that equals equals is actually A to A to BOO. And at runtime we compare the underlying representation. What goes wrong here? Yeah. Maybe it's not what we want. What if equals equals means something different than the bits are the same. Like that works for three times three equals nine. The bits that represent nine are equal to the bits that represent nine. But when you're comparing functions or comparing complex data types you don't want to look at the actual bits sometimes. Sometimes you want to say these two values are equal if this one value that they hold is equal. So the issue here is that we're breaking abstraction. So one last potential solution or potential non-solution that is actually used in some languages is to say some functions are special. And effectively we can have A equals equals to A equals equals to BOO. Where we're saying these certain functions every object will implement a way of comparing itself. Every object will implement a way of turning itself into a string. And that means that we can have member be a specific A to A to BOO. It's an equalable A to A to BOO. And so we kind of solve the problem. But the issue with that is that as developers we are very greedy. And we say that's a cool thing to do for equals. I would also love to do that for my own functionality. I want to be able to create complex data types to represent the information flowing through this function. It's not that it's A to A to A whatever. It's that it's an A that can be sorted. Or that it's an A that is iterable. So the developer wants to have access to this power. And the way that we get that access is with type classes. And so finally after a lecture and a half we get to say what does Haskell actually do to solve this problem? You might be tempted to think, oh, type classes, classes object oriented. But nope. We're not talking about OOP yet. That's next week and the week after. The idea of the type class is to generalize that EQ type like the equalable to any arbitrary type. We provide concise types to describe overloaded functions. This solves our exponential code blowup. And we allow the user to define the overloading. So we can solve monomorphism because we say the user gets to describe how to print the string. The user gets to decide how to sort this object. So going all the way back to the start of the lecture, when we talk about specific functions and their types, square is not A to A. If you look up the type of square in GHCI, it will tell you it is A to A, where A is qualified as a numeric or a number. So that the like fat equals is describing the type A, it's qualifying the type A to be a numeric. It's not saying we're taking an extra parameter. We still have one input A, one output A, but now we know a little bit more information about that A. It's a numeric A. Sorting takes a list of A to a list of A, where the A is qualified as being orderable. We can compare it. Show takes an A, turns it into a string, where A is showable, and member is A to list of A to bool, where A is equalable. So the idea is we are giving information to the function about that type A to say what its capabilities are. It can be turned into a string, it can be compared. Questions before we start writing code. Yeah, so we are qualifying the type A. So it's called a qualifying? Yeah. Other questions? Okay. So type classes are constructed with two different pieces. We have the class declaration, which describes all of the operations that fall under this type class. And then we have the instance declaration, where we say for a given type, how does that type do all of those operations? Starting with the num type class, you might write something such as, create a type class num for the type A, where here are the operations we will use. Plus, which is A to A to A, times, which is A to A to A, and the other functions that numbers should implement. You guys are also familiar with Java. What does this look like? Yeah. Yeah, it's like an interface, where we're saying here's the collection of functions you should implement for your type, so that you can be part of my group. And then just like interfaces in Java, you have to actually implement those functions at some point. So we might say the int type is an instance of num, where plus is this implementation, and times is this implementation, compared to float, which has these other implementations. Right, so it is necessary to implement the instance for your type if you want your type to be part of the type class. So if you want ints to be part of the number type class, you must implement all of these functions. Now it's possible to have default functions that are built into your type class. I think Java lets you do that, or maybe that's only with abstract classes, then you can do that. I haven't written Java in forever, but it's the same idea, where you can have defaults so that you don't have to implement every single one of them, just maybe some of them. Other questions? All right, so the cool thing is how do we then use our type classes? Nothing changes. When we want to add two numbers together, we just use plus. When we want to multiply two numbers together, we just use multiply. That's been the whole point of setting up all of this kind of plumbing, is so that the payoff is we can just add things together, and just use plus for all of the things we want to add. And then similarly, we can still define our own functions using these type classes, by saying square is not a function from a to a, or x to x, it's from a numeric x to x. Do I see a hand? Any questions? Okay, let's look at code for a second here. Yeah. That does not exist. File does not, all right, well, look at one of these. All right, here is another relatively simple type class. We might create our own data type tree, and the tree is a binary tree, you're either a leaf or you have two tree children, and then we can implement the show interface for the tree, and notably a generic tree, it's a tree of a, so it could be a tree of integers or strings, anything, and showing a leaf is equivalent to showing the value in it, showing a node is equivalent to recursively showing the left hand side, plus a little like separator, plus showing the right hand side. So this is what you would actually write if you had your own data type for a tree that you wanted to print. But as you have already started writing Haskell, you might have seen this keyword deriving. Where you just say deriving show, and this is one of the neat areas of Haskell, where they're trying to make intelligent decisions, where you're telling the compiler there is guess. I've given you a data type that is potentially simple enough that you should just be able to figure out how to print it, and I shouldn't have to tell you. So that's another approach to this sort of thing. All right, I've got lots more examples here, but first, there is a technique that I've recently learned called the merkeys point that I'm hoping to try out. Basically what it is is you talk to two or three people near you about what has been the most confusing thing that I've covered so far today, so I can try and clear up what is the most confusing thing. So take three or four minutes, chat with the three or four people around you, what's confusing? What can I make more clear? What's merkeys? What can I clear up? Any, what are the lingering things? This is Haskell. It's super weird. You guys have almost certainly never written a type class before. Yeah, so in terms of... I'm not sure I quite follow. Like yesterday's lecture? Okay, yeah, we're going to connect yesterday's lecture and today's in the next 20 minutes, hopefully. Yeah, but it's a good thing to be thinking about of how can we compare the data stuff that we were doing yesterday with dictionaries to this kind of high-level approach that we're taking right here. But we will hopefully get to that. So I guess my question is here on like your instance numbing where it seems like num has to be prior to the definition of integer, but then down below you have plus and so presumably integer is already defined and so is there like another integer that's about before or are we adding on to the definition or like what exactly yeah, great question. So we're talking about int right here and what is this int? Int is a predefined data type. It could be user defined as well. I don't mean to say it's predefined like it's in the Haskell runtime. That's the int that we're talking about. Type classes are about adding information to a type that already exists. So I might create my data type. For example, in my code over here, which one were we looking at? Show. I'm creating my tree data type up at the top. It's never existed before. And then I add on to that data type to say here's how you would show that data type. Yeah. So unlike in like maybe Java or something, you can define like properties of some type outside of the actual declaration. Yes. Yeah. You define what the type is and then you say how can you use that type? Other questions? Yeah. How does that instance apply to and shows how the tree or how a tree node is? Yeah. So this one is actually a little bit more complicated. I opened one of the harder files. But what we're saying up here is create an instance for showing a tree of type A. For example, a tree of integers. But we're showing a tree of A where the A itself is show. So I can show a tree of ints, but I can't show a tree of colors unless I've also said that colors are show. It's kind of like one of those inductive proofs, if you will, of N plus one is true so long as N is true and adding one is true or whatever. Yeah. So seeing on the line it says show me a in this case is may just a name for a variable or that's a type of definition? No, that's a great point. It might be clearer to say this. So show I'm giving the definition of showing a tree. So and pattern matching on a node being passed in. If it's a leaf, break out the value inside. If it's a node recursively applied to left and right. Other questions? Yeah. So we create another type color right here. We say color can be red, green, blue, indigo or violet. And if I wanted to see like I mean you can't do this, but if I wanted to say C is red, for example, I create a color red and then I wanted to print C which would be something like put string but you can't even do that. We can't do this because we don't know how to turn that color into a string to show to the screen. But if we had an instance of show for color where show red equals red show and again I'm just pattern matching on the potential inputs, this would be one way of implementing show for color where I just print out the word that it is. But this is actually so common and so obvious for the compiler that it can say hey I think I know how you want to show this thing. If you just say that you're deriving show that is us telling the compiler you solve it for me basically write that implementation and it'll probably work. So then we can just say C is red, print C. So it's kind of a shortcut. Other questions? Okay, let's take a look at another example or two. This code is all these files are all online by the way or at least they will be if they aren't currently. I think they should be though. Okay, some more examples. We could create an EQ type class where we say equals is of type A to A to Bool and then we can give a default definition like I was saying equals is equal to not equals and similarly not equals is equal to not equals. Then when we're instantiating for our type we only have to give one of these and the other one we can infer from the default rule. So there's some neat things we can do there. We could create a function called all equals and all equals takes three A's, three things of type A where A is equalable and it returns a Boolean. We could also talk about EQ on a list. So a list is equalable. That means that we can compare two lists. Two empty lists are equalable. Two non-empty lists are equalable if we can break apart the elements and compare the equal list of the elements. It looks like I have a question here. Yes or no? What do you guys think? What was I thinking there? I'm sure there's some point to be made but we don't need to make it right now. We can also create sub type classes. So for example, equalable is great but we also want to compare. We want to say this is less than that but being comparable means that you have to be equalable first. You have to be able to say two things are equal in order to say it's less than or equal to. For example, so we can say you're orderable if you are equalable and also you can say something is less than. Then we could write a compare function where we're saying we take two elements and so long as they are orderable return EQ, LT or GT. Yes. So what does it mean for this thing to be a sub type class? If we once again had our color something of this sort, we would potentially maybe want to say that colors are orderable. And what we would say is that less than red violet equals true. I don't know how however you want to do this. Maybe it's rainbow or something. We could give all of our definitions here but we also need to make sure that we have created an instance EQ of color. For example, so that we can order ourselves as well. So in order to create the ordering, we have to be equalable. We have to have already created an instance of EQ for our type. Okay. That's enough of this stuff. Let's get back to the exciting links. Subclasses great. How do these type classes work? It's not magic. It's what we did on Monday's lecture. When we start by saying square takes x where x is numeric, Pascal is going to rewrite that to say actually square is a function that takes a dictionary. In addition to x and that dictionary is of type num x. I should really have used a here. I apologize. And this is exactly the same idea of quicksort in c or sorted in Python. All that we're doing is deshugaring down to traditional Pascal. We start with a type class and that class turns into a data where that data is the dictionary that we were working with yesterday. And we have all of the functions being stored in that dictionary. When we create an instance for the integer, all that we're doing is creating an implementation of that dictionary with our specific functions. So this one slide is kind of how we tie it all together of what does actual Haskell look like that's on the left and how does it work what we're doing on Monday on the right. There's a lot to absorb on this slide. So I'll give you a minute. Yeah, question. We don't actually write. So we don't actually write like the data of a. Yeah, no. If you were like working at an actual job writing Haskell and you wrote something like this, people would look at you funny. They'd be like, what are you? It's 2020 or 2020s. This is what you would do in the mid 90s in Haskell because there were no type classes to start. So this was added in later because they noticed hey everyone's writing things like that we can simplify it. Other questions? Yeah. So we have h8a and then h8a and then h8a are those the same people? Yeah, so this a to a to a over here a to a to a over there. So the the top a to a to a represents the plus function. And the second one represents the multiply function. Do you mean the types themselves though or do you mean? Yeah, I guess. So the a is it could be anything. We could have called that b. We could have called it c. But it has to be the same a the same b the same c all throughout. Right. Yeah. So how do we actually do these plus symbols and star symbols? They're one of two ways. One option is we actually then define plus to take in a dictionary and it's equal to or sorry, we take in a numeric dictionary and make num dictionary with plus blah blah blah equals plus. So we write out what is the plus function? The plus function is something that takes a dictionary and it gives you back the first item in that dictionary. And similarly, what is the multiply function? It is a function that takes a dictionary and gives you back the second item of that dictionary. There is also more concise syntax that you can use called record notation but we don't have to go into that. Maybe we do, but I'll put it up later. Other questions? Okay. So how do we actually use them? Well, the truth is the compiler uses them for you. And what it will do is whenever you try and use an operator, whenever you try and use plus or times or equals, the compiler will rewrite it to say use times and pass in the int dictionary for doing multiplication. When you're doing equals, pass in the float equals dictionary. And then when we create our polymorphic functions, we just rewrite them to actually take one of these dictionaries. Again, the compiler does this for you. And so then when we use it, we pass in our dictionary. Yeah, question. No, good catch. This is a single dash line arrow. I don't know. A thin arrow on purpose. What we're saying here is square is a function that takes two parameters, a dictionary and a value. Previously, when we write things with type classes, we say it takes one parameter, just the value. So this is the deshuggard way of writing square. This is what the compiler will turn your code into to say square doesn't actually take one parameter. It takes two. The first parameter being the one that tells you how to do the multiplication. Yeah. That's right. Yep. So square as you would write it would look like this and the type of it would be num a fat arrow a to a. This is what we would write as humans with one of these fat arrows. This is what the compiler will turn your code into. Other questions. Okay. There's more code here. We're going to come back to this in a second. So how does this affect type inference? We can go through this in just a brief little minute. We want to also infer a qualified type. So anytime you add two things together, you can infer that it is numeric. Anytime you compare two things, you can infer that they are comparable. So for example, if we say f of x is equal to x plus two equals three, what would we know about x in this case? What's the qualified type of a? Yeah. Is it num? Yeah, definitely. We're adding two x, x being of type a, a must be numeric so that we can add it. What else do we know about it? Yeah. It's equalable because the result of that we then compare with three. So we would say f is a to bool where a is equalable and numeric. So all that we have to do to change our type inference algorithm is add a few more steps to our generate constraints. Yeah. So why isn't this int? Because we don't necessarily have to be an int in microhaskle where we have done our own type inference plus always took integers. But this plus here could be adding floats and Haskell would then convert your two into a float two and it would be fine to handle that. So it is just more generally a numeric. Yeah. I thought you said you know you don't have to be an error in the type of a float. Yeah. So if this were a float and we're doing like 3.2 plus two is equal to three, numerics are special in that we can always turn an integer into another numeric. So we would convert this three into a float to then compare it. Yeah. So if the right type of three then there would be a pattern of one. Yeah. So if this were for example, f x equals x plus two equals compared against a string, this is not equalable a numeric a to a to a to bool. This is type error. This is you can't do that. But because three and two these are numeric themselves. They aren't technically integers. They're numerics. They're just a little special. So we can assume that whatever we're coming in with so long as that a is numeric, we can compare it against another numeric. Yeah. But this you can't do that. Unless you made your strings numerics. Maybe that would be interesting. I don't know. Yeah. Right. We don't need to force x to be an integer here. We can be more general. And when you can be more general in the type you want to be. Okay. These are just more slides about doing that. So we don't need to look at this. I have another review sheet. Review sheet number two. I mean, I pass these out and then wander around and chat with you guys. Today's is basically just writing a type class or using a type class. Show these. Can you pass that down? Anybody need more review sheets? Review sheets for anyone. Oh, review sheet. Oh, you already got one.
+ All right
+ Java 20 is out
+ Does this look like the web page for a modern language? I don't know
+ It doesn't seem like one to me
+ But Java 20 is out
+ That's kind of fun
+ These languages are huge and monolithic, but they are constantly evolving, and that's easy to forget
+ But I'm not a big fan of Java
+ Oh well
+ Other fun news
+ The Turing Award was just given out for the 2022 Turing Award to the inventor of Ethernet
+ It only took them 40 years to realize the importance
+ I don't know
+ It seems like you cut it on that one sooner
+ And then last fun thing
+ This one will impact you guys much more
+ Is anybody seen the new GitHub Co-Pilot? So GitHub Co-Pilot as of a year ago was an editor extension that would autocomplete your code for you
+ Which was awesome
+ It is awesome
+ I use it all the time
+ I highly recommend that you use it as well within the limits of not cheating for any assignments
+ Microsoft today or maybe last night announced GitHub Co-Pilot X, which is in their words the AI-powered developer experience
+ This is supposed to take your speech turn it into an app or review all your pull requests so that you never run into that bug again
+ rewrite your code at such a high level that you didn't really need to write the code in the code
+ It will have lots of errors
+ But very exciting either way
+ You will run into it as software engineers
+ So good to keep track of that sort of thing
+ I have no notes for today
+ Other than a reminder that before you come to class next week, make sure you check Piazza to make sure we are doing it
+ Cool
+ Today's talk is about type classes
+ That's going to be fun
+ First we are going to do this
+ If you have your computer or your phone, please pull it out
+ This is just a quick two to three minute survey on DEI, diversity, equity, inclusion and belonging
+ It is in line with the grant that I'm working on of trying to make you guys feel like you are engaged in class more than typical perhaps
+ So if you could spend a minute or two, fill that out
+ It is completely anonymous
+ You don't even need your UW account this time
+ I fixed that
+ I will give you three minutes to do it because it is all right
+ If you need more time, feel free to take it or do it after class either way
+ I really appreciate the feedback
+ It is something that makes me a better teacher, makes you guys learn better
+ So thank you in advance
+ Now let's talk about type classes
+ A lot of the material we are going to cover today is similar to but built off of what we were talking about yesterday
+ So if some of it feels repetitive, great
+ That means it is baking sense
+ All right
+ We have a little bit of Haskell code
+ Just four lines
+ It is the member function and we have to do type inference on it
+ We have to figure out what is the type of our function member
+ So here's one idea
+ Is that the type of member? Give it a second to think
+ Maybe talk to someone next to you if you want
+ Let's get a show of hands
+ Who votes? Yes
+ That is the type of member
+ Who votes? No
+ That is not the type of member
+ All right
+ We got like 20% participation there, which is really great coming off of this
+ So I appreciate that guys
+ Talk to someone next to you and try and come to an agreement between the two of you
+ All right
+ What do we come to? Let's do another show of hands
+ Who votes? Yes
+ This is the type of member
+ Who votes? No
+ This is not the type of member
+ Much more votes
+ Much more people saying no than yes
+ Can I get an argument either way? Somebody who votes yes or no? Go for it
+ I guess I would say no because I don't know if the type can never be resolved because the member could be an infinite list and then you would never get to any type of statement
+ That is fair
+ If the list is infinite then maybe we are going to run into some problems
+ Because we are talking about things at a static type level, we don't actually care about the length of the list
+ So that won't cause us any problems
+ Yeah
+ There is nothing enforcing that A here is the same as that A
+ The X is the same as the whatever the list is holding
+ Why not? What about this equals sign? Equals equals
+ What's the type of equals equals? Go for it
+ Is it A to A to Boule? Is it A to A to Boule? How many people say yes? Equals is A to A to Boule
+ We are getting more over time
+ How many people are saying no? It's not A to A to Boule
+ A to A to Boule feels right
+ We take into integers for example and figure out yes these are equal return true or we could take into floats
+ Figure out that those are equal return false or true depending on their values
+ But there is something wrong with that
+ What can go wrong with equals equals? Yeah
+ Well no our type checker will stop us from if we tried to say so I think this is an important example
+ That's a type error
+ That's not false
+ That's not true
+ That's a type error
+ Your Haskell code won't run
+ What else is going wrong here though? Just so we're clear
+ Something's going wrong
+ Yeah
+ Do you have to have types that are comparable? We have to have types that are comparable
+ What if you can't compare two objects? Even if they're the same type we don't know what it means for one object to be equal to another object
+ For integers it's pretty obvious
+ Maybe for floats it's pretty obvious
+ But also maybe it's not
+ Maybe equality for floats means they're equal within some point 0
+0001 or maybe it means the bits are equivalent
+ Those are two different ways to talk about equality for a float
+ If I come up with a new class for example a car what does it mean for two cars to be equal? Is it that they point to the same memory location or is it that they have the x and y can be compared? Which means that we can't say member is a to list of a to bool
+ We have to figure out some more way of talking about this a is not being generically a but it's an a that can be compared
+ Some more examples
+ Sort
+ We can't always sort of list
+ For the same reason we can't always check to see if two things are equal
+ We don't know if a is less than b unless we have a way of comparing a and b
+ Adding feels a little bit more intuitive perhaps
+ Some things very clearly can't be added
+ We can't always add two cars together unless you come up with a way to add two cars together and make a bus or something
+ I don't know
+ Show is effectively Haskell's print function where we can turn an object of any type into a string so long as you have a way of turning an object of any type into a string
+ Serialize will turn you into bite strings hash turns you into an int
+ So we can't work on any type here though we need more information
+ We need sortable things or addable things or showable things
+ And the issue that we're going to run into is that we want to use those common symbols to do the same thing over and over
+ We want to overload the plus symbol so that we can plus floats and we can plus ints
+ We want to be able to show the number four and we want to be able to show a list of one at the end of the day it really comes down to this idea of I want to be able to add 3
+4 to 5
+0 and I want to be able to add three and five as a developer
+ I want to be able to write that code because I could rewrite all of this to say 3
+4 plus float 5
+5 and 3 plus int 5 but that's a pain
+ Programming languages very often is about how do I make my own life easier which is one three reasons I love it
+ So our motivation behind overloading is that we want we can't just use parametric polymorphism
+ We can't say equals equals is a to a to bool but we do want to have some reusability of these common functions
+ Yeah
+ So at the end of last class we started defining dictionaries and we're going to do some more of that today are these similar to v tables in C++ which some of you might be familiar with others if you might never have heard of
+ You will have heard of them as of next week you will have heard of them
+ We're going to cover v tables and all the beauty of object oriented programming starting next week
+ V tables to some extent they share ideas with dictionaries in Haskell in that both of them are about capturing the set of operations that something can do
+ You know the the v table stores a list of all of the functions that an object can run that are inherited and similarly the dictionary does that
+ Going back to overloading
+ So what we want is a form of overloading where we get one symbol with multiple algorithms because if we only have one algorithm for example comparing integers and integers is the same as comparing floats and floats we're going to end up with problems because we can't always do that and the algorithms are going to operate on different types
+ Okay so end of the day this is what we're looking for
+ If we can come up with something where we get one symbol for example the plus sign to talk about two different algorithms for example plus int plus float and those algorithms have different types we've solved our problem
+ Any questions going into this? We got a little bit of a sneak peek at this yesterday with the idea of dictionaries where your function member for example could take a dictionary that would tell it how to compare the two types that are going to come in
+ So that's how Haskell solves this problem but let's build to that
+ So how should we do overloading? We can go through a couple of steps of like what might we consider? One option is we do this at the local choice
+ So your compiler is going to look at your code and everywhere it sees the multiply it's going to either replace it with multi int if a and b are integers or it will replace it with float if a and b are floats
+ So it's effectively rewriting your code as you compile it to say a and b in this case their integers in this case their floats rewrite them
+ If you've seen macros before this is very similar to that situation
+ What's the problem with this approach? What might we run into? Yeah
+ Yeah so if the user has like overridden these basically if the user came up with their own multi int but we can just give a compile error there and say hey you aren't allowed to do that
+ You know tell the user off for their ignorance the compilers love to do that
+ They love to tell you how much smarter they are than you
+ Except Rust
+ Rust says I'm sorry for this burden that I'm placing on you but please fix your code
+ What else could go wrong other than the user kind of stealing these names
+ What was our starting example yesterday? What function did we write? Yeah
+ It was square
+ Why would square run into a problem? So if we we could write it out again nothing crazy
+ What goes wrong? When our algorithm which starts by just choosing a multi int or multi float gets to square what happens? Yeah
+ It doesn't know if x is going to be an inter-a float exactly
+ It has to choose right there it has to choose to replace that star with multi int or multi float
+ But it doesn't know which one to do because we might be using square with integers or we might be using it with floats
+ So if we had for example square three and square three point one four the first usage would tell us that it's into int and so we'd want to replace that star with multi int but then we use a float and suddenly we can't
+ I always got to check my phone these days
+ Okay
+ The first usage says that multiply is multi int
+ The second one says that's multi float
+ That's a type error
+ We can't have both of them right there
+ All right so another option is that we try and overload them so that we actually could have star go to both of them depending on what it's being used with
+ So for example when we go back here the issue was we said we have to use this as int to int and this is float to float
+ Well what if we just have two versions of square? There's square float and square int and we also started with this yesterday where we said maybe we just avoid this whole problem by duplicating our code effectively
+ The compiler can do that
+ It can rewrite this for you to say there are now two different versions
+ When we call it with integers we will call square int
+ When we call it with floats we will call it with we will call square float
+ The problem we're going to run into here though what if we had a square that took a pair of integers or a pair of values and then we square the first values square the second value
+ Now we're going to explode in terms of the amount of code that we have to generate because we have to be able to handle int coming in, int float float float float
+ Our one function turns into four functions
+ If we had three parameters to nine so we have exponential code blow
+ That's if we tried to actually overload
+ Okay one more idea
+ We could go fully polymorphic
+ We could say that equals equals is actually A to A to BOO
+ And at runtime we compare the underlying representation
+ What goes wrong here? Yeah
+ Maybe it's not what we want
+ What if equals equals means something different than the bits are the same
+ Like that works for three times three equals nine
+ The bits that represent nine are equal to the bits that represent nine
+ But when you're comparing functions or comparing complex data types you don't want to look at the actual bits sometimes
+ Sometimes you want to say these two values are equal if this one value that they hold is equal
+ So the issue here is that we're breaking abstraction
+ So one last potential solution or potential non-solution that is actually used in some languages is to say some functions are special
+ And effectively we can have A equals equals to A equals equals to BOO
+ Where we're saying these certain functions every object will implement a way of comparing itself
+ Every object will implement a way of turning itself into a string
+ And that means that we can have member be a specific A to A to BOO
+ It's an equalable A to A to BOO
+ And so we kind of solve the problem
+ But the issue with that is that as developers we are very greedy
+ And we say that's a cool thing to do for equals
+ I would also love to do that for my own functionality
+ I want to be able to create complex data types to represent the information flowing through this function
+ It's not that it's A to A to A whatever
+ It's that it's an A that can be sorted
+ Or that it's an A that is iterable
+ So the developer wants to have access to this power
+ And the way that we get that access is with type classes
+ And so finally after a lecture and a half we get to say what does Haskell actually do to solve this problem? You might be tempted to think, oh, type classes, classes object oriented
+ But nope
+ We're not talking about OOP yet
+ That's next week and the week after
+ The idea of the type class is to generalize that EQ type like the equalable to any arbitrary type
+ We provide concise types to describe overloaded functions
+ This solves our exponential code blowup
+ And we allow the user to define the overloading
+ So we can solve monomorphism because we say the user gets to describe how to print the string
+ The user gets to decide how to sort this object
+ So going all the way back to the start of the lecture, when we talk about specific functions and their types, square is not A to A
+ If you look up the type of square in GHCI, it will tell you it is A to A, where A is qualified as a numeric or a number
+ So that the like fat equals is describing the type A, it's qualifying the type A to be a numeric
+ It's not saying we're taking an extra parameter
+ We still have one input A, one output A, but now we know a little bit more information about that A
+ It's a numeric A
+ Sorting takes a list of A to a list of A, where the A is qualified as being orderable
+ We can compare it
+ Show takes an A, turns it into a string, where A is showable, and member is A to list of A to bool, where A is equalable
+ So the idea is we are giving information to the function about that type A to say what its capabilities are
+ It can be turned into a string, it can be compared
+ Questions before we start writing code
+ Yeah, so we are qualifying the type A
+ So it's called a qualifying? Yeah
+ Other questions? Okay
+ So type classes are constructed with two different pieces
+ We have the class declaration, which describes all of the operations that fall under this type class
+ And then we have the instance declaration, where we say for a given type, how does that type do all of those operations? Starting with the num type class, you might write something such as, create a type class num for the type A, where here are the operations we will use
+ Plus, which is A to A to A, times, which is A to A to A, and the other functions that numbers should implement
+ You guys are also familiar with Java
+ What does this look like? Yeah
+ Yeah, it's like an interface, where we're saying here's the collection of functions you should implement for your type, so that you can be part of my group
+ And then just like interfaces in Java, you have to actually implement those functions at some point
+ So we might say the int type is an instance of num, where plus is this implementation, and times is this implementation, compared to float, which has these other implementations
+ Right, so it is necessary to implement the instance for your type if you want your type to be part of the type class
+ So if you want ints to be part of the number type class, you must implement all of these functions
+ Now it's possible to have default functions that are built into your type class
+ I think Java lets you do that, or maybe that's only with abstract classes, then you can do that
+ I haven't written Java in forever, but it's the same idea, where you can have defaults so that you don't have to implement every single one of them, just maybe some of them
+ Other questions? All right, so the cool thing is how do we then use our type classes? Nothing changes
+ When we want to add two numbers together, we just use plus
+ When we want to multiply two numbers together, we just use multiply
+ That's been the whole point of setting up all of this kind of plumbing, is so that the payoff is we can just add things together, and just use plus for all of the things we want to add
+ And then similarly, we can still define our own functions using these type classes, by saying square is not a function from a to a, or x to x, it's from a numeric x to x
+ Do I see a hand? Any questions? Okay, let's look at code for a second here
+ Yeah
+ That does not exist
+ File does not, all right, well, look at one of these
+ All right, here is another relatively simple type class
+ We might create our own data type tree, and the tree is a binary tree, you're either a leaf or you have two tree children, and then we can implement the show interface for the tree, and notably a generic tree, it's a tree of a, so it could be a tree of integers or strings, anything, and showing a leaf is equivalent to showing the value in it, showing a node is equivalent to recursively showing the left hand side, plus a little like separator, plus showing the right hand side
+ So this is what you would actually write if you had your own data type for a tree that you wanted to print
+ But as you have already started writing Haskell, you might have seen this keyword deriving
+ Where you just say deriving show, and this is one of the neat areas of Haskell, where they're trying to make intelligent decisions, where you're telling the compiler there is guess
+ I've given you a data type that is potentially simple enough that you should just be able to figure out how to print it, and I shouldn't have to tell you
+ So that's another approach to this sort of thing
+ All right, I've got lots more examples here, but first, there is a technique that I've recently learned called the merkeys point that I'm hoping to try out
+ Basically what it is is you talk to two or three people near you about what has been the most confusing thing that I've covered so far today, so I can try and clear up what is the most confusing thing
+ So take three or four minutes, chat with the three or four people around you, what's confusing? What can I make more clear? What's merkeys? What can I clear up? Any, what are the lingering things? This is Haskell
+ It's super weird
+ You guys have almost certainly never written a type class before
+ Yeah, so in terms of
+
+
+ I'm not sure I quite follow
+ Like yesterday's lecture? Okay, yeah, we're going to connect yesterday's lecture and today's in the next 20 minutes, hopefully
+ Yeah, but it's a good thing to be thinking about of how can we compare the data stuff that we were doing yesterday with dictionaries to this kind of high-level approach that we're taking right here
+ But we will hopefully get to that
+ So I guess my question is here on like your instance numbing where it seems like num has to be prior to the definition of integer, but then down below you have plus and so presumably integer is already defined and so is there like another integer that's about before or are we adding on to the definition or like what exactly yeah, great question
+ So we're talking about int right here and what is this int? Int is a predefined data type
+ It could be user defined as well
+ I don't mean to say it's predefined like it's in the Haskell runtime
+ That's the int that we're talking about
+ Type classes are about adding information to a type that already exists
+ So I might create my data type
+ For example, in my code over here, which one were we looking at? Show
+ I'm creating my tree data type up at the top
+ It's never existed before
+ And then I add on to that data type to say here's how you would show that data type
+ Yeah
+ So unlike in like maybe Java or something, you can define like properties of some type outside of the actual declaration
+ Yes
+ Yeah
+ You define what the type is and then you say how can you use that type? Other questions? Yeah
+ How does that instance apply to and shows how the tree or how a tree node is? Yeah
+ So this one is actually a little bit more complicated
+ I opened one of the harder files
+ But what we're saying up here is create an instance for showing a tree of type A
+ For example, a tree of integers
+ But we're showing a tree of A where the A itself is show
+ So I can show a tree of ints, but I can't show a tree of colors unless I've also said that colors are show
+ It's kind of like one of those inductive proofs, if you will, of N plus one is true so long as N is true and adding one is true or whatever
+ Yeah
+ So seeing on the line it says show me a in this case is may just a name for a variable or that's a type of definition? No, that's a great point
+ It might be clearer to say this
+ So show I'm giving the definition of showing a tree
+ So and pattern matching on a node being passed in
+ If it's a leaf, break out the value inside
+ If it's a node recursively applied to left and right
+ Other questions? Yeah
+ So we create another type color right here
+ We say color can be red, green, blue, indigo or violet
+ And if I wanted to see like I mean you can't do this, but if I wanted to say C is red, for example, I create a color red and then I wanted to print C which would be something like put string but you can't even do that
+ We can't do this because we don't know how to turn that color into a string to show to the screen
+ But if we had an instance of show for color where show red equals red show and again I'm just pattern matching on the potential inputs, this would be one way of implementing show for color where I just print out the word that it is
+ But this is actually so common and so obvious for the compiler that it can say hey I think I know how you want to show this thing
+ If you just say that you're deriving show that is us telling the compiler you solve it for me basically write that implementation and it'll probably work
+ So then we can just say C is red, print C
+ So it's kind of a shortcut
+ Other questions? Okay, let's take a look at another example or two
+ This code is all these files are all online by the way or at least they will be if they aren't currently
+ I think they should be though
+ Okay, some more examples
+ We could create an EQ type class where we say equals is of type A to A to Bool and then we can give a default definition like I was saying equals is equal to not equals and similarly not equals is equal to not equals
+ Then when we're instantiating for our type we only have to give one of these and the other one we can infer from the default rule
+ So there's some neat things we can do there
+ We could create a function called all equals and all equals takes three A's, three things of type A where A is equalable and it returns a Boolean
+ We could also talk about EQ on a list
+ So a list is equalable
+ That means that we can compare two lists
+ Two empty lists are equalable
+ Two non-empty lists are equalable if we can break apart the elements and compare the equal list of the elements
+ It looks like I have a question here
+ Yes or no? What do you guys think? What was I thinking there? I'm sure there's some point to be made but we don't need to make it right now
+ We can also create sub type classes
+ So for example, equalable is great but we also want to compare
+ We want to say this is less than that but being comparable means that you have to be equalable first
+ You have to be able to say two things are equal in order to say it's less than or equal to
+ For example, so we can say you're orderable if you are equalable and also you can say something is less than
+ Then we could write a compare function where we're saying we take two elements and so long as they are orderable return EQ, LT or GT
+ Yes
+ So what does it mean for this thing to be a sub type class? If we once again had our color something of this sort, we would potentially maybe want to say that colors are orderable
+ And what we would say is that less than red violet equals true
+ I don't know how however you want to do this
+ Maybe it's rainbow or something
+ We could give all of our definitions here but we also need to make sure that we have created an instance EQ of color
+ For example, so that we can order ourselves as well
+ So in order to create the ordering, we have to be equalable
+ We have to have already created an instance of EQ for our type
+ Okay
+ That's enough of this stuff
+ Let's get back to the exciting links
+ Subclasses great
+ How do these type classes work? It's not magic
+ It's what we did on Monday's lecture
+ When we start by saying square takes x where x is numeric, Pascal is going to rewrite that to say actually square is a function that takes a dictionary
+ In addition to x and that dictionary is of type num x
+ I should really have used a here
+ I apologize
+ And this is exactly the same idea of quicksort in c or sorted in Python
+ All that we're doing is deshugaring down to traditional Pascal
+ We start with a type class and that class turns into a data where that data is the dictionary that we were working with yesterday
+ And we have all of the functions being stored in that dictionary
+ When we create an instance for the integer, all that we're doing is creating an implementation of that dictionary with our specific functions
+ So this one slide is kind of how we tie it all together of what does actual Haskell look like that's on the left and how does it work what we're doing on Monday on the right
+ There's a lot to absorb on this slide
+ So I'll give you a minute
+ Yeah, question
+ We don't actually write
+ So we don't actually write like the data of a
+ Yeah, no
+ If you were like working at an actual job writing Haskell and you wrote something like this, people would look at you funny
+ They'd be like, what are you? It's 2020 or 2020s
+ This is what you would do in the mid 90s in Haskell because there were no type classes to start
+ So this was added in later because they noticed hey everyone's writing things like that we can simplify it
+ Other questions? Yeah
+ So we have h8a and then h8a and then h8a are those the same people? Yeah, so this a to a to a over here a to a to a over there
+ So the the top a to a to a represents the plus function
+ And the second one represents the multiply function
+ Do you mean the types themselves though or do you mean? Yeah, I guess
+ So the a is it could be anything
+ We could have called that b
+ We could have called it c
+ But it has to be the same a the same b the same c all throughout
+ Right
+ Yeah
+ So how do we actually do these plus symbols and star symbols? They're one of two ways
+ One option is we actually then define plus to take in a dictionary and it's equal to or sorry, we take in a numeric dictionary and make num dictionary with plus blah blah blah equals plus
+ So we write out what is the plus function? The plus function is something that takes a dictionary and it gives you back the first item in that dictionary
+ And similarly, what is the multiply function? It is a function that takes a dictionary and gives you back the second item of that dictionary
+ There is also more concise syntax that you can use called record notation but we don't have to go into that
+ Maybe we do, but I'll put it up later
+ Other questions? Okay
+ So how do we actually use them? Well, the truth is the compiler uses them for you
+ And what it will do is whenever you try and use an operator, whenever you try and use plus or times or equals, the compiler will rewrite it to say use times and pass in the int dictionary for doing multiplication
+ When you're doing equals, pass in the float equals dictionary
+ And then when we create our polymorphic functions, we just rewrite them to actually take one of these dictionaries
+ Again, the compiler does this for you
+ And so then when we use it, we pass in our dictionary
+ Yeah, question
+ No, good catch
+ This is a single dash line arrow
+ I don't know
+ A thin arrow on purpose
+ What we're saying here is square is a function that takes two parameters, a dictionary and a value
+ Previously, when we write things with type classes, we say it takes one parameter, just the value
+ So this is the deshuggard way of writing square
+ This is what the compiler will turn your code into to say square doesn't actually take one parameter
+ It takes two
+ The first parameter being the one that tells you how to do the multiplication
+ Yeah
+ That's right
+ Yep
+ So square as you would write it would look like this and the type of it would be num a fat arrow a to a
+ This is what we would write as humans with one of these fat arrows
+ This is what the compiler will turn your code into
+ Other questions
+ Okay
+ There's more code here
+ We're going to come back to this in a second
+ So how does this affect type inference? We can go through this in just a brief little minute
+ We want to also infer a qualified type
+ So anytime you add two things together, you can infer that it is numeric
+ Anytime you compare two things, you can infer that they are comparable
+ So for example, if we say f of x is equal to x plus two equals three, what would we know about x in this case? What's the qualified type of a? Yeah
+ Is it num? Yeah, definitely
+ We're adding two x, x being of type a, a must be numeric so that we can add it
+ What else do we know about it? Yeah
+ It's equalable because the result of that we then compare with three
+ So we would say f is a to bool where a is equalable and numeric
+ So all that we have to do to change our type inference algorithm is add a few more steps to our generate constraints
+ Yeah
+ So why isn't this int? Because we don't necessarily have to be an int in microhaskle where we have done our own type inference plus always took integers
+ But this plus here could be adding floats and Haskell would then convert your two into a float two and it would be fine to handle that
+ So it is just more generally a numeric
+ Yeah
+ I thought you said you know you don't have to be an error in the type of a float
+ Yeah
+ So if this were a float and we're doing like 3
+2 plus two is equal to three, numerics are special in that we can always turn an integer into another numeric
+ So we would convert this three into a float to then compare it
+ Yeah
+ So if the right type of three then there would be a pattern of one
+ Yeah
+ So if this were for example, f x equals x plus two equals compared against a string, this is not equalable a numeric a to a to a to bool
+ This is type error
+ This is you can't do that
+ But because three and two these are numeric themselves
+ They aren't technically integers
+ They're numerics
+ They're just a little special
+ So we can assume that whatever we're coming in with so long as that a is numeric, we can compare it against another numeric
+ Yeah
+ But this you can't do that
+ Unless you made your strings numerics
+ Maybe that would be interesting
+ I don't know
+ Yeah
+ Right
+ We don't need to force x to be an integer here
+ We can be more general
+ And when you can be more general in the type you want to be
+ Okay
+ These are just more slides about doing that
+ So we don't need to look at this
+ I have another review sheet
+ Review sheet number two
+ I mean, I pass these out and then wander around and chat with you guys
+ Today's is basically just writing a type class or using a type class
+ Show these
+ Can you pass that down? Anybody need more review sheets? Review sheets for anyone
+ Oh, review sheet
+ Oh, you already got one
