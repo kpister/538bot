@@ -26,10 +26,10 @@ def gpt_reply(course, chain, HTML_2_TEXT, verbose):
 
 def main():
     print("Initialize the program...")
-    EMAIL = "rattanakornp@wisc.edu" # Piazza username
-    PASSWORD = "87lemons" # Piazza password
+    EMAIL = None # Piazza username
+    PASSWORD = None # Piazza password
     network_id = "lcguqjpvo0q39j" # Course CS 538
-    OPENAI_API_KEY = 
+    OPENAI_API_KEY = None
     os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
     piazza = Piazza()
