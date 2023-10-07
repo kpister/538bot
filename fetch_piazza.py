@@ -1,7 +1,8 @@
 from piazza_api import Piazza
 from html2text import HTML2Text
+import click
 
-def fetch_piazza_posts(email: str, password: str, network_id: str = "lcguqjpvo0q39j", limit: int = 60):
+def fetch_piazza_posts(email: str, password: str, network_id: str, limit: int = 60):
     """
     Parameters
     ----------
@@ -11,7 +12,6 @@ def fetch_piazza_posts(email: str, password: str, network_id: str = "lcguqjpvo0q
         password used to login Piazza
     network_id : str
         Piazza course id (can be found in the URL: https://piazza.com/class/{network_id})
-        (default is "lcguqjpvo0q39j" which is a course id of CS 538, Spring 2023)
     limit : int
         the number of Piazza posts that will be fetched (if the number is too high,
         Piazza might get unresponsive. -> might be able to fix this by fetching certain
@@ -89,9 +89,23 @@ def write_fetched_posts_to_file(list_posts, post_file_name: str):
             indent = 0 # indent the post replies
             write_fetched_children_posts_to_file(post["children"], file, indent, HTML_2_TEXT) 
 
+@click.command()
+@click.option("--email", default="", help="Piazza username")
+@click.option("--password", default="", help="Piazza password")
+@click.option(
+    "--network_id",
+    default="lcguqjpvo0q39j",
+    help="""Piazza course id (can be found in the URL: https://piazza.com/class/{network_id})
+            (default is "lcguqjpvo0q39j" which is a course id of CS 538, Spring 2023)""",
+)
+@click.option(
+    "--post_file_name", 
+    default="piazza_posts_and_replies.txt", 
+    help="""The name of the file that will be used to store Piazza posts and their replies 
+            (please end the filename with '.txt')""")
+def main(email: str, password: str, network_id: str, post_file_name: str):
+    list_posts = fetch_piazza_posts(email, password, network_id)
+    write_fetched_posts_to_file(list_posts, post_file_name)  
+
 if __name__ == "__main__":
-    EMAIL = input("Please input your email used to login Piazza: ")
-    PASSWORD = input("Please input your password used to login Piazza: ")
-    post_file_name = input("Please input the name of the file that will be used to store Piazza posts and their replies (end with \'.txt\'): ")
-    list_posts = fetch_piazza_posts(EMAIL, PASSWORD)
-    write_fetched_posts_to_file(list_posts, post_file_name)      
+    main()        

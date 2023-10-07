@@ -1,5 +1,6 @@
 import glob
 import os
+import click
 
 from langchain.chains import VectorDBQAWithSourcesChain
 from langchain.chat_models import ChatOpenAI
@@ -122,9 +123,21 @@ def get_chain(cache_dir: str):
         return_source_documents=True
     )
 
+@click.command()
+@click.option(
+    "--transcription_folder",
+    default="./transcriptions",
+    help="Folder that saved transcribed audio recordings",
+)
+@click.option(
+    "--cache_dir", default="cache", help="The name of the folder that will store embeddings"
+)
+def main(transcription_folder: str, cache_dir: str):
+    create_vectorstore(transcription_folder, cache_dir)
+
 
 if __name__ == "__main__":
-    # create_vectorstore("./transcriptions")
-    db = load_vecstore("./cache")
-    results = db.similarity_search("What is functional programming?", 5)
-    print(results)
+    main()
+    # db = load_vecstore("./cache")
+    # results = db.similarity_search("What is functional programming?", 5)
+    # print(results)

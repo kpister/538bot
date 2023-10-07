@@ -65,18 +65,18 @@ def answer_questions(question: str, cache_dir: str):
 
 
 @click.command()
-@click.option("--audio_filename", default="", help="Audio file to be transcribed.")
-@click.option("--question", default="", help="Question to be answered.")
+@click.option("--audio_filename", default="", help="Audio file to be transcribed")
+@click.option("--question", default="", help="Question to be answered")
 @click.option(
     "--transcription_folder",
     default="transcriptions",
-    help="Folder to save transcribed audio recordings.",
+    help="Folder to save transcribed audio recordings",
 )
 @click.option(
-    "--cache_folder", default="./cache", help="Folder that saved embeddings."
+    "--cache_dir", default="./cache", help="Folder that saved embeddings"
 )
 def main(
-    audio_filename: str, transcription_folder: str, question: str, cache_folder: str
+    audio_filename: str, transcription_folder: str, question: str, cache_dir: str
 ):
     """
     Parameters
@@ -94,7 +94,7 @@ def main(
         transcribe_audio_data(audio_filename, transcription_folder)
 
     if question:
-        answer_questions(question, cache_folder)
+        answer_questions(question, cache_dir)
 
 
 if __name__ == "__main__":

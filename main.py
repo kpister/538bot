@@ -26,14 +26,14 @@ def gpt_reply(course, chain, HTML_2_TEXT, verbose: bool):
     """
     # This is still a hacky way to fetch a question from Piazza and post the answer to it.
     
-    # Fetch several of the latest Piazza posts
+    # Fetch 12 Piazza posts
     answer = None
     fetched_posts = course.iter_all_posts(limit=12) # fetched_posts is a generator
     list_posts = []
     for post in fetched_posts:
         list_posts.append(post)
         
-    target_post = list_posts[10] # Pick the post that we want to answer
+    target_post = list_posts[10] # Manually pick the post that we want to answer
     if target_post['history'][0]['content'].lower() == 'gpt': # If the content of the question says "gpt," 
                                                               # this indicates that the user wants to use 
                                                               # this program to answer that quesition.
@@ -48,8 +48,8 @@ def gpt_reply(course, chain, HTML_2_TEXT, verbose: bool):
     return answer
 
 @click.command()
-@click.option("--email", default="", help="Piazza username.")
-@click.option("--password", default="", help="Piazza password.")
+@click.option("--email", default="", help="Piazza username")
+@click.option("--password", default="", help="Piazza password")
 @click.option(
     "--network_id",
     default="lcguqjpvo0q39j",
@@ -57,10 +57,13 @@ def gpt_reply(course, chain, HTML_2_TEXT, verbose: bool):
             (default is "lcguqjpvo0q39j" which is a course id of CS 538, Spring 2023)""",
 )
 @click.option(
-    "--openai_api_key", default="", help="A key for OpenAI APIs."
+    "--openai_api_key", default="", help="A key for OpenAI APIs"
+)
+@click.option(
+    "--cache_dir", default="./cache", help="Folder that saved embeddings"
 )
 def main(
-    email: str, password: str, network_id: str, openai_api_key: str
+    email: str, password: str, network_id: str, openai_api_key: str, cache_dir: str
 ):
     """
     Automatically answer Piazza questions.
@@ -88,7 +91,7 @@ def main(
     HTML_2_TEXT.ignore_links = True
     with warnings.catch_warnings(): # suppress warning for awhile
         warnings.simplefilter("ignore")
-        chain = get_chain("cache")
+        chain = get_chain(cache_dir)
     print("Done initialization!")
     
     print("""Type 'exit' to exit this program, 
