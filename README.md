@@ -25,8 +25,10 @@ The bot leverages `whisper` (Openai) for transcription and `langchain` for quest
   
   `python bot.py --question <question> --cache_folder <vector database>`
 
-- Answer question on Piazza (currently, the content of that question has to be "gpt")
+- Answer question on Piazza
+  
+  The subject of a Piazza post will be a question while the content of that question currently has to be "gpt."
   
   `python main.py --email <Piazza username> --password <Piazza password> --network_id <Piazza course id> --openai_api_key <OpenAI api key>`
   
-  TODO: Automatically detect Piazza posts that want to be answered by this program (Currently, the post is manually picked.)
+  TODO: Automatically detect Piazza posts that will be answered by this program (Currently, that post has to be manually picked.)
