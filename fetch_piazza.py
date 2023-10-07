@@ -11,7 +11,7 @@ def fetch_piazza_posts(email: str, password: str, network_id: str = "lcguqjpvo0q
         password used to login Piazza
     network_id : str
         Piazza course id (can be found in the URL: https://piazza.com/class/{network_id})
-        (default is "lcguqjpvo0q39j" which is a course id of CS 538)
+        (default is "lcguqjpvo0q39j" which is a course id of CS 538, Spring 2023)
     limit : int
         the number of Piazza posts that will be fetched (if the number is too high,
         Piazza might get unresponsive. -> might be able to fix this by fetching certain
@@ -30,7 +30,7 @@ def fetch_piazza_posts(email: str, password: str, network_id: str = "lcguqjpvo0q
     return list_posts 
     
 def write_fetched_children_posts_to_file(post_replies, file, indent, HTML_2_TEXT):
-    """"
+    """
     Recursively write Piazza post replies to a file.
     
     Parameters

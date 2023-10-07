@@ -15,7 +15,14 @@ from langchain.vectorstores import Chroma
 
 def basic_parser(filename, model):
     """
-    Takes in a .txt file and returns a list of strings, each string being a sentence.
+    Take in a .txt file and returns a list of strings, each string being a sentence.
+        
+    Parameters
+    ----------
+    filename
+        file whose content is to be splitted into chunks and then embedded
+    model
+        model used to embed those chunks
     """
     path = os.path.join(os.getcwd(), "transcriptions", filename)
     with open(path, "r") as f:
@@ -27,6 +34,17 @@ def basic_parser(filename, model):
 
 
 def create_vectorstore(transcription_folder: str, cache_dir: str):
+    """
+    Grab all text files in transcription_folder, split those texts into chunks,
+    then embed those texts into vectors which are then stored in a vector database.
+        
+    Parameters
+    ----------
+    transcription_folder
+        folder in which text files are placed 
+    cache_dir
+        the name of the directory of a vector database
+    """
     files = glob.glob(transcription_folder + "/*.txt")
     texts = []
     text_splitter = CharacterTextSplitter(
@@ -50,12 +68,28 @@ def create_vectorstore(transcription_folder: str, cache_dir: str):
 
 
 def load_vecstore(cache_dir: str):
+    """
+    Load a vector database.
+        
+    Parameters
+    ----------
+    cache_dir
+        the name of the directory of a vector database
+    """
     return Chroma(
         persist_directory=cache_dir, embedding_function=HuggingFaceEmbeddings()
     )
 
 
 def get_chain(cache_dir: str):
+    """
+    Make a chain which will then be used to answer questions.
+        
+    Parameters
+    ----------
+    cache_dir
+        the name of the directory of a vector database
+    """
     system_template = """Use the following pieces of context to answer the users question. 
     If you don't know the answer, just say that you don't know, don't try to make up an answer.
     ALWAYS return a "SOURCES" part in your answer.

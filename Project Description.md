@@ -42,6 +42,7 @@ Question Answering - https://python.langchain.com/docs/use_cases/question_answer
 
 ## Comments
 
-Current code is using VectorDBQAWithSourcesChain, but it is deprecated. Please change it to RetrievalQAWithSourcesChain.
+- Current code is using VectorDBQAWithSourcesChain, but it is deprecated. Please change it to RetrievalQAWithSourcesChain.
+- Currently, there are no official Piazza APIs, so we will use unofficial ones (https://github.com/hfaran/piazza-api/tree/develop) to fetch questions from Piazza and post answers back to it.
 
 

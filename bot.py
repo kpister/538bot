@@ -11,7 +11,16 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
 def transcribe_audio_data(audio_filename: str, transcription_folder: str):
-    """Transcribe audio data."""
+    """
+    Transcribe audio data.
+    
+    Parameters
+    ----------
+    audio_filename : str
+        audio file to be transcribed
+    transcription_folder : str
+        folder into which transcribed text will be placed 
+    """
     print("Transcribing audio data...")
 
     whisper_model_version = "base"  # one of "base", "small", "medium", "large"
@@ -40,7 +49,16 @@ def transcribe_audio_data(audio_filename: str, transcription_folder: str):
 
 
 def answer_questions(question: str, cache_dir: str):
-    """Answer questions."""
+    """
+    Answer questions.
+    
+    Parameters
+    ----------
+    question : str
+        question to be answered
+    cache_dir : str
+        directory of a vector database
+    """
     print("Answering questions...")
     chain = get_chain(cache_dir)
     print(chain({"question": question}, return_only_outputs=True))
@@ -60,6 +78,18 @@ def answer_questions(question: str, cache_dir: str):
 def main(
     audio_filename: str, transcription_folder: str, question: str, cache_folder: str
 ):
+    """
+    Parameters
+    ----------
+    audio_filename : str
+        audio file to be transcribed
+    transcription_folder : str
+        folder into which transcribed text will be placed 
+    question : str
+        question to be answered
+    cache_dir : str
+        directory of a vector database
+    """
     if audio_filename:
         transcribe_audio_data(audio_filename, transcription_folder)
 
