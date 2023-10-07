@@ -66,14 +66,14 @@ def answer_questions(question: str, cache_dir: str):
 
 @click.command()
 @click.option("--audio_filename", default="", help="Audio file to be transcribed.")
-@click.option("--question", default="", help="Answer questions.")
+@click.option("--question", default="", help="Question to be answered.")
 @click.option(
     "--transcription_folder",
     default="transcriptions",
     help="Folder to save transcribed audio recordings.",
 )
 @click.option(
-    "--cache_folder", default="./cache", help="Folder to save cached embeddings."
+    "--cache_folder", default="./cache", help="Folder that saved embeddings."
 )
 def main(
     audio_filename: str, transcription_folder: str, question: str, cache_folder: str
