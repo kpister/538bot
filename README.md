@@ -17,12 +17,16 @@ The bot leverages `whisper` (Openai) for transcription and `langchain` for quest
 
 ### Run
 
-Audio Transcription
-`python bot.py --audio_filename <audio file> --transcription_folder <transcription folder>`
+- Audio Transcription
+  
+  `python bot.py --audio_filename <audio file> --transcription_folder <transcription folder>`
 
-Answer question
-`python bot.py --question <question> --cache_folder <vector database>`
+- Answer question
+  
+  `python bot.py --question <question> --cache_folder <vector database>`
 
-Answer question on Piazza (currently, the content of that question has to be "gpt")
-`python main.py --email <Piazza username> --password <Piazza password> --network_id <Piazza course id> --openai_api_key <OpenAI api key>`
-TODO: Automatically detect Piazza posts that want to be answered by this program (Currently, the post is manually picked.)
+- Answer question on Piazza (currently, the content of that question has to be "gpt")
+  
+  `python main.py --email <Piazza username> --password <Piazza password> --network_id <Piazza course id> --openai_api_key <OpenAI api key>`
+  
+  TODO: Automatically detect Piazza posts that want to be answered by this program (Currently, the post is manually picked.)
