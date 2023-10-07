@@ -38,6 +38,7 @@ We will use GPT to answer students’ questions. However, to make GPT’s answer
 ## Recommended Readings
 
 Transcription - https://github.com/openai/whisper/blob/main/whisper/transcribe.py
+
 Question Answering - https://python.langchain.com/docs/use_cases/question_answering/how_to/vector_db_qa
 
 ## Comments
