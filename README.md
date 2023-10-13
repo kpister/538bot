@@ -9,6 +9,8 @@ The functionality of the app is quite limited.
 
 The bot leverages `whisper` (Openai) for transcription and `langchain` for question answering.
 
+538bot's additional details can be found in [Project Description.md](https://github.com/kpister/538bot/blob/trunk/Project%20Description.md)
+
 ### Install
 
 `brew install ffmpeg`
