@@ -1,12 +1,13 @@
-openai==0.27.0
 openai-whisper
 click
 black
 langchain
+langchain-community
+langchain-openai
 chromadb
 sentence-transformers
-google-api-python-client 
-google-auth-httplib2 
+google-api-python-client
+google-auth-httplib2
 google-auth-oauthlib
 piazza_api
 html2text

@@ -3,7 +3,6 @@ import os
 import click
 
 from langchain.chains import VectorDBQAWithSourcesChain
-from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.prompts.chat import (
     ChatPromptTemplate,
@@ -11,13 +10,14 @@ from langchain.prompts.chat import (
     SystemMessagePromptTemplate,
 )
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.vectorstores import Chroma
 
 
 def basic_parser(filename, model):
     """
     Take in a .txt file and returns a list of strings, each string being a sentence.
-        
+
     Parameters
     ----------
     filename
@@ -38,11 +38,11 @@ def create_vectorstore(transcription_folder: str, cache_dir: str):
     """
     Grab all text files in transcription_folder, split those texts into chunks,
     then embed those texts into vectors which are then stored in a vector database.
-        
+
     Parameters
     ----------
     transcription_folder
-        folder in which text files are placed 
+        folder in which text files are placed
     cache_dir
         the name of the directory of a vector database
     """
@@ -64,14 +64,14 @@ def create_vectorstore(transcription_folder: str, cache_dir: str):
         metadatas=[{"source": f"{i}-pl"} for i in range(len(texts))],
         persist_directory=cache_dir,
     )
-    chroma_db.persist() # persist the database
+    chroma_db.persist()  # persist the database
     return chroma_db
 
 
 def load_vecstore(cache_dir: str):
     """
     Load a vector database.
-        
+
     Parameters
     ----------
     cache_dir
@@ -85,7 +85,7 @@ def load_vecstore(cache_dir: str):
 def get_chain(cache_dir: str):
     """
     Make a chain which will then be used to answer questions.
-        
+
     Parameters
     ----------
     cache_dir
@@ -120,8 +120,9 @@ def get_chain(cache_dir: str):
         chain_type="stuff",
         vectorstore=load_vecstore(cache_dir),
         chain_type_kwargs=chain_type_kwargs,
-        return_source_documents=True
+        return_source_documents=True,
     )
+
 
 @click.command()
 @click.option(
@@ -130,7 +131,9 @@ def get_chain(cache_dir: str):
     help="Folder that saved transcribed audio recordings",
 )
 @click.option(
-    "--cache_dir", default="cache", help="The name of the folder that will store embeddings"
+    "--cache_dir",
+    default="cache",
+    help="The name of the folder that will store embeddings",
 )
 def main(transcription_folder: str, cache_dir: str):
     create_vectorstore(transcription_folder, cache_dir)
